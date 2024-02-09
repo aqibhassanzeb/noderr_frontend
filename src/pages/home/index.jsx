@@ -1,11 +1,12 @@
 import React from "react";
 import "./index.css";
-import { images } from "../../images";
 import { IoSpeedometerOutline } from "react-icons/io5";
 import { LuClock3 } from "react-icons/lu";
 import { MdOutlineSecurity } from "react-icons/md";
 import { GrCompliance } from "react-icons/gr";
-import { TiTick } from "react-icons/ti";
+import ServicesCard from "../../components/serviceCard";
+import PlanCard from "../../components/planCard";
+import { customSpec, proSpec, trialSpec } from "../../data";
 const Home = () => {
   return (
     <>
@@ -34,115 +35,51 @@ const Home = () => {
             </p>
           </div>
           <div className="services_container">
-            <div className="service">
-              <span>
-                <LuClock3 className="icon" />
-              </span>
-              <h4>Reliability</h4>
-              <p>Run your node on a reliable infrastructure</p>
-            </div>
-            <div className="service">
-              <span>
-                <IoSpeedometerOutline className="icon" />
-              </span>
-              <h4>Performance</h4>
-              <p>Benefit from high-performance computing</p>
-            </div>
-            <div className="service">
-              <span>
-                <MdOutlineSecurity className="icon" />
-              </span>
-              <h4>Security</h4>
-              <p>Secure your node with our top-notch security features</p>
-            </div>
-            <div className="service">
-              <span>
-                <GrCompliance className="icon" />
-              </span>
-              <h4>Compliance</h4>
-              <p>Stay compliant with the latest regulations</p>
-            </div>
+            <ServicesCard
+              Icon={LuClock3}
+              heading={"Reliability"}
+              desc={"Run your node on a reliable infrastructure"}
+            />
+            <ServicesCard
+              Icon={IoSpeedometerOutline}
+              heading={"Performance"}
+              desc={"Benefit from high-performance computing"}
+            />
+            <ServicesCard
+              Icon={MdOutlineSecurity}
+              heading={"Security"}
+              desc={"Secure your node with our top-notch security features"}
+            />
+            <ServicesCard
+              Icon={GrCompliance}
+              heading={"Compliance"}
+              desc={"Stay compliant with the latest regulations"}
+            />
           </div>
         </div>
       </div>
       <div className="choose_plan_container">
         <h3>Choose the plan that's right for you</h3>
         <div className="plan_container">
-          <div className="plan">
-            <div className="top">
-              <span className="first">starter</span>
-              <span className="last">free trial</span>
-            </div>
-            <div className="plan_charge">
-              <span className="price">$5/mo</span>
-              <span className="last">null</span>
-            </div>
-            <div className="btn secondary">null</div>
-            <div className="plan_services">
-              <span>
-                <TiTick className="icon" />
-              </span>
-              <span className="text">4GB RAM</span>
-            </div>{" "}
-            <div className="plan_services">
-              <span>
-                <TiTick className="icon" />
-              </span>
-              <span className="text">2 CPU</span>
-            </div>{" "}
-            <div className="plan_services">
-              <span>
-                <TiTick className="icon" />
-              </span>
-              <span className="text">50GB SSD</span>
-            </div>
-          </div>
-          <div className="plan">
-            <div className="top">
-              <span className="first">pro</span>
-              <span className="last">most popular</span>
-            </div>
-            <div className="plan_charge">
-              <span className="price">$100/mo</span>
-              <span className="last">null</span>
-            </div>
-            <div className="btn secondary">null</div>
-            <div className="plan_services">
-              <span>
-                <TiTick className="icon" />
-              </span>
-              <span className="text">4GB RAM</span>
-            </div>{" "}
-            <div className="plan_services">
-              <span>
-                <TiTick className="icon" />
-              </span>
-              <span className="text">2 CPU</span>
-            </div>{" "}
-            <div className="plan_services">
-              <span>
-                <TiTick className="icon" />
-              </span>
-              <span className="text">50GB SSD</span>
-            </div>
-          </div>
-          <div className="plan">
-            <div className="top">
-              <span className="first">enterprice</span>
-              <span className="last">customize your plane</span>
-            </div>
-            <div className="plan_charge">
-              <span className="price">Contact us</span>
-              <span className="last">null</span>
-            </div>
-            <div className="btn secondary">null</div>
-            <div className="plan_services">
-              <span>
-                <TiTick className="icon" />
-              </span>
-              <span className="text">custome</span>
-            </div>
-          </div>
+          <PlanCard
+            category={"starter"}
+            categoryType={"free trial"}
+            price={"$5/mo"}
+            specification={trialSpec}
+          />
+          <PlanCard
+            category={"pro"}
+            categoryType={"most popular"}
+            price={"$100/mo"}
+            specification={proSpec}
+          />
+          <PlanCard
+            category={"enterprice"}
+            categoryType={"customize your plane"}
+            price={"Contact us"}
+            specification={customSpec}
+          />
+          
         </div>
       </div>
     </>

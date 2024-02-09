@@ -1,0 +1,18 @@
+.plan_services {
+  display: flex;
+  align-items: center;
+  gap: var(--gap);
+}
+.plan_services > .text {
+  font-size: 14px;
+  font-weight: var(--leading-7);
+  text-transform: capitalize;
+}
+@media screen and (max-width: 768px) {
+  .plan_services {
+    gap: var(--sm-gap);
+  }
+  .plan_services > .text {
+    font-size: 12px;
+  }
+}

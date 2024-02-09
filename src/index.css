@@ -1,44 +1,52 @@
-
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
-:root{
-  --leading-1:100;
-  --leading-2:200;
-  --leading-3:300;
-  --leading-4:400;
-  --leading-5:500;
-  --leading-6:600;
-  --leading-7:700;
-  --leading-8:800;
-  --leading-9:900;
-  --div-pad:20px 30px;
-  --card-pad:16px;
-  --h2-size:40px;
-  --h3-size:20px;
-  --h4-size:18px;
-  --layout-width:1200px;
-  --full-width:100%;
-  --header-pad:18px;
-  --white:#ffffff;
-  --header-border:#EDF0F2;
-  --logo-width:50px;
-  --logo-height:40px;
-  --logo-md-width:40px;
-  --logo-md-height:30px;
-  --gap:12px;
-  --primary:#29dbb2;
-  --secondary:#f0f5f2;
-  --nav-sm-pad:20px;
-  --btn-font-size:14px;
-  --border-radius:5px;
-  --btn-sm-font-size:12px;
-  --list-font-size:18px;
-  --list-sm-font-size:16px;
-  --box-shadow:0 0 10px 0 rgba(0, 0, 0, 0.2);
+:root {
+  --leading-1: 100;
+  --leading-2: 200;
+  --leading-3: 300;
+  --leading-4: 400;
+  --leading-5: 500;
+  --leading-6: 600;
+  --leading-7: 700;
+  --leading-8: 800;
+  --leading-9: 900;
+  --div-pad: 20px 30px;
+  --div-sm-pad: 15px;
+  --card-pad: 16px;
+  --card-sm-pad: 10px;
+  --h2-size: 40px;
+  --h2-sm-size: 30px;
+  --h3-size: 20px;
+  --h3-sm-size: 18px;
+  --h4-size: 18px;
+  --h4-sm-size: 16px;
+  --layout-width: 1200px;
+  --full-width: 100%;
+  --header-pad: 18px;
+  --header-sm-pad: 15px;
+  --white: #ffffff;
+  --header-border: #edf0f2;
+  --logo-width: 50px;
+  --logo-height: 40px;
+  --logo-md-width: 40px;
+  --logo-md-height: 30px;
+  --gap: 12px;
+  --sm-gap: 10px;
+  --primary: #29dbb2;
+  --secondary: #f0f5f2;
+  --nav-sm-pad: 20px;
+  --btn-font-size: 14px;
+  --btn-sm-font-size: 12px;
+  --border-radius: 5px;
+  --sm-border-radius: 3px;
+  --btn-sm-font-size: 12px;
+  --list-font-size: 18px;
+  --list-sm-font-size: 16px;
+  --box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 }
 .icon {
   display: flex;
@@ -47,14 +55,14 @@
   width: 30px !important;
   height: 30px !important ;
 }
-li{
+li {
   list-style: none;
 }
-img{
+img {
   width: 100%;
   height: 100%;
 }
-.container{
+.container {
   max-width: var(--layout-width);
   width: 100%;
   margin: 0 auto;
@@ -67,5 +75,16 @@ img{
   text-transform: capitalize;
   font-size: var(--btn-font-size);
   outline: none;
+}
 
+@media screen and (max-width: 768px) {
+  .btn {
+    padding: 10px 15px;
+    font-size: var(--btn-sm-font-size);
+  }
+  .icon {
+    
+    width: 20px !important;
+    height: 20px !important ;
+  }
 }

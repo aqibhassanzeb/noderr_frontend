@@ -61,7 +61,7 @@
     height: var(--logo-md-height);
   }
   .header-container > .navbar {
-    position: absolute;
+    position: fixed;
     left: -100%;
     z-index: 99;
     top: 0;

@@ -19,7 +19,7 @@ const Header = () => {
         </ul>
         <div className="btn-container">
           <button className="btn primary">Sign up</button>
-          <button className="btn secondary">log in</button>
+          <button className="btn secondary">connect wallet</button>
         </div>
         <div onClick={() => setShowNav(!showNav)} className="close"><IoIosCloseCircleOutline className="icon"/></div>
       </nav>
