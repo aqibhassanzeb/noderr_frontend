@@ -96,7 +96,7 @@
 @media screen and (max-width: 768px) {
   .home_container {
     border-radius: 0;
-    min-height: 300px;
+    min-height: 400px;
     padding: 0;
   }
   .home_content {
