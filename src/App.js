@@ -10,11 +10,11 @@ function App() {
   return (
     <Suspense>
       <Header />
-      <div className="container">
+      {/* <div className="container"> */}
         <Routes>
           <Route path="/" element={<Home />} />
         </Routes>
-      </div>
+      {/* </div> */}
     </Suspense>
   );
 }
