@@ -15,7 +15,6 @@ const Header = () => {
           <li>products</li>
           <li>solutions</li>
           <li>pricing</li>
-          <li>docs</li>
         </ul>
         <div className="btn-container">
           <button className="btn primary">connect wallet</button>

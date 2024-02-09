@@ -92,7 +92,14 @@
   grid-template-columns: repeat(auto-fill, minmax(370px, 1fr));
   gap: var(--gap);
 }
-
+.facilites_sec{
+  padding: var(--div-pad);
+}
+.facilites_container{
+  border: 1px solid var(--black);
+  border-radius: var(--border-radius);
+  padding: var(--div-pad);
+}
 @media screen and (max-width: 768px) {
   .home_container {
     border-radius: 0;
