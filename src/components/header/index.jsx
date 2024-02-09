@@ -18,10 +18,11 @@ const Header = () => {
           <li>docs</li>
         </ul>
         <div className="btn-container">
-          <button className="btn primary">Sign up</button>
-          <button className="btn secondary">connect wallet</button>
+          <button className="btn primary">connect wallet</button>
         </div>
-        <div onClick={() => setShowNav(!showNav)} className="close"><IoIosCloseCircleOutline className="icon"/></div>
+        <div onClick={() => setShowNav(!showNav)} className="close">
+          <IoIosCloseCircleOutline className="icon" />
+        </div>
       </nav>
       <div className="hamburger" onClick={() => setShowNav(!showNav)}>
         <GiHamburgerMenu className="icon" />
