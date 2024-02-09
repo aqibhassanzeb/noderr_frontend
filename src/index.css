@@ -74,6 +74,12 @@ img {
   width: 100%;
   margin: 0 auto;
 }
+.red{
+  fill: red !important;
+}
+.green{
+  fill: green !important;
+}
 .btn {
   padding: 10px 15px;
   border: none;

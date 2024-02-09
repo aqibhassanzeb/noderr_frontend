@@ -3,16 +3,15 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  min-height:calc(100vh - 77px);
+  min-height: calc(100vh - 77px);
   display: flex;
   align-items: center;
   justify-content: center;
 
-  
   border: 1px solid var(--header-border);
   position: relative;
 }
-.home_content {  
+.home_content {
   max-width: 550px;
   width: 100%;
   display: flex;
@@ -92,13 +91,51 @@
   grid-template-columns: repeat(auto-fill, minmax(370px, 1fr));
   gap: var(--gap);
 }
-.facilites_sec{
+.facilites_sec {
   padding: var(--div-pad);
 }
-.facilites_container{
+.facilites_container {
   border: 1px solid var(--black);
   border-radius: var(--border-radius);
   padding: var(--div-pad);
+}
+.heading {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gap);
+}
+.heading > h4 {
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.facility > .tick {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.facilites_container > .body {
+  display: flex;
+  flex-direction: column;
+  /* gap: var(--gap); */
+}
+.facilites_container > .body > .facility {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gap);
+}
+.facilites_container > .body > .facility > span {
+  font-size: 16px;
+  font-weight: var(--leading-6);
+}
+.facilites_container > .body > .facility:nth-child(odd) {
+  padding: 8px;
+  background-color: #e3f4f4;
+  border-radius: var(--border-radius);
+}
+.facilites_container > .body > .facility:nth-child(even) {
+  padding: 8px;
 }
 @media screen and (max-width: 768px) {
   .home_container {
@@ -156,5 +193,30 @@
   }
   .choose_plan_container > h3 {
     font-size: var(--h3-sm-size);
+  }
+  .facilites_sec {
+    padding: var(--div-sm-pad);
+  }
+  .facilites_container {
+    border-radius: var(--sm-border-radius);
+    padding: var(--div-sm-pad);
+  }
+  .heading {
+    gap: var(--sm-gap);
+  }
+
+  .facilites_container > .body > .facility {
+    gap: var(--sm-gap);
+  }
+  .facilites_container > .body > .facility:nth-child(odd) {
+    padding: 6px;
+    background-color: #e3f4f4;
+    border-radius: var(--sm-border--radius);
+  }
+  .facilites_container > .body > .facility:nth-child(even) {
+    padding: 6px;
+  }
+  .facilites_container > .body > .facility > span {
+    font-size: 12px;
   }
 }

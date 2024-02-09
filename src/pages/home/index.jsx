@@ -7,6 +7,9 @@ import { GrCompliance } from "react-icons/gr";
 import ServicesCard from "../../components/serviceCard";
 import PlanCard from "../../components/planCard";
 import { customSpec, proSpec, trialSpec } from "../../data";
+import { TiTimes } from "react-icons/ti";
+import { TiTick } from "react-icons/ti";
+
 const Home = () => {
   return (
     <>
@@ -86,7 +89,67 @@ const Home = () => {
           </div>
           <div className="facilites_sec">
             <div className="facilites_container">
-              <div className="heading"></div>
+              <div className="heading">
+                <h3></h3>
+                <h4>With Mintair</h4>
+                <h4>On your own</h4>
+              </div>
+              <div className="body">
+                <div className="facility">
+                  <span>Easy Deployment</span>
+                  <span className="tick">
+                    <TiTick className="icon green" />
+                  </span>
+                  <span className="tick">
+                    <TiTimes className="icon red" />
+                  </span>
+                </div>
+                <div className="facility">
+                  <span>Easy Management</span>
+                  <span className="tick">
+                    <TiTick className="icon green" />
+                  </span>
+                  <span className="tick">
+                    <TiTimes className="icon red" />
+                  </span>
+                </div>
+                <div className="facility">
+                  <span>Timely Updates</span>
+                  <span className="tick">
+                    <TiTick className="icon green" />
+                  </span>
+                  <span className="tick">
+                    <TiTimes className="icon red" />
+                  </span>
+                </div>
+                <div className="facility">
+                  <span>Round-the-clock Assistance</span>
+                  <span className="tick">
+                    <TiTick className="icon green" />
+                  </span>
+                  <span className="tick">
+                    <TiTimes className="icon red" />
+                  </span>
+                </div>
+                <div className="facility">
+                  <span>Cost effective</span>
+                  <span className="tick">
+                    <TiTick className="icon green" />
+                  </span>
+                  <span className="tick">
+                    <TiTimes className="icon red" />
+                  </span>
+                </div>
+                <div className="facility">
+                  <span>No TechF</span>
+                  <span className="tick">
+                    <TiTick className="icon green" />
+                  </span>
+                  <span className="tick">
+                    <TiTimes className="icon red" />
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
