@@ -3,10 +3,16 @@
   flex-direction: column;
   gap: var(--gap);
   padding: var(--card-pad);
-  border: 1px solid rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--black);
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
   cursor: pointer;
+  transition: 0.1s ease;
+}
+.plan:hover {
+  border: 1px solid var(--primary);
+  scale: 1.05;
+
 }
 .plan > .top {
   display: flex;

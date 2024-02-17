@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500&display=swap");
 * {
   padding: 0;
   margin: 0;
@@ -30,7 +30,11 @@
   --header-pad: 18px;
   --header-sm-pad: 15px;
   --white: #ffffff;
-  --black:#000000;
+  --black:rgba(0, 0, 0, 0.4);
+
+  --black--light: #ffffff;
+  --primary-light: #29dbb2;
+
   --header-border: #edf0f2;
   --logo-width: 50px;
   --logo-height: 40px;
@@ -38,6 +42,7 @@
   --logo-md-height: 30px;
   --gap: 12px;
   --sm-gap: 10px;
+
   --primary: #29dbb2;
   --secondary: #f0f5f2;
   --nav-sm-pad: 20px;
@@ -50,10 +55,28 @@
   --list-sm-font-size: 16px;
   --box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 }
-body{
-  font-family: 'Red Hat Display', sans-serif;
-}
 
+body {
+  font-family: "Red Hat Display", sans-serif;
+}
+body[data-theme="light"] {
+  /* Light theme styles */
+  background-color: #fff;
+  color: #333333;
+}
+body[data-theme="dark"] {
+  /* Dark theme styles */
+  background-color: #000000;
+  color: #fff;
+  --primary:#1980e5;
+  --primary-dark: #1980e5;
+  --black--light: #000000;
+  --white:#000000;
+  --secondary:#333333;
+  --black:#ffffff;
+  --box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.5);
+
+}
 
 .icon {
   display: flex;
@@ -61,6 +84,67 @@ body{
   justify-content: center;
   width: 30px !important;
   height: 30px !important ;
+}
+.react-toggle--checked .react-toggle-track {
+  /* background-color: var(--primary); */
+  background-color: var(--primary-dark) !important;
+}
+.react-toggle-track {
+  background-color: var(--primary-light) !important;
+}
+.react-toggle-track-check {
+  position: absolute;
+  width: 14px;
+  height: 10px;
+  top: 0px;
+  bottom: 0px;
+  /* transform: translate(-50%, -50%); */
+  margin-top: auto;
+  margin-bottom: auto;
+  line-height: 0;
+  left: 8px;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.react-toggle-thumb {
+  top: 50% !important;
+  
+  transform: translateY(-50%) !important;
+
+  width: 18px !important;
+  height: 18px !important;
+  background-color: gray !important;
+}
+
+.react-toggle--focus .react-toggle-thumb {
+  box-shadow: 0 0 2px 3px white !important;
+  border-color: #000 !important;
+}
+.react-toggle .react-toggle--checked .react-toggle--focus {
+  background-color: #000 !important;
+}
+.react-toggle:active:not(.react-toggle--disabled) .react-toggle-thumb {
+  box-shadow: none !important;
+}
+.react-toggle-track-x {
+  position: absolute;
+  width: 14px;
+  height: 10px;
+  top: 0px;
+  bottom: 0px;
+  /* transform: translate(-50%, -50%); */
+  margin-top: auto;
+  margin-bottom: auto;
+  line-height: 0;
+  right: 8px;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 li {
   list-style: none;
@@ -74,10 +158,10 @@ img {
   width: 100%;
   margin: 0 auto;
 }
-.red{
+.red {
   fill: red !important;
 }
-.green{
+.green {
   fill: green !important;
 }
 .btn {
@@ -96,7 +180,6 @@ img {
     font-size: var(--btn-sm-font-size);
   }
   .icon {
-    
     width: 20px !important;
     height: 20px !important ;
   }
