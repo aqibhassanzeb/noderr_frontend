@@ -1,0 +1,76 @@
+.dashboard_container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  height: 100vh;
+}
+
+.side_menu {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--gap);
+  width: var(--side-menu-width);
+  margin: var(--div-pad);
+}
+.side_menu > .menu_list {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--gap);
+}
+.side_menu > .menu_list > .menu_item {
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid white;
+}
+
+.right_dashborad {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--gap);
+  width: calc(100% - var(--side-menu-width));
+  background: var(--secondary);
+  margin: var(--dashboard-pad) 0;
+  padding: var(--dashboard-pad);
+  border-radius: var(--dashboard-border-radius);
+}
+.right_dashborad > .header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.right_dashborad > .header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.right_dashborad > .header >span{
+    background-color: black;
+    padding: var(--side-menu-pad);
+    border-radius: var(--border-radius);
+    text-transform: capitalize;
+}
+.right_dashborad >.header > .connect_wallet_btn{
+    padding: var(--btn-pad);
+    background: var(--primary);
+    outline: none;
+    text-transform: capitalize;
+    border: none;
+    font-size: var(--btn-font-size);
+    border-radius: var(--border-radius);
+    color: var(--black);
+}
+.right_dashborad > .dashboard_grid{
+    display: grid;
+    gap: var(--gap);
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+
+}
+.right_dashborad > .dashboard_grid > div{
+    border: 1px solid white;
+    padding: var(--div-pad);
+
+}

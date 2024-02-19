@@ -30,7 +30,8 @@
   --header-pad: 18px;
   --header-sm-pad: 15px;
   --white: #ffffff;
-  --black:rgba(0, 0, 0, 0.4);
+  --black: rgba(0, 0, 0, 0.4);
+  --btn-pad:10px 15px;
 
   --black--light: #ffffff;
   --primary-light: #29dbb2;
@@ -42,6 +43,7 @@
   --logo-md-height: 30px;
   --gap: 12px;
   --sm-gap: 10px;
+  --side-menu-width: 250px;
 
   --primary: #29dbb2;
   --secondary: #f0f5f2;
@@ -54,11 +56,24 @@
   --list-font-size: 18px;
   --list-sm-font-size: 16px;
   --box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  --dashboard-pad: 20px;
+  --dashboard-sm-pad: 15px;
+  --dashboard-border-radius: 20px;
+  --side-menu-pad:15px;
+  
+
 }
 
 body {
   font-family: "Red Hat Display", sans-serif;
+  min-height: 100vh;
 }
+#root {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
 body[data-theme="light"] {
   /* Light theme styles */
   background-color: #fff;
@@ -68,14 +83,13 @@ body[data-theme="dark"] {
   /* Dark theme styles */
   background-color: #000000;
   color: #fff;
-  --primary:#1980e5;
+  --primary: #1980e5;
   --primary-dark: #1980e5;
   --black--light: #000000;
-  --white:#000000;
-  --secondary:#333333;
-  --black:#ffffff;
+  --white: #000000;
+  --secondary: #333333;
+  --black: #ffffff;
   --box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.5);
-
 }
 
 .icon {
@@ -111,7 +125,7 @@ body[data-theme="dark"] {
 }
 .react-toggle-thumb {
   top: 50% !important;
-  
+
   transform: translateY(-50%) !important;
 
   width: 18px !important;

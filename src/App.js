@@ -9,6 +9,7 @@ import "aos/dist/aos.css";
 
 
 const Home = React.lazy(() => import("./pages/home"));
+const Dashboard = React.lazy(() => import("./pages/dashboard"));
 
 function App() {
   const { theme } = useTheme();
@@ -20,10 +21,11 @@ function App() {
 
   return (
     <Suspense>
-      <Header />
+     
       {/* <div className="container"> */}
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
       {/* </div> */}
     </Suspense>

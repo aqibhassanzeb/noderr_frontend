@@ -40,7 +40,7 @@
   column-gap: var(--gap);
 }
 .header-container > .right>.navbar > .btn-container > .btn {
-  padding: 10px 15px;
+  padding: var(--btn-pad);
   border: none;
   border-radius: var(--border-radius);
   cursor: pointer;

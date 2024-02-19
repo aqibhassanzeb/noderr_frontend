@@ -17,31 +17,29 @@ const Header = () => {
         <img src={images.logo} alt="logo" />
       </div>
       <div className="right">
-
-      <nav className={`navbar ${showNav ? "show" : ""}`}>
-        <ul>
-          <li>products</li>
-          <li>solutions</li>
-          <li>pricing</li>
-        </ul>
-        <div className="btn-container">
-          <button className="btn primary">connect wallet</button>
+        <nav className={`navbar ${showNav ? "show" : ""}`}>
+          <ul>
+            <li>products</li>
+            <li>solutions</li>
+            <li>pricing</li>
+          </ul>
+          <div className="btn-container">
+            <button className="btn primary">connect wallet</button>
+          </div>
+          <div onClick={() => setShowNav(!showNav)} className="close">
+            <IoIosCloseCircleOutline className="icon" />
+          </div>
+        </nav>
+        <div className="hamburger" onClick={() => setShowNav(!showNav)}>
+          <GiHamburgerMenu className="icon" />
         </div>
-        <div onClick={() => setShowNav(!showNav)} className="close">
-          <IoIosCloseCircleOutline className="icon" />
-        </div>
-      </nav>
-      <div className="hamburger" onClick={() => setShowNav(!showNav)}>
-        <GiHamburgerMenu className="icon" />
-      </div>
-      <Togglor/>
-      {/* <Toggle
+        <Togglor />
+        {/* <Toggle
         defaultChecked={theme === "dark"}
         onChange={toggleTheme}
         icons={{ checked: <BsMoonFill />, unchecked: <FaSun style={{color:"yellow"}} /> }}
       /> */}
       </div>
-
     </header>
   );
 };
