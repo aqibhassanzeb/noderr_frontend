@@ -1,33 +1,58 @@
 import React, { useEffect } from "react";
 import "./App.css";
 import { Suspense } from "react";
-import { Route, Routes } from "react-router-dom";
-import Header from "./components/header";
+import {
+  Outlet,
+  Route,
+  RouterProvider,
+  Routes,
+  createBrowserRouter,
+} from "react-router-dom";
 import { useTheme } from "./themeContext/themeContext";
 import AOS from "aos";
 import "aos/dist/aos.css";
-
+import Support from "./pages/support";
+import Stats_page from "./pages/stats_page";
 
 const Home = React.lazy(() => import("./pages/home"));
 const Dashboard = React.lazy(() => import("./pages/dashboard"));
 
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <Home />,
+    },
+    {
+      path: "dashboard",
+      element: <Dashboard />,
+      children: [
+        {
+          path: "",
+          element: <Stats_page />,
+        },
+        {
+          path: "support",
+          element: <Support />,
+        },
+      ],
+    }
+  ]
+);
+
 function App() {
   const { theme } = useTheme();
+
   useEffect(() => {
     AOS.init();
     AOS.refresh();
   }, []);
+
   document.body.setAttribute("data-theme", theme);
 
   return (
     <Suspense>
-     
-      {/* <div className="container"> */}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-      </Routes>
-      {/* </div> */}
+      <RouterProvider router={router}></RouterProvider>
     </Suspense>
   );
 }

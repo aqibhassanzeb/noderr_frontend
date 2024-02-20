@@ -1,0 +1,137 @@
+.support_section {
+  width: calc(100% - var(--side-menu-width));
+  padding: 20px;
+
+  height: inherit;
+  /* padding: var(--dashboard-pad); */
+  padding-right: 0;
+  /* overflow-y: auto;  */
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.support_section::-webkit-scrollbar {
+  display: none;
+}
+.support_section > .support_container {
+  display: flex;
+  height: inherit;
+  overflow-y: auto;
+  flex-direction: column;
+  row-gap: var(--gap);
+
+  background: var(--secondary);
+  padding: var(--dashboard-pad);
+  border-radius: var(--dashboard-border-radius);
+}
+
+.support_section > .support_container::-webkit-scrollbar {
+  display: none;
+}
+.support_section > .support_container > .header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.support_section > .support_container > .header > .left {
+  background-color: black;
+  padding: var(--btn-pad);
+
+  border-radius: var(--border-radius);
+  font-size: var(--btn-font-size);
+  font-weight: var(--leading-4);
+  text-transform: capitalize;
+}
+.support_section > .support_container > h2 {
+  font-size: var(--h3-size);
+  color: var(--black);
+  font-weight: bold;
+  text-transform: capitalize;
+  font-weight: var(--leading-8);
+}
+.support_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: var(--gap);
+  max-width: 820px;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+}
+.support_form > .input_container {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--gap);
+  width: inherit;
+}
+.support_form > .input_container > label {
+  font-size: var(--h4-size);
+  color: var(--black);
+  font-weight: bold;
+  text-transform: capitalize;
+  font-weight: var(--leading-5);
+}
+.support_form > .input_container > input {
+  padding: var(--btn-pad);
+  border-radius: var(--border-radius);
+  outline: none;
+  border: none;
+  font-size: var(--btn-font-size);
+  font-weight: var(--leading-6);
+}
+.support_form > .input_container > textarea {
+  padding: var(--btn-pad);
+  border-radius: var(--border-radius);
+  outline: none;
+  border: none;
+  font-size: var(--btn-font-size);
+  font-weight: var(--leading-6);
+}
+
+.support_form > .submit_btn {
+  padding: var(--btn-pad);
+  background: var(--primary);
+  outline: none;
+  text-transform: capitalize;
+  border: none;
+  font-size: var(--btn-font-size);
+  border-radius: var(--border-radius);
+  color: var(--black);
+  font-weight: var(--leading-6);
+  cursor: pointer;
+  width: 100%;
+}
+.support_form > .submit_btn:hover {
+  background: var(--primary-dark);
+}
+@media screen and (max-width: 768px) {
+  .support_section {
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+  }
+  .support_section > .support_container {
+    padding: var(--dashboard-sm-pad);
+  }
+  .support_form > .input_container > input {
+    padding: var(--btn-sm-pad);
+    font-size: var(--btn-sm-font-size);
+    border-radius: var(--sm-border-radius);
+  }
+  .support_form > .input_container > textarea {
+    padding: var(--btn-sm-pad);
+    font-size: var(--btn-sm-font-size);
+    border-radius: var(--sm-border-radius);
+  }
+  .support_form > .submit_btn {
+    padding: var(--btn-sm-pad);
+    font-size: var(--btn-sm-font-size);
+    border-radius: var(--sm-border-radius);
+  }
+  .support_form > .submit_btn:hover {
+    background: var(--primary-dark);
+  }
+}
