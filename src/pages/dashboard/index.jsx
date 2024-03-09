@@ -4,7 +4,6 @@ import "./index.css";
 import { IoCloseCircleOutline } from "react-icons/io5";
 import { images } from "../../images";
 import { NavLink, Outlet } from "react-router-dom";
-import StatsCard from "../../components/statsCard";
 import { FaHamburger } from "react-icons/fa";
 const Dashboard = () => {
   const [show, setShow] = React.useState(true);
@@ -39,6 +38,14 @@ const Dashboard = () => {
                 >
                   <img src={images.support} alt="support" />
                   <span>support</span>
+                </NavLink>
+                <NavLink
+                  className="menu_item"
+                  to={"create-promotion"}
+                  onClick={() => setShow(!show)}
+                >
+                  <img src={images.support} alt="support" />
+                  <span>create-promtion</span>
                 </NavLink>
               </div>
               <button>connect</button>
