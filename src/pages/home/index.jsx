@@ -10,6 +10,7 @@ import { customSpec, proSpec, trialSpec } from "../../data";
 import { TiTimes } from "react-icons/ti";
 import { TiTick } from "react-icons/ti";
 import Header from "../../components/header";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -34,7 +35,7 @@ const Home = () => {
                   or your team.
                 </p>
               </div>
-              <button className="btn primary">get started</button>
+              <Link to={"/dashboard"} className="btn primary">get started</Link>
             </div>
           </div>
           <div className="container">

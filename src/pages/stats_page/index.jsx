@@ -2,12 +2,14 @@ import React from "react";
 import StatsCard from "../../components/statsCard";
 import { images } from "../../images";
 import "./index.css";
+import Togglor from "../../components/toggle";
 const Stats_page = () => {
   return (
     <div className="right_dashboard">
       <div className="right_container">
         <div className="header">
           <span className="left">GM, Stranger</span>
+          {/* <Togglor/> */}
           {/* <button className="connect_wallet_btn">connect wallet</button> */}
         </div>
         <h2>Deploy a new node</h2>

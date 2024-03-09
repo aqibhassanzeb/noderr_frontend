@@ -1,11 +1,14 @@
 import React from "react";
 import "./index.css";
+import Togglor from "../../components/toggle";
 const Support = () => {
   return (
     <div className="support_section">
       <div className="support_container">
         <div className="header">
           <h3 className="left">Support</h3>
+          {/* <Togglor/> */}
+
         </div>
         <h2>support</h2>
         <form className="support_form">

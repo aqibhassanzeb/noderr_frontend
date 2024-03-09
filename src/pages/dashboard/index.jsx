@@ -22,12 +22,21 @@ const Dashboard = () => {
             <div className="brand_log">Logo</div>
             <div className="nav_container">
               <div className="menu_list">
-                <NavLink className="menu_item" to={""} end onClick={()=>setShow(!show)}>
+                <NavLink
+                  className="menu_item"
+                  to={""}
+                  end
+                  onClick={() => setShow(!show)}
+                >
                   <img src={images.dashboard} alt="dashboard" />
                   <span>dashboard</span>
                 </NavLink>
 
-                <NavLink className="menu_item" to={"support"} onClick={()=>setShow(!show)}>
+                <NavLink
+                  className="menu_item"
+                  to={"support"}
+                  onClick={() => setShow(!show)}
+                >
                   <img src={images.support} alt="support" />
                   <span>support</span>
                 </NavLink>
