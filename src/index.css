@@ -97,6 +97,7 @@
   --pad-1: 10px;
   --pad-one-and-half: 15px;
   --pad-2: 20px;
+  --form-max-width: 820px;
 }
 
 body {
@@ -169,8 +170,40 @@ img {
   text-transform: capitalize;
   font-size: var(--btn-font-size);
   outline: none;
+  /* color: var(--black); */
+  font-weight: var(--leading-6);
+  cursor: pointer;
+  width: 100%;
 }
+.right_dashboard {
+  width: calc(100% - var(--side-menu-width));
+  padding: 20px;
 
+  height: inherit;
+  /* padding: var(--dashboard-pad); */
+  padding-right: 0;
+  /* overflow-y: auto;  */
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.right_dashboard::-webkit-scrollbar {
+  display: none;
+}
+.right_container {
+  display: flex;
+  height: inherit;
+  overflow-y: auto;
+  flex-direction: column;
+  row-gap: var(--gap);
+
+  background: var(--secondary);
+  padding: var(--dashboard-pad);
+  border-radius: var(--dashboard-border-radius);
+}
+.right_container::-webkit-scrollbar {
+  display: none;
+}
 @media screen and (max-width: 768px) {
   .btn {
     padding: 10px 15px;

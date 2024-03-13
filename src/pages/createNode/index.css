@@ -1,0 +1,78 @@
+.node_create_form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: var(--gap);
+  max-width: var(--form-max-width);
+
+  margin: auto;
+  width: 100%;
+  height: 100%;
+}
+.input_file {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--gap);
+}
+.node_create_form {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--gap);
+  height: 100%;
+}
+.upload_image {
+  display: flex;
+  align-items: center;
+  column-gap: var(--gap);
+  max-width: 200px;
+  padding: var(--pad-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--border-radius);
+  background-color: #ffff;
+  color: #000000;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+}
+.upload_image > .upload_sign {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  overflow: hidden;
+}
+
+.upload_image > .upload_sign > p {
+  width: 80%;
+  overflow: hidden;
+  background: #29dbb2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: capitalize;
+  font-size: var(--btn-font-size);
+  height: 100%;
+  font-weight: var(--leading-6);
+}
+.upload_image > .upload_sign > .image_container {
+  width: 20%;
+  height: 100%;
+  background: var(--primary);
+
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.upload_image > .upload_sign > .image_container > img {
+  width: 80%;
+  height: 100%;
+}

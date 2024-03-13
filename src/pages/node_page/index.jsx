@@ -4,18 +4,14 @@ import { images } from "../../images";
 import "./index.css";
 import Togglor from "../../components/toggle";
 import NodeDetail from "../../components/nodeDetail";
+import PageHeader from "../../components/dashboard/pageHeader/pageHeader";
 const Stats_page = () => {
   return (
     <>
       {/* <NodeDetail /> */}
       <div className="right_dashboard">
         <div className="right_container">
-          <div className="header">
-            <span className="left">GM, Stranger</span>
-            {/* <Togglor/> */}
-            {/* <button className="connect_wallet_btn">connect wallet</button> */}
-          </div>
-          <h2>Deploy a new node</h2>
+          <PageHeader page_title={"Deploy A New Node"} badge={"GM, Stranger"}/>
           <div className="dashboard_grid">
             <StatsCard
               stats_img={images.talko}

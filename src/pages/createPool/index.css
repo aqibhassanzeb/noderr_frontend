@@ -1,0 +1,10 @@
+.pool_create_form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: var(--gap);
+  max-width: var(--form-max-width);
+  margin: auto;
+  width: 100%;
+  height: 100%;
+}

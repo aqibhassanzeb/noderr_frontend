@@ -1,0 +1,22 @@
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header > span {
+  background-color: black;
+  padding: var(--btn-pad);
+
+  border-radius: var(--border-radius);
+  font-size: var(--btn-font-size);
+  font-weight: var(--leading-4);
+  text-transform: capitalize;
+}
+.page_title {
+  font-size: var(--h3-size);
+  color: var(--black);
+  font-weight: bold;
+  font-weight: var(--leading-8);
+}

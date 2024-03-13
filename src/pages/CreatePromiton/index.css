@@ -1,0 +1,32 @@
+.promo_code_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: var(--gap);
+  max-width: calc(var(--form-max-width) / 2);
+
+  margin: auto;
+  width: 100%;
+  height: 100%;
+}
+.generate_promo_code {
+  display: flex;
+  align-items: center;
+  column-gap: var(--gap);
+  justify-content: center;
+  width: 100%;
+}
+.generate_promo_code > .gene_promo {
+  padding: var(--btn-pad);
+  background: var(--primary);
+  outline: none;
+  text-transform: capitalize;
+  border: none;
+  font-size: var(--btn-font-size);
+  border-radius: var(--border-radius);
+  color: var(--black);
+  font-weight: var(--leading-6);
+  cursor: pointer;
+  width: 100%;
+}

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import React from "react";
 import "./index.css";
 import { IoSpeedometerOutline } from "react-icons/io5";
@@ -10,7 +11,6 @@ import { customSpec, proSpec, trialSpec } from "../../data";
 import { TiTimes } from "react-icons/ti";
 import { TiTick } from "react-icons/ti";
 import Header from "../../components/header";
-import { Link } from "react-router-dom";
 
 const Home = () => {
   return (

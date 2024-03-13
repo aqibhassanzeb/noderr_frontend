@@ -44,8 +44,24 @@ const Dashboard = () => {
                   to={"create-promotion"}
                   onClick={() => setShow(!show)}
                 >
-                  <img src={images.support} alt="support" />
+                  <img src={images.promotion} alt="support" />
                   <span>create-promtion</span>
+                </NavLink>
+                <NavLink
+                  className="menu_item"
+                  to={"create-node"}
+                  onClick={() => setShow(!show)}
+                >
+                  <img src={images.shareNode} alt="support" />
+                  <span>create-node</span>
+                </NavLink>
+                <NavLink
+                  className="menu_item"
+                  to={"create-pool"}
+                  onClick={() => setShow(!show)}
+                >
+                  <img src={images.vote} alt="support" />
+                  <span>create-pool</span>
                 </NavLink>
               </div>
               <button>connect</button>

@@ -1,16 +1,12 @@
 import React from "react";
 import "./index.css";
 import Togglor from "../../components/toggle";
+import PageHeader from "../../components/dashboard/pageHeader/pageHeader";
 const Support = () => {
   return (
-    <div className="support_section">
-      <div className="support_container">
-        <div className="header">
-          <h3 className="left">Support</h3>
-          {/* <Togglor/> */}
-
-        </div>
-        <h2>support</h2>
+    <div className="right_dashboard">
+      <div className="right_container">
+        <PageHeader page_title={"Support"} badge={"GM, Stranger"} />
         <form className="support_form">
           <div className="input_container">
             <label htmlFor="name">Name</label>
@@ -24,7 +20,9 @@ const Support = () => {
             <label htmlFor="message">Message</label>
             <textarea id="message" rows="5"></textarea>
           </div>
-          <button type="button" className="submit_btn">submit</button>
+          <button type="button" className="submit_btn">
+            submit
+          </button>
         </form>
       </div>
     </div>

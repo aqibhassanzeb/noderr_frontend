@@ -1,32 +1,3 @@
-.right_dashboard {
-  width: calc(100% - var(--side-menu-width));
-  padding: 20px;
-
-  height: inherit;
-  /* padding: var(--dashboard-pad); */
-  padding-right: 0;
-  /* overflow-y: auto;  */
-
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-.right_dashboard::-webkit-scrollbar {
-  display: none;
-}
-.right_dashboard > .right_container {
-  display: flex;
-  height: inherit;
-  overflow-y: auto;
-  flex-direction: column;
-  row-gap: var(--gap);
-
-  background: var(--secondary);
-  padding: var(--dashboard-pad);
-  border-radius: var(--dashboard-border-radius);
-}
-.right_dashboard > .right_container::-webkit-scrollbar {
-  display: none;
-}
 .right_dashboard > .right_container > .header {
   width: 100%;
   display: flex;
