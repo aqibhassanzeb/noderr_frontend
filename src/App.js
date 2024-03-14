@@ -16,6 +16,7 @@ import CreatePool from "./pages/createPool";
 import AllNodes from "./pages/admin/allNodes";
 import AllPromotionCode from "./pages/admin/allPromotion";
 import AllVotes from "./pages/admin/allVotes";
+import AllPurchaseNodebyUsers from "./pages/admin/allPurchaseNodes";
 
 const Home = React.lazy(() => import("./pages/home"));
 const Dashboard = React.lazy(() => import("./pages/dashboard"));
@@ -60,6 +61,10 @@ const router = createBrowserRouter([
       {
         path: "all-votes",
         element: <AllVotes />,
+      },
+      {
+        path: "all-purchase-nodes-by-users",
+        element: <AllPurchaseNodebyUsers />,
       },
     ],
   },
