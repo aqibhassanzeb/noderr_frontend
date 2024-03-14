@@ -7,10 +7,11 @@ import zora from "./zora.svg";
 import shardeum from "./shardeum.svg";
 import bevm from "./bevm.svg";
 import fuel from "./fuel.svg";
-import promotion from "./promotion.svg"
-import shareNode from "./shareNode.svg"
-import uploadSign from "./upload-sign.svg"
-import vote from "./vote.svg"
+import promotion from "./promotion.svg";
+import shareNode from "./shareNode.svg";
+import uploadSign from "./upload-sign.svg";
+import vote from "./vote.svg";
+import promo from "./promoImage.png";
 
 export const images = {
   logo,
@@ -25,6 +26,6 @@ export const images = {
   promotion,
   shareNode,
   uploadSign,
-  vote
-
+  vote,
+  promo,
 };

@@ -7,16 +7,16 @@ import { MdOutlineSecurity } from "react-icons/md";
 import { GrCompliance } from "react-icons/gr";
 import ServicesCard from "../../components/serviceCard";
 import PlanCard from "../../components/planCard";
-import { customSpec, proSpec, trialSpec } from "../../data";
+import { customSpec, proSpec, trialSpec } from "../../data/";
 import { TiTimes } from "react-icons/ti";
 import { TiTick } from "react-icons/ti";
-import Header from "../../components/header";
+import Navigation from "../../components/navigation";
 
 const Home = () => {
   return (
     <>
       <div>
-        <Header />
+        <Navigation />
         <div>
           <div className="home_container">
             <div className="container home_content">
@@ -35,7 +35,9 @@ const Home = () => {
                   or your team.
                 </p>
               </div>
-              <Link to={"/dashboard"} className="btn primary">get started</Link>
+              <Link to={"/dashboard"} className="btn primary">
+                get started
+              </Link>
             </div>
           </div>
           <div className="container">

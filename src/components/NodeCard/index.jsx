@@ -1,6 +1,6 @@
 import React from "react";
 import "./index.css";
-const StatsCard = ({stats_img ,bg_color,text }) => {
+const NodeCard = ({stats_img ,bg_color,text }) => {
   return (
     <div className={`stats_box ${bg_color}`}>
       <div className="icon_container">
@@ -14,4 +14,4 @@ const StatsCard = ({stats_img ,bg_color,text }) => {
   );
 };
 
-export default StatsCard;
+export default NodeCard;

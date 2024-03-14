@@ -1,5 +1,5 @@
 import React from "react";
-import StatsCard from "../../components/nodeCard";
+import StatsCard from "../../components/NodeCard";
 import { images } from "../../images";
 import "./index.css";
 import Togglor from "../../components/toggle";

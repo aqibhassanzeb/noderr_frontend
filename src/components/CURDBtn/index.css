@@ -1,0 +1,19 @@
+.crud_btn {
+  display: flex;
+  gap: var(--gap-1);
+  align-items: center;
+  justify-content: center;
+}
+.crud_btn > span {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: var(--text-lg);
+  cursor: pointer;
+}
+.delete{
+    color: red;
+}
+.update{
+    color: yellow;
+}

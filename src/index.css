@@ -38,9 +38,9 @@
   --black: rgba(0, 0, 0, 0.4);
   --btn-pad: 10px 15px;
   --btn-sm-pad: 8px 12px;
-
   --black--light: #ffffff;
   --primary-light: #29dbb2;
+  --bg-linear-gradient: linear-gradient(90deg, #29dbb2 0%, #1980e5 100%);
 
   --header-border: #edf0f2;
   --logo-width: 50px;
@@ -94,10 +94,14 @@
   --pointer: pointer;
   --pad-one-fourth: 03px;
   --pad-one-half: 05px;
+  --pad-one-quarter: 07px;
   --pad-1: 10px;
   --pad-one-and-half: 15px;
   --pad-2: 20px;
   --form-max-width: 820px;
+  --border-size:1px;
+
+  
 }
 
 body {
@@ -131,6 +135,7 @@ body[data-theme="dark"] {
   --secondary: #333333;
   --black: #ffffff;
   --box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.5);
+  --black:#ffffff;
 }
 a {
   text-decoration: none;

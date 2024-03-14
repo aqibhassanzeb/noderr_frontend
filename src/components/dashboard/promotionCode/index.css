@@ -1,0 +1,118 @@
+.promotion_code {
+  display: flex;
+  position: relative;
+  gap: var(--gap);
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background: var(--bg-linear-gradient);
+  border-radius: var(--border-radius);
+}
+.ribbon {
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+  /* background-color: red; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+.ribbon::before {
+  content: "promo";
+  position: absolute;
+  width: 200%;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--text-sm);
+  font-weight: var(--leading-6);
+  text-transform: uppercase;
+  color: var(--white);
+  text-align: center;
+  background: var(--black);
+  transform: rotate(-45deg) translateY(-10px);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+.ribbon::after {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  bottom: 0;
+  left: 0;
+  background: var(--black);
+  z-index: -1;
+  box-shadow: 55px -55px var(--black);
+}
+.promotion_code > .discount {
+  font-size: var(--text-lg);
+  font-weight: var(--leading-6);
+  color: var(--black);
+}
+.promotion_code > .promo_code {
+  display: flex;
+  align-items: center;
+  height: 25px;
+}
+.promotion_code > .promo_code > .code {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: var(--pad-one-fourth);
+  border: var(--border-size) solid var(--black);
+  border-top-left-radius: var(--border-radius);
+  border-bottom-left-radius: var(--border-radius);
+  font-size: var(--text-md);
+  text-align: center;
+  font-weight: var(--leading-5);
+}
+
+.promotion_code > .promo_code > .copy_btn {
+  height: 100%;
+  padding: var(--pad-one-fourth);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+
+  border: var(--border-size) solid var(--black);
+  color: black;
+  border-top-right-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: var(--text-md);
+  text-transform: capitalize;
+}
+
+.promotion_code > .promo_usage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: var(--gap);
+  font-size: var(--text-md);
+  font-weight: var(--leading-5);
+  color: var(--black);
+  text-transform: capitalize;
+}
+.promotion_code > .expiry_date {
+  font-size: var(--text-md);
+  font-weight: var(--leading-5);
+  color: var(--black);
+  text-transform: capitalize;
+}
+.curd_btns {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+

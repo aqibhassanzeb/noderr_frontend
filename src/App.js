@@ -9,11 +9,13 @@ import { useTheme } from "./themeContext/themeContext";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Support from "./pages/support";
-import Stats_page from "./pages/node_page";
+import StatsPage from "./pages/node_page";
 import CreatePrmotion from "./pages/CreatePromiton";
 import CreateNode from "./pages/createNode";
 import CreatePool from "./pages/createPool";
 import AllNodes from "./pages/admin/allNodes";
+import AllPromotionCode from "./pages/admin/allPromotion";
+import AllVotes from "./pages/admin/allVotes";
 
 const Home = React.lazy(() => import("./pages/home"));
 const Dashboard = React.lazy(() => import("./pages/dashboard"));
@@ -29,7 +31,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "",
-        element: <Stats_page />,
+        element: <StatsPage />,
       },
       {
         path: "support",
@@ -50,6 +52,14 @@ const router = createBrowserRouter([
       {
         path: "all-nodes",
         element: <AllNodes />,
+      },
+      {
+        path: "all-promotion-codes",
+        element: <AllPromotionCode />,
+      },
+      {
+        path: "all-votes",
+        element: <AllVotes />,
       },
     ],
   },

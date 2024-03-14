@@ -8,7 +8,7 @@ import { FaSun } from "react-icons/fa";
 import { BsMoonFill } from "react-icons/bs";
 import { useTheme } from "../../themeContext/themeContext";
 import Togglor from "../toggle";
-const Header = () => {
+const Navigation = () => {
   const [showNav, setShowNav] = useState(false);
   const { theme, toggleTheme } = useTheme();
   return (
@@ -44,4 +44,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Navigation;

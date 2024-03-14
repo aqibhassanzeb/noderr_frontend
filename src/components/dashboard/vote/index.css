@@ -1,0 +1,81 @@
+.vote {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--gap);
+  padding: var(--pad-1);
+  border-radius: var(--border-radius);
+  background: var(--bg-linear-gradient);
+}
+.vote_time {
+  width: 100%;
+  display: flex;
+  gap: var(--gap);
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--text-md);
+  font-weight: var(--leading-5);
+  color: var(--black);
+  text-transform: capitalize;
+}
+.vote > .title {
+  font-size: var(--text-2xl);
+  font-weight: var(--leading-6);
+  color: var(--black);
+  text-transform: capitalize;
+}
+.vote_opt {
+  width: 100%;
+  display: flex;
+  gap: var(--gap-1);
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.vote_options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-1);
+}
+
+.vote_options > .option {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-1);
+}
+.vote_options > .option > .tick {
+  font-size: var(--text-lg);
+  color: var(--black);
+}
+.vote_options > .option > .text {
+  font-size: var(--text-lg);
+  font-weight: var(--leading-5);
+  color: var(--black);
+}
+.status{
+    display: flex;
+    gap: var(--gap-1);
+    align-items: center;
+    justify-content: flex-start;
+    font-size: var(--text-lg);
+    font-weight: var(--leading-5);
+    color: var(--black);
+}
+.vote_time>.start_time{
+
+    font-size: var(--text-lg);
+    font-weight: var(--leading-5);
+    color: var(--black);
+}
+.vote_time>.end_time{
+
+    font-size: var(--text-lg);
+    font-weight: var(--leading-5);
+    color: var(--black);
+}
+.crud_btns{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
