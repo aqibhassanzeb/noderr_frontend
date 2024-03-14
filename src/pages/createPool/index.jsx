@@ -11,7 +11,7 @@ const CreatePool = () => {
             <InputContainer label={"vote title"} id={"vote_title"} type={"text"}/>
             <InputContainer label={"vote duration"} id={"vote_duration"} type={"text"}/>
             <InputContainer label={"vote options"} id={"vote_title"} type={"text"}/>
-            <button type="button" className="btn">create</button>
+            <button type="button" className="btn primary">create</button>
         </form>
       </div>
     </div>

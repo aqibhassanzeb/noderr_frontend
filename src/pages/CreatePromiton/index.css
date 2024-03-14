@@ -30,3 +30,22 @@
   cursor: pointer;
   width: 100%;
 }
+
+@media screen and (max-width: 768px) {
+  .promo_code_form {
+    row-gap: var(--sm-gap);
+  }
+  .generate_promo_code {
+    column-gap: var(--sm-gap);
+  }
+  .generate_promo_code > .gene_promo {
+    padding: var(--btn-sm-pad);
+    background: var(--primary);
+    outline: none;
+    text-transform: capitalize;
+    border: none;
+    font-size: var(--btn-sm-font-size);
+    border-radius: var(--sm-border-radius);
+    font-weight: var(--leading-5);
+  }
+}

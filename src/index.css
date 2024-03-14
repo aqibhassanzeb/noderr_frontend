@@ -47,6 +47,7 @@
   --logo-height: 40px;
   --logo-md-width: 40px;
   --logo-md-height: 30px;
+  --gap-one-half: 5px;
   --gap-1: 8px;
   --gap-2: 16px;
   --text-sm: 08px;
@@ -218,4 +219,8 @@ img {
     width: 20px !important;
     height: 20px !important ;
   }
+}
+
+.primary{
+  background: var(--primary);
 }

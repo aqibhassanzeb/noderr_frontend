@@ -76,3 +76,34 @@
   width: 80%;
   height: 100%;
 }
+
+@media screen and (max-width: 768px) {
+  .node_create_form {
+    row-gap: var(--sm-gap);
+  }
+  .input_file {
+    row-gap: var(--sm-gap);
+  }
+  .node_create_form {
+    row-gap: var(--sm-gap);
+  }
+  .upload_image {
+    column-gap: var(--sm-gap);
+    max-width: 150px;
+    padding: var(--pad-one-and-half);
+    border-radius: var(--sm-border-radius);
+  }
+
+  .upload_image > .upload_sign > p {
+    font-size: var(--btn-sm-font-size);
+
+    font-weight: var(--leading-5);
+  }
+  .upload_image > .upload_sign > .image_container {
+    padding: var(--pad-one-fourth);
+  }
+  .upload_image > .upload_sign > .image_container > img {
+    width: 60%;
+    height: 100%;
+  }
+}

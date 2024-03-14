@@ -52,3 +52,36 @@
   color: var(--black);
   cursor: pointer;
 }
+
+@media screen and (max-width: 768px) {
+  .single_node {
+    gap: var(--sm-gap);
+    padding: var(--pad-one-fourth);
+    border-radius: var(--pad-one-fourth);
+  }
+
+  .single_node > .node_img > img {
+    width: var(--card-sm-icon-size);
+    /* height: 100%; */
+    /* object-fit: cover; */
+    border-radius: var(--sm-border-radius);
+  }
+
+  .node_detail > .detail {
+    gap: var(--gap-one-half);
+  }
+  .node_detail > .detail > .node_name {
+    font-size: var(--text-md);
+    font-weight: var(--leading-5);
+  }
+  .node_detail > .detail > .node_slot {
+    font-size: var(--text-md);
+    font-weight: var(--leading-3);
+  }
+  .node_detail > .mange {
+    gap: var(--gap-one-half);
+  }
+  .node_detail > .mange > i {
+    font-size: var(--text-lg);
+  }
+}

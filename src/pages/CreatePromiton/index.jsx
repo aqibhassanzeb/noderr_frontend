@@ -16,9 +16,11 @@ const CreatePrmotion = () => {
             </button>
             {/* <Loader /> */}
           </div>
-          <InputContainer label={"discount"} id={"discount"} type={"text"}/>
+          <InputContainer label={"discount"} id={"discount"} type={"text"} />
           <InputContainer label={"max usage"} id={"usage"} type={"text"} />
-          <button  type="button" className="btn">create</button>
+          <button type="button" className="btn">
+            create
+          </button>
         </form>
       </div>
     </div>

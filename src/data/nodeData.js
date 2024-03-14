@@ -24,5 +24,5 @@ export const allNodeData = [
     bg_color: "#3042fb",
     text: "Total Slots",
     slots: 21,
-  },
+  },  
 ];

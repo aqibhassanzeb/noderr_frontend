@@ -1,5 +1,18 @@
-.all_promotion_codes{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: var(--gap);
+.all_promotion_codes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--gap);
+}
+
+@media screen and (max-width: 768px) {
+  .all_promotion_codes {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--sm-gap);
+  }
+}
+
+@media screen and (max-width: 660px) {
+  .all_promotion_codes {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
 }
