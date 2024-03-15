@@ -6,13 +6,22 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "./themeContext/themeContext";
+import { ApiProvider } from "./context/apiContext";
+import { SkeletonTheme } from "react-loading-skeleton";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <ThemeProvider>
-        <App />
-    </ThemeProvider>
+    <SkeletonTheme baseColor="#202020" highlightColor="#444">
+      <ThemeProvider>
+        <ApiProvider>
+          <App />
+          <ToastContainer />
+        </ApiProvider>
+      </ThemeProvider>
+    </SkeletonTheme>
   </React.StrictMode>
 );
 

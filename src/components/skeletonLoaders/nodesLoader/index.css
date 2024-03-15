@@ -1,0 +1,20 @@
+.nodes_skeleton_loader {
+  display: grid;
+  gap: var(--gap);
+  grid-template-columns: repeat(auto-fill, minmax(410px, 1fr));
+}
+.node_loader {
+  width: 100%;
+  border-radius: var(--dashboard-card-border-radius);
+  height: 140px;
+}
+@media screen and (max-width: 768px) {
+  .nodes_skeleton_loader {
+    gap: var(--sm-gap);
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  }
+  .node_loader {
+    height: 100px;
+    border-radius: var(--dashboard-sm-card-border-radius);
+  }
+}

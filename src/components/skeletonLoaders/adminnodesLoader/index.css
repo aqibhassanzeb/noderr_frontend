@@ -1,0 +1,25 @@
+.admin_nodes_skeleton_loader {
+  display: grid;
+  gap: var(--gap);
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+.admin_node_loader {
+  width: 100%;
+  border-radius: var(--dashboard-card-border-radius);
+  height: 54px;
+}
+@media screen and (max-width: 768px) {
+  .admin_nodes_skeleton_loader {
+    gap: var(--sm-gap);
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+  .admin_node_loader {
+    height: 50px;
+    border-radius: var(--dashboard-sm-card-border-radius);
+  }
+}
+@media screen and (max-width: 660px) {
+  .admin_nodes_skeleton_loader {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}

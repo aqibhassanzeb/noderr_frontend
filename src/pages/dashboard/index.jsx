@@ -50,6 +50,14 @@ const Dashboard = () => {
                 </NavLink>
                 <NavLink
                   className="menu_item"
+                  to={"all-purchase-nodes-by-users"}
+                  onClick={() => setShow(!show)}
+                >
+                  <img src={images.purchase} alt="support" />
+                  <span>Purchase nodes</span>
+                </NavLink>
+                <NavLink
+                  className="menu_item"
                   to={"all-promotion-codes"}
                   onClick={() => setShow(!show)}
                 >

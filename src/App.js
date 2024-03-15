@@ -14,6 +14,7 @@ import AllNodes from "./pages/admin/allNodes";
 import AllPromotionCode from "./pages/admin/allPromotion";
 import AllVotes from "./pages/admin/allVotes";
 import AllPurchaseNodebyUsers from "./pages/admin/allPurchaseNodes";
+import "react-loading-skeleton/dist/skeleton.css";
 
 const Home = React.lazy(() => import("./pages/home"));
 const Dashboard = React.lazy(() => import("./pages/dashboard"));

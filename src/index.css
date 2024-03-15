@@ -181,7 +181,7 @@ img {
   /* color: var(--black); */
   font-weight: var(--leading-6);
   cursor: pointer;
-  width: 100%;
+  /* width: 100%; */
 }
 .right_dashboard {
   width: calc(100% - var(--side-menu-width));
@@ -211,6 +211,12 @@ img {
 }
 .right_container::-webkit-scrollbar {
   display: none;
+}
+.crud_btns {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 @media screen and (max-width: 768px) {
   .btn {

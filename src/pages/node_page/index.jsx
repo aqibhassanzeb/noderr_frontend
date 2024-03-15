@@ -1,46 +1,67 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import StatsCard from "../../components/NodeCard";
 import { images } from "../../images";
 import "./index.css";
 import Togglor from "../../components/toggle";
 import NodeDetail from "../../components/nodeDetail";
 import PageHeader from "../../components/dashboard/pageHeader/pageHeader";
+import { createApiContext } from "../../context/apiContext";
+import NodeLoader from "../../components/skeletonLoaders/nodesLoader";
 const Stats_page = () => {
+  const { getAllNodes } = useContext(createApiContext);
+  const [loadding, setLoading] = React.useState(true);
+  const [nodes, setNodes] = React.useState([]);
+  const [selectedNode, setSelectedNode] = useState(null);
+  useEffect(() => {
+    const fetchNodes = async () => {
+      try {
+        const response = await getAllNodes();
+        setNodes(response);
+        setLoading(false);
+      } catch (error) {
+        console.log("Error fetching nodes", error);
+      }
+    };
+    fetchNodes();
+  }, []);
+  const skeletonCount = Math.floor(window.innerHeight / 100);
+  const handleNodeClick = (node) => {
+    setSelectedNode(node);
+  };
+
+  const handleCloseNodeDetail = () => {
+    setSelectedNode(null);
+  };
+
   return (
     <>
-      {/* <NodeDetail /> */}
       <div className="right_dashboard">
         <div className="right_container">
-          <PageHeader page_title={"Deploy A New Node"} badge={"GM, Stranger"}/>
-          <div className="dashboard_grid">
-            <StatsCard
-              stats_img={images.talko}
-              bg_color={"pink"}
-              text={"telko"}
-            />
-            <StatsCard
-              stats_img={images.fuel}
-              bg_color={"parrot"}
-              text={"fuel"}
-            />
-            <StatsCard
-              stats_img={images.zora}
-              bg_color={"zora"}
-              text={"zora"}
-            />
-            <StatsCard
-              stats_img={images.shardeum}
-              bg_color={"shardeum"}
-              text={"shardeum"}
-            />
-            <StatsCard
-              stats_img={images.bevm}
-              bg_color={"bevm"}
-              text={"bevm"}
-            />
-          </div>
+          <PageHeader page_title={"Deploy A New Node"} badge={"GM, Stranger"} />
+          {loadding ? (
+            <NodeLoader skeletonCount={skeletonCount} />
+          ) : (
+            <div className="dashboard_grid">
+              {nodes &&
+                nodes.map((node, index) => {
+                  return (
+                    <StatsCard
+                      key={index}
+                      stats_img={node.nodeImage.url}
+                      text={node.nodeName}
+                      slot={node.slots}
+                      bg_color={node.bgColor}
+                      onClick={() => handleNodeClick(node)}
+                    />
+                  );
+                })}
+            </div>
+          )}
         </div>
       </div>
+      {selectedNode && (
+        <NodeDetail node={selectedNode} onClose={handleCloseNodeDetail} />
+      )}
     </>
   );
 };

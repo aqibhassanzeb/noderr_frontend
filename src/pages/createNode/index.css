@@ -13,6 +13,13 @@
   display: flex;
   flex-direction: column;
   row-gap: var(--gap);
+  position: relative;
+}
+.image_preview{
+  position: absolute;
+  right: 0;
+  padding-right: 20px;
+  height: 100%;
 }
 .node_create_form {
   display: flex;

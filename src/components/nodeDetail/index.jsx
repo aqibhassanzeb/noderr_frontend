@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./index.css";
 import { images } from "../../images";
 import { GrFormClose } from "react-icons/gr";
-const NodeDetail = () => {
+const NodeDetail = ({node,onClose}) => {
   const [activeTab, setActiveTab] = useState(1);
   const [computeTotal, setComputeTotal] = useState(0);
 
@@ -15,7 +15,7 @@ const NodeDetail = () => {
       top: 0,
       behavior: "smooth",
     });
-    const nodeFee = 29.99;
+    const nodeFee = node.nodePrice;
 
     // Calculate the total based on the selected tab and node fee
     const total = nodeFee * activeTab;
@@ -43,13 +43,13 @@ const NodeDetail = () => {
       <div className="node_detail_container">
         <div className="detail_header">
           <div className="left">
-            <div className="img_container" style={{ background: "#ffffff" }}>
-              <img src={images.bevm} alt="brand" />
+            <div className="img_container" style={{ background: node.bgColor }}>
+              <img src={node.nodeImage?.url} alt="brand" />
             </div>
-            <h3 className="title">node title</h3>
+            <h3 className="title">{node.nodeName}</h3>
           </div>
           <div className="right">
-            <span className="close">
+            <span className="close" onClick={onClose}>
               <GrFormClose />
             </span>
           </div>
@@ -84,7 +84,7 @@ const NodeDetail = () => {
           </div>
           <div className="fee_structure">
             <span className="label">node fee</span>
-            <span className="pricing">$29.99/month</span>
+            <span className="pricing">${node.nodePrice}/month</span>
           </div>
           <div className="fee_structure">
             <span className="label">period</span>

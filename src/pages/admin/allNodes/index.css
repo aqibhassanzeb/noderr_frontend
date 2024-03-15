@@ -1,22 +1,19 @@
 .all_nodes {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
   row-gap: var(--gap);
   column-gap: var(--gap);
   margin-top: 20px;
   margin-bottom: 20px;
 }
 
-
 @media screen and (max-width: 768px) {
   .all_nodes {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   }
-  
 }
 @media screen and (max-width: 660px) {
   .all_nodes {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   }
-  
 }

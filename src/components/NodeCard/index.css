@@ -39,7 +39,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: var(--card-icon-size);
+  width: calc(var(--card-icon-size) * 2);
   color: #ffffff;
 }
 .stats_box > .stats_digit {

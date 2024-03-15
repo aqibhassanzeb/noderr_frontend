@@ -71,12 +71,7 @@
   font-weight: var(--leading-5);
   color: var(--black);
 }
-.crud_btns {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
+
 
 @media screen and (max-width: 768px) {
   .vote {

@@ -10,7 +10,10 @@ const AllPurchaseNodebyUsers = () => {
           page_title={"All Purchase Nodes by Users"}
           badge={"GM, Stranger"}
         />  
-        <div className="purchaseNode">
+        <div className="all_purchaseNode">
+            <PurchaseNode/>
+            <PurchaseNode/>
+            <PurchaseNode/>
             <PurchaseNode/>
         </div>
       </div>
