@@ -6,7 +6,12 @@ const AllVotes = () => {
   return (
     <div className="right_dashboard">
       <div className="right_container">
-        <PageHeader page_title={"All Votes"} badge={"GM, Stranger"} />
+        <PageHeader
+          page_title={"All Votes"}
+          badge={"GM, Stranger"}
+          create={true}
+          link={"/dashboard/create-pool"}
+        />
         <div className="all_votes">
           <Vote />
           <Vote />

@@ -1,12 +1,16 @@
 import React from "react";
-
-const PageHeader = ({page_title,badge}) => {
+import { Link } from "react-router-dom";
+import "./style.css"
+const PageHeader = ({page_title,badge,create,link}) => {
   return (
     <>
       <div className="header">
         <span className="left">{badge}</span>
         {/* <Togglor/> */}
-        {/* <button className="connect_wallet_btn">connect wallet</button> */}
+        {
+          create && <Link className="connect_wallet_btn" to={link}>create</Link>
+        }
+
       </div>
       <h2 className="page_title">{page_title}</h2>
     </>

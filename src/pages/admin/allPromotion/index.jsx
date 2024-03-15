@@ -6,7 +6,7 @@ const AllPromotionCode = () => {
   return (
     <div className="right_dashboard">
       <div className="right_container">
-        <PageHeader page_title={"All promotion codes"} badge={"GM, Stranger"}/>
+        <PageHeader page_title={"All promotion codes"} badge={"GM, Stranger"} create={true} link={"/dashboard/create-promotion"}/>
         <div className="all_promotion_codes"> 
           <PromotionCode/>  
           <PromotionCode/>  

@@ -14,9 +14,48 @@
   font-weight: var(--leading-4);
   text-transform: capitalize;
 }
+.header > .connect_wallet_btn {
+  display: block;
+  padding: var(--btn-pad);
+  background: var(--primary);
+  outline: none;
+  text-transform: capitalize;
+  border: none;
+  font-size: var(--btn-font-size);
+  border-radius: var(--border-radius);
+  color: var(--black);
+  font-weight: var(--leading-6);
+  cursor: pointer;
+}
+
 .page_title {
   font-size: var(--h3-size);
   color: var(--black);
   font-weight: bold;
   font-weight: var(--leading-8);
+}
+
+@media screen and (max-width: 768px) {
+  .header > .connect_wallet_btn {
+    /* display: none; */
+    padding: var(--btn-sm-pad);
+    font-size: var(--btn-sm-font-size);
+    border-radius: var(--sm-border-radius);
+    color: var(--black);
+    font-weight: var(--leading-4);
+  }
+
+  .header > span {
+    background-color: black;
+    padding: var(--btn-sm-pad);
+    border-radius: var(--sm-border-radius);
+    font-size: var(--btn-sm-font-size);
+    font-weight: var(--leading-3);
+  }
+
+  .page_title {
+    font-size: var(--h3-sm-size);
+    color: var(--black);
+    font-weight: var(--leading-5);
+  }
 }

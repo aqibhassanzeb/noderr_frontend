@@ -79,6 +79,7 @@
   --dashboard-card-border-radius: 12px;
   --dashboard-sm-card-border-radius: 10px;
   --card-border-radius: 1rem;
+  --card-sm-border-radius: 0.8rem;
   --stats-box-pad: 50px;
   --stats-box-sm-pad: 40px;
   --side-menu-pad: 15px;
@@ -90,6 +91,7 @@
   --card-span-size: 24px;
   --card-sm-span-size: 14px;
   --brand-pic-size: 40px;
+  --brand-sm-pic-size: 30px;
   --grey-bg: #27272a;
   --border-radius-full: 50%;
   --pointer: pointer;
