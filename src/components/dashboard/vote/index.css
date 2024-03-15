@@ -52,30 +52,76 @@
   font-weight: var(--leading-5);
   color: var(--black);
 }
-.status{
-    display: flex;
-    gap: var(--gap-1);
-    align-items: center;
-    justify-content: flex-start;
-    font-size: var(--text-lg);
-    font-weight: var(--leading-5);
-    color: var(--black);
+.status {
+  display: flex;
+  gap: var(--gap-1);
+  align-items: center;
+  justify-content: flex-start;
+  font-size: var(--text-lg);
+  font-weight: var(--leading-5);
+  color: var(--black);
 }
-.vote_time>.start_time{
+.vote_time > .start_time {
+  font-size: var(--text-lg);
+  font-weight: var(--leading-5);
+  color: var(--black);
+}
+.vote_time > .end_time {
+  font-size: var(--text-lg);
+  font-weight: var(--leading-5);
+  color: var(--black);
+}
+.crud_btns {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
 
-    font-size: var(--text-lg);
+@media screen and (max-width: 768px) {
+  .vote {
+    gap: var(--sm-gap);
+    padding: var(--pad-one-quarter);
+    border-radius: var(--sm-border-radius);
+  }
+  .vote_time {
+    gap: var(--sm-gap);
+    font-size: var(--text-sm);
+    font-weight: var(--leading-4);
+  }
+  .vote > .title {
+    font-size: var(--text-xl);
     font-weight: var(--leading-5);
-    color: var(--black);
-}
-.vote_time>.end_time{
+  }
+  .vote_opt {
+    gap: var(--gap-one-half);
+  }
+  .vote_options {
+    gap: var(--gap-one-half);
+  }
 
-    font-size: var(--text-lg);
-    font-weight: var(--leading-5);
-    color: var(--black);
-}
-.crud_btns{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+  .vote_options > .option {
+    gap: var(--gap-one-half);
+  }
+  .vote_options > .option > .tick {
+    font-size: var(--text-md);
+  }
+  .vote_options > .option > .text {
+    font-size: var(--text-md);
+    font-weight: var(--leading-4);
+  }
+  .status {
+    gap: var(--gap-one-half);
+
+    font-size: var(--text-md);
+    font-weight: var(--leading-4);
+  }
+  .vote_time > .start_time {
+    font-size: var(--text-md);
+    font-weight: var(--leading-4);
+  }
+  .vote_time > .end_time {
+    font-size: var(--text-md);
+    font-weight: var(--leading-4);
+  }
 }
