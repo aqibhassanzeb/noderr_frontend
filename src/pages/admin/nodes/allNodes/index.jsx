@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./index.css";
-import PageHeader from "../../../components/dashboard/pageHeader/pageHeader";
-import Node from "../../../components/dashboard/node";
-import { allNodeData } from "../../../data/nodeData";
-import { createApiContext } from "../../../context/apiContext";
-import AdminNodeLoader from "../../../components/skeletonLoaders/adminnodesLoader";
+import PageHeader from "../../../../components/dashboard/pageHeader/pageHeader";
+import Node from "../../../../components/dashboard/node";
+import { allNodeData } from "../../../../data/nodeData";
+import { createApiContext } from "../../../../context/apiContext";
+import AdminNodeLoader from "../../../../components/skeletonLoaders/adminnodesLoader";
 import { toast } from "react-toastify";
+import UpdateNode from "../../../../components/dashboard/updateNode";
 const AllNodes = () => {
   const { getAllNodes, deleteNode } = useContext(createApiContext);
   const [loadding, setLoading] = useState(true);
@@ -71,6 +72,7 @@ const AllNodes = () => {
           </div>
         )}
       </div>
+      <UpdateNode />
     </div>
   );
 };

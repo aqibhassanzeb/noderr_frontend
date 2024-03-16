@@ -1,0 +1,28 @@
+.update_node_form{
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+    width: 100%;
+}
+.right{
+
+    display: flex;
+    justify-content: flex-end;
+
+}
+.right > .close{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(var(--brand-pic-size) / 2);
+    height: calc(var(--brand-pic-size) / 2);
+    background-color: var(--grey-bg);
+    border-radius: var(--border-radius-full);
+    cursor: var(--pointer);
+}
+@media screen and (max-width: 768px) {
+    .update_node_form {
+        gap: var(--sm-gap);
+    }
+    
+}

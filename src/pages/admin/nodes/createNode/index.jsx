@@ -1,11 +1,11 @@
 import React, { useContext, useState } from "react";
 import "./index.css";
-import PageHeader from "../../components/dashboard/pageHeader/pageHeader";
-import InputContainer from "../../components/dashboard/InputContainer";
-import { images } from "../../images";
-import { createApiContext } from "../../context/apiContext";
+import PageHeader from "../../../../components/dashboard/pageHeader/pageHeader";
+import InputContainer from "../../../../components/dashboard/InputContainer";
+import { images } from "../../../../images";
+import { createApiContext } from "../../../../context/apiContext";
 import { toast } from "react-toastify";
-import LoadingModal from "../../components/ApiLoader";
+import LoadingModal from "../../../../components/ApiLoader";
 import { useNavigate } from "react-router-dom";
 const CreateNode = () => {
   const navigate = useNavigate();
