@@ -1,0 +1,27 @@
+.promo_skeleton_loader {
+    display: grid;
+    gap: var(--gap);
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+  .promo_node_loader {
+    width: 100%;
+    border-radius: var(--dashboard-card-border-radius);
+    height: 170px;
+  }
+  @media screen and (max-width: 768px) {
+    .promo_skeleton_loader {
+      gap: var(--sm-gap);
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+
+    }
+    .promo_node_loader {
+      height: 150px;
+      border-radius: var(--dashboard-sm-card-border-radius);
+    }
+  }
+  @media screen and (max-width: 660px) {
+    .promo_skeleton_loader {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+  }
+  

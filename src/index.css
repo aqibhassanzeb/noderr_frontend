@@ -132,6 +132,7 @@ body[data-theme="dark"] {
   background-color: #000000;
   color: #fff;
   --primary: #1980e5;
+
   --primary-dark: #1980e5;
   --black--light: #000000;
   --white: #000000;
@@ -231,4 +232,7 @@ img {
 
 .primary{
   background: var(--primary);
+}
+.secondary{
+  background: #29dbb2;
 }

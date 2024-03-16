@@ -43,7 +43,7 @@ const Stats_page = () => {
           ) : (
             <div className="dashboard_grid">
               {nodes &&
-                nodes.map((node, index) => {
+                nodes.slice().reverse().map((node, index) => {
                   return (
                     <StatsCard
                       key={index}

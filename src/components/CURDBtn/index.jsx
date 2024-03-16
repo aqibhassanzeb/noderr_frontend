@@ -3,7 +3,7 @@ import { MdDeleteOutline } from "react-icons/md";
 import { CiEdit } from "react-icons/ci";
 import { FaEye } from "react-icons/fa";
 import "./index.css";
-const CURDBtn = () => {
+const CURDBtn = ({onDelete}) => {
   return (
     <div className="crud_btn">
       <span className="view">
@@ -12,7 +12,7 @@ const CURDBtn = () => {
       <span className="update">
         <CiEdit />
       </span>
-      <span className="delete">
+      <span className="delete" onClick={onDelete}>
         <MdDeleteOutline />
       </span>
     </div>

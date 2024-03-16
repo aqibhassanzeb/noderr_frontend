@@ -19,27 +19,29 @@ const AllNodes = () => {
         setLoading(false);
       } catch (error) {
         console.log("Error fetching nodes", error);
-        toast.error(error.response.data.message)
+        toast.error(error.response.data.message);
       }
     };
     fetchNodes();
   }, []);
   const handleDeleteNode = async (id) => {
     setLoading(true);
-    try {
-      const data = await deleteNode(id);
-      if(data?.status){
-        toast.success("Node deleted successfully");
-      }
-      // Node deleted successfully, refetch nodes
+
+    const data = await deleteNode(id);
+    if (data?.status) {
+      toast.success("Node deleted successfully");
       const response = await getAllNodes();
       setNodes(response);
       setLoading(false);
-    } catch (error) {
-      console.log("Error deleting node", error);
+    } else if (data.response.data.message) {
+      console.log("else");
       setLoading(false);
+      toast.error(data.response.data.message);
     }
+    // Node deleted successfully, refetch nodes
   };
+  const skeletonCount = Math.floor(window.innerHeight / 100);
+
   return (
     <div className="right_dashboard">
       <div className="right_container">
@@ -50,19 +52,22 @@ const AllNodes = () => {
           link={"/dashboard/create-node"}
         />
         {loadding ? (
-          <AdminNodeLoader />
+          <AdminNodeLoader skeletonCount={skeletonCount} />
         ) : (
           <div className="all_nodes">
             {nodes &&
-              nodes?.map((node, index) => {
-                return (
-                  <Node
-                    key={index}
-                    node={node}
-                    onDelete={() => handleDeleteNode(node._id)}
-                  />
-                );
-              })}
+              nodes
+                .slice()
+                .reverse()
+                ?.map((node, index) => {
+                  return (
+                    <Node
+                      key={index}
+                      node={node}
+                      onDelete={() => handleDeleteNode(node._id)}
+                    />
+                  );
+                })}
           </div>
         )}
       </div>

@@ -1,8 +1,49 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import PageHeader from "../../../components/dashboard/pageHeader/pageHeader";
 import Vote from "../../../components/dashboard/vote";
 import "./index.css";
+import { createApiContext } from "../../../context/apiContext";
+import PromoLoader from "../../../components/skeletonLoaders/promoLoader";
+import { toast } from "react-toastify";
 const AllVotes = () => {
+  const { getAllPools, deletePool } = useContext(createApiContext);
+  const [votes, setVotes] = useState([]);
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    const fetchVotes = async () => {
+      setLoading(true);
+      try {
+        const response = await getAllPools();
+        setVotes(response.votes);
+        setLoading(false);
+      } catch (error) {
+        console.log("Error fetching votes", error);
+        setLoading(false);
+      }
+    };
+    fetchVotes();
+  }, []);
+  const deleteHnadler = async (id) => {
+    setLoading(true);
+    try {
+      const response = await deletePool(id);
+      if (response?.status) {
+        toast.success("Vote deleted successfully");
+        const response = await getAllPools();
+        setVotes(response.votes);
+        setLoading(false);
+      } else if (response.response.data.message) {
+        setLoading(false);
+        console.log("else");
+        toast.error(response.response.data.message);
+      }
+    } catch (error) {
+      console.log("Error deleting vote", error);
+      setLoading(false);
+    }
+  };
+
+  const skeletonCount = Math.floor(window.innerHeight / 100);
   return (
     <div className="right_dashboard">
       <div className="right_container">
@@ -12,14 +53,25 @@ const AllVotes = () => {
           create={true}
           link={"/dashboard/create-pool"}
         />
-        <div className="all_votes">
-          <Vote />
-          <Vote />
-          <Vote />
-          <Vote />
-          <Vote />
-          <Vote />
-        </div>
+        {loading ? (
+          <PromoLoader skeletonCount={skeletonCount} />
+        ) : (
+          <div className="all_votes">
+            {votes &&
+              votes
+                ?.slice()
+                .reverse()
+                .map((vote, index) => {
+                  return (
+                    <Vote
+                      key={index}
+                      vote={vote}
+                      onDelete={() => deleteHnadler(vote._id)}
+                    />
+                  );
+                })}
+          </div>
+        )}
       </div>
     </div>
   );
