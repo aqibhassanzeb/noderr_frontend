@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 
 const CreatePool = () => {
   const { createPool } = useContext(createApiContext);
-  const navigate= useNavigate()
+  const navigate = useNavigate();
   const [poolTitle, setPoolTitle] = useState("");
   const [poolDuration, setPoolDuration] = useState("");
   const [poolOptions, setPoolOptions] = useState([""]);
@@ -59,64 +59,61 @@ const CreatePool = () => {
 
   return (
     <>
-    {
-      loading && <LoadingModal />
-    }
-    <div className="right_dashboard">
-      <div className="right_container">
-        <PageHeader page_title={"Create Pool"} badge={"GM, Stranger"} />
-        <form className="pool_create_form" onSubmit={handleSubmit}>
-          <InputContainer
-            label={"vote title"}
-            id={"vote_title"}
-            type={"text"}
-            name={"title"}
-            value={poolTitle}
-            onChange={(e) => setPoolTitle(e.target.value)}
-          />
-          <InputContainer
-            label={"vote duration"}
-            id={"vote_duration"}
-            type={"text"}
-            value={poolDuration}
-            name={"duration"}
-            onChange={(e) => setPoolDuration(e.target.value)}
-          />
-          <div className="vote_options">
-            {poolOptions.map((option, index) => (
-              <div key={index} className="option_container">
-                <InputContainer
-                  label={`Option ${index + 1}`}
-                  id={`option_${index}`}
-                  type={"text"}
-                  value={option}
-                  onChange={(e) => handleOptionChange(index, e.target.value)}
-                />
-                <button
-                  type="button"
-                  className="btn"
-                  onClick={() => removeOptionField(index)}
-                >
-                  Remove
-                </button>
-              </div>
-            ))}
-            <button
-              type="button"
-              className="btn secondary"
-              onClick={addOptionField}
-            >
-              Add Option
+      {loading && <LoadingModal />}
+      <div className="right_dashboard">
+        <div className="right_container">
+          <PageHeader page_title={"Create Pool"} badge={"GM, Stranger"} />
+          <form className="pool_create_form" onSubmit={handleSubmit}>
+            <InputContainer
+              label={"vote title"}
+              id={"vote_title"}
+              type={"text"}
+              name={"title"}
+              value={poolTitle}
+              onChange={(e) => setPoolTitle(e.target.value)}
+            />
+            <InputContainer
+              label={"vote duration"}
+              id={"vote_duration"}
+              type={"text"}
+              value={poolDuration}
+              name={"duration"}
+              onChange={(e) => setPoolDuration(e.target.value)}
+            />
+            <div className="vote_options">
+              {poolOptions.map((option, index) => (
+                <div key={index} className="option_container">
+                  <InputContainer
+                    label={`Option ${index + 1}`}
+                    id={`option_${index}`}
+                    type={"text"}
+                    value={option}
+                    onChange={(e) => handleOptionChange(index, e.target.value)}
+                  />
+                  <button
+                    type="button"
+                    className="btn"
+                    onClick={() => removeOptionField(index)}
+                  >
+                    Remove
+                  </button>
+                </div>
+              ))}
+              <button
+                type="button"
+                className="btn secondary"
+                onClick={addOptionField}
+              >
+                Add Option
+              </button>
+            </div>
+            <button type="submit" className="btn primary">
+              Create
             </button>
-          </div>
-          <button type="submit" className="btn primary">
-            Create
-          </button>
-        </form>
+          </form>
+        </div>
       </div>
-    </div>
     </>
-
   );
 };
 

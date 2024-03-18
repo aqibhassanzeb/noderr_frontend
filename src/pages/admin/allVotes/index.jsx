@@ -5,10 +5,20 @@ import "./index.css";
 import { createApiContext } from "../../../context/apiContext";
 import PromoLoader from "../../../components/skeletonLoaders/promoLoader";
 import { toast } from "react-toastify";
+import UpdateVote from "../../../components/dashboard/updateVote";
 const AllVotes = () => {
   const { getAllPools, deletePool } = useContext(createApiContext);
   const [votes, setVotes] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [selectedPool, setSelectedPool] = useState(null);
+  const handleNodeClick = (promoData) => {
+    setSelectedPool(promoData);
+  };
+
+
+  const handleCloseNodeDetail = () => {
+    setSelectedPool(null);
+  };
   useEffect(() => {
     const fetchVotes = async () => {
       setLoading(true);
@@ -67,12 +77,21 @@ const AllVotes = () => {
                       key={index}
                       vote={vote}
                       onDelete={() => deleteHnadler(vote._id)}
+                      onEdit={() => handleNodeClick(vote)}
                     />
                   );
                 })}
           </div>
         )}
       </div>
+      {
+        selectedPool && (
+          <UpdateVote
+            voteData={selectedPool}
+            onClose={handleCloseNodeDetail}
+          />
+        )
+      }
     </div>
   );
 };

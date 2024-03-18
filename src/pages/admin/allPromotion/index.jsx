@@ -11,7 +11,6 @@ const AllPromotionCode = () => {
   const [promotionCodes, setPromotionCodes] = useState([]);
   const [loading, setLoading] = useState(false);
   const [selectedPromo, setSelectedPromo] = useState(null);
-
   useEffect(() => {
     const fetchPromotionCodes = async () => {
       setLoading(true);

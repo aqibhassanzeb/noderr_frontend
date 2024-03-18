@@ -2,7 +2,7 @@ import React from "react";
 import "./index.css";
 import CURDBtn from "../../CURDBtn";
 import { TiTickOutline } from "react-icons/ti";
-const Vote = ({ vote ,onDelete}) => {
+const Vote = ({ vote ,onDelete,onEdit}) => {
   return (
     <div className="vote">
       <h3 className="title">{vote.voteTitle}</h3>
@@ -37,7 +37,7 @@ const Vote = ({ vote ,onDelete}) => {
         </div>
       </div>
       <div className="crud_btns">
-        <CURDBtn onDelete={onDelete} />
+        <CURDBtn onDelete={onDelete} onEdit={onEdit} />
       </div>
     </div>
   );
