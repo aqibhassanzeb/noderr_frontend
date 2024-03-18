@@ -1,0 +1,11 @@
+.update_pool {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  width: 100%;
+}
+@media screen and (max-width: 768px) {
+  .update_pool {
+    gap: var(--sm-gap);
+  }
+}

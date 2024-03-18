@@ -89,6 +89,8 @@ const AllVotes = () => {
           <UpdateVote
             voteData={selectedPool}
             onClose={handleCloseNodeDetail}
+            setLoading={setLoading}
+            setVotes={setVotes}
           />
         )
       }

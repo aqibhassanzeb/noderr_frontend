@@ -114,6 +114,15 @@ export const ApiProvider = ({ children }) => {
       return err;
     }
   };
+  const updatePool = async (id, updateData) => {
+    try {
+      const { data } = await axios.patch(`/api/vote/update-poll/${id}`, updateData);
+      return data;
+    } catch (err) {
+      console.log(err);
+      return err;
+    }
+  };
 
   return (
     <createApiContext.Provider
@@ -129,6 +138,7 @@ export const ApiProvider = ({ children }) => {
         deletePool,
         updateNode,
         updatePromoCode,
+        updatePool
       }}
     >
       {children}
