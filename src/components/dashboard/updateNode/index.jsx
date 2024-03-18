@@ -1,47 +1,81 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import "./index.css";
 import { toast } from "react-toastify";
 import LoadingModal from "../../ApiLoader";
 import InputContainer from "../InputContainer";
 import { images } from "../../../images";
 import { GrFormClose } from "react-icons/gr";
-const UpdateNode = () => {
+import { createApiContext } from "../../../context/apiContext";
+const UpdateNode = ({ node, onClose, setPromotionCodes, setLoading }) => {
+  const { updateNode, getAllNodes } = useContext(createApiContext);
   const [name, setName] = React.useState("");
   const [price, setPrice] = React.useState("");
   const [slots, setSlots] = React.useState("");
   const [bgcolor, setBgcolor] = React.useState("");
   const [image, setImage] = React.useState("");
   const [imagePreview, setImagePreview] = React.useState("");
-  const [loading, setLoading] = React.useState(false);
+  const [updateLoading, setUpdateLoading] = React.useState(false);
   useEffect(() => {
     document.body.style.overflow = "hidden";
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
+    setName(node?.nodeName);
+    setPrice(node?.nodePrice);
+    setSlots(node?.slots);
+    setBgcolor(node?.bgColor);
+    setImagePreview(node?.nodeImage.url);
     return () => {
       document.body.style.overflow = "auto";
     };
   }, []);
 
+  const updateNodeHandler = async (id, formData) => {
+    setUpdateLoading(true);
+    setLoading(true)
+    const data = await updateNode(id, formData);
+    console.log(data);
+    if (data.success) {
+      setUpdateLoading(false);
+      toast.success("Node updated successfully");
+      const response = await getAllNodes();
+      setPromotionCodes(response);
+      setLoading(false);
+
+      onClose();
+    } else if (data.response.data.message) {
+      setUpdateLoading(false);
+      toast.error(data.response.data.message);
+    }
+  };
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    setLoading(true);
+    const formData = new FormData();
+    formData.append("nodeName", name);
+    formData.append("nodePrice", price);
+    formData.append("slots", slots);
+    formData.append("bgColor", bgcolor);
+    formData.append("avatar", image);
+    console.log(formData);
+    updateNodeHandler(node._id, formData);
+  };
+
   return (
     <>
       <div className="popUp">
+        {updateLoading && <LoadingModal />}
         {/* {<LoadingModal />} */}
         <div className="popbox">
           <div className="right">
-            <span
-              className="close"
-              // onClick={onClose}
-            >
+            <span className="close" onClick={onClose}>
               <GrFormClose />
             </span>
           </div>
 
-          <form
-            className="update_node_form"
-            // onSubmit={submitHandler}
-          >
+          <form className="update_node_form" onSubmit={submitHandler}>
             <InputContainer
               label={"Node Name"}
               id={"node_name"}
@@ -94,9 +128,7 @@ const UpdateNode = () => {
                 />
               </label>
               <div className="image_preview">
-                {image && imagePreview && (
-                  <img src={imagePreview} alt="imagePreview" />
-                )}
+                {imagePreview && <img src={imagePreview} alt="imagePreview" />}
               </div>
             </div>
             <button type="submit" className="btn primary">

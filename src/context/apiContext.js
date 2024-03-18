@@ -30,6 +30,18 @@ export const ApiProvider = ({ children }) => {
       return err;
     }
   };
+  const updateNode = async (id, formData) => {
+    try {
+      const { data } = await axios.patch(
+        `/api/node/update-node/${id}`,
+        formData
+      );
+      return data;
+    } catch (err) {
+      console.log(err);
+      return err;
+    }
+  };
   const generatePromoCode = async (promotion) => {
     try {
       const { data } = await axios.post(
@@ -63,6 +75,18 @@ export const ApiProvider = ({ children }) => {
     }
   };
 
+  const updatePromoCode = async (id, updateData) => {
+    try {
+      const { data } = await axios.patch(
+        `/api/promotion/update-promotion-code/${id}`,
+        updateData
+      );
+      return data;
+    } catch (err) {
+      console.log(err);
+      return err;
+    }
+  };
   const getAllPools = async () => {
     try {
       const { data } = await axios.get("/api/vote/get-polls");
@@ -90,6 +114,7 @@ export const ApiProvider = ({ children }) => {
       return err;
     }
   };
+
   return (
     <createApiContext.Provider
       value={{
@@ -101,7 +126,9 @@ export const ApiProvider = ({ children }) => {
         deletePromoCode,
         getAllPools,
         createPool,
-        deletePool
+        deletePool,
+        updateNode,
+        updatePromoCode,
       }}
     >
       {children}

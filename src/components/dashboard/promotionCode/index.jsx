@@ -10,6 +10,7 @@ const PromotionCode = ({
   currentUsage,
   expiryDate,
   onDelete,
+  onEdit,
 }) => {
   const expiry_date = new Date(expiryDate).toLocaleDateString();
   const copyCodeToClipboard = () => {
@@ -34,7 +35,7 @@ const PromotionCode = ({
         <p>validate upto: {expiry_date}</p>
       </div>
       <div className="curd_btns">
-        <CURDBtn onDelete={onDelete} />
+        <CURDBtn onDelete={onDelete} onEdit={onEdit} />
       </div>
     </div>
   );

@@ -2,7 +2,7 @@ import React from "react";
 import "./index.css";
 import { MdDeleteOutline } from "react-icons/md";
 import { CiEdit } from "react-icons/ci";
-const Node = ({ node, onDelete }) => {
+const Node = ({ node, onDelete,onClick }) => {
   return (
     <div className="single_node" style={{ background: node.bgColor }}>
       <div className="node_img">
@@ -14,7 +14,7 @@ const Node = ({ node, onDelete }) => {
           <span className="node_slot">slots: {node.slots}</span>
         </div>
         <div className="mange">
-          <i>
+          <i onClick={onClick}>
             <CiEdit />
           </i>
           <i onClick={onDelete}>

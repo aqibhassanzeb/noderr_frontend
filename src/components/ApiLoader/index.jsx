@@ -19,6 +19,8 @@ function LoadingModal({ loadingText }) {
         className="card"
         style={{
           display: "flex",
+          flexDirection: "column",
+          gap: "20px",
           alignItems: "center",
           justifyContent: "center",
           backgroundColor: "transparent",

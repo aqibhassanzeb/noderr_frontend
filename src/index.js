@@ -13,7 +13,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
+  <>
     <SkeletonTheme baseColor="#202020" highlightColor="#444">
       <ThemeProvider>
         <ApiProvider>
@@ -22,7 +22,7 @@ root.render(
         </ApiProvider>
       </ThemeProvider>
     </SkeletonTheme>
-  </React.StrictMode>
+  </>
 );
 
 // If you want to start measuring performance in your app, pass a function

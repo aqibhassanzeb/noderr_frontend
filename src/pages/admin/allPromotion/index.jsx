@@ -5,10 +5,13 @@ import PromotionCode from "../../../components/dashboard/promotionCode";
 import { createApiContext } from "../../../context/apiContext";
 import PromoLoader from "../../../components/skeletonLoaders/promoLoader";
 import { toast } from "react-toastify";
+import UpdatePromo from "../../../components/dashboard/updatePromo";
 const AllPromotionCode = () => {
   const { getAllPromoCodes, deletePromoCode } = useContext(createApiContext);
   const [promotionCodes, setPromotionCodes] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [selectedPromo, setSelectedPromo] = useState(null);
+
   useEffect(() => {
     const fetchPromotionCodes = async () => {
       setLoading(true);
@@ -41,6 +44,13 @@ const AllPromotionCode = () => {
       toast.error(error.response.data.message);
     }
   };
+  const handleNodeClick = (promoData) => {
+    setSelectedPromo(promoData);
+  };
+
+  const handleCloseNodeDetail = () => {
+    setSelectedPromo(null);
+  };
   const skeletonCount = Math.floor(window.innerHeight / 100);
   return (
     <div className="right_dashboard">
@@ -69,12 +79,21 @@ const AllPromotionCode = () => {
                       currentUsage={promo.currentUsage}
                       expiryDate={promo.expiryDate}
                       onDelete={() => handleDeleteNode(promo._id)}
+                      onEdit={() => handleNodeClick(promo)}
                     />
                   );
                 })}
           </div>
         )}
       </div>
+      {selectedPromo && (
+        <UpdatePromo
+          promoData={selectedPromo}
+          onClose={handleCloseNodeDetail}
+          setLoading={setLoading}
+          setPromotionCodes={setPromotionCodes}
+        />
+      )}
     </div>
   );
 };

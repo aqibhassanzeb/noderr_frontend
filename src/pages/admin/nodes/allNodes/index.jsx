@@ -12,6 +12,7 @@ const AllNodes = () => {
   const [loadding, setLoading] = useState(true);
   const [nodes, setNodes] = useState([]);
   const [selectedNode, setSelectedNode] = useState(null);
+
   useEffect(() => {
     const fetchNodes = async () => {
       try {
@@ -42,6 +43,13 @@ const AllNodes = () => {
     // Node deleted successfully, refetch nodes
   };
   const skeletonCount = Math.floor(window.innerHeight / 100);
+  const handleNodeClick = (node) => {
+    setSelectedNode(node);
+  };
+ 
+  const handleCloseNodeDetail = () => {
+    setSelectedNode(null);
+  };
 
   return (
     <div className="right_dashboard">
@@ -66,13 +74,16 @@ const AllNodes = () => {
                       key={index}
                       node={node}
                       onDelete={() => handleDeleteNode(node._id)}
+                      onClick={() => handleNodeClick(node)}
                     />
                   );
                 })}
           </div>
         )}
       </div>
-      <UpdateNode />
+      {selectedNode && (
+        <UpdateNode node={selectedNode} onClose={handleCloseNodeDetail}  setNodes={setNodes}  setLoading={setLoading}/>
+      )}
     </div>
   );
 };
