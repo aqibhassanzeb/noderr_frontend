@@ -60,7 +60,7 @@ const Stats_page = () => {
               }
             />
             <Link to={"/dashboard/edit-profile"} className="profile_img">
-              <img src={images.profileCircle}/>
+              <img src={images.profileCircle} />
             </Link>
           </div>
 

@@ -111,9 +111,9 @@
 }
 .logout_btn > .text {
   text-transform: capitalize;
-  z-index: 9999 !important;
   color: #ffffff;
 }
+
 
 @media screen and (max-width: 768px) {
   .close_btn {

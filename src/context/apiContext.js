@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 export const createApiContext = createContext(null);
 
 export const ApiProvider = ({ children }) => {
-  const [user,setUser] = useState(null)
+  const [user, setUser] = useState(null);
   const handleLoginOrSignUp = async (formData) => {
     try {
       const { data } = await axios.post(
@@ -39,10 +39,9 @@ export const ApiProvider = ({ children }) => {
       const { data } = await axios.put("/api/user/update-profile", formData);
       return data;
     } catch (err) {
-      return  err;
+      return err;
     }
   };
-
 
   const getAllNodes = async () => {
     try {
@@ -166,6 +165,15 @@ export const ApiProvider = ({ children }) => {
     }
   };
 
+  const purchaseNode = async (id,purchaseNodeData) => {
+    try {
+      const { data } = await axios.post(`/api/purchase/pruchase-node/${id}`, purchaseNodeData);
+      return data;
+    } catch (err) {
+      console.log(err);
+      return err;
+    }
+  };
   return (
     <createApiContext.Provider
       value={{
@@ -187,6 +195,7 @@ export const ApiProvider = ({ children }) => {
         setUser,
         getProfileData,
         updateUserProfile,
+        purchaseNode,
       }}
     >
       {children}

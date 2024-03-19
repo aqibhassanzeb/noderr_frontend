@@ -13,19 +13,22 @@ const UpdateUserprofile = () => {
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [loading, setLoading] = React.useState(false);
+  const [fetchLoading,setFetchLoading] = React.useState(false)
   const navigate = useNavigate();
 
   React.useEffect(() => {
     const getUser = async () => {
+        setFetchLoading(true);
       const data = await getProfileData();
       if (data.user.name === null || data.user.email === null) {
         toast.info("Please complete your profile");
       }
 
       if (data.success) {
-        setWalletAddress(data.user.walletAddress);
-        setName(data.user.name);
-        setEmail(data.user.email);
+        setWalletAddress(data?.user?.walletAddress);
+        setName(data?.user?.name);
+        setEmail(data?.user?.email);
+        setFetchLoading(false);
       }
     };
     getUser();
@@ -55,40 +58,46 @@ const UpdateUserprofile = () => {
       <div className="right_dashboard">
         <div className="right_container">
           <PageHeader page_title={"Edit Profile"} badge={"GM, Stranger"} />
-          <form className="update_profile_form" onSubmit={submitHandler}>
-            <InputContainer
-              label={"wallet address"}
-              id={"vote_title"}
-              type={"text"}
-              name={"address"}
-              value={walletAddress}
-              disable={walletAddress ? true : false}
-              onChange={(e) => setWalletAddress(e.target.value)}
-            />
-            <InputContainer
-              label={"Name"}
-              id={"name"}
-              type={"text"}
-              name={"name"}
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-            <InputContainer
-              label={"email"}
-              id={"email"}
-              type={"text"}
-              name={"email"}
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <button
-              type="submit"
-              className="btn primary"
-              style={{ width: "100%" }}
-            >
-              Save
-            </button>
-          </form>
+          {fetchLoading ? (
+            <div>
+            <LoadingModal />
+            </div>
+          ) : (
+            <form className="update_profile_form" onSubmit={submitHandler}>
+              <InputContainer
+                label={"wallet address"}
+                id={"vote_title"}
+                type={"text"}
+                name={"address"}
+                value={walletAddress}
+                disable={walletAddress ? true : false}
+                onChange={(e) => setWalletAddress(e.target.value)}
+              />
+              <InputContainer
+                label={"Name"}
+                id={"name"}
+                type={"text"}
+                name={"name"}
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+              <InputContainer
+                label={"email"}
+                id={"email"}
+                type={"text"}
+                name={"email"}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <button
+                type="submit"
+                className="btn primary"
+                style={{ width: "100%" }}
+              >
+                Save
+              </button>
+            </form>
+          )}
         </div>
       </div>
     </>

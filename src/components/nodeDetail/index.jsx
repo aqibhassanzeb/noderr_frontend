@@ -1,44 +1,86 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./index.css";
-import { images } from "../../images";
 import { GrFormClose } from "react-icons/gr";
-const NodeDetail = ({node,onClose}) => {
+import { createApiContext } from "../../context/apiContext";
+import { toast } from "react-toastify";
+import LoadingModal from "../ApiLoader";
+
+const NodeDetail = ({ node, onClose }) => {
+  const { purchaseNode } = useContext(createApiContext);
   const [activeTab, setActiveTab] = useState(1);
   const [computeTotal, setComputeTotal] = useState(0);
+  const [loading, setLoading] = useState(false);
+  const [duration, setDuration] = useState(1);
 
-  const handleTabClick = (tabNumber) => {
-    setActiveTab(tabNumber);
-  };
   useEffect(() => {
     document.body.style.overflowY = "hidden";
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
-    const nodeFee = node.nodePrice;
 
     // Calculate the total based on the selected tab and node fee
+    const nodeFee = node.nodePrice;
     const total = nodeFee * activeTab;
     setComputeTotal(total);
+
+    // Set duration based on the selected tab
+    switch (activeTab) {
+      case 1:
+        setDuration(1);
+        break;
+      case 3:
+        setDuration(3);
+        break;
+      case 6:
+        setDuration(6);
+        break;
+      case 12:
+        setDuration(12);
+        break;
+      default:
+        setDuration(1);
+        break;
+    }
+
     return () => {
       document.body.style.overflowY = "auto";
     };
-  }, [activeTab]);
-  const getMonthDuration = () => {
-    switch (activeTab) {
-      case 1:
-        return "1 month";
-      case 3:
-        return "3 months";
-      case 6:
-        return "6 months";
-      case 12:
-        return "12 months";
-      default:
-        return "1 month";
+  }, [activeTab, node.nodePrice]);
+
+  const handleTabClick = (tabNumber) => {
+    setActiveTab(tabNumber);
+  };
+
+  const purchaseHandler = async () => {
+    setLoading(true);
+    const data = {
+      durationMonths: duration,
+      price: computeTotal,
+    };
+    try {
+      const response = await purchaseNode(node._id, data);
+      console.log(response);
+      if (response.success) {
+        setLoading(false);
+        toast.success("Node purchased successfully");
+        onClose();
+      } else if (response.response.data.message) {
+        setLoading(false);
+        toast.error(response.response.data.message);
+      }
+    } catch (error) {
+      console.error(error);
+      setLoading(false);
+      toast.error("Failed to purchase node. Please try again later.");
     }
   };
+
   return (
+    <>
+    {
+      loading && <LoadingModal/>
+    }
     <div className="node_detail_section">
       <div className="node_detail_container">
         <div className="detail_header">
@@ -88,7 +130,7 @@ const NodeDetail = ({node,onClose}) => {
           </div>
           <div className="fee_structure">
             <span className="label">period</span>
-            <span className="pricing">{getMonthDuration()}</span>
+            <span className="pricing">{duration} month(s)</span>
           </div>
           <div className="fee_structure border-top">
             <span className="label">total</span>
@@ -99,10 +141,14 @@ const NodeDetail = ({node,onClose}) => {
           <p>
             <span>Click here</span> to view installation steps
           </p>
-          <button className="detail_btn">purchase</button>
+          <button className="detail_btn" onClick={purchaseHandler} disabled={loading}>
+            {loading ? "Purchasing..." : "Purchase"}
+          </button>
         </div>
       </div>
     </div>
+    </>
+
   );
 };
 

@@ -69,7 +69,11 @@ const Dashboard = () => {
               <span className="text">logout</span>
             </div>
           )}
-          {!user && <button onClick={authUser} className="connect_wallet_btn">login</button>}
+          {!user && (
+            <button onClick={authUser} className="connect_wallet_btn">
+              login
+            </button>
+          )}
         </div>
         <div className="dashboard">
           <div className={show ? "side_menu hide" : "side_menu"}>
