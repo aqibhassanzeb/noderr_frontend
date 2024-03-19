@@ -7,22 +7,36 @@ import NodeDetail from "../../components/nodeDetail";
 import PageHeader from "../../components/dashboard/pageHeader/pageHeader";
 import { createApiContext } from "../../context/apiContext";
 import NodeLoader from "../../components/skeletonLoaders/nodesLoader";
+import { Link } from "react-router-dom";
 const Stats_page = () => {
-  const { getAllNodes } = useContext(createApiContext);
-  const [loadding, setLoading] = React.useState(true);
+  const { getAllNodes, getProfileData, user } = useContext(createApiContext);
+  const [loadingNodes, setLoadingNodes] = useState(true);
+  const [loadingProfile, setLoadingProfile] = useState(true);
   const [nodes, setNodes] = React.useState([]);
   const [selectedNode, setSelectedNode] = useState(null);
+  const [userData, setUserData] = useState(null);
   useEffect(() => {
-    const fetchNodes = async () => {
+    const fetchData = async () => {
       try {
-        const response = await getAllNodes();
-        setNodes(response);
-        setLoading(false);
+        setLoadingNodes(true);
+        setLoadingProfile(true);
+        const [nodesResponse, profileResponse] = await Promise.all([
+          getAllNodes(),
+          getProfileData(),
+        ]);
+        setNodes(nodesResponse);
+        if (profileResponse.success) {
+          setUserData(profileResponse.user);
+        }
       } catch (error) {
-        console.log("Error fetching nodes", error);
+        console.log("Error fetching data", error);
+      } finally {
+        setLoadingNodes(false);
+        setLoadingProfile(false);
       }
     };
-    fetchNodes();
+
+    fetchData();
   }, []);
   const skeletonCount = Math.floor(window.innerHeight / 100);
   const handleNodeClick = (node) => {
@@ -32,29 +46,44 @@ const Stats_page = () => {
   const handleCloseNodeDetail = () => {
     setSelectedNode(null);
   };
-
   return (
     <>
       <div className="right_dashboard">
         <div className="right_container">
-          <PageHeader page_title={"Deploy A New Node"} badge={"GM, Stranger"} />
-          {loadding ? (
+          <div className="page_header_container">
+            <PageHeader
+              page_title={"Deploy A New Node"}
+              badge={
+                user && userData && userData
+                  ? `Hello ${userData?.name}`
+                  : "GM, Stranger"
+              }
+            />
+            <Link to={"/dashboard/edit-profile"} className="profile_img">
+              <img src={images.profileCircle}/>
+            </Link>
+          </div>
+
+          {loadingNodes || loadingProfile ? (
             <NodeLoader skeletonCount={skeletonCount} />
           ) : (
             <div className="dashboard_grid">
               {nodes &&
-                nodes.slice().reverse().map((node, index) => {
-                  return (
-                    <StatsCard
-                      key={index}
-                      stats_img={node.nodeImage.url}
-                      text={node.nodeName}
-                      slot={node.slots}
-                      bg_color={node.bgColor}
-                      onClick={() => handleNodeClick(node)}
-                    />
-                  );
-                })}
+                nodes
+                  .slice()
+                  .reverse()
+                  .map((node, index) => {
+                    return (
+                      <StatsCard
+                        key={index}
+                        stats_img={node.nodeImage.url}
+                        text={node.nodeName}
+                        slot={node.slots}
+                        bg_color={node.bgColor}
+                        onClick={() => handleNodeClick(node)}
+                      />
+                    );
+                  })}
             </div>
           )}
         </div>

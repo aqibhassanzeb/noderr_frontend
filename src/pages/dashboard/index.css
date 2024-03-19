@@ -88,6 +88,32 @@
 .menu_list > .menu_item > span {
   text-transform: capitalize;
 }
+.logout_btn {
+  position: relative;
+  bottom: 10%;
+  padding: var(--side-menu-pad);
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap);
+  border-radius: 12px;
+  border: 1px solid #333;
+  border-right: 4px solid #333;
+}
+.logout_btn:hover{
+  background: linear-gradient(90deg, #333 0%, rgba(0, 0, 0, 0) 70%);
+
+}
+.logout_btn > .icon {
+  font-size: 20px;
+}
+.logout_btn > .text {
+  text-transform: capitalize;
+  z-index: 9999 !important;
+  color: #ffffff;
+}
 
 @media screen and (max-width: 768px) {
   .close_btn {
@@ -110,17 +136,15 @@
   }
 
   .dashboard_container > .header > .icon {
-  
     display: flex;
     align-items: center;
     justify-content: center;
 
     cursor: pointer;
-  
-    border-radius: var(--border-radius);
-  
-    font-size: 50px;
 
+    border-radius: var(--border-radius);
+
+    font-size: 50px;
   }
 
   .dashboard_container > .header > .connect_wallet_btn {
@@ -191,5 +215,29 @@
   .menu_list > .menu_item > img {
     width: 15px;
     height: 15px;
+  }
+  .logout_btn {
+    display: none;
+  }
+  .header_logout {
+    padding: 6px;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--gap);
+    background: linear-gradient(90deg, #333 0%, rgba(0, 0, 0, 0) 70%);
+    border-radius: 8px;
+    border: 1px solid #333;
+    border-right: 3px solid #333;
+  }
+  .header_logout > .icon {
+    font-size: 15px;
+  }
+  .header_logout > .text {
+    text-transform: capitalize;
+    font-size: 15px;
+    color: #ffffff;
   }
 }

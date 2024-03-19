@@ -12,7 +12,8 @@ import shareNode from "./shareNode.svg";
 import uploadSign from "./upload-sign.svg";
 import vote from "./vote.svg";
 import promo from "./promoImage.png";
-import purchase from "./purchase.svg"
+import purchase from "./purchase.svg";
+import profileCircle from "./profile-circle.svg";
 
 export const images = {
   logo,
@@ -29,5 +30,6 @@ export const images = {
   uploadSign,
   vote,
   promo,
-  purchase
+  purchase,
+  profileCircle,
 };

@@ -1,10 +1,49 @@
 import axios from "axios";
-import { createContext } from "react";
+import { createContext, useState } from "react";
 import { toast } from "react-toastify";
 
 export const createApiContext = createContext(null);
 
 export const ApiProvider = ({ children }) => {
+  const [user,setUser] = useState(null)
+  const handleLoginOrSignUp = async (formData) => {
+    try {
+      const { data } = await axios.post(
+        "/api/user/register-or-login-user",
+        formData
+      );
+      return data;
+    } catch (err) {
+      return err;
+    }
+  };
+  const handleLogout = async () => {
+    try {
+      const { data } = await axios.get("/api/user/logout");
+      return data;
+    } catch (err) {
+      return err;
+    }
+  };
+
+  const getProfileData = async () => {
+    try {
+      const { data } = await axios.get("/api/user/profile");
+      return data;
+    } catch (err) {
+      return err;
+    }
+  };
+  const updateUserProfile = async (formData) => {
+    try {
+      const { data } = await axios.put("/api/user/update-profile", formData);
+      return data;
+    } catch (err) {
+      return  err;
+    }
+  };
+
+
   const getAllNodes = async () => {
     try {
       const { data } = await axios.get("/api/node/get-all-nodes");
@@ -116,7 +155,10 @@ export const ApiProvider = ({ children }) => {
   };
   const updatePool = async (id, updateData) => {
     try {
-      const { data } = await axios.patch(`/api/vote/update-poll/${id}`, updateData);
+      const { data } = await axios.patch(
+        `/api/vote/update-poll/${id}`,
+        updateData
+      );
       return data;
     } catch (err) {
       console.log(err);
@@ -138,7 +180,13 @@ export const ApiProvider = ({ children }) => {
         deletePool,
         updateNode,
         updatePromoCode,
-        updatePool
+        updatePool,
+        handleLoginOrSignUp,
+        handleLogout,
+        user,
+        setUser,
+        getProfileData,
+        updateUserProfile,
       }}
     >
       {children}

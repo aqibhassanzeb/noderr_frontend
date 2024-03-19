@@ -14,11 +14,21 @@
   backdrop-filter: blur(9px);
 }
 .node_detail_container {
+  max-height: 60vh;
   max-width: 390px;
+  height: auto;
   width: 100%;
   background-color: var(--black--light);
   border-radius: var(--card-border-radius);
   padding: var(--card-pad);
+  display: flex;
+  overflow-y: auto;
+  flex-direction: column;
+
+  gap: var(--gap);
+}
+.node_detail_container::-webkit-scrollbar{
+  display: none;
 }
 .node_detail_container > .detail_header {
   display: flex;

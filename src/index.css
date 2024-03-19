@@ -272,7 +272,11 @@ img {
   border-radius: var(--border-radius-full);
   cursor: var(--pointer);
 }
-
+.page_header_container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 @media screen and (max-width: 768px) {
   .btn {
     padding: 10px 15px;

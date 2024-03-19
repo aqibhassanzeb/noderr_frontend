@@ -1,3 +1,8 @@
+.title_container{
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
 .header {
   width: 100%;
   display: flex;
@@ -36,6 +41,9 @@
 }
 
 @media screen and (max-width: 768px) {
+  .title_container{
+    gap: var(--sm-gap);
+  }
   .header > .connect_wallet_btn {
     /* display: none; */
     padding: var(--btn-sm-pad);
