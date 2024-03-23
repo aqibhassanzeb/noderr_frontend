@@ -183,6 +183,16 @@ export const ApiProvider = ({ children }) => {
       return err;
     }
   }
+
+  const getAllPurchaseNodeByAdmin = async () => {
+    try {
+      const { data } = await axios.get("/api/purchase/get-purchase-nodes");
+      return data;
+    } catch (err) {
+      console.log(err);
+      return err;
+    }
+  }
   return (
     <createApiContext.Provider
       value={{
@@ -205,7 +215,8 @@ export const ApiProvider = ({ children }) => {
         getProfileData,
         updateUserProfile,
         purchaseNode,
-        getPurchaseNode
+        getPurchaseNode,
+        getAllPurchaseNodeByAdmin
       }}
     >
       {children}

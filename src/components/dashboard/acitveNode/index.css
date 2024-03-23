@@ -2,6 +2,7 @@
   padding: var(--card-pad);
   border-radius: var(--card-border-radius);
   box-shadow: var(--box-shadow);
+  cursor: pointer;
 }
 .active_node.split-card {
   display: flex;
@@ -49,12 +50,15 @@
     align-items: flex-start;
   }
   .active_node-image {
+    margin: auto;
     width: var(--node-md-image-size);
     height: var(--node-md-image-size);
   }
 
   .active_node-content {
     gap: var(--sm-gap);
+    width: 100%;
+    
   }
   .active_node-content > .active_node-title {
     font-size: var(--text-lg);

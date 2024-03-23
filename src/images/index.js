@@ -14,7 +14,8 @@ import vote from "./vote.svg";
 import promo from "./promoImage.png";
 import purchase from "./purchase.svg";
 import profileCircle from "./profile-circle.svg";
-import Landing from "./landing.gif"
+import Landing from "./landing.gif";
+import activeNode from "./active-node.svg"
 
 export const images = {
   logo,
@@ -34,4 +35,5 @@ export const images = {
   purchase,
   profileCircle,
   Landing,
+  activeNode,
 };

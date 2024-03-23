@@ -1,17 +1,19 @@
 import React from 'react'
 import "./index.css"
-const ActiveNode = () => {
+import { formatDate } from '../../../helpler'
+const ActiveNode = ({node}) => {
+  
   return (
-    <div className="active_node split-card" style={{background:"#e81899"}}>
+    <div className="active_node split-card" style={{background:node.node.bgColor}}>
     <div className="active_node-image">
-      <img src="https://res.cloudinary.com/sheriue/image/upload/v1710780356/node/xveesj21tfcb6nu84dxv.svg" alt="Node"/>
+      <img src={node.node.nodeImage.url} alt="Node"/>
     </div>
     <div className="active_node-content">
-      <p class="active_node-title">bevm</p>
-      <p className='content'>Duration: 1 Month</p>
-      <p className='content'>Price: PKR 23</p>
-      <p className='content'>Purchased: Wednesday, March 20, 2024</p>
-      <p className='content'>Expires: Saturday, April 20, 2024</p>
+      <p class="active_node-title">{node.node.nodeName}</p>
+      <p className='content'>Duration: {node.durationMonths} Month</p>
+      <p className='content'>Price: {node.price}</p>
+      <p className='content'>Purchased: {formatDate(node?.purchaseDate)}</p>
+      <p className='content'>Expires: {formatDate(node?.expiryDate)}</p>
     </div>
   </div>
   

@@ -1,27 +1,26 @@
-.footer{
-    display: flex;
-    width: 100%;
-    justify-content: flex-end;
+.footer {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
 
-    padding: var(--header-pad) 35px;
-    background-color: rgba(0, 0, 0, 0.3);
-    gap: var(--gap);
+  padding: 10px 20px;
+
+  background-color: rgba(0, 0, 0, 0.3);
+  gap: var(--gap);
 }
 
-.footer > span{
-    color: white;
-    font-size: var(--h3-size);
-    font-weight: var(--leading-5);
-    cursor: pointer;
-    
+.footer > span {
+  color: white;
+  font-size: var(--h3-sm-size);
+  font-weight: var(--leading-4);
+  cursor: pointer;
 }
 
 @media screen and (max-width: 768px) {
-    .footer{
-        padding: 10px 30px;
-    }
-    .footer > span{
-        font-size: var(--h3-sm-size);
-    }
-    
+  .footer {
+    padding: 08px 16px;
+  }
+  .footer > span {
+    font-size: var(--h4-size);
+  }
 }
