@@ -16,6 +16,8 @@ import AllVotes from "./pages/admin/allVotes";
 import AllPurchaseNodebyUsers from "./pages/admin/allPurchaseNodes";
 import "react-loading-skeleton/dist/skeleton.css";
 import UpdateUserprofile from "./pages/updateUserProfile";
+import UserActiveNode from "./pages/userAcitveNodes";
+import Landing from "./pages/landing";
 
 const Home = React.lazy(() => import("./pages/home"));
 const Dashboard = React.lazy(() => import("./pages/dashboard"));
@@ -23,7 +25,7 @@ const Dashboard = React.lazy(() => import("./pages/dashboard"));
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <Landing />,
   },
   {
     path: "dashboard",
@@ -32,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: "",
         element: <StatsPage />,
+      },
+      {
+        path: "active-nodes",
+        element: <UserActiveNode />,
       },
       {
         path: "support",

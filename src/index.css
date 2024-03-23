@@ -30,6 +30,9 @@
   --h3-sm-size: 18px;
   --h4-size: 18px;
   --h4-sm-size: 16px;
+  --p-size: 16px;
+  --p-md-size: 14px;
+  --p-sm-size: 12px;
   --layout-width: 1200px;
   --full-width: 100%;
   --header-pad: 18px;
@@ -103,6 +106,9 @@
   --pad-2: 20px;
   --form-max-width: 820px;
   --border-size: 1px;
+  --node-image-size: 80px;
+  --node-md-image-size: 60px;
+  --node-sm-image-size: 40px;
 }
 
 body {
@@ -272,7 +278,7 @@ img {
   border-radius: var(--border-radius-full);
   cursor: var(--pointer);
 }
-.page_header_container{
+.page_header_container {
   display: flex;
   align-items: center;
   justify-content: space-between;

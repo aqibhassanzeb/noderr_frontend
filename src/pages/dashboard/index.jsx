@@ -90,6 +90,15 @@ const Dashboard = () => {
                     <img src={images.dashboard} alt="dashboard" />
                     <span>dashboard</span>
                   </NavLink>
+                  <NavLink
+                    className="menu_item"
+                    to={"active-nodes"}
+                    end
+                    onClick={() => setShow(!show)}
+                  >
+                    <img src={images.dashboard} alt="dashboard" />
+                    <span>active nodes</span>
+                  </NavLink>
 
                   <NavLink
                     className="menu_item"
