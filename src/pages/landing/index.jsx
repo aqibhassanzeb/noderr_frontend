@@ -11,7 +11,8 @@ const Landing = () => {
             <h2 className='about_heading'>Node Deployment</h2>
             <h3 className='about_subheading'>One click node deployment</h3>
             <p>
-            Mintair makes blockchain nodes accessible to all. Deploy effortlessly, host your server transact seamlessly, and unlock the rewards of decentralization.
+            Noderr simplifies the world of blockchain, making nodes accessible to everyone. With effortless deployment, you can unlock exclusive early adopter rewards through our cutting-edge decentralization platform. Join us in shaping the future of blockchain accessibility
+            .
             </p>
             <Link to="/dashboard" className='btn primary'>Get started</Link>
         </div>

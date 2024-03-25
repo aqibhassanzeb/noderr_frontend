@@ -24,6 +24,8 @@
   --div-sm-pad: 15px;
   --card-pad: 16px;
   --card-sm-pad: 10px;
+  --h1-size: 50px;
+  --h1-sm-size: 40px;
   --h2-size: 40px;
   --h2-sm-size: 30px;
   --h3-size: 20px;
@@ -39,17 +41,17 @@
   --header-sm-pad: 15px;
   --white: #ffffff;
   --black: rgba(0, 0, 0, 0.4);
-  --btn-pad: 10px 15px;
+  --btn-pad: 12px 24px;
   --btn-sm-pad: 8px 12px;
   --black--light: #ffffff;
   --primary-light: #29dbb2;
   --bg-linear-gradient: linear-gradient(90deg, #29dbb2 0%, #1980e5 100%);
 
   --header-border: #edf0f2;
-  --logo-width: 50px;
-  --logo-height: 40px;
-  --logo-md-width: 40px;
-  --logo-md-height: 30px;
+  --logo-width: 80px;
+  --logo-height: 70px;
+  --logo-md-width: 60px;
+  --logo-md-height: 45px;
   --gap-one-half: 5px;
   --gap-1: 8px;
   --gap-2: 16px;
@@ -176,12 +178,12 @@ img {
   fill: green !important;
 }
 .btn {
-  padding: 10px 15px;
+  padding: var(--btn-pad);
   border: none;
   border-radius: var(--border-radius);
   cursor: pointer;
   text-transform: capitalize;
-  font-size: var(--btn-font-size);
+  font-size: var(--h3-size);
   outline: none;
   /* color: var(--black); */
   font-weight: var(--leading-6);
@@ -285,8 +287,8 @@ img {
 }
 @media screen and (max-width: 768px) {
   .btn {
-    padding: 10px 15px;
-    font-size: var(--btn-sm-font-size);
+    padding: var(--btn-sm-pad);
+    font-size: var(--h3-sm-size);
   }
   .icon {
     width: 20px !important;

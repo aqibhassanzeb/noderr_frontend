@@ -2,6 +2,7 @@
   display: flex;
   width: 100%;
   justify-content: flex-end;
+  align-items: center;
 
   padding: 10px 20px;
 
@@ -9,10 +10,15 @@
   gap: var(--gap);
 }
 
-.footer > span {
+.footer > .text {
   color: white;
-  font-size: var(--h3-sm-size);
+  font-size: var(--h3-size);
   font-weight: var(--leading-4);
+  cursor: pointer;
+}
+.footer > .icon {
+  color: white;
+  font-size: var(--h2-sm-size);
   cursor: pointer;
 }
 
@@ -20,7 +26,12 @@
   .footer {
     padding: 08px 16px;
   }
-  .footer > span {
-    font-size: var(--h4-size);
+  .footer > .text {
+    font-size: var(--h2-size);
+    font-weight: var(--leading-3);
+  }
+  .footer > .icon {
+    color: white;
+    font-size: var(--h2-size);
   }
 }

@@ -1,15 +1,15 @@
 import React from 'react'
 import "./index.css"
 import { FaXTwitter } from "react-icons/fa6";
-import { FaDiscord } from "react-icons/fa";
+import { FaTelegramPlane } from "react-icons/fa";
 const Footer = () => {
   return (
     <div className='footer'>
-        <span>Privacy Policy</span>
-        <span>Term of Services</span>
-        <span><FaXTwitter/></span>
-        <span><FaDiscord/></span>
-        <span></span>
+        <span className='text'>Privacy Policy</span>
+        <span className='text'>Term of Services</span>
+        <span className='icon'><FaXTwitter/></span>
+        <span className='icon'><FaTelegramPlane/></span>
+      
     </div>
   )
 }
