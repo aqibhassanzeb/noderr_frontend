@@ -67,20 +67,22 @@ const AllVotes = () => {
           <PromoLoader skeletonCount={skeletonCount} />
         ) : (
           <div className="all_votes">
-            {votes &&
+            {votes.length > 0 ? (
+              votes &&
               votes
-                ?.slice()
+                .slice()
                 .reverse()
-                .map((vote, index) => {
-                  return (
-                    <Vote
-                      key={index}
-                      vote={vote}
-                      onDelete={() => deleteHnadler(vote._id)}
-                      onEdit={() => handleNodeClick(vote)}
-                    />
-                  );
-                })}
+                .map((vote, index) => (
+                  <Vote
+                    key={index}
+                    voteData={vote}
+                    handleNodeClick={handleNodeClick}
+                    deleteHnadler={deleteHnadler}
+                  />
+                ))
+            ) : (
+              <h1>No vote found</h1>
+            )}
           </div>
         )}
       </div>

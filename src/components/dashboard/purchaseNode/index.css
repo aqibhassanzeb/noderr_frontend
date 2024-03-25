@@ -6,6 +6,8 @@
   padding: var(--pad-1);
   border-radius: var(--border-radius);
   background: var(--bg-linear-gradient);
+  text-transform: capitalize;
+  font-weight: 600;
 }
 .purchase_time {
   width: 100%;
@@ -24,18 +26,19 @@
   color: var(--black);
   text-transform: capitalize;
 }
-.purchase_node > .price {
+.purchase_node > .display_between>.left {
   font-size: var(--text-lg);
   font-weight: var(--leading-5);
   color: var(--black);
   text-transform: capitalize;
 }
 
-.purchase_node > .duration {
+.purchase_node > .display_between>.right {
   font-size: var(--text-lg);
   font-weight: var(--leading-5);
   color: var(--black);
   text-transform: capitalize;
+  text-align: right;
 }
 .purchase_node > .user {
   font-size: var(--text-lg);
@@ -60,14 +63,19 @@
     font-size: var(--text-xl);
     font-weight: var(--leading-6);
   }
-  .purchase_node > .price {
+  .purchase_node > .display_between>.left {
     font-size: var(--text-md);
     font-weight: var(--leading-5);
   }
 
-  .purchase_node > .duration {
+  .purchase_node >.display_between> .right {
+    width: 100%;
+    max-width: 100%;
+    min-width: 70px;
     font-size: var(--text-md);
     font-weight: var(--leading-5);
+    word-wrap: break-word;
+    word-break: break-all;
   }
   .purchase_node > .user {
     font-size: var(--text-md);

@@ -25,8 +25,8 @@ const Dashboard = () => {
   const handleAuth = async () => {
     setLoading(true);
     const authData = {
-      // userWallet: "0xd61F25d96b5e2E3D79be0081B846beAA934c04dE",
-      userWallet: "0xD775c914a90eA18B50C5f04e4a45Ba3c91F171a8",
+      userWallet: "0xd61F25d96b5e2E3D79be0081B846beAA934c04dE",
+      // userWallet: "0xD775c914a90eA18B50C5f04e4a45Ba3c91F171a8",
     };
     const data = await handleLoginOrSignUp(authData);
     console.log(data);

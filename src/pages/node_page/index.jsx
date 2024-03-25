@@ -68,7 +68,8 @@ const Stats_page = () => {
             <NodeLoader skeletonCount={skeletonCount} />
           ) : (
             <div className="dashboard_grid">
-              {nodes &&
+              {nodes.length > 0 ? (
+                nodes &&
                 nodes
                   .slice()
                   .reverse()
@@ -83,7 +84,10 @@ const Stats_page = () => {
                         onClick={() => handleNodeClick(node)}
                       />
                     );
-                  })}
+                  })
+              ) : (
+                <h1>No Node Found</h1>
+              )}
             </div>
           )}
         </div>

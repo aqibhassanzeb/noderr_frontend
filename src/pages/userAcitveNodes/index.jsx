@@ -14,7 +14,8 @@ const UserActiveNode = () => {
       setLoading(true);
       const data = await getPurchaseNode();
       if (data.success) {
-        setActiveNodes(data.data[0].purchaseNodes);
+        console.log(data);
+        setActiveNodes(data.data);
         setLoading(false);
       } else if (data.response.data.message) {
         setLoading(false);
@@ -30,14 +31,16 @@ const UserActiveNode = () => {
         <PageHeader page_title={"User active nodes"} badge={"GM, Stranger"} />
         {loading ? (
           <PromoLoader skeletonCount={skeletonCount} />
-        ) : (
+        ) : activeNodes.length > 0 ? (
           <>
             <div className="active_nodes_container">
-              {activeNodes?.map((node, index) => (
+              { activeNodes && activeNodes?.map((node, index) => (
                 <ActiveNode key={index} node={node} />
               ))}
             </div>
           </>
+        ) : (
+          <h1>No active node found</h1>
         )}
       </div>
     </div>

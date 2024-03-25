@@ -64,7 +64,8 @@ const AllPromotionCode = () => {
           <PromoLoader skeletonCount={skeletonCount} />
         ) : (
           <div className="all_promotion_codes">
-            {promotionCodes &&
+            {promotionCodes.length > 0 ? (
+              promotionCodes &&
               promotionCodes
                 .slice()
                 .reverse()
@@ -81,7 +82,10 @@ const AllPromotionCode = () => {
                       onEdit={() => handleNodeClick(promo)}
                     />
                   );
-                })}
+                })
+            ) : (
+              <h1>No promotion code found</h1>
+            )}
           </div>
         )}
       </div>

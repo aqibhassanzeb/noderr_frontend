@@ -46,7 +46,7 @@ const AllNodes = () => {
   const handleNodeClick = (node) => {
     setSelectedNode(node);
   };
- 
+
   const handleCloseNodeDetail = () => {
     setSelectedNode(null);
   };
@@ -64,7 +64,8 @@ const AllNodes = () => {
           <AdminNodeLoader skeletonCount={skeletonCount} />
         ) : (
           <div className="all_nodes">
-            {nodes &&
+            {nodes.length > 0 ? (
+              nodes &&
               nodes
                 .slice()
                 .reverse()
@@ -77,12 +78,20 @@ const AllNodes = () => {
                       onClick={() => handleNodeClick(node)}
                     />
                   );
-                })}
+                })
+            ) : (
+              <h1>No Node Found</h1>
+            )}
           </div>
         )}
       </div>
       {selectedNode && (
-        <UpdateNode node={selectedNode} onClose={handleCloseNodeDetail}  setNodes={setNodes}  setLoading={setLoading}/>
+        <UpdateNode
+          node={selectedNode}
+          onClose={handleCloseNodeDetail}
+          setNodes={setNodes}
+          setLoading={setLoading}
+        />
       )}
     </div>
   );

@@ -6,7 +6,7 @@ import InputContainer from "../InputContainer";
 import { images } from "../../../images";
 import { GrFormClose } from "react-icons/gr";
 import { createApiContext } from "../../../context/apiContext";
-const UpdateNode = ({ node, onClose, setPromotionCodes, setLoading }) => {
+const UpdateNode = ({ node, onClose, setNodes, setLoading }) => {
   const { updateNode, getAllNodes } = useContext(createApiContext);
   const [name, setName] = React.useState("");
   const [price, setPrice] = React.useState("");
@@ -33,14 +33,14 @@ const UpdateNode = ({ node, onClose, setPromotionCodes, setLoading }) => {
 
   const updateNodeHandler = async (id, formData) => {
     setUpdateLoading(true);
-    setLoading(true)
+    setLoading(true);
     const data = await updateNode(id, formData);
     console.log(data);
     if (data.success) {
       setUpdateLoading(false);
       toast.success("Node updated successfully");
       const response = await getAllNodes();
-      setPromotionCodes(response);
+      setNodes(response);
       setLoading(false);
 
       onClose();
