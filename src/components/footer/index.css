@@ -3,13 +3,10 @@
   width: 100%;
   justify-content: flex-end;
   align-items: center;
-
   padding: 10px 20px;
-
   background-color: rgba(0, 0, 0, 0.3);
   gap: var(--gap);
 }
-
 .footer > .text {
   color: white;
   font-size: var(--h3-size);
@@ -26,10 +23,12 @@
   .footer {
     padding: 08px 16px;
   }
+
   .footer > .text {
-    font-size: var(--h2-size);
+    font-size: var(--h3-sm-size);
     font-weight: var(--leading-3);
   }
+
   .footer > .icon {
     color: white;
     font-size: var(--h2-size);

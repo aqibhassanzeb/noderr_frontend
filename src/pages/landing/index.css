@@ -43,6 +43,8 @@
 @media screen and (max-width: 768px) {
   .about {
     gap: var(--gap-1);
+  min-height: calc(100vh - 36px - 61px);
+
   }
   .about > p {
     font-size: var(--h3-md-size);
