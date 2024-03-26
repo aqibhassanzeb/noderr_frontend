@@ -18,6 +18,8 @@ import "react-loading-skeleton/dist/skeleton.css";
 import UpdateUserprofile from "./pages/updateUserProfile";
 import UserActiveNode from "./pages/userAcitveNodes";
 import Landing from "./pages/landing";
+import PrivacyPolicy from "./pages/privacy-policy";
+import TermsAndCondition from "./pages/terms-and-condition";
 
 const Home = React.lazy(() => import("./pages/home"));
 const Dashboard = React.lazy(() => import("./pages/dashboard"));
@@ -26,6 +28,14 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Landing />,
+  },
+  {
+    path: "privacy-policy",
+    element: <PrivacyPolicy />,
+  },
+  {
+    path: "terms-and-conditions",
+    element: <TermsAndCondition />,
   },
   {
     path: "dashboard",

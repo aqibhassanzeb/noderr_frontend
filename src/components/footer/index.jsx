@@ -5,11 +5,10 @@ import { FaTelegramPlane } from "react-icons/fa";
 const Footer = () => {
   return (
     <div className='footer'>
-        <span className='text'>Privacy Policy</span>
-        <span className='text'>Term of Services</span>
-        <span className='icon'><FaXTwitter/></span>
-        <span className='icon'><FaTelegramPlane/></span>
-      
+        <span className='text'><a href='privacy-policy'>Privacy Policy</a></span>
+        <span className='text'><a href='terms-and-conditions'>Term of Services</a></span>
+        <span className='icon'><a href="https://t.me/NoderrSupp" target="_blank"><FaXTwitter/></a></span>
+        <span className='icon'><a href="https://x.com/NoderrNoderrxyz?t=ur-xp14gkfRZiduGgzIqVA&s=09"  target="_blank"><FaTelegramPlane/></a></span>      
     </div>
   )
 }
