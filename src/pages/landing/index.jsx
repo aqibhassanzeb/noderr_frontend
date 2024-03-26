@@ -9,7 +9,7 @@ const Landing = () => {
         <Header/>
         <div className='about'>
             <h2 className='about_heading'>Node Deployment</h2>
-            <h3 className='about_subheading'>One click node deployment</h3>
+            {/* <h3 className='about_subheading'>One click node deployment</h3> */}
             <p>
             Noderr simplifies the world of blockchain, making nodes accessible to everyone. With effortless deployment, you can unlock exclusive early adopter rewards through our cutting-edge decentralization platform. Join us in shaping the future of blockchain accessibility
             .

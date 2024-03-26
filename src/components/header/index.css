@@ -1,3 +1,15 @@
+@keyframes deployAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 .landing_header {
   display: flex;
   justify-content: space-between;
@@ -14,32 +26,12 @@
 .landing_header > .side_heading {
   color: white;
   font-size: var(--h2-size);
-  font-weight: var(--leading-8);
+  /* font-weight: var(--leading-8); */
   text-transform: capitalize;
 }
 .landing_header > .brand {
   width: var(--logo-width);
   height: var(--logo-height);
-}
-
-.landing_header > .launch_btn {
-  background-image: linear-gradient(
-      to bottom right,
-      #52525b,
-      rgba(82, 82, 91, 0)
-    ),
-    linear-gradient(to bottom right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1));
-
-  /* Stack the background images on top of each other */
-  background-size: 100% 100%, 100% 100%;
-  background-repeat: no-repeat;
-  background-position: top left, top right;
-  border-radius: 30px;
-  padding: 12px 24px;
-  color: #ffffff;
-  font-size: var(--h2-sm-size);
-  text-transform: capitalize;
-  font-weight: var(--leading-5);
 }
 
 @media screen and (max-width: 768px) {
@@ -53,23 +45,52 @@
     width: var(--logo-md-width);
     height: var(--logo-md-height);
   }
+}
 
-  .landing_header > .launch_btn {
-    /* Stack the background images on top of each other */
+.landing_header > .launch_btn {
+  background-image: linear-gradient(
+      to bottom right,
+      #52525b,
+      rgba(82, 82, 91, 0)
+    ),
+    linear-gradient(to bottom right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1));
 
-    border-radius: 30px;
-    padding: 10px 20px;
-    color: #ffffff;
-    font-size: var(--h3-sm-size);
-    text-transform: capitalize;
-    font-weight: var(--leading-4);
-  }
+  background-size: 100% 100%, 100% 100%;
+  background-repeat: no-repeat;
+  background-position: top left, top right;
+  border-radius: 30px;
+  padding: 12px 24px;
+  color: #ffffff;
+  font-size: var(--h2-sm-size);
+  text-transform: capitalize;
+  font-weight: var(--leading-5);
+  position: relative;
+  overflow: hidden;
+}
+
+.landing_header > .launch_btn .bi-rocket {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  transform: translateY(-50%);
+  font-size: 1.5em;
+  transition: transform 0.3s ease;
+}
+
+.landing_header > .launch_btn:hover .bi-rocket {
+  transform: translateX(80%);
+}
+
+.landing_header > .launch_btn:hover {
+  animation: deployAnimation 1.5s ease infinite;
+  background-color: #ffffff !important;
+  color: linear-gradient(to bottom right, #52525b, rgba(82, 82, 91, 0)) ,
+    linear-gradient(to bottom right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1)) !important;
 }
 
 @media screen and (max-width: 660px) {
   .landing_header > .launch_btn {
-    padding: 08px 16px;
-
+    padding: 8px 16px;
     font-size: 12px;
   }
 }
