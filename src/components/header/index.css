@@ -34,7 +34,7 @@
   height: var(--logo-height);
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 660px) {
   .landing_header {
     padding: 08px 16px;
   }
