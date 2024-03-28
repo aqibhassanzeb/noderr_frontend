@@ -34,7 +34,7 @@
   height: var(--logo-height);
 }
 
-@media screen and (max-width: 660px) {
+@media screen and (max-width: 400px) {
   .landing_header {
     padding: 08px 16px;
   }
@@ -92,5 +92,11 @@
   .landing_header > .launch_btn {
     padding: 8px 16px;
     font-size: 12px;
+  }
+  .landing_header > .side_heading {
+    color: white;
+    font-size: var(--h4-size);
+    /* font-weight: var(--leading-8); */
+    text-transform: capitalize;
   }
 }
