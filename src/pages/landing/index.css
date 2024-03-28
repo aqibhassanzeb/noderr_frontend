@@ -40,10 +40,10 @@
   text-transform: capitalize;
 }
 
-@media screen and (max-width: 660px) {
+@media screen and (max-width: 400px) {
   .about {
     gap: var(--gap-1);
-  min-height: calc(100vh - 36px - 70px);
+  min-height: calc(100vh - 36px - 101px);
 
   }
   .about > p {
