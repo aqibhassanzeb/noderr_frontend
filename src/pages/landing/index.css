@@ -32,6 +32,7 @@
   font-weight: var(--leading-7);
   color: #ffffff;
   text-transform: capitalize;
+  text-align: center;
 }
 .about > .about_subheading {
   font-size: var(--h2-sm-size);
@@ -40,7 +41,7 @@
   text-transform: capitalize;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 380px) {
   .about {
     gap: var(--gap-1);
   min-height: calc(100vh - 36px - 101px);
@@ -53,6 +54,7 @@
   .about > .about_heading {
     font-size: var(--h1-sm-size);
     font-weight: var(--leading-6);
+    text-align: center;
   }
   .about > .about_subheading {
     font-size: var(--h3-size);
