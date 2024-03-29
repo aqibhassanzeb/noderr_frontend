@@ -40,6 +40,53 @@
   color: #ffffff;
   text-transform: capitalize;
 }
+.about > .input_container {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--gap);
+  width: 70%;
+}
+.about > .input_container > label {
+  font-size: var(--h4-size);
+  color: var(--black);
+  font-weight: bold;
+  text-transform: capitalize;
+  font-weight: var(--leading-5);
+}
+.about > .input_container > input {
+  padding: var(--btn-pad);
+  border-radius: var(--border-radius);
+  outline: none;
+  border: none;
+  font-size: var(--btn-font-size);
+  font-weight: var(--leading-6);
+  color: black;
+}
+.about > .input_container > textarea {
+  padding: var(--btn-pad);
+  border-radius: var(--border-radius);
+  outline: none;
+  border: none;
+  font-size: var(--btn-font-size);
+  font-weight: var(--leading-6);
+}
+
+.about > .submit_btn {
+  padding: var(--btn-pad);
+  background: var(--primary);
+  outline: none;
+  text-transform: capitalize;
+  border: none;
+  font-size: var(--btn-font-size);
+  border-radius: var(--border-radius);
+  color: var(--black);
+  font-weight: var(--leading-6);
+  cursor: pointer;
+  width: 40%;
+}
+.about > .submit_btn:hover {
+  background: var(--primary-dark);
+}
 
 @media screen and (max-width: 380px) {
   .about {
