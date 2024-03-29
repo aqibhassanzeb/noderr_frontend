@@ -4,7 +4,6 @@ import "./index.css";
 import "react-toggle/style.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "./themeContext/themeContext";
 import { ApiProvider } from "./context/apiContext";
 import { SkeletonTheme } from "react-loading-skeleton";
