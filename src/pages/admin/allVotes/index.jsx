@@ -67,7 +67,7 @@ const AllVotes = () => {
           <PromoLoader skeletonCount={skeletonCount} />
         ) : (
           <div className="all_votes">
-            {votes.length > 0 ? (
+            {votes?.length > 0 ? (
               votes &&
               votes
                 .slice()

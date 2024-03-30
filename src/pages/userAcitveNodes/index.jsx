@@ -31,7 +31,7 @@ const UserActiveNode = () => {
         <PageHeader page_title={"User active nodes"} badge={"GM, Stranger"} />
         {loading ? (
           <PromoLoader skeletonCount={skeletonCount} />
-        ) : activeNodes.length > 0 ? (
+        ) : activeNodes?.length > 0 ? (
           <>
             <div className="active_nodes_container">
               { activeNodes && activeNodes?.map((node, index) => (

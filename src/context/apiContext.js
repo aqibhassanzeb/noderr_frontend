@@ -17,6 +17,16 @@ export const ApiProvider = ({ children }) => {
       return err;
     }
   };
+
+  const signupForBetaLaunch = async (email) => {
+    try {
+      const { data } = await axios.post("http://localhost:3000/api/user/signup-for-beta", email);
+      return data;
+    } catch (err) {
+      console.log(err);
+      return err;
+    }
+  };
   const handleLogout = async () => {
     try {
       const { data } = await axios.get("/api/user/logout");
@@ -216,7 +226,8 @@ export const ApiProvider = ({ children }) => {
         updateUserProfile,
         purchaseNode,
         getPurchaseNode,
-        getAllPurchaseNodeByAdmin
+        getAllPurchaseNodeByAdmin,
+        signupForBetaLaunch
       }}
     >
       {children}

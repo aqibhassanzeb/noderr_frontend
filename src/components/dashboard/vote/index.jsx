@@ -21,7 +21,7 @@ const Vote = ({ vote ,onDelete,onEdit}) => {
             ))}
         </ol>
         <span className="status">
-          Number of votes by user : {vote.votes.length}
+          Number of votes by user : {vote.votes?.length}
         </span>
       </div>
 

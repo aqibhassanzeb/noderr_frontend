@@ -68,7 +68,7 @@ const Stats_page = () => {
             <NodeLoader skeletonCount={skeletonCount} />
           ) : (
             <div className="dashboard_grid">
-              {nodes.length > 0 ? (
+              {nodes?.length > 0 ? (
                 nodes &&
                 nodes
                   .slice()

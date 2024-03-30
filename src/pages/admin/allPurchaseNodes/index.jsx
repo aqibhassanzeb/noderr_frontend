@@ -35,7 +35,7 @@ const AllPurchaseNodebyUsers = () => {
           <PromoLoader skeletonCount={skeletonCount} />
         ) : (
           <div className="all_purchaseNode">
-            {purchaseNode.length > 0 ? (
+            {purchaseNode?.length > 0 ? (
               purchaseNode.map((node, nodeIndex) => (
                 <PurchaseNode key={nodeIndex} node={node} />
               ))
