@@ -64,7 +64,7 @@ const AllPromotionCode = () => {
           <PromoLoader skeletonCount={skeletonCount} />
         ) : (
           <div className="all_promotion_codes">
-            {promotionCodes.length > 0 ? (
+            {promotionCodes?.length > 0 ? (
               promotionCodes &&
               promotionCodes
                 .slice()

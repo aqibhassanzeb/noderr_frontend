@@ -64,7 +64,7 @@ const AllNodes = () => {
           <AdminNodeLoader skeletonCount={skeletonCount} />
         ) : (
           <div className="all_nodes">
-            {nodes.length > 0 ? (
+            {nodes?.length > 0 ? (
               nodes &&
               nodes
                 .slice()

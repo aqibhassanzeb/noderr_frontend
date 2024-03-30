@@ -17,7 +17,7 @@ root.render(
       <ThemeProvider>
         <ApiProvider>
           <App />
-          <ToastContainer />
+          {/* <ToastContainer /> */}
         </ApiProvider>
       </ThemeProvider>
     </SkeletonTheme>
