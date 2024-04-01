@@ -20,7 +20,7 @@ export const ApiProvider = ({ children }) => {
 
   const signupForBetaLaunch = async (email) => {
     try {
-      const { data } = await axios.post("http://localhost:3000/api/user/signup-for-beta", email);
+      const { data } = await axios.post("/api/user/signup-for-beta", email);
       return data;
     } catch (err) {
       console.log(err);

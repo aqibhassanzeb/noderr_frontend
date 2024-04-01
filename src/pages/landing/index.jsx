@@ -16,8 +16,8 @@ const Landing = () => {
 
   const handleSubmit = async () => {
     if (validateEmail(email)) {
-      // const data = await signupForBetaLaunch({ email: email });
-      // if (data?.success) {
+      const data = await signupForBetaLaunch({ email: email });
+      if (data?.success) {
         toast.success("Your have been signed up for beta launch!", {
           position: "top-right",
           autoClose: 5000,
@@ -28,7 +28,7 @@ const Landing = () => {
           progress: undefined,
           theme: "light",
         });
-      // }
+      }
       setEmail("");
     } else {
       toast.error("Email is not valid.");
