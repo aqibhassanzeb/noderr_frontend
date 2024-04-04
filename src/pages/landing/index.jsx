@@ -38,20 +38,20 @@ const Landing = () => {
     <div className="landing_page">
       <Header />
       <div className="about">
-        <h2 className="about_heading">Node Deployment</h2>
+        <h2 className="about_heading">Next-Gen Blockchains</h2>
         {/* <h3 className='about_subheading'>One click node deployment</h3> */}
         <p>
           Noderr simplifies the world of blockchain, making nodes accessible to
           everyone. With effortless deployment, you can unlock exclusive early
-          adopter rewards through our cutting-edge decentralized platform. Join
-          us in shaping the future of blockchain accessibility .
+          adopter rewards through our cutting-edge decentralized AI Meshwork
+          Dashboard. Join us in shaping the future of blockchain accessibility.
         </p>
         <div className="input_container">
           <label htmlFor="email">sign up for Beta launch</label>
           <input
             type="email"
             id="email"
-            placeholder="abc@xyz.com"
+            placeholder="noderrbeta@noderr.xyz"
             value={email}
             onChange={(e) => {
               setEmail(e.target.value);

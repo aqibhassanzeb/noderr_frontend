@@ -96,7 +96,7 @@
   }
   .about > p {
     font-size: var(--h3-md-size);
-    font-weight: var(--leading-4);
+    font-weight: var(--leading-5);
   }
   .about > .about_heading {
     font-size: var(--h1-sm-size);
