@@ -1,0 +1,16 @@
+h1{
+    font-weight: var(--leading-9);
+    margin-bottom: 10px;
+    margin-top: 30px;
+}
+h2{
+    font-weight: var(--leading-7);
+    margin-bottom: 10px;
+}
+h3{
+    font-weight: var(--leading-6);
+    margin-bottom: 10px;
+}
+p{
+    margin-bottom: 10px;
+}
