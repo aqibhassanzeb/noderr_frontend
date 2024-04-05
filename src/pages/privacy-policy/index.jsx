@@ -6,7 +6,8 @@ const PrivacyPolicy = () => {
   return (
     <>
     <Header/>
-      <h1>Privacy Policy</h1>
+     <div>
+     <h1>Privacy Policy</h1>
       <p>Last updated: March 26, 2024</p>
       <p>
         This Privacy Policy describes Our policies and procedures on the
@@ -538,6 +539,7 @@ const PrivacyPolicy = () => {
       <p>
         If you have any questions about this Privacy Policy, You can contact us:
       </p>
+     </div>
     </>
   );
 };

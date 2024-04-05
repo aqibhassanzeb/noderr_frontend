@@ -44,7 +44,7 @@ const Landing = () => {
           Noderr simplifies the world of blockchain, making nodes accessible to
           everyone. With effortless deployment, you can unlock exclusive early
           adopter rewards through our cutting-edge decentralized AI Meshwork
-          Dashboard. Join us in shaping the future of blockchain accessibility.
+          Dashboard. Join us in shaping the future of blockchain accessibility
         </p>
         <div className="input_container">
           <label htmlFor="email">sign up for Beta launch</label>

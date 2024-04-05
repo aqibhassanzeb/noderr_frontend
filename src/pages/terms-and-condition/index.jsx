@@ -6,6 +6,7 @@ const TermsAndCondition = () => {
   return (
     <>
     <Header/>
+      <div>
       <h2>
         <strong>Terms and Conditions</strong>
       </h2>
@@ -317,6 +318,7 @@ const TermsAndCondition = () => {
         are provided free of charge, we will not be liable for any loss or
         damage of any nature.
       </p>
+      </div>
     </>
   );
 };
