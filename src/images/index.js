@@ -16,6 +16,11 @@ import purchase from "./purchase.svg";
 import profileCircle from "./profile-circle.svg";
 import Landing from "./landing.gif";
 import activeNode from "./active-node.svg"
+import TextLogo from "./text_logo.png"
+import LogoGif from "./logo.gif";
+import Allora from "./alora.png"
+import Ritual from "./ritual.png"
+import Waku from "./waku.png"
 
 export const images = {
   logo,
@@ -36,4 +41,9 @@ export const images = {
   profileCircle,
   Landing,
   activeNode,
+  TextLogo,
+  LogoGif,
+  Allora,
+  Waku,
+  Ritual
 };
