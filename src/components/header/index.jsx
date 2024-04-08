@@ -11,9 +11,9 @@ const Header = () => {
 				</p>
 			</h2>
 			<img src={images.logo} alt="logo" className="brand" />
-			<Link to="/dashboard" className="launch_btn">
-				{/* <span class="bi bi-rocket"></span> Launch Node */}
-			</Link>
+			{/* <Link to="/dashboard" className="launch_btn">
+      <span class="bi bi-rocket"></span> Launch Node
+      </Link> */}
 		</div>
 	);
 };
