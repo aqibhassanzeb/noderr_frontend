@@ -5,6 +5,9 @@ import Footer from "../../components/footer";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { createApiContext } from "../../context/apiContext";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import {images} from '../../images'
 
 const Landing = () => {
   const [email, setEmail] = useState(null);
@@ -67,6 +70,39 @@ const Landing = () => {
         >
           Sign-Up
         </button>
+
+        <p>We are going to launch, Ritual, Waku, Allora</p>
+        <div style={{display:'flex', justifyContent:'space-around', width:'100%'}}>
+        <a
+            href="https://ritual.net/about"
+            target="_blank"
+          >
+          <Card style={{ width: "100%", backgroundColor:'rgba(0, 0, 0, 0.3)', margin:5, paddingTop:5  }}>
+            <Card.Title style={{textAlign:'center', fontSize:24, fontWeight: 'bold'}}>Ritual Net</Card.Title>
+            <Card.Img className="active_images"  variant="top" src={images.Ritual} />
+          </Card>
+          </a>
+
+          <a
+            href="https://waku.org"
+            target="_blank"
+          >
+          <Card style={{width: "100%",  backgroundColor:'rgba(0, 0, 0, 0.3)' , margin:5, paddingTop:5 }}>
+            <Card.Title  style={{textAlign:'center', fontSize:24, fontWeight: 'bold'}}>Waku</Card.Title>
+            <Card.Img className="active_images" variant="top" src={images.Waku} />
+          </Card>
+          </a>
+
+          <a
+            href="https://www.allora.network"
+            target="_blank"
+          >
+          <Card style={{ width: "100%", backgroundColor:'rgba(0, 0, 0, 0.3)', margin:5, paddingTop:5 }}>
+            <Card.Title  style={{textAlign:'center', fontSize:24, fontWeight: 'bold'}}>Allora</Card.Title>
+            <Card.Img className="active_images"  variant="top" src={images.Allora} />
+          </Card>
+          </a>
+        </div>
       </div>
       <ToastContainer />
       <Footer />
