@@ -25,85 +25,85 @@ const Home = React.lazy(() => import("./pages/home"));
 const Dashboard = React.lazy(() => import("./pages/dashboard"));
 
 const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Landing />,
-  },
-  {
-    path: "privacy-policy",
-    element: <PrivacyPolicy />,
-  },
-  {
-    path: "terms-and-conditions",
-    element: <TermsAndCondition />,
-  },
-  {
-    path: "dashboard",
-    element: <Dashboard />,
-    children: [
-      {
-        path: "",
-        element: <StatsPage />,
-      },
-      {
-        path: "active-nodes",
-        element: <UserActiveNode />,
-      },
-      {
-        path: "support",
-        element: <Support />,
-      },
-      {
-        path: "create-promotion",
-        element: <CreatePrmotion />,
-      },
-      {
-        path: "create-node",
-        element: <CreateNode />,
-      },
-      {
-        path: "create-pool",
-        element: <CreatePool />,
-      },
-      {
-        path: "all-nodes",
-        element: <AllNodes />,
-      },
-      {
-        path: "all-promotion-codes",
-        element: <AllPromotionCode />,
-      },
-      {
-        path: "all-votes",
-        element: <AllVotes />,
-      },
-      {
-        path: "all-purchase-nodes-by-users",
-        element: <AllPurchaseNodebyUsers />,
-      },
-      {
-        path: "edit-profile",
-        element: <UpdateUserprofile />,
-      },
-    ],
-  },
+	{
+		path: "/",
+		element: <Landing />,
+	},
+	{
+		path: "privacy-policy",
+		element: <PrivacyPolicy />,
+	},
+	{
+		path: "terms-and-conditions",
+		element: <TermsAndCondition />,
+	},
+	{
+		path: "dashboard",
+		element: <Dashboard />,
+		children: [
+			{
+				path: "",
+				element: <StatsPage />,
+			},
+			{
+				path: "active-nodes",
+				element: <UserActiveNode />,
+			},
+			{
+				path: "support",
+				element: <Support />,
+			},
+			{
+				path: "create-promotion",
+				element: <CreatePrmotion />,
+			},
+			{
+				path: "create-node",
+				element: <CreateNode />,
+			},
+			{
+				path: "create-pool",
+				element: <CreatePool />,
+			},
+			{
+				path: "all-nodes",
+				element: <AllNodes />,
+			},
+			{
+				path: "all-promotion-codes",
+				element: <AllPromotionCode />,
+			},
+			{
+				path: "all-votes",
+				element: <AllVotes />,
+			},
+			{
+				path: "all-purchase-nodes-by-users",
+				element: <AllPurchaseNodebyUsers />,
+			},
+			{
+				path: "edit-profile",
+				element: <UpdateUserprofile />,
+			},
+		],
+	},
 ]);
 
 function App() {
-  const { theme } = useTheme();
+	const { theme } = useTheme();
 
-  useEffect(() => {
-    AOS.init();
-    AOS.refresh();
-  }, []);
+	useEffect(() => {
+		AOS.init();
+		AOS.refresh();
+	}, []);
 
-  document.body.setAttribute("data-theme", theme);
+	document.body.setAttribute("data-theme", theme);
 
-  return (
-    <Suspense>
-      <RouterProvider router={router}></RouterProvider>
-    </Suspense>
-  );
+	return (
+		<Suspense>
+			<RouterProvider router={router}></RouterProvider>
+		</Suspense>
+	);
 }
 
 export default App;
