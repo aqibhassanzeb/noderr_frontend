@@ -71,7 +71,7 @@ const Landing = () => {
           Sign-Up
         </button>
 
-        <p>We are going to launch, Ritual, Waku, Allora</p>
+        <h2 className="active_heading"> Active Developments</h2>
         <div style={{display:'flex', justifyContent:'space-around', width:'100%'}}>
         <a
             href="https://ritual.net/about"

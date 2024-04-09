@@ -25,8 +25,8 @@
 }
  .icon {
   color: white;
-  margin: 5px;
-  font-size: var(--h2-sm-size);
+  margin: 10px;
+  font-size: var(--h2-size);
   cursor: pointer;
 }
 .landing_header > .side_heading {
@@ -36,14 +36,13 @@
   text-transform: capitalize;
 }
 .landing_header > .brand {
+  /* margin-right: 60px; */
   width: var(--logo-width);
   height: var(--logo-height);
 }
 
 .landing_header > .text_logo {
-  width: 20%;
-  margin-left: 8%;
- 
+  width: 25%; 
 }
 
 /* @media screen and (max-width: 80px) {
@@ -114,6 +113,15 @@
 }
 
 @media screen and (max-width: 660px) {
+  .icon {
+    color: white;
+    margin: 10px;
+    font-size: var(--h2-size-sm);
+    cursor: pointer;
+  }
+  .landing_header > .brand {
+    margin-right: 0px !important;
+  }
   .landing_header > .launch_btn {
     padding: 8px 16px;
     font-size: 12px;
@@ -142,6 +150,7 @@
     text-transform: capitalize;
   }
   .landing_header > .brand {
+    margin-right: 0px !important;
     width: 35px !important;
     height: 35px !important;
   }

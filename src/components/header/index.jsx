@@ -13,7 +13,7 @@ const Header = () => {
           &#55356;&#56701;&#55356;&#56702;&#55356;&#56691;&#55356;&#56692;&#55356;&#56705;&#55356;&#56705;
         </p> */}
       {/* </h2> */}
-      <img src={images.LogoGif} alt="logo" className="brand" />
+      <img src={images.LogoGif} alt="logo" className="brand" loop/>
       <div className="social_icons">
         <span className="icon">
           <a href="https://t.me/NoderrSupp" target="_blank">
