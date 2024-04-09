@@ -39,6 +39,14 @@
   text-transform: capitalize;
   text-align: center;
 }
+
+.about > .active_heading {
+  font-size: var(--h2-sm-size);
+  font-weight: var(--leading-7);
+  color: #ffffff;
+  text-transform: capitalize;
+  text-align: center;
+}
 .about > .about_subheading {
   font-size: var(--h2-sm-size);
   font-weight: var(--leading-6);
