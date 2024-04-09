@@ -44,7 +44,6 @@ const UpdateVote = ({ onClose, voteData, setLoading, setVotes }) => {
   const handleUpdatePool = async (id, data) => {
     setPoolLoading(true);
     const response = await updatePool(id, data);
-    console.log(response);
     if (response.success) {
       toast.success("Pool updated successfully");
       setPoolLoading(false);
