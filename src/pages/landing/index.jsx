@@ -46,7 +46,7 @@ const Landing = () => {
 				<p>
 					Noderr simplifies the world of blockchain, making nodes accessible to
 					everyone. With effortless deployment, you can unlock exclusive early
-					adopter rewards through our cutting-edge decentralized AI Meshwork
+					adopter rewards through our cutting-edge decentralized AI Mesh-work
 					Dashboard. Join us in shaping the future of blockchain accessibility
 				</p>
 				<div className="input_container">
@@ -71,6 +71,179 @@ const Landing = () => {
 					Sign-Up
 				</button>
 
+				<h2 className="active_heading"> Active Developments</h2>
+				<div
+					style={{
+						display: "flex",
+						justifyContent: "space-around",
+						width: "100%",
+					}}
+				>
+					<a href="https://ritual.net/about" target="_blank">
+						<Card
+							style={{
+								width: "100%",
+								backgroundColor: "rgba(0, 0, 0, 0.3)",
+								margin: 5,
+								paddingTop: 5,
+							}}
+						>
+							<Card.Title
+								style={{
+									textAlign: "center",
+									fontSize: 24,
+									fontWeight: "bold",
+								}}
+							>
+								Ritual Net
+							</Card.Title>
+							<Card.Img
+								className="active_images"
+								variant="top"
+								src={images.Ritual}
+							/>
+						</Card>
+					</a>
+
+					<a href="https://waku.org" target="_blank">
+						<Card
+							style={{
+								width: "100%",
+								backgroundColor: "rgba(0, 0, 0, 0.3)",
+								margin: 5,
+								paddingTop: 5,
+							}}
+						>
+							<Card.Title
+								style={{
+									textAlign: "center",
+									fontSize: 24,
+									fontWeight: "bold",
+								}}
+							>
+								Waku
+							</Card.Title>
+							<Card.Img
+								className="active_images"
+								variant="top"
+								src={images.Waku}
+							/>
+						</Card>
+					</a>
+
+					<a href="https://www.allora.network" target="_blank">
+						<Card
+							style={{
+								width: "100%",
+								backgroundColor: "rgba(0, 0, 0, 0.3)",
+								margin: 5,
+								paddingTop: 5,
+							}}
+						>
+							<Card.Title
+								style={{
+									textAlign: "center",
+									fontSize: 24,
+									fontWeight: "bold",
+								}}
+							>
+								Allora
+							</Card.Title>
+							<Card.Img
+								className="active_images"
+								variant="top"
+								src={images.Allora}
+							/>
+						</Card>
+					</a>
+				</div>
+
+				<h2 className="active_heading"> Active Developments</h2>
+				<div
+					style={{
+						display: "flex",
+						justifyContent: "space-around",
+						width: "100%",
+					}}
+				>
+					<a href="https://ritual.net/about" target="_blank">
+						<Card
+							style={{
+								width: "100%",
+								backgroundColor: "rgba(0, 0, 0, 0.3)",
+								margin: 5,
+								paddingTop: 5,
+							}}
+						>
+							<Card.Title
+								style={{
+									textAlign: "center",
+									fontSize: 24,
+									fontWeight: "bold",
+								}}
+							>
+								Ritual Net
+							</Card.Title>
+							<Card.Img
+								className="active_images"
+								variant="top"
+								src={images.Ritual}
+							/>
+						</Card>
+					</a>
+
+					<a href="https://waku.org" target="_blank">
+						<Card
+							style={{
+								width: "100%",
+								backgroundColor: "rgba(0, 0, 0, 0.3)",
+								margin: 5,
+								paddingTop: 5,
+							}}
+						>
+							<Card.Title
+								style={{
+									textAlign: "center",
+									fontSize: 24,
+									fontWeight: "bold",
+								}}
+							>
+								Waku
+							</Card.Title>
+							<Card.Img
+								className="active_images"
+								variant="top"
+								src={images.Waku}
+							/>
+						</Card>
+					</a>
+
+					<a href="https://www.allora.network" target="_blank">
+						<Card
+							style={{
+								width: "100%",
+								backgroundColor: "rgba(0, 0, 0, 0.3)",
+								margin: 5,
+								paddingTop: 5,
+							}}
+						>
+							<Card.Title
+								style={{
+									textAlign: "center",
+									fontSize: 24,
+									fontWeight: "bold",
+								}}
+							>
+								Allora
+							</Card.Title>
+							<Card.Img
+								className="active_images"
+								variant="top"
+								src={images.Allora}
+							/>
+						</Card>
+					</a>
+				</div>
 				<h2 className="active_heading"> Active Developments</h2>
 				<div
 					style={{

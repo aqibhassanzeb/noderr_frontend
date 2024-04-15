@@ -15,7 +15,7 @@ const TermsAndCondition = () => {
 
       <p>
         These terms and conditions outline the rules and regulations for the use
-        of Noderrr's Website, located at http://localhost:3000/.
+        of Noderrr's Website, located at <a href="https://www.noderr.xyz/">https://www.noderr.xyz/</a>.
       </p>
 
       <p>
