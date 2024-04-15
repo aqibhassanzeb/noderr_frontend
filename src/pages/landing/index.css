@@ -1,5 +1,7 @@
 .landing_page {
   background: url("../../images/landing.gif");
+  /* background-repeat: no-repeat; */
+  background-attachment: fixed;
   min-height: 100vh;
   width: 100%;
   background-size: cover;
@@ -110,6 +112,7 @@
   .about > p {
     font-size: var(--h3-md-size);
     font-weight: var(--leading-5);
+    margin-inline: 10px
   }
   .about > .about_heading {
     font-size: var(--h1-sm-size);
