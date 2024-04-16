@@ -32,7 +32,7 @@ const Dashboard = () => {
     console.log(data);
     if (data.success) {
       setLoading(false);
-      toast.success(data.msg.toLowerCase());
+      toast.success(data?.msg?.toLowerCase());
       setUser(data.success);
     } else if (data.response.data.message) {
       setLoading(false);
@@ -76,10 +76,12 @@ const Dashboard = () => {
             </button>
           )}
         </div>
-        <div className="dashboard">
-          <div className={show ? "side_menu hide" : "side_menu"}>
+        <div className="dashboard"  >
+          <div className={show ? "side_menu hide overflow-scroll" : "side_menu overflow-scroll"}>
             <div className="menu_container">
-              <div className="brand_log">Logo</div>
+              <div className="brand_log">
+                <img src={images.TextLogo} alt="logo" />
+              </div>
               <div className="nav_container">
                 <div className="menu_list">
                   <NavLink
@@ -124,7 +126,7 @@ const Dashboard = () => {
                     onClick={() => setShow(!show)}
                   >
                     <img src={images.purchase} alt="support" />
-                    <span>Purchase nodes</span>
+                    <span>Purchase Node Slot</span>
                   </NavLink>
                   <NavLink
                     className="menu_item"

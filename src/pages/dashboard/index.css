@@ -9,18 +9,21 @@
   overflow-y: auto;
   transition: all 0.3s ease-in-out;
 }
-.dashboard_container > .header {
+
+.dashboard_container>.header {
   display: none;
 }
 
 .close_btn {
   display: none;
 }
+
 .dashboard {
   display: flex;
   height: inherit;
   transition: all 0.3s ease-in-out;
 }
+
 .side_menu {
   width: var(--side-menu-width);
   padding: 20px;
@@ -28,7 +31,8 @@
   transition: all 0.3s ease-in-out;
 
   height: inherit;
-  -ms-overflow-style: none; /* IE and Edge */
+  -ms-overflow-style: none;
+  /* IE and Edge */
   scrollbar-width: none;
 }
 
@@ -36,19 +40,21 @@
   display: none;
 }
 
-.side_menu > .menu_container {
+.side_menu>.menu_container {
   display: flex;
   flex-direction: column;
   row-gap: var(--gap);
   height: inherit;
 }
+
 .nav_container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: inherit;
 }
-.nav_container > button {
+
+.nav_container>button {
   position: relative;
   padding: var(--btn-pad);
   background: var(--primary);
@@ -62,12 +68,14 @@
   cursor: pointer;
   bottom: 10%;
 }
+
 .menu_list {
   display: flex;
   flex-direction: column;
   row-gap: var(--gap);
 }
-.menu_list > .menu_item {
+
+.menu_list>.menu_item {
   padding: var(--side-menu-pad);
   cursor: pointer;
 
@@ -75,22 +83,26 @@
   align-items: center;
   gap: var(--gap);
 }
-.menu_list > .menu_item.active {
+
+.menu_list>.menu_item.active {
   background: linear-gradient(90deg, #333 0%, rgba(0, 0, 0, 0) 70%);
   border-radius: 12px;
   border: 1px solid #333;
   border-right: 4px solid #333;
 }
-.menu_list > .menu_item > img {
+
+.menu_list>.menu_item>img {
   width: 20px;
   height: 20px;
 }
-.menu_list > .menu_item > span {
+
+.menu_list>.menu_item>span {
   text-transform: capitalize;
 }
+
 .logout_btn {
   position: relative;
-  bottom: 10%;
+  /* bottom: 10%; */
   padding: var(--side-menu-pad);
   cursor: pointer;
 
@@ -102,14 +114,17 @@
   border: 1px solid #333;
   border-right: 4px solid #333;
 }
-.logout_btn:hover{
+
+.logout_btn:hover {
   background: linear-gradient(90deg, #333 0%, rgba(0, 0, 0, 0) 70%);
 
 }
-.logout_btn > .icon {
+
+.logout_btn>.icon {
   font-size: 20px;
 }
-.logout_btn > .text {
+
+.logout_btn>.text {
   text-transform: capitalize;
   color: #ffffff;
 }
@@ -125,7 +140,8 @@
     padding: 20px;
     cursor: pointer;
   }
-  .dashboard_container > .header {
+
+  .dashboard_container>.header {
     display: flex;
     padding: var(--div-pad);
     justify-content: space-between;
@@ -135,7 +151,7 @@
     top: 0;
   }
 
-  .dashboard_container > .header > .icon {
+  .dashboard_container>.header>.icon {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -147,7 +163,7 @@
     font-size: 50px;
   }
 
-  .dashboard_container > .header > .connect_wallet_btn {
+  .dashboard_container>.header>.connect_wallet_btn {
     padding: var(--btn-sm-pad);
     background: var(--primary);
     outline: none;
@@ -159,9 +175,11 @@
     font-weight: var(--leading-5);
     cursor: pointer;
   }
+
   .dashboard_container {
     height: auto;
   }
+
   .side_menu {
     position: fixed;
     padding: 10px !important;
@@ -173,13 +191,16 @@
     z-index: 999;
     overflow-y: scroll;
     width: 100%;
-    -ms-overflow-style: none; /* IE and Edge */
+    -ms-overflow-style: none;
+    /* IE and Edge */
     scrollbar-width: none;
   }
+
   .side_menu::-webkit-scrollbar {
     display: none;
   }
-  .nav_container > button {
+
+  .nav_container>button {
     display: none;
   }
 
@@ -193,32 +214,38 @@
     min-height: 100%;
     overflow-y: auto; */
   }
+
   .side_menu {
     padding: 10px;
   }
 
-  .side_menu > .menu_container {
+  .side_menu>.menu_container {
     row-gap: var(--sm-gap);
   }
 
   .menu_list {
     row-gap: var(--sm-gap);
   }
-  .menu_list > .menu_item {
+
+  .menu_list>.menu_item {
     padding: var(--side-menu-sm-pad);
     gap: var(--sm-gap);
   }
-  .menu_list > .menu_item.active {
+
+  .menu_list>.menu_item.active {
     border-radius: 12px;
     border-right: 3px solid #333;
   }
-  .menu_list > .menu_item > img {
+
+  .menu_list>.menu_item>img {
     width: 15px;
     height: 15px;
   }
+
   .logout_btn {
     display: none;
   }
+
   .header_logout {
     padding: 6px;
     cursor: pointer;
@@ -232,10 +259,12 @@
     border: 1px solid #333;
     border-right: 3px solid #333;
   }
-  .header_logout > .icon {
+
+  .header_logout>.icon {
     font-size: 15px;
   }
-  .header_logout > .text {
+
+  .header_logout>.text {
     text-transform: capitalize;
     font-size: 15px;
     color: #ffffff;
