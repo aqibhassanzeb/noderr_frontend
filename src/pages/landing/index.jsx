@@ -95,7 +95,7 @@ const Landing = () => {
 									fontWeight: "bold",
 								}}
 							>
-								Ritual Net
+								Ritual
 							</Card.Title>
 							<Card.Img
 								className="active_images"
@@ -217,7 +217,7 @@ const Landing = () => {
 						</Card>
 					</a>
 
-					<a href="hhttps://areon.network/" target="_blank">
+					<a href="https://areon.network/" target="_blank">
 						<Card
 							style={{
 								width: "100%",
