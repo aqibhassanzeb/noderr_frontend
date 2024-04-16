@@ -1,3 +1,4 @@
+import LaunchNode from "./launch-node.png"
 import logo from "./logo.png";
 import home from "./home.png";
 import dashboard from "./dashboard.svg";
@@ -45,5 +46,6 @@ export const images = {
   LogoGif,
   Allora,
   Waku,
-  Ritual
+  Ritual,
+  LaunchNode
 };
