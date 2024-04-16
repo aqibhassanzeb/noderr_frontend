@@ -99,6 +99,7 @@
     margin-right: 0px !important;
   }
   .landing_header > .launch_btn {
+    width: 35% !important;
     padding: 8px 16px;
     font-size: 12px;
   }
@@ -109,9 +110,10 @@
     text-transform: capitalize;
   }
   .landing_header > .text_logo {
-    width: 30% !important;
+    width: 35% !important;
    
   }
+
 }
 
 @media screen and (max-width: 380px) {
