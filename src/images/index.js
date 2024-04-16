@@ -23,8 +23,15 @@ import Allora from "./alora.png"
 import Ritual from "./ritual.png"
 import Waku from "./waku.png"
 
+import Lava from "./lava.png"
+import Warden from "./warden.png"
+import Aeron from "./Aeron.png"
+
 export const images = {
   logo,
+  Lava,
+  Warden,
+  Aeron,
   home,
   dashboard,
   support,

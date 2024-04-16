@@ -14,7 +14,7 @@ const Header = () => {
         </p> */}
 			{/* </h2> */}
 			<img src={images.LogoGif} alt="logo" className="brand" loop />
-			<div className="social_icons">
+			{/* <div className="social_icons">
 				<span className="icon">
 					<a href="https://t.me/NoderrSupp" target="_blank">
 						<FaTelegramPlane />
@@ -28,13 +28,15 @@ const Header = () => {
 						<FaXTwitter />
 					</a>
 				</span>
-			</div>
+			</div> */}
 			{/* <Link to="/dashboard" className="launch_btn"> */}
-			<Link to="/dashboard" 
-			// className="launch_btn"
+			{/* <Link to="/dashboard"  */}
+			<div
+			className="launch_btn"
 			>
-			{/* <img src={images.LaunchNode} /> */}
-			</Link>
+			<img src={images.LaunchNode} />
+			{/* </Link> */}
+			</div>
 		</div>
 	);
 };
