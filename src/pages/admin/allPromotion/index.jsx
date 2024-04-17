@@ -56,7 +56,7 @@ const AllPromotionCode = () => {
       <div className="right_container">
         <PageHeader
           page_title={"All promotion codes"}
-          badge={"GM, Stranger"}
+          badge={"GM, Noderr"}
           create={true}
           link={"/dashboard/create-promotion"}
         />

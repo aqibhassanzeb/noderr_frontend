@@ -56,7 +56,7 @@ const AllNodes = () => {
       <div className="right_container">
         <PageHeader
           page_title={"All Nodes"}
-          badge={"GM, Stranger"}
+          badge={"GM, Noderr"}
           create={true}
           link={"/dashboard/create-node"}
         />

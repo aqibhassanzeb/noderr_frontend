@@ -28,13 +28,13 @@ const UserActiveNode = () => {
   return (
     <div className="right_dashboard">
       <div className="right_container">
-        <PageHeader page_title={"User active nodes"} badge={"GM, Stranger"} />
+        <PageHeader page_title={"User active nodes"} badge={"GM, Noderr"} />
         {loading ? (
           <PromoLoader skeletonCount={skeletonCount} />
         ) : activeNodes?.length > 0 ? (
           <>
             <div className="active_nodes_container">
-              { activeNodes && activeNodes?.map((node, index) => (
+              {activeNodes && activeNodes?.map((node, index) => (
                 <ActiveNode key={index} node={node} />
               ))}
             </div>

@@ -77,7 +77,7 @@ const CreateNode = () => {
       {loading && <LoadingModal />}
       <div className="right_dashboard">
         <div className="right_container">
-          <PageHeader page_title={"Create Node"} badge={"GM, Stranger"} />
+          <PageHeader page_title={"Create Node"} badge={"GGM, Noderr"} />
           <form className="node_create_form" onSubmit={submitHandler}>
             <InputContainer
               label={"Node Name"}

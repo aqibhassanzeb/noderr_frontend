@@ -5,7 +5,6 @@ import { GrFormClose } from "react-icons/gr";
 import voucher_codes from "voucher-code-generator";
 import { createApiContext } from "../../../context/apiContext";
 import { toast } from "react-toastify";
-import { upload } from "@testing-library/user-event/dist/upload";
 import LoadingModal from "../../ApiLoader";
 
 const UpdatePromo = ({ promoData, onClose, setLoading, setPromotionCodes }) => {

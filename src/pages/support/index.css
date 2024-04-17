@@ -1,11 +1,11 @@
-
-.support_section > .right_container > .header {
+.support_section>.right_container>.header {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.support_section > .right_container > .header > .left {
+
+.support_section>.right_container>.header>.left {
   background-color: black;
   padding: var(--btn-pad);
 
@@ -14,13 +14,15 @@
   font-weight: var(--leading-4);
   text-transform: capitalize;
 }
-.support_section > .right_container > h2 {
+
+.support_section>.right_container>h2 {
   font-size: var(--h3-size);
   color: var(--black);
   font-weight: bold;
   text-transform: capitalize;
   font-weight: var(--leading-8);
 }
+
 .support_form {
   display: flex;
   flex-direction: column;
@@ -32,28 +34,23 @@
   width: 100%;
   height: 100%;
 }
-.support_form > .input_container {
+
+.support_form>.input_container {
   display: flex;
   flex-direction: column;
   row-gap: var(--gap);
   width: inherit;
 }
-.support_form > .input_container > label {
+
+.support_form>.input_container>label {
   font-size: var(--h4-size);
   color: var(--black);
   font-weight: bold;
   text-transform: capitalize;
   font-weight: var(--leading-5);
 }
-.support_form > .input_container > input {
-  padding: var(--btn-pad);
-  border-radius: var(--border-radius);
-  outline: none;
-  border: none;
-  font-size: var(--btn-font-size);
-  font-weight: var(--leading-6);
-}
-.support_form > .input_container > textarea {
+
+.support_form>.input_container>input {
   padding: var(--btn-pad);
   border-radius: var(--border-radius);
   outline: none;
@@ -62,7 +59,17 @@
   font-weight: var(--leading-6);
 }
 
-.support_form > .submit_btn {
+.support_form>.input_container>textarea {
+  padding: var(--btn-pad);
+  border-radius: var(--border-radius);
+  outline: none;
+  border: none;
+  font-size: var(--btn-font-size);
+  font-weight: var(--leading-6);
+  color: black;
+}
+
+.support_form>.submit_btn {
   padding: var(--btn-pad);
   background: var(--primary);
   outline: none;
@@ -75,34 +82,43 @@
   cursor: pointer;
   width: 100%;
 }
-.support_form > .submit_btn:hover {
+
+.support_form>.submit_btn:hover {
   background: var(--primary-dark);
 }
+
 @media screen and (max-width: 768px) {
   .support_section {
     padding: 10px;
     width: 100%;
     height: 100%;
   }
-  .support_section > .right_container {
+
+  .support_section>.right_container {
     padding: var(--dashboard-sm-pad);
   }
-  .support_form > .input_container > input {
+
+  .support_form>.input_container>input {
+    padding: var(--btn-sm-pad);
+    font-size: var(--btn-sm-font-size);
+    border-radius: var(--sm-border-radius);
+    color: var(--black);
+
+  }
+
+  .support_form>.input_container>textarea {
     padding: var(--btn-sm-pad);
     font-size: var(--btn-sm-font-size);
     border-radius: var(--sm-border-radius);
   }
-  .support_form > .input_container > textarea {
+
+  .support_form>.submit_btn {
     padding: var(--btn-sm-pad);
     font-size: var(--btn-sm-font-size);
     border-radius: var(--sm-border-radius);
   }
-  .support_form > .submit_btn {
-    padding: var(--btn-sm-pad);
-    font-size: var(--btn-sm-font-size);
-    border-radius: var(--sm-border-radius);
-  }
-  .support_form > .submit_btn:hover {
+
+  .support_form>.submit_btn:hover {
     background: var(--primary-dark);
   }
 }

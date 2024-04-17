@@ -1,34 +1,38 @@
-.right_dashboard > .right_container > .dashboard_grid {
+.right_dashboard>.right_container>.dashboard_grid {
   display: grid;
-  gap: var(--gap);
-  grid-template-columns: repeat(auto-fill, minmax(410px, 1fr));
+  gap: 25px;
+  grid-template-columns: repeat(3, minmax(300px, 1fr));
+  width: 70%;
 }
-.profile_img{
+
+.profile_img {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 40px;
   height: 40px;
 }
-.profile_img >img{
+
+.profile_img>img {
   width: 100%;
   height: 100%;
-object-fit: fill;
+  object-fit: fill;
 }
+
 @media screen and (max-width: 768px) {
   .right_dashboard {
     width: 100%;
     padding: 10px;
   }
 
-  .right_dashboard > .right_container {
+  .right_dashboard>.right_container {
     row-gap: var(--sm-gap);
 
     padding: var(--dashboard-sm-pad);
     border-radius: 0;
   }
 
-  .right_dashboard > .right_container > .dashboard_grid {
+  .right_dashboard>.right_container>.dashboard_grid {
     gap: var(--sm-gap);
     grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
   }

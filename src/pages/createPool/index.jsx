@@ -62,7 +62,7 @@ const CreatePool = () => {
       {loading && <LoadingModal />}
       <div className="right_dashboard">
         <div className="right_container">
-          <PageHeader page_title={"Create Pool"} badge={"GM, Stranger"} />
+          <PageHeader page_title={"Create Pool"} badge={"GM, Noderr"} />
           <form className="pool_create_form" onSubmit={handleSubmit}>
             <InputContainer
               label={"vote title"}

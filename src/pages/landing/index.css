@@ -31,7 +31,8 @@
   min-height: calc(100vh - 50px - 90px);
   height: 100%;
 }
-.about > p {
+
+.about>p {
   text-align: center;
   font-size: var(--h3-size);
   font-weight: var(--leading-5);
@@ -39,7 +40,8 @@
   line-height: 1.5;
 
 }
-.about > .about_heading {
+
+.about>.about_heading {
   font-size: var(--h1-size);
   font-weight: var(--leading-7);
   color: #ffffff;
@@ -47,33 +49,37 @@
   text-align: center;
 }
 
-.about > .active_heading {
+.about>.active_heading {
   font-size: var(--h2-sm-size);
   font-weight: var(--leading-7);
   color: #ffffff;
   text-transform: capitalize;
   text-align: center;
 }
-.about > .about_subheading {
+
+.about>.about_subheading {
   font-size: var(--h2-sm-size);
   font-weight: var(--leading-6);
   color: #ffffff;
   text-transform: capitalize;
 }
-.about > .input_container {
+
+.about>.input_container {
   display: flex;
   flex-direction: column;
   row-gap: var(--gap);
   width: 70%;
 }
-.about > .input_container > label {
+
+.about>.input_container>label {
   font-size: var(--h4-size);
   color: var(--black);
   font-weight: bold;
   text-transform: capitalize;
   font-weight: var(--leading-5);
 }
-.about > .input_container > input {
+
+.about>.input_container>input {
   padding: var(--btn-pad);
   border-radius: var(--border-radius);
   outline: none;
@@ -82,7 +88,8 @@
   font-weight: var(--leading-6);
   color: black;
 }
-.about > .input_container > textarea {
+
+.about>.input_container>textarea {
   padding: var(--btn-pad);
   border-radius: var(--border-radius);
   outline: none;
@@ -91,9 +98,9 @@
   font-weight: var(--leading-6);
 }
 
-.about > .submit_btn {
+.about>.submit_btn {
   padding: var(--btn-pad);
-  background: var(--primary); 
+  background: var(--primary);
   outline: none;
   text-transform: capitalize;
   border: none;
@@ -104,27 +111,31 @@
   cursor: pointer;
   width: 40%;
 }
-.about > .submit_btn:hover {
+
+.about>.submit_btn:hover {
   background: var(--primary-dark);
 }
 
 @media screen and (max-width: 380px) {
   .about {
     gap: var(--gap-1);
-  min-height: calc(100vh - 36px - 101px);
+    min-height: calc(100vh - 36px - 101px);
 
   }
-  .about > p {
+
+  .about>p {
     font-size: var(--h3-md-size);
     font-weight: var(--leading-5);
     margin-inline: 10px
   }
-  .about > .about_heading {
+
+  .about>.about_heading {
     font-size: var(--h1-sm-size);
     font-weight: var(--leading-6);
     text-align: center;
   }
-  .about > .about_subheading {
+
+  .about>.about_subheading {
     font-size: var(--h3-size);
     font-weight: var(--leading-5);
   }
