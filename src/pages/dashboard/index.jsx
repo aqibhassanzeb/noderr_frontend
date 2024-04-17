@@ -5,22 +5,28 @@ import { IoCloseCircleOutline } from "react-icons/io5";
 import { images } from "../../images";
 import { NavLink, Outlet } from "react-router-dom";
 import { FaHamburger } from "react-icons/fa";
+import { RxHamburgerMenu } from "react-icons/rx";
+
 import { createApiContext } from "../../context/apiContext";
 import { toast } from "react-toastify";
 import LoadingModal from "../../components/ApiLoader";
 import { AiOutlineLogout } from "react-icons/ai";
+import Footer from "../../components/footer";
 const Dashboard = () => {
-  const { handleLoginOrSignUp, handleLogout, getProfileData, user, setUser } =
+  const { handleLoginOrSignUp, handleLogout, getProfileData, user, setUser, userData, setUserData } =
     React.useContext(createApiContext);
   const [show, setShow] = React.useState(true);
   const [loading, setLoading] = React.useState(false);
   useEffect(() => {
     const getUser = async () => {
       const data = await getProfileData();
+      setUserData(data?.user);
       if (data.success) setUser(data.success);
     };
     getUser();
   }, [user]);
+
+
 
   const handleAuth = async () => {
     setLoading(true);
@@ -54,13 +60,14 @@ const Dashboard = () => {
       toast.error(data.response.data.message);
     }
   };
+
   return (
     <>
       {loading && <LoadingModal />}
       <div className="dashboard_container">
         <div className="header">
           <div className="icon" onClick={() => setShow(!show)}>
-            <FaHamburger />
+            <RxHamburgerMenu />
           </div>
           {user && (
             <div className="header_logout" onClick={logoutHandler}>
@@ -102,7 +109,43 @@ const Dashboard = () => {
                     <img src={images.activeNode} alt="dashboard" />
                     <span>active nodes</span>
                   </NavLink>
-
+                  {
+                    userData?.role === "admin" &&
+                    <>
+                      <NavLink
+                        className="menu_item"
+                        to={"all-nodes"}
+                        onClick={() => setShow(!show)}
+                      >
+                        <img src={images.shareNode} alt="support" />
+                        <span>all nodes</span>
+                      </NavLink>
+                      <NavLink
+                        className="menu_item"
+                        to={"all-purchase-nodes-by-users"}
+                        onClick={() => setShow(!show)}
+                      >
+                        <img src={images.purchase} alt="support" />
+                        <span>Purchase Node Slot</span>
+                      </NavLink>
+                      <NavLink
+                        className="menu_item"
+                        to={"all-promotion-codes"}
+                        onClick={() => setShow(!show)}
+                      >
+                        <img src={images.promotion} alt="support" />
+                        <span>all promotion codes</span>
+                      </NavLink>
+                      <NavLink
+                        className="menu_item"
+                        to={"all-votes"}
+                        onClick={() => setShow(!show)}
+                      >
+                        <img src={images.vote} alt="support" />
+                        <span>all votes</span>
+                      </NavLink>
+                    </>
+                  }
                   <NavLink
                     className="menu_item"
                     to={"support"}
@@ -110,39 +153,6 @@ const Dashboard = () => {
                   >
                     <img src={images.support} alt="support" />
                     <span>support</span>
-                  </NavLink>
-
-                  <NavLink
-                    className="menu_item"
-                    to={"all-nodes"}
-                    onClick={() => setShow(!show)}
-                  >
-                    <img src={images.shareNode} alt="support" />
-                    <span>all nodes</span>
-                  </NavLink>
-                  <NavLink
-                    className="menu_item"
-                    to={"all-purchase-nodes-by-users"}
-                    onClick={() => setShow(!show)}
-                  >
-                    <img src={images.purchase} alt="support" />
-                    <span>Purchase Node Slot</span>
-                  </NavLink>
-                  <NavLink
-                    className="menu_item"
-                    to={"all-promotion-codes"}
-                    onClick={() => setShow(!show)}
-                  >
-                    <img src={images.promotion} alt="support" />
-                    <span>all promotion codes</span>
-                  </NavLink>
-                  <NavLink
-                    className="menu_item"
-                    to={"all-votes"}
-                    onClick={() => setShow(!show)}
-                  >
-                    <img src={images.vote} alt="support" />
-                    <span>all votes</span>
                   </NavLink>
                 </div>
                 {/* {user ? (
@@ -169,6 +179,7 @@ const Dashboard = () => {
           <Outlet />
         </div>
       </div>
+      <Footer />
     </>
   );
 };

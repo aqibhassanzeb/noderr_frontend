@@ -13,12 +13,12 @@ const UpdateUserprofile = () => {
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [loading, setLoading] = React.useState(false);
-  const [fetchLoading,setFetchLoading] = React.useState(false)
+  const [fetchLoading, setFetchLoading] = React.useState(false)
   const navigate = useNavigate();
 
   React.useEffect(() => {
     const getUser = async () => {
-        setFetchLoading(true);
+      setFetchLoading(true);
       const data = await getProfileData();
       if (data.user.name === null || data.user.email === null) {
         toast.info("Please complete your profile");
@@ -57,10 +57,10 @@ const UpdateUserprofile = () => {
       {loading && <LoadingModal />}
       <div className="right_dashboard">
         <div className="right_container">
-          <PageHeader page_title={"Edit Profile"} badge={"GM, Stranger"} />
+          <PageHeader page_title={"Edit Profile"} badge={"GM, Noderr"} />
           {fetchLoading ? (
             <div>
-            <LoadingModal />
+              <LoadingModal />
             </div>
           ) : (
             <form className="update_profile_form" onSubmit={submitHandler}>
@@ -69,6 +69,7 @@ const UpdateUserprofile = () => {
                 id={"vote_title"}
                 type={"text"}
                 name={"address"}
+                textColor="black"
                 value={walletAddress}
                 disable={walletAddress ? true : false}
                 onChange={(e) => setWalletAddress(e.target.value)}
@@ -92,7 +93,8 @@ const UpdateUserprofile = () => {
               <button
                 type="submit"
                 className="btn primary"
-                style={{ width: "100%" }}
+                style={{ backgroundColor: "black", color: "#fff", width: "100%" }}
+
               >
                 Save
               </button>

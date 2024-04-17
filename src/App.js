@@ -20,6 +20,7 @@ import UserActiveNode from "./pages/userAcitveNodes";
 import Landing from "./pages/landing";
 import PrivacyPolicy from "./pages/privacy-policy";
 import TermsAndCondition from "./pages/terms-and-condition";
+import ContactPage from "./pages/support/ContactUs";
 
 const Home = React.lazy(() => import("./pages/home"));
 const Dashboard = React.lazy(() => import("./pages/dashboard"));
@@ -85,7 +86,12 @@ const router = createBrowserRouter([
 				path: "edit-profile",
 				element: <UpdateUserprofile />,
 			},
+			{
+				path: "contact-us",
+				element: <ContactPage />,
+			},
 		],
+
 	},
 ]);
 

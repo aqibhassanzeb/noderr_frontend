@@ -28,8 +28,8 @@ const AllPurchaseNodebyUsers = () => {
     <div className="right_dashboard">
       <div className="right_container">
         <PageHeader
-          page_title={"All Purchase Nodes by Users"}
-          badge={"GM, Stranger"}
+          page_title={"All Purchased Nodes by Users"}
+          badge={"GM, Noderr"}
         />
         {loading ? (
           <PromoLoader skeletonCount={skeletonCount} />
@@ -40,7 +40,7 @@ const AllPurchaseNodebyUsers = () => {
                 <PurchaseNode key={nodeIndex} node={node} />
               ))
             ) : (
-              <h1>No Purchase Node Found</h1>
+              <h1>No Purchased Node Found</h1>
             )}
           </div>
         )}

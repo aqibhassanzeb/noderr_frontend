@@ -6,6 +6,7 @@ export const createApiContext = createContext(null);
 
 export const ApiProvider = ({ children }) => {
 	const [user, setUser] = useState(null);
+	const [userData, setUserData] = useState(null);
 	const handleLoginOrSignUp = async (formData) => {
 		try {
 			const { data } = await axios.post(
@@ -228,6 +229,8 @@ export const ApiProvider = ({ children }) => {
 				handleLogout,
 				user,
 				setUser,
+				userData,
+				setUserData,
 				getProfileData,
 				updateUserProfile,
 				purchaseNode,

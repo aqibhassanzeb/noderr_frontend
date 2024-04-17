@@ -51,17 +51,26 @@ const Stats_page = () => {
       <div className="right_dashboard">
         <div className="right_container">
           <div className="page_header_container">
-            <PageHeader
-              page_title={"Deploy A New Node"}
-              badge={
-                user && userData && userData
-                  ? `Hello ${userData?.name}`
-                  : "GM, Stranger"
-              }
-            />
-            <Link to={"/dashboard/edit-profile"} className="profile_img">
-              <img src={images.profileCircle} />
-            </Link>
+            <div>
+              <PageHeader
+                page_title={"Available Node Slots"}
+                badge={
+                  user && userData && userData
+                    ? `Hello ${userData?.name}`
+                    : "GM, Noderr"
+                }
+              />
+            </div>
+            <div className="flex justify-center items-center gap-5">
+              <w3m-button size="md" label="Connect Wallet" />
+
+              <Link to={"/dashboard/edit-profile"} className="profile_img">
+                <img src={images.profileCircle} />
+              </Link>
+
+            </div>
+
+
           </div>
 
           {loadingNodes || loadingProfile ? (

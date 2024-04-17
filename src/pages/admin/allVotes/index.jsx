@@ -59,7 +59,7 @@ const AllVotes = () => {
       <div className="right_container">
         <PageHeader
           page_title={"All Votes"}
-          badge={"GM, Stranger"}
+          badge={" GM, Noderr"}
           create={true}
           link={"/dashboard/create-pool"}
         />

@@ -59,7 +59,7 @@ const CreatePrmotion = () => {
       {loading && <LoadingModal />}
       <div className="right_dashboard">
         <div className="right_container">
-          <PageHeader page_title={"Create Promotion"} badge={"GM, Stranger"} />
+          <PageHeader page_title={"Create Promotion"} badge={"GM, Noderr"} />
           <form className="promo_code_form" onSubmit={submitHandler}>
             <div className="generate_promo_code">
               <button type="button" className="gene_promo" onClick={gene_promo}>
