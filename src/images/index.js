@@ -1,3 +1,4 @@
+import LaunchNode from "./launch-node.png"
 import logo from "./logo.png";
 import home from "./home.png";
 import dashboard from "./dashboard.svg";
@@ -22,8 +23,15 @@ import Allora from "./alora.png"
 import Ritual from "./ritual.png"
 import Waku from "./waku.png"
 
+import Lava from "./lava.png"
+import Warden from "./warden.png"
+import Aeron from "./Aeron.png"
+
 export const images = {
   logo,
+  Lava,
+  Warden,
+  Aeron,
   home,
   dashboard,
   support,
@@ -45,5 +53,6 @@ export const images = {
   LogoGif,
   Allora,
   Waku,
-  Ritual
+  Ritual,
+  LaunchNode
 };

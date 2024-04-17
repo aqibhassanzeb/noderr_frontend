@@ -46,7 +46,7 @@ const Landing = () => {
 				<p>
 					Noderr simplifies the world of blockchain, making nodes accessible to
 					everyone. With effortless deployment, you can unlock exclusive early
-					adopter rewards through our cutting-edge decentralized AI Meshwork
+					adopter rewards through our cutting-edge decentralized AI Mesh-work
 					Dashboard. Join us in shaping the future of blockchain accessibility
 				</p>
 				<div className="input_container">
@@ -95,7 +95,7 @@ const Landing = () => {
 									fontWeight: "bold",
 								}}
 							>
-								Ritual Net
+								Ritual
 							</Card.Title>
 							<Card.Img
 								className="active_images"
@@ -157,6 +157,93 @@ const Landing = () => {
 						</Card>
 					</a>
 				</div>
+
+				<div
+					style={{
+						display: "flex",
+						justifyContent: "space-around",
+						width: "100%",
+					}}
+				>
+					<a href="https://www.lavanet.xyz" target="_blank">
+						<Card
+							style={{
+								width: "100%",
+								backgroundColor: "rgba(0, 0, 0, 0.3)",
+								margin: 5,
+								paddingTop: 5,
+							}}
+						>
+							<Card.Title
+								style={{
+									textAlign: "center",
+									fontSize: 24,
+									fontWeight: "bold",
+								}}
+							>
+								Lava
+							</Card.Title>
+							<Card.Img
+								className="active_images1"
+								variant="top"
+								src={images.Lava}
+							/>
+						</Card>
+					</a>
+
+					<a href="https://wardenprotocol.org" target="_blank">
+						<Card
+							style={{
+								width: "100%",
+								backgroundColor: "rgba(0, 0, 0, 0.3)",
+								margin: 5,
+								paddingTop: 5,
+							}}
+						>
+							<Card.Title
+								style={{
+									textAlign: "center",
+									fontSize: 24,
+									fontWeight: "bold",
+								}}
+							>
+								Warden
+							</Card.Title>
+							<Card.Img
+								className="active_images1"
+								variant="top"
+								src={images.Warden}
+							/>
+						</Card>
+					</a>
+
+					<a href="https://areon.network/" target="_blank">
+						<Card
+							style={{
+								width: "100%",
+								backgroundColor: "rgba(0, 0, 0, 0.3)",
+								margin: 5,
+								paddingTop: 5,
+							}}
+						>
+							<Card.Title
+								style={{
+									textAlign: "center",
+									fontSize: 24,
+									fontWeight: "bold",
+								}}
+							>
+								Aeron
+							</Card.Title>
+							<Card.Img
+								className="active_images1"
+								variant="top"
+								src={images.Aeron}
+							/>
+						</Card>
+					</a>
+				</div>
+
 			</div>
 			<ToastContainer />
 			<Footer />
