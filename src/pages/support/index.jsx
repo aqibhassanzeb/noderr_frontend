@@ -33,6 +33,7 @@ export default Support; */
 
 import React from 'react';
 import PageHeader from '../../components/dashboard/pageHeader/pageHeader';
+import { Link } from 'react-router-dom';
 
 const SupportSection = () => {
   return (
@@ -52,7 +53,7 @@ const SupportSection = () => {
           <div className="p-6 bg-white rounded-lg shadow-md">
             <h3 className="text-xl font-semibold text-gray-800 mb-4">Contact Us</h3>
             <p className="text-gray-600 mb-4">Get in touch with our support team.</p>
-            <a href="#" className="text-blue-600 hover:text-blue-800">Contact Support &rarr;</a>
+            <Link to="/dashboard/contact-us" className="text-blue-600 hover:text-blue-800">Contact Support &rarr;</Link>
           </div>
         </div>
       </div>
