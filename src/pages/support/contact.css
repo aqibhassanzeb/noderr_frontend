@@ -16,7 +16,6 @@
   display: block;
   margin-bottom: 8px;
   color: #ffffff;
-  /* Text color */
 }
 
 .input_field {
@@ -24,17 +23,13 @@
   padding: 10px;
   border-radius: 4px;
   border: 1px solid #374151;
-  /* Dark border color */
   background-color: #374151;
-  /* Dark input field color */
   color: #ffffff;
-  /* Text color */
 }
 
 .input_field:focus {
   outline: none;
   border-color: #60a5fa;
-  /* Focus border color */
 }
 
 .submit_btn {
@@ -43,7 +38,6 @@
   border: none;
   border-radius: 4px;
   background-color: #3b82f6;
-  /* Button background color */
   color: #ffffff;
   /* Button text color */
   font-size: 16px;
