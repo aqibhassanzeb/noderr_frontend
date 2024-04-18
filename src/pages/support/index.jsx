@@ -48,7 +48,7 @@ const SupportSection = () => {
           <div className="p-6 bg-white rounded-lg shadow-md">
             <h3 className="text-xl font-semibold text-gray-800 mb-4">FAQs</h3>
             <p className="text-gray-600 mb-4">Find answers to common questions.</p>
-            <a href="#" className="text-blue-600 hover:text-blue-800">Read FAQs &rarr;</a>
+            <Link to="/dashboard/faq" className="text-blue-600 hover:text-blue-800">Read FAQs &rarr;</Link>
           </div>
           <div className="p-6 bg-white rounded-lg shadow-md">
             <h3 className="text-xl font-semibold text-gray-800 mb-4">Contact Us</h3>
