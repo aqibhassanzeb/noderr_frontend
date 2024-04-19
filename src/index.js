@@ -18,9 +18,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 const queryClient = new QueryClient()
 
-const projectId = process.env.REACT_APP_CONNECT_WALLET_ID || "45fef58f3f6ccb3d8afa7b2883387d3c"
-console.log("🚀 ~ projectId:", projectId)
-console.log("🚀 ~ process.env.REACT_APP_CONNECT_WALLET_ID:", process.env.REACT_APP_CONNECT_WALLET_ID)
+const projectId = process.env.REACT_APP_CONNECT_WALLET_ID
 
 const metadata = {
   name: 'Web3Modal',
