@@ -97,8 +97,8 @@ const Dashboard = () => {
                     end
                     onClick={() => setShow(!show)}
                   >
-                    <img src={images.dashboard} alt="dashboard" />
-                    <span>dashboard</span>
+                    <img src={images.LogoGif} alt="dashboard" />
+                    <span>Hub</span>
                   </NavLink>
                   <NavLink
                     className="menu_item"

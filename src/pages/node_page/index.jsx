@@ -24,7 +24,7 @@ const Stats_page = () => {
           getAllNodes(),
           getProfileData(),
         ]);
-        setNodes(nodesResponse);
+        setNodes(nodesResponse.data.nodes);
         if (profileResponse.success) {
           setUserData(profileResponse.user);
         }
@@ -38,6 +38,7 @@ const Stats_page = () => {
 
     fetchData();
   }, []);
+
   const skeletonCount = Math.floor(window.innerHeight / 100);
   const handleNodeClick = (node) => {
     setSelectedNode(node);
@@ -77,7 +78,7 @@ const Stats_page = () => {
             <NodeLoader skeletonCount={skeletonCount} />
           ) : (
             <div className="dashboard_grid">
-              <StatsCard
+              {/* <StatsCard
                 stats_img={"https://mintair.xyz/_next/static/media/fuelLogo.69540439.svg"}
                 text={"Node 1"}
                 slot={10}
@@ -111,7 +112,7 @@ const Stats_page = () => {
                 slot={10}
                 bg_color={"#FFD9D9"}
                 onClick={() => handleNodeClick(nodes[0])}
-              />
+              /> */}
               {nodes?.length > 0 ? (
                 nodes &&
                 nodes

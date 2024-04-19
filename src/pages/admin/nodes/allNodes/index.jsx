@@ -17,7 +17,7 @@ const AllNodes = () => {
     const fetchNodes = async () => {
       try {
         const response = await getAllNodes();
-        setNodes(response);
+        setNodes(response?.data?.nodes);
         setLoading(false);
       } catch (error) {
         console.log("Error fetching nodes", error);

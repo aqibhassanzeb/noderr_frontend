@@ -16,7 +16,8 @@ const AllPromotionCode = () => {
       setLoading(true);
       try {
         const response = await getAllPromoCodes();
-        setPromotionCodes(response);
+        setPromotionCodes(response.data?.promotionCodes
+        );
         setLoading(false);
       } catch (error) {
         console.log("Error fetching promotion codes", error);
