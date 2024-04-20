@@ -168,7 +168,9 @@ const Dashboard = () => {
                     <span className="text">logout</span>
                   </div>
                 )}
-                {!user && <button onClick={authUser}>login</button>}
+                <div style={{ marginBottom:50, marginLeft:30}}>
+                {!user && <w3m-button size="md" label="Connect Wallet" />}
+                </div>
               </div>
               <div className="close_btn" onClick={() => setShow(!show)}>
                 <IoCloseCircleOutline />

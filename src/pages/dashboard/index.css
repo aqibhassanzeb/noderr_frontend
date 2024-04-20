@@ -85,10 +85,10 @@
 }
 
 .menu_list>.menu_item.active {
-  background: linear-gradient(90deg, #333 0%, rgba(0, 0, 0, 0) 70%);
+  background: linear-gradient(90deg, #1980E5 0%, rgba(0, 0, 0, 0) 70%);
   border-radius: 12px;
-  border: 1px solid #333;
-  border-right: 4px solid #333;
+  border: 1px solid #1980E5;
+  border-right: 4px solid #1980E5;
 }
 
 .menu_list>.menu_item>img {
