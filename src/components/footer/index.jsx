@@ -1,7 +1,7 @@
 import React from "react";
 import "./index.css";
 import { FaXTwitter } from "react-icons/fa6";
-import { FaTelegramPlane } from "react-icons/fa";
+import { FaDiscord, FaTelegramPlane } from "react-icons/fa";
 const Footer = () => {
   return (
     <div className="footer">
@@ -10,6 +10,14 @@ const Footer = () => {
       </span>
       <span className="text">
         <a href="terms-and-conditions">Terms of Use</a>
+      </span>
+      <span className="icon">
+        <a
+          href="https://discord.com/invite/f8mxtxme"
+          target="_blank"
+        >
+          <FaDiscord />
+        </a>
       </span>
 
       <span className="icon">

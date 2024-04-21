@@ -78,9 +78,7 @@ const Dashboard = () => {
             </div>
           )}
           {!user && (
-            <button onClick={authUser} className="connect_wallet_btn">
-              login
-            </button>
+           <w3m-button size="md" label="Connect Wallet" />
           )}
         </div>
         <div className="dashboard"  >
