@@ -28,6 +28,7 @@ const UserActiveNode = () => {
   return (
     <div className="right_dashboard">
       <div className="right_container">
+        
         <PageHeader page_title={"User active nodes"} badge={"GM, Noderr"} />
         {loading ? (
           <PromoLoader skeletonCount={skeletonCount} />
