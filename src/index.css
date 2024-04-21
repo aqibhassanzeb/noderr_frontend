@@ -219,8 +219,8 @@ img {
 
 .right_container {
   display: flex;
-  height: inherit;
-  overflow-y: auto;
+  /* height: inherit; */
+  /* overflow-y: auto; */
   flex-direction: column;
   row-gap: var(--gap);
 

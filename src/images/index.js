@@ -22,6 +22,7 @@ import LogoGif from "./logo.gif";
 import Allora from "./alora.png"
 import Ritual from "./ritual.png"
 import Waku from "./waku.png"
+import FakePic from "./fakepic.jpg"
 
 import Lava from "./lava.png"
 import Warden from "./warden.png"
@@ -54,5 +55,6 @@ export const images = {
   Allora,
   Waku,
   Ritual,
-  LaunchNode
+  LaunchNode,
+  FakePic
 };

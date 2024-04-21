@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PageHeader from "../../components/dashboard/pageHeader/pageHeader";
 import { Link } from "react-router-dom";
+import { images } from "../../images";
 
 const FAQSection = () => {
   const [openIndexes, setOpenIndexes] = useState([]);
@@ -43,7 +44,8 @@ const FAQSection = () => {
   return (
     <div className="right_dashboard">
       <div className="right_container">
-        <PageHeader page_title={"Support"} badge={"GM, Noderr"} />
+        <PageHeader page_title={"Support"} badge={"GM, Noderr"}
+          profilePic={images.FakePic} />
         <section>
           <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
             <div className="max-w-2xl mx-auto text-center">

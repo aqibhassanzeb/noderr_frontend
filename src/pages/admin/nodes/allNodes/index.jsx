@@ -7,6 +7,7 @@ import { createApiContext } from "../../../../context/apiContext";
 import AdminNodeLoader from "../../../../components/skeletonLoaders/adminnodesLoader";
 import { toast } from "react-toastify";
 import UpdateNode from "../../../../components/dashboard/updateNode";
+import { images } from "../../../../images";
 const AllNodes = () => {
   const { getAllNodes, deleteNode } = useContext(createApiContext);
   const [loadding, setLoading] = useState(true);
@@ -57,6 +58,7 @@ const AllNodes = () => {
         <PageHeader
           page_title={"All Nodes"}
           badge={"GM, Noderr"}
+          profilePic={images.FakePic}
           create={true}
           link={"/dashboard/create-node"}
         />

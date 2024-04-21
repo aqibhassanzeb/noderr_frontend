@@ -4,6 +4,7 @@ import PageHeader from '../../components/dashboard/pageHeader/pageHeader';
 
 import './contact.css'
 import { toast } from 'react-toastify';
+import { images } from '../../images';
 const ContactPage = () => {
   const ref = useRef(null)
   const [formData, setFormData] = useState({
@@ -41,7 +42,8 @@ const ContactPage = () => {
   return (
     <div className="right_dashboard">
       <div className="right_container">
-        <PageHeader page_title={"Support"} badge={"GM, Noderr"} />
+        <PageHeader page_title={"Support"} badge={"GM, Noderr"}
+          profilePic={images.FakePic} />
         <section >
           <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
             <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-white">Contact Us</h2>

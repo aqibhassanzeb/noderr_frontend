@@ -54,6 +54,7 @@ const Stats_page = () => {
             <div>
               <PageHeader
                 page_title={"Available Node Slots"}
+                profilePic={images.FakePic}
                 badge={
                   user && userData && userData
                     ? `Hello ${userData?.name}`

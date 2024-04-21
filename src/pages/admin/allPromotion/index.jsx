@@ -6,6 +6,7 @@ import { createApiContext } from "../../../context/apiContext";
 import PromoLoader from "../../../components/skeletonLoaders/promoLoader";
 import { toast } from "react-toastify";
 import UpdatePromo from "../../../components/dashboard/updatePromo";
+import { images } from "../../../images";
 const AllPromotionCode = () => {
   const { getAllPromoCodes, deletePromoCode } = useContext(createApiContext);
   const [promotionCodes, setPromotionCodes] = useState([]);
@@ -58,6 +59,7 @@ const AllPromotionCode = () => {
         <PageHeader
           page_title={"All promotion codes"}
           badge={"GM, Noderr"}
+          profilePic={images.FakePic}
           create={true}
           link={"/dashboard/create-promotion"}
         />
