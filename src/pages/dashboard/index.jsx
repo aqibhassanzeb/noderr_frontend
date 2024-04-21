@@ -168,7 +168,7 @@ const Dashboard = () => {
                     <span className="text">logout</span>
                   </div>
                 )}
-                <div style={{ marginBottom:50, marginLeft:30}}>
+                <div style={{ marginBottom:80, marginLeft:30}}>
                 {!user && <w3m-button size="md" label="Connect Wallet" />}
                 </div>
               </div>
@@ -180,8 +180,10 @@ const Dashboard = () => {
 
           <Outlet />
         </div>
+        <Footer />
+
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

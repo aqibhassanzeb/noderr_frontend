@@ -34,12 +34,14 @@ export default Support; */
 import React from "react";
 import PageHeader from "../../components/dashboard/pageHeader/pageHeader";
 import { Link } from "react-router-dom";
+import { images } from "../../images";
 
 const SupportSection = () => {
   return (
     <div className="right_dashboard">
       <div className="right_container">
-        <PageHeader page_title={"Support"} badge={"GM, Noderr"} />
+        <PageHeader page_title={"Support"} badge={"GM, Noderr"}
+          profilePic={images.FakePic} />
         <div className="text-center">
           <h2 className="text-3xl font-bold  mb-4">Need Help?</h2>
           <p className="text-lg  mb-8">We're here to assist you.</p>

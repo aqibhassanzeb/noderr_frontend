@@ -6,6 +6,7 @@ import InputContainer from "../../components/dashboard/InputContainer";
 import { toast } from "react-toastify";
 import LoadingModal from "../../components/ApiLoader";
 import { useNavigate } from "react-router-dom";
+import { images } from "../../images";
 const UpdateUserprofile = () => {
   const { getProfileData, updateUserProfile } =
     React.useContext(createApiContext);
@@ -57,7 +58,8 @@ const UpdateUserprofile = () => {
       {loading && <LoadingModal />}
       <div className="right_dashboard">
         <div className="right_container">
-          <PageHeader page_title={"Edit Profile"} badge={"GM, Noderr"} />
+          <PageHeader page_title={"Edit Profile"} badge={"GM, Noderr"}
+          profilePic={images.FakePic} />
           {fetchLoading ? (
             <div>
               <LoadingModal />

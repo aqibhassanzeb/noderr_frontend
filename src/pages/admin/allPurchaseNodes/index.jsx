@@ -5,6 +5,7 @@ import PurchaseNode from "../../../components/dashboard/purchaseNode";
 import { createApiContext } from "../../../context/apiContext";
 import { toast } from "react-toastify";
 import PromoLoader from "../../../components/skeletonLoaders/promoLoader";
+import { images } from "../../../images";
 const AllPurchaseNodebyUsers = () => {
   const { getAllPurchaseNodeByAdmin } = useContext(createApiContext);
   const [purchaseNode, setPurchaseNode] = React.useState([]);
@@ -30,6 +31,7 @@ const AllPurchaseNodebyUsers = () => {
         <PageHeader
           page_title={"All Purchased Nodes by Users"}
           badge={"GM, Noderr"}
+          profilePic={images.FakePic}
         />
         {loading ? (
           <PromoLoader skeletonCount={skeletonCount} />
