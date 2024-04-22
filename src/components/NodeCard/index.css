@@ -62,13 +62,13 @@
 .stats_box>.stats_digit>h4 {
   font-size: var(--card-h4-size);
   font-weight: bold;
-  color: var(--black);
+  /* color: var(--black); */
   text-transform: capitalize;
 }
 
 .stats_box>.stats_digit>span {
   font-size: var(--card-span-size);
-  color: var(--black);
+  /* color: var(--black); */
   text-transform: capitalize;
   font-weight: var(--leading-4);
 }

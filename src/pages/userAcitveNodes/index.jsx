@@ -5,6 +5,7 @@ import ActiveNode from "../../components/dashboard/acitveNode";
 import { createApiContext } from "../../context/apiContext";
 import { toast } from "react-toastify";
 import PromoLoader from "../../components/skeletonLoaders/promoLoader";
+import { images } from "../../images";
 const UserActiveNode = () => {
   const { getPurchaseNode } = useContext(createApiContext);
   const [activeNodes, setActiveNodes] = useState([]);
@@ -28,7 +29,9 @@ const UserActiveNode = () => {
   return (
     <div className="right_dashboard">
       <div className="right_container">
-        <PageHeader page_title={"User active nodes"} badge={"GM, Noderr"} />
+        
+        <PageHeader page_title={"User active nodes"} badge={"GM, Noderr"}
+          profilePic={images.FakePic} />
         {loading ? (
           <PromoLoader skeletonCount={skeletonCount} />
         ) : activeNodes?.length > 0 ? (

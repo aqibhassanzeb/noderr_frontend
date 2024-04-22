@@ -59,8 +59,9 @@ export const ApiProvider = ({ children }) => {
 
 	const getAllNodes = async () => {
 		try {
-			const { data } = await axios.get("/api/node/get-all-nodes");
-			return data.nodes;
+			// const { data } = await axios.get("/api/node/get-all-nodes");
+			const { data } = await axios.get("/api/node/get-nodes");
+			return data;
 		} catch (err) {
 			console.log(err);
 		}
@@ -109,7 +110,7 @@ export const ApiProvider = ({ children }) => {
 	const getAllPromoCodes = async () => {
 		try {
 			const { data } = await axios.get("/api/promotion/get-all-promo-codes");
-			return data.promoCodes;
+			return data;
 		} catch (err) {
 			console.log(err);
 		}
@@ -203,7 +204,7 @@ export const ApiProvider = ({ children }) => {
 
 	const getAllPurchaseNodeByAdmin = async () => {
 		try {
-			const { data } = await axios.get("/api/purchase/get-purchase-nodes");
+			const { data } = await axios.get("/api/purchase/purchase-nodes");
 			return data;
 		} catch (err) {
 			console.log(err);

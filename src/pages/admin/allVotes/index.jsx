@@ -24,7 +24,7 @@ const AllVotes = () => {
       setLoading(true);
       try {
         const response = await getAllPools();
-        setVotes(response.votes);
+        setVotes(response.data);
         setLoading(false);
       } catch (error) {
         console.log("Error fetching votes", error);

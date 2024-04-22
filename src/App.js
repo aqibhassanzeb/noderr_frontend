@@ -21,6 +21,7 @@ import Landing from "./pages/landing";
 import PrivacyPolicy from "./pages/privacy-policy";
 import TermsAndCondition from "./pages/terms-and-condition";
 import ContactPage from "./pages/support/ContactUs";
+import FAQSection from "./pages/support/Faq";
 
 const Home = React.lazy(() => import("./pages/home"));
 const Dashboard = React.lazy(() => import("./pages/dashboard"));
@@ -89,6 +90,10 @@ const router = createBrowserRouter([
 			{
 				path: "contact-us",
 				element: <ContactPage />,
+			},
+			{
+				path: "faq",
+				element: <FAQSection />,
 			},
 		],
 

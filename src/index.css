@@ -137,7 +137,7 @@ body[data-theme="light"] {
 
 body[data-theme="dark"] {
   /* Dark theme styles */
-  background-color: #000000;
+  background-image: linear-gradient(90deg, #122555 0%, rgba(0, 0, 0, 0) 200%) !important;
   color: #fff;
   --primary: #1980e5;
 
@@ -219,12 +219,12 @@ img {
 
 .right_container {
   display: flex;
-  height: inherit;
-  overflow-y: auto;
+  /* height: inherit; */
+  /* overflow-y: auto; */
   flex-direction: column;
   row-gap: var(--gap);
 
-  background: var(--secondary);
+  background: linear-gradient(90deg, #052560 0%, rgba(0, 0, 0, 0) 200%);
   padding: var(--dashboard-pad);
   border-radius: var(--dashboard-border-radius);
 }

@@ -1,3 +1,18 @@
+.round-img-container {
+  width: 60px; /* Adjust according to your desired smaller size */
+  height: 60px; /* Adjust according to your desired smaller size */
+  border-radius: 50%; /* This creates a circular shape */
+  overflow: hidden; /* Ensures the image stays within the container */
+  padding-bottom: 10px;
+}
+
+.round-img-container img {
+  width: 100%; /* Ensures the image fills the container */
+  height: auto; /* Maintains aspect ratio */
+  display: block; /* Removes any default spacing */
+  padding-bottom: 10px;
+}
+
 .title_container{
   display: flex;
   flex-direction: column;
@@ -11,9 +26,9 @@
 }
 
 .header > span {
-  background-color: black;
-  padding: var(--btn-pad);
-
+  /* background-color: var(--wui-color-accent-100);
+  padding: var(--btn-pad); */
+  padding-bottom: 20px;
   border-radius: var(--border-radius);
   font-size: var(--btn-font-size);
   font-weight: var(--leading-4);
@@ -54,8 +69,8 @@
   }
 
   .header > span {
-    background-color: black;
-    padding: var(--btn-sm-pad);
+    /* background-color: var(--wui-color-accent-100);
+    padding: var(--btn-sm-pad); */
     border-radius: var(--sm-border-radius);
     font-size: var(--btn-sm-font-size);
     font-weight: var(--leading-3);

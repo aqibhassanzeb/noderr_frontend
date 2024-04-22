@@ -8,6 +8,7 @@ import voucher_codes from "voucher-code-generator";
 import LoadingModal from "../../components/ApiLoader";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { images } from "../../images";
 
 const CreatePrmotion = () => {
   const { generatePromoCode } = useContext(createApiContext);
@@ -59,7 +60,8 @@ const CreatePrmotion = () => {
       {loading && <LoadingModal />}
       <div className="right_dashboard">
         <div className="right_container">
-          <PageHeader page_title={"Create Promotion"} badge={"GM, Noderr"} />
+          <PageHeader page_title={"Create Promotion"} badge={"GM, Noderr"}
+          profilePic={images.FakePic} />
           <form className="promo_code_form" onSubmit={submitHandler}>
             <div className="generate_promo_code">
               <button type="button" className="gene_promo" onClick={gene_promo}>

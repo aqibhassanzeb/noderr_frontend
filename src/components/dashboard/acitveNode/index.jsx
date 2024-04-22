@@ -9,7 +9,7 @@ const ActiveNode = ({ node }) => {
       style={{ background: node.node.bgColor }}
     >
       <div className="active_node-image">
-        <img src={node.node.nodeImage.url} alt="Node" />
+        <img src={node?.node?.nodeImage?.url} alt="Node" />
       </div>
       <div className="active_node-content">
         <p class="active_node-title">{node.node.nodeName}</p>

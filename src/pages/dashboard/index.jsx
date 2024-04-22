@@ -78,9 +78,7 @@ const Dashboard = () => {
             </div>
           )}
           {!user && (
-            <button onClick={authUser} className="connect_wallet_btn">
-              login
-            </button>
+           <w3m-button size="md" label="Connect Wallet" />
           )}
         </div>
         <div className="dashboard"  >
@@ -97,8 +95,8 @@ const Dashboard = () => {
                     end
                     onClick={() => setShow(!show)}
                   >
-                    <img src={images.dashboard} alt="dashboard" />
-                    <span>dashboard</span>
+                    <img src={images.LogoGif} alt="dashboard" />
+                    <span>Hub</span>
                   </NavLink>
                   <NavLink
                     className="menu_item"
@@ -168,7 +166,9 @@ const Dashboard = () => {
                     <span className="text">logout</span>
                   </div>
                 )}
-                {!user && <button onClick={authUser}>login</button>}
+                <div style={{ marginBottom:80, marginLeft:30}}>
+                {!user && <w3m-button size="md" label="Connect Wallet" />}
+                </div>
               </div>
               <div className="close_btn" onClick={() => setShow(!show)}>
                 <IoCloseCircleOutline />
@@ -178,8 +178,10 @@ const Dashboard = () => {
 
           <Outlet />
         </div>
+        <Footer />
+
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

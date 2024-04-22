@@ -24,7 +24,7 @@ const Stats_page = () => {
           getAllNodes(),
           getProfileData(),
         ]);
-        setNodes(nodesResponse);
+        setNodes(nodesResponse.data.nodes);
         if (profileResponse.success) {
           setUserData(profileResponse.user);
         }
@@ -38,6 +38,7 @@ const Stats_page = () => {
 
     fetchData();
   }, []);
+
   const skeletonCount = Math.floor(window.innerHeight / 100);
   const handleNodeClick = (node) => {
     setSelectedNode(node);
@@ -50,10 +51,10 @@ const Stats_page = () => {
     <>
       <div className="right_dashboard">
         <div className="right_container">
-          <div className="page_header_container">
             <div>
               <PageHeader
                 page_title={"Available Node Slots"}
+                profilePic={images.FakePic}
                 badge={
                   user && userData && userData
                     ? `Hello ${userData?.name}`
@@ -62,22 +63,18 @@ const Stats_page = () => {
               />
             </div>
             <div className="flex justify-center items-center gap-5">
-              <w3m-button size="md" label="Connect Wallet" />
+              {/* <w3m-button size="md" label="Connect Wallet" /> */}
 
-              <Link to={"/dashboard/edit-profile"} className="profile_img">
-                <img src={images.profileCircle} />
-              </Link>
 
             </div>
 
 
-          </div>
 
           {loadingNodes || loadingProfile ? (
             <NodeLoader skeletonCount={skeletonCount} />
           ) : (
             <div className="dashboard_grid">
-              <StatsCard
+              {/* <StatsCard
                 stats_img={"https://mintair.xyz/_next/static/media/fuelLogo.69540439.svg"}
                 text={"Node 1"}
                 slot={10}
@@ -111,7 +108,7 @@ const Stats_page = () => {
                 slot={10}
                 bg_color={"#FFD9D9"}
                 onClick={() => handleNodeClick(nodes[0])}
-              />
+              /> */}
               {nodes?.length > 0 ? (
                 nodes &&
                 nodes

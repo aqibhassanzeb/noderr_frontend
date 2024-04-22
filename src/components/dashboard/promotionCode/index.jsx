@@ -2,6 +2,7 @@ import React from "react";
 import "./index.css";
 import { FaRegCopy } from "react-icons/fa6";
 import CURDBtn from "../../CURDBtn";
+import { toast } from "react-toastify";
 
 const PromotionCode = ({
   code,
@@ -15,6 +16,16 @@ const PromotionCode = ({
   const expiry_date = new Date(expiryDate).toLocaleDateString();
   const copyCodeToClipboard = () => {
     navigator.clipboard.writeText(code);
+    if (navigator.clipboard.writeText(code)) {
+      toast.success("code copied to clipboard", {
+        theme: "colored"
+      });
+    } else {
+      toast.error("failed to copy code", {
+        theme: "colored"
+
+      });
+    }
   };
   return (
     <div className="promotion_code">
