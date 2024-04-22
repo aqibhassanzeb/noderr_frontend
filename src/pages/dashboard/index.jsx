@@ -1,20 +1,25 @@
 import React, { useEffect } from "react";
-import "./index.css";
-
 import { IoCloseCircleOutline } from "react-icons/io5";
 import { images } from "../../images";
 import { NavLink, Outlet } from "react-router-dom";
-import { FaHamburger } from "react-icons/fa";
 import { RxHamburgerMenu } from "react-icons/rx";
-
+import { FaQ } from "react-icons/fa6";
 import { createApiContext } from "../../context/apiContext";
 import { toast } from "react-toastify";
 import LoadingModal from "../../components/ApiLoader";
 import { AiOutlineLogout } from "react-icons/ai";
 import Footer from "../../components/footer";
+import "./index.css";
 const Dashboard = () => {
-  const { handleLoginOrSignUp, handleLogout, getProfileData, user, setUser, userData, setUserData } =
-    React.useContext(createApiContext);
+  const {
+    handleLoginOrSignUp,
+    handleLogout,
+    getProfileData,
+    user,
+    setUser,
+    userData,
+    setUserData,
+  } = React.useContext(createApiContext);
   const [show, setShow] = React.useState(true);
   const [loading, setLoading] = React.useState(false);
   useEffect(() => {
@@ -25,8 +30,6 @@ const Dashboard = () => {
     };
     getUser();
   }, [user]);
-
-
 
   const handleAuth = async () => {
     setLoading(true);
@@ -77,12 +80,16 @@ const Dashboard = () => {
               <span className="text">logout</span>
             </div>
           )}
-          {!user && (
-           <w3m-button size="md" label="Connect Wallet" />
-          )}
+          {!user && <w3m-button size="md" label="Connect Wallet" />}
         </div>
-        <div className="dashboard"  >
-          <div className={show ? "side_menu hide overflow-scroll" : "side_menu overflow-scroll"}>
+        <div className="dashboard">
+          <div
+            className={
+              show
+                ? "side_menu hide overflow-scroll"
+                : "side_menu overflow-scroll"
+            }
+          >
             <div className="menu_container">
               <div className="brand_log">
                 <img src={images.TextLogo} alt="logo" />
@@ -107,8 +114,7 @@ const Dashboard = () => {
                     <img src={images.activeNode} alt="dashboard" />
                     <span>active nodes</span>
                   </NavLink>
-                  {
-                    userData?.role === "admin" &&
+                  {userData?.role === "admin" && (
                     <>
                       <NavLink
                         className="menu_item"
@@ -142,8 +148,17 @@ const Dashboard = () => {
                         <img src={images.vote} alt="support" />
                         <span>all votes</span>
                       </NavLink>
+                      <NavLink
+                        className="menu_item"
+                        to={"all-faq"}
+                        onClick={() => setShow(!show)}
+                      >
+                        <FaQ />
+                        {/* <img src={images.vote} alt="support" /> */}
+                        <span>Add FAQ</span>
+                      </NavLink>
                     </>
-                  }
+                  )}
                   <NavLink
                     className="menu_item"
                     to={"support"}
@@ -166,8 +181,8 @@ const Dashboard = () => {
                     <span className="text">logout</span>
                   </div>
                 )}
-                <div style={{ marginBottom:80, marginLeft:30}}>
-                {!user && <w3m-button size="md" label="Connect Wallet" />}
+                <div style={{ marginBottom: 80, marginLeft: 30 }}>
+                  {!user && <w3m-button size="md" label="Connect Wallet" />}
                 </div>
               </div>
               <div className="close_btn" onClick={() => setShow(!show)}>
@@ -175,13 +190,10 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
-
           <Outlet />
         </div>
         <Footer />
-
       </div>
-      {/* <Footer /> */}
     </>
   );
 };

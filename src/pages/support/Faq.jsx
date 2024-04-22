@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import PageHeader from "../../components/dashboard/pageHeader/pageHeader";
 import { Link } from "react-router-dom";
 import { images } from "../../images";
+import { createApiContext } from "../../context/apiContext";
+import { toast } from "react-toastify";
 
 const FAQSection = () => {
   const [openIndexes, setOpenIndexes] = useState([]);
+  const [faqData, setFaqData] = useState([])
+  const [loading, setLoading] = useState(true)
+  const { getAllFaq } = useContext(createApiContext)
 
   const toggleAnswer = (index) => {
     if (openIndexes.includes(index)) {
@@ -14,30 +19,65 @@ const FAQSection = () => {
     }
   };
 
-  const faqData = [
+  useEffect(() => {
+    const fetchFaq = async () => {
+      try {
+        const response = await getAllFaq();
+        setFaqData(response?.data?.faq);
+        setLoading(false);
+      } catch (error) {
+        console.log("Error fetching nodes", error);
+        toast.error(error.response.data.message);
+      }
+    };
+    fetchFaq();
+  }, []);
+  const faqData1 = [
     {
-      question: "What is Noderr?",
-      answer: `Noderr is a platform that allows you to create and manage your own nodes.`,
+      question: "What is Noderr",
+      answer: `Noderr is a platform designed to simplify the process of creating and managing nodes. Our automated system ensures minimal user intervention while maintaining maximum uptime for your nodes
+      `,
     },
 
     {
-      question: "How do I create a node?",
-      answer: `To create a node, click on the create node button on the dashboard.`,
+      question: "How do I create a node",
+      answer: `
+      To create a node on Noderr, follow these simple steps:
+1. Click on 'Launch Node' to access the platform
+2. Connect your wallet securely
+3. Choose and pay for your desired node slot
+4. Enter required information
+5. Once confirmed, check your active nodes to ensure everything is set up correctly
+
+      `,
     },
 
     {
-      question: "How do I create a pool?",
-      answer: `To create a pool, click on the create pool button on the dashboard.`,
+      question: "What payment methods do you accept",
+      answer: `We currently accept payments exclusively in cryptocurrency. Upon selecting your desired node slot, you'll be prompted to complete your payment using supported cryptocurrencies
+
+      In the future fiat currency will be accepted
+      `,
     },
 
     {
-      question: "How do I create a promotion?",
-      answer: `To create a promotion, click on the create promotion button on the dashboard.`,
+      question: "How secure is Noderr",
+      answer: `Noder prioritizes the security of your nodes and personal information. We implement robust security measures, including the highest standard of encryption protocols and wallet integration, to ensure the safety of your assets and data. Noderr conducts thorough internal security audits in addition to engaging reputable third-party auditing teams. This dual approach ensures comprehensive scrutiny of our platform's security measures, providing our users with enhanced confidence in the safety and integrity of their assets`,
     },
 
     {
-      question: "How do I view all nodes?",
-      answer: `To view all nodes, click on the all nodes button on the dashboard.`,
+      question: "How can I contact support if I encounter any issues",
+      answer: `If you encounter any issues or have questions, our dedicated support team is here to assist you. You can reach out to us through our contact form on the Noderr dashboard, or by joining discord and submitting an official ticket. We strive to provide prompt and helpful assistance to all our users. Spamming in discord general chats will result in permanent ban and removal from Noderr applications`,
+    },
+    {
+      question: "Does Noderr offer refunds?",
+      answer: `At this time, we do NOT offer refunds for node slots purchased on Noderr. We recommend carefully considering your node selections before making a purchase
+      `,
+    },
+    {
+      question: "Is Noderr responsible for the failure of third-party applications AKA Nodes",
+      answer: `No, Noderr operates independently from the third-party blockchain companies. While we provide the infrastructure and maintenance for these nodes, we do not have any direct connection or responsibility for the performance or actions of these external applications. When you purchase a node slot through Noderr, you are solely engaging with our platform and services.
+      `
     },
   ];
 

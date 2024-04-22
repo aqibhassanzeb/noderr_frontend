@@ -83,7 +83,7 @@ const SupportSection = () => {
             If you need assistance, feel free to join our Discord server:
           </p>
           <a
-            href="https://discord.com/invite/NPdJeDcB"
+            href="https://discord.com/channels/1227850744003035246/1231274981158031430"
             target="_blank"
             rel="noopener noreferrer"
             className="discord-button flex items-center justify-center bg-[#5865f2] hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"

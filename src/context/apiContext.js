@@ -211,6 +211,35 @@ export const ApiProvider = ({ children }) => {
 			return err;
 		}
 	};
+
+	const createFaqByAdmin = async (faqData) => {
+		try {
+			const { data } = await axios.post('/api/faq/create-faq', faqData);
+			return data;
+		} catch (err) {
+			console.log(err);
+			return err
+		}
+	};
+	const getAllFaq = async () => {
+		try {
+			const { data } = await axios.get('/api/faq/get-faq');
+			return data;
+		} catch (err) {
+			console.log(err);
+			return err
+		}
+	};
+	const deleteFaq = async (id) => {
+		try {
+			const { data } = await axios.delete(`/api/faq/delete-faq/${id}`);
+			return data;
+		} catch (err) {
+			console.log(err);
+			return err
+		}
+	};
+
 	return (
 		<createApiContext.Provider
 			value={{
@@ -238,6 +267,9 @@ export const ApiProvider = ({ children }) => {
 				getPurchaseNode,
 				getAllPurchaseNodeByAdmin,
 				signupForBetaLaunch,
+				createFaqByAdmin,
+				getAllFaq,
+				deleteFaq
 			}}
 		>
 			{children}

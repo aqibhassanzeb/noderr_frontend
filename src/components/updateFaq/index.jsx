@@ -1,0 +1,94 @@
+import React, { useContext, useEffect } from "react";
+import "./index.css";
+import { toast } from "react-toastify";
+import { GrFormClose } from "react-icons/gr";
+import { createApiContext } from "../../context/apiContext";
+import InputContainer from "../dashboard/InputContainer";
+import LoadingModal from "../ApiLoader";
+import { images } from "../../images";
+const UpdateFaq = ({ faq, onClose, setFaq, setLoading }) => {
+  const { updateNode, getAllNodes } = useContext(createApiContext);
+  const [question, setQuestion] = React.useState("");
+  const [answer, setAnswer] = React.useState("");
+  const [updateLoading, setUpdateLoading] = React.useState(false);
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+    setQuestion(faq?.question);
+    setAnswer(faq?.answer);
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, []);
+
+  const updateFaqHandler = async (id, formData) => {
+    setUpdateLoading(true);
+    setLoading(true);
+    const data = await updateNode(id, formData);
+    console.log(data);
+    if (data.success) {
+      setUpdateLoading(false);
+      toast.success("Node updated successfully");
+      const response = await getAllNodes();
+      setFaq(response);
+      setLoading(false);
+      onClose();
+    } else if (data.response.data.message) {
+      setUpdateLoading(false);
+      toast.error(data.response.data.message);
+    }
+  };
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    setLoading(true);
+    const formData = {
+      question: question,
+      answer: answer
+    }
+    updateFaqHandler(faq._id, formData);
+  };
+
+  return (
+    <>
+      <div className="popUp">
+        {updateLoading && <LoadingModal />}
+        {/* {<LoadingModal />} */}
+        <div className="popbox">
+          <div className="right">
+            <span className="close" onClick={onClose}>
+              <GrFormClose />
+            </span>
+          </div>
+
+          <form className="update_node_form" onSubmit={submitHandler}>
+            <InputContainer
+              label={"Question"}
+              id={"question"}
+              type={"text"}
+              value={question}
+              name="question"
+              onChange={(e) => setQuestion(e.target.value)}
+            />
+            <InputContainer
+              label={"Answer"}
+              id={"answer"}
+              type={"text"}
+              name="answer"
+              value={answer}
+              onChange={(e) => setAnswer(e.target.value)}
+            />
+            <button type="submit" className="btn primary">
+              create
+            </button>
+          </form>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default UpdateFaq;

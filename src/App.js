@@ -22,6 +22,9 @@ import PrivacyPolicy from "./pages/privacy-policy";
 import TermsAndCondition from "./pages/terms-and-condition";
 import ContactPage from "./pages/support/ContactUs";
 import FAQSection from "./pages/support/Faq";
+import AddFaq from "./pages/admin/addFaq";
+import CreateFaq from "./pages/admin/addFaq/create";
+import UpdateFaq from "./components/updateFaq";
 
 const Home = React.lazy(() => import("./pages/home"));
 const Dashboard = React.lazy(() => import("./pages/dashboard"));
@@ -95,8 +98,19 @@ const router = createBrowserRouter([
 				path: "faq",
 				element: <FAQSection />,
 			},
+			{
+				path: "all-faq",
+				element: <AddFaq />,
+			},
+			{
+				path: "create-faq",
+				element: <CreateFaq />,
+			},
+			{
+				path: "update-faq",
+				element: <UpdateFaq />,
+			},
 		],
-
 	},
 ]);
 

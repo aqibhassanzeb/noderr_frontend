@@ -6,20 +6,20 @@
   padding: 10px 20px;
   background-color: rgba(0, 0, 0, 0.3);
   gap: var(--gap);
-  position: fixed;
+  /* position: fixed; */
   bottom: 0;
   left: 0;
   right: 0;
 }
 
-.footer > .text {
+.footer>.text {
   color: white;
   font-size: var(--h3-size);
   font-weight: var(--leading-4);
   cursor: pointer;
 }
 
-.footer > .icon {
+.footer>.icon {
   color: white;
   font-size: var(--h2-sm-size);
   cursor: pointer;
@@ -30,12 +30,12 @@
     padding: 08px 16px;
   }
 
-  .footer > .text {
+  .footer>.text {
     font-size: var(--h3-sm-size);
     font-weight: var(--leading-3);
   }
 
-  .footer > .icon {
+  .footer>.icon {
     color: white;
     font-size: var(--h2-size);
   }

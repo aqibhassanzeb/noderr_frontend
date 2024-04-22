@@ -51,6 +51,7 @@ const Stats_page = () => {
     <>
       <div className="right_dashboard">
         <div className="right_container">
+          <div className="flex justify-between items-center">
             <div>
               <PageHeader
                 page_title={"Available Node Slots"}
@@ -62,14 +63,10 @@ const Stats_page = () => {
                 }
               />
             </div>
-            <div className="flex justify-center items-center gap-5">
-              {/* <w3m-button size="md" label="Connect Wallet" /> */}
-
-
+            <div className=" gap-5">
+              <w3m-button size="md" label="Connect Wallet" />
             </div>
-
-
-
+          </div>
           {loadingNodes || loadingProfile ? (
             <NodeLoader skeletonCount={skeletonCount} />
           ) : (

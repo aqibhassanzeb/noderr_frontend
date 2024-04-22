@@ -103,20 +103,40 @@
 .logout_btn {
   position: relative;
   /* bottom: 10%; */
-  padding: var(--side-menu-pad);
+  /* padding: var(--side-menu-pad); */
   cursor: pointer;
-
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   gap: var(--gap);
+  margin-top: 30px;
   border-radius: 12px;
-  border: 1px solid #333;
-  border-right: 4px solid #333;
+  /* border: 1px solid #333;
+  border-right: 4px solid #333; */
+  /* align-items: center; */
+  background-image: linear-gradient(to top, #4481eb 0%, #04befe 100%);
+  /* background-image: linear-gradient(135deg, #59abe5 10%, #0396FF 100%); */
+  /* background-image: linear-gradient(to right, #4491de 0%, #569bdf 61%, #4491de 100%); */
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  transition: all 250ms;
+  touch-action: manipulation;
+
+}
+
+.logout_btn:hover,
+.logout_btn:focus {
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  color: rgba(0, 0, 0, 0.65);
 }
 
 .logout_btn:hover {
-  background: linear-gradient(90deg, #333 0%, rgba(0, 0, 0, 0) 70%);
+  transform: translateY(-1px);
+}
+
+.logout_btn:hover {
+  /* background: linear-gradient(90deg, #333 0%, rgba(0, 0, 0, 0) 70%); */
 
 }
 
