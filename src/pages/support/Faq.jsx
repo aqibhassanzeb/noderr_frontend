@@ -19,19 +19,19 @@ const FAQSection = () => {
     }
   };
 
-  useEffect(() => {
-    const fetchFaq = async () => {
-      try {
-        const response = await getAllFaq();
-        setFaqData(response?.data?.faq);
-        setLoading(false);
-      } catch (error) {
-        console.log("Error fetching nodes", error);
-        toast.error(error.response.data.message);
-      }
-    };
-    fetchFaq();
-  }, []);
+  // useEffect(() => {
+  //   const fetchFaq = async () => {
+  //     try {
+  //       const response = await getAllFaq();
+  //       setFaqData(response?.data?.faq);
+  //       setLoading(false);
+  //     } catch (error) {
+  //       console.log("Error fetching nodes", error);
+  //       toast.error(error.response.data.message);
+  //     }
+  //   };
+  //   fetchFaq();
+  // }, []);
   const faqData1 = [
     {
       question: "What is Noderr",
@@ -80,7 +80,9 @@ const FAQSection = () => {
       `
     },
   ];
-
+  useEffect(()=>{
+    setFaqData(faqData1)
+  },[])
   return (
     <div className="right_dashboard">
       <div className="right_container">
@@ -94,7 +96,7 @@ const FAQSection = () => {
               </h2>
             </div>
             <div className="max-w-3xl mx-auto mt-8 space-y-4 md:mt-16">
-              {faqData.map((item, index) => (
+              {faqData?.map((item, index) => (
                 <div
                   key={index}
                   className="transition-all duration-200 bg-transparent border border-gray-200 shadow-lg cursor-pointer hover:bg-[#424543]"
