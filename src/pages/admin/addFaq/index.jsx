@@ -60,33 +60,31 @@ const AddFaq = () => {
           badge={"GM, Noderr"}
           profilePic={images.FakePic}
           create={true}
-        // link={"/dashboard/create-faq"}
+          link={"/dashboard/create-faq"}
         />
         {loadding ? (
           <AdminNodeLoader skeletonCount={skeletonCount} />
         ) : (
           <div className="all_nodes">
-            <h1>No Faq Found</h1>            </div>
-          // <div className="all_nodes">
-          //   {faq?.length > 0 ? (
-          //     faq &&
-          //     faq
-          //       .slice()
-          //       .reverse()
-          //       ?.map((faq, index) => {
-          //         return (
-          //           <FAQ
-          //             key={index}
-          //             faq={faq}
-          //             onDelete={() => handleDeleteFaq(faq._id)}
-          //             onClick={() => handleFaqClick(faq)}
-          //           />
-          //         );
-          //       })
-          //   ) : (
-          //     <h1>No Faq Found</h1>
-          //   )}
-          // </div>
+            {faq?.length > 0 ? (
+              faq &&
+              faq
+                .slice()
+                .reverse()
+                ?.map((faq, index) => {
+                  return (
+                    <FAQ  
+                      key={index}
+                      faq={faq}
+                      onDelete={() => handleDeleteFaq(faq._id)}
+                      onClick={() => handleFaqClick(faq)}
+                    />
+                  );
+                })
+            ) : (
+              <h1>No Faq Found</h1>
+            )}
+          </div>
         )}
       </div>
       {selectedFaq && (

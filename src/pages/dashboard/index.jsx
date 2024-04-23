@@ -173,17 +173,24 @@ const Dashboard = () => {
                 ) : (
                   <button onClick={authUser}>login</button>
                 )} */}
-                {user && (
+                {user ? (
                   <div className="logout_btn" onClick={logoutHandler}>
                     <span className="icon">
                       <AiOutlineLogout />
                     </span>
                     <span className="text">logout</span>
                   </div>
+                ) : (
+                  <div className="logout_btn" onClick={authUser}>
+                    <span className="icon">
+                      <AiOutlineLogout />
+                    </span>
+                    <span className="text">login</span>
+                  </div>
                 )}
-                <div style={{ marginBottom: 80, marginLeft: 30 }}>
+                {/* <div style={{ marginBottom: 80, marginLeft: 30 }}>
                   {!user && <w3m-button size="md" label="Connect Wallet" />}
-                </div>
+                </div> */}
               </div>
               <div className="close_btn" onClick={() => setShow(!show)}>
                 <IoCloseCircleOutline />

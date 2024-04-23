@@ -26,7 +26,7 @@ const CreateFaq = () => {
       toast.success(response.message);
       navigate("/dashboard/all-faq");
     } else if (
-      !response.data.faq
+      !response.data?.faq
     ) {
       setLoading(false);
       toast.error("something went wrong");
