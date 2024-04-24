@@ -109,7 +109,7 @@ const Stats_page = () => {
                 onClick={() => handleNodeClick(nodes[0])}
               /> */}
               {nodes?.length > 0 ? (
-                nodes &&
+                user &&
                 nodes
                   .slice()
                   .reverse()

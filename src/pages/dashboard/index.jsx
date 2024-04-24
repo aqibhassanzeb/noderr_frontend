@@ -38,10 +38,9 @@ const Dashboard = () => {
       // userWallet: "0xD775c914a90eA18B50C5f04e4a45Ba3c91F171a8",
     };
     const data = await handleLoginOrSignUp(authData);
-    console.log(data);
     if (data.success) {
       setLoading(false);
-      toast.success(data?.msg?.toLowerCase());
+      toast.success(data?.message?.toLowerCase());
       setUser(data.success);
     } else if (data.response.data.message) {
       setLoading(false);
@@ -58,6 +57,7 @@ const Dashboard = () => {
       setLoading(false);
       setUser(null);
       toast.success(data.message.toLowerCase());
+      // window.location.reload();
     } else if (data.response.data.message) {
       setLoading(false);
       toast.error(data.response.data.message);
