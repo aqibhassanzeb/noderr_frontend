@@ -14,6 +14,8 @@ const AddFaq = () => {
   const [loadding, setLoading] = useState(true);
   const [faq, setFaq] = useState([]);
   const [selectedFaq, setSelectedFaq] = useState(null);
+  const [updateCont, setUpdateCont] = useState(true);
+  
 
   useEffect(() => {
     const fetchFaq = async () => {
@@ -27,7 +29,7 @@ const AddFaq = () => {
       }
     };
     fetchFaq();
-  }, []);
+  }, [updateCont]);
   const handleDeleteFaq = async (id) => {
     setLoading(true);
     const data = await deleteFaq(id);
@@ -90,6 +92,7 @@ const AddFaq = () => {
       {selectedFaq && (
         <UpdateFaq
           faq={selectedFaq}
+          handleFetch={setUpdateCont}
           onClose={handleCloseNodeDetail}
           setFaq={setFaq}
           setLoading={setLoading}

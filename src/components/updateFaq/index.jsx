@@ -6,8 +6,8 @@ import { createApiContext } from "../../context/apiContext";
 import InputContainer from "../dashboard/InputContainer";
 import LoadingModal from "../ApiLoader";
 import { images } from "../../images";
-const UpdateFaq = ({ faq, onClose, setFaq, setLoading }) => {
-  const { updateNode, getAllNodes } = useContext(createApiContext);
+const UpdateFaq = ({ faq, onClose, setFaq, setLoading,handleFetch }) => {
+  const { updateFaqByAdmin, getAllNodes } = useContext(createApiContext);
   const [question, setQuestion] = React.useState("");
   const [answer, setAnswer] = React.useState("");
   const [updateLoading, setUpdateLoading] = React.useState(false);
@@ -27,18 +27,18 @@ const UpdateFaq = ({ faq, onClose, setFaq, setLoading }) => {
   const updateFaqHandler = async (id, formData) => {
     setUpdateLoading(true);
     setLoading(true);
-    const data = await updateNode(id, formData);
+    const data = await updateFaqByAdmin(id, formData);
     console.log(data);
-    if (data.success) {
+    if (data.status=="success") {
       setUpdateLoading(false);
-      toast.success("Node updated successfully");
-      const response = await getAllNodes();
-      setFaq(response);
+      handleFetch((prev)=>!prev)
+      toast.success(data.message);
+      // setFaq(response);
       setLoading(false);
       onClose();
-    } else if (data.response.data.message) {
+    } else  {
       setUpdateLoading(false);
-      toast.error(data.response.data.message);
+      toast.error(data.message);
     }
   };
 

@@ -221,6 +221,18 @@ export const ApiProvider = ({ children }) => {
 			return err
 		}
 	};
+	const updateFaqByAdmin = async (id, formData) => {
+		try {
+			const { data } = await axios.patch(
+				`/api/faq/update-faq/${id}`,
+				formData
+			);
+			return data;
+		} catch (err) {
+			console.log(err);
+			return err;
+		}
+	};
 	const getAllFaq = async () => {
 		try {
 			const { data } = await axios.get('/api/faq/get-faq');
@@ -269,7 +281,8 @@ export const ApiProvider = ({ children }) => {
 				signupForBetaLaunch,
 				createFaqByAdmin,
 				getAllFaq,
-				deleteFaq
+				deleteFaq,
+				updateFaqByAdmin
 			}}
 		>
 			{children}
