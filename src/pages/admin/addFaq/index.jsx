@@ -33,8 +33,8 @@ const AddFaq = () => {
     const data = await deleteFaq(id);
     if (data?.status) {
       toast.success("Faq deleted successfully");
-      const response = await getAllFaq();
-      setFaq(response);
+      // const response = await getAllFaq();
+      setFaq(prevFaq => prevFaq.filter(f => f._id !== id));
       setLoading(false);
     } else if (data.response.data.message) {
       console.log("else");
@@ -73,7 +73,7 @@ const AddFaq = () => {
                 .reverse()
                 ?.map((faq, index) => {
                   return (
-                    <FAQ  
+                    <FAQ
                       key={index}
                       faq={faq}
                       onDelete={() => handleDeleteFaq(faq._id)}

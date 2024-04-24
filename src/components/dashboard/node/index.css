@@ -35,11 +35,23 @@
   text-transform: capitalize;
   color: var(--black);
 }
+.node_detail > .detail > .node_name1 {
+  font-size: var(--text-lg);
+  font-weight: var(--leading-6);
+  text-transform: capitalize;
+  /* color: var(--black); */
+}
 .node_detail > .detail > .node_slot {
   font-size: var(--text-lg);
   font-weight: var(--leading-4);
   text-transform: capitalize;
   color: var(--black);
+}
+.node_detail > .detail > .node_slot1 {
+  font-size: var(--text-lg);
+  font-weight: var(--leading-4);
+  text-transform: capitalize;
+  /* color: var(--black); */
 }
 .node_detail > .mange {
   display: flex;

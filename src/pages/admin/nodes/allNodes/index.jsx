@@ -78,6 +78,7 @@ const AllNodes = () => {
                       node={node}
                       onDelete={() => handleDeleteNode(node._id)}
                       onClick={() => handleNodeClick(node)}
+                      bg_color={node.bgColor}
                     />
                   );
                 })
