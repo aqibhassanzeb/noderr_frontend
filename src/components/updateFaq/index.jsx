@@ -6,7 +6,7 @@ import { createApiContext } from "../../context/apiContext";
 import InputContainer from "../dashboard/InputContainer";
 import LoadingModal from "../ApiLoader";
 import { images } from "../../images";
-const UpdateFaq = ({ faq, onClose, setFaq, setLoading,handleFetch }) => {
+const UpdateFaq = ({ faq, onClose, setFaq, setLoading, handleFetch }) => {
   const { updateFaqByAdmin, getAllNodes } = useContext(createApiContext);
   const [question, setQuestion] = React.useState("");
   const [answer, setAnswer] = React.useState("");
@@ -29,14 +29,14 @@ const UpdateFaq = ({ faq, onClose, setFaq, setLoading,handleFetch }) => {
     setLoading(true);
     const data = await updateFaqByAdmin(id, formData);
     console.log(data);
-    if (data.status=="success") {
+    if (data.status == "success") {
       setUpdateLoading(false);
-      handleFetch((prev)=>!prev)
+      handleFetch((prev) => !prev)
       toast.success(data.message);
       // setFaq(response);
       setLoading(false);
       onClose();
-    } else  {
+    } else {
       setUpdateLoading(false);
       toast.error(data.message);
     }

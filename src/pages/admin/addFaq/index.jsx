@@ -15,7 +15,7 @@ const AddFaq = () => {
   const [faq, setFaq] = useState([]);
   const [selectedFaq, setSelectedFaq] = useState(null);
   const [updateCont, setUpdateCont] = useState(true);
-  
+
 
   useEffect(() => {
     const fetchFaq = async () => {
@@ -35,7 +35,6 @@ const AddFaq = () => {
     const data = await deleteFaq(id);
     if (data?.status) {
       toast.success("Faq deleted successfully");
-      // const response = await getAllFaq();
       setFaq(prevFaq => prevFaq.filter(f => f._id !== id));
       setLoading(false);
     } else if (data.response.data.message) {
