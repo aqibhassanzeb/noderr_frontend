@@ -233,7 +233,7 @@ const Landing = () => {
 									fontWeight: "bold",
 								}}
 							>
-								Aeron
+								Areon
 							</Card.Title>
 							<Card.Img
 								className="active_images1"

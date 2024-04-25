@@ -2,7 +2,7 @@
   "name": "node-app",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:7023",
+  "proxy": "http://api.noderr.xyz/nodes/get-nodes",
   "dependencies": {
     "@emailjs/browser": "^4.3.3",
     "@tanstack/react-query": "^5.29.2",

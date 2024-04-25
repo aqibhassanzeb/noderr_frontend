@@ -13,16 +13,10 @@ const Footer = () => {
       </span>
       <span className="icon">
         <a
-          href="https://discord.com/invite/sJXNM8e6"
+          href="https://discord.com/invite/3x8v7QR2WN"
           target="_blank"
         >
           <FaDiscord />
-        </a>
-      </span>
-
-      <span className="icon">
-        <a href="https://t.me/NoderrSupp" target="_blank">
-          <FaTelegramPlane />
         </a>
       </span>
       <span className="icon">
@@ -31,6 +25,11 @@ const Footer = () => {
           target="_blank"
         >
           <FaXTwitter />
+        </a>
+      </span>
+      <span className="icon">
+        <a href="https://t.me/NoderrSupp" target="_blank">
+          <FaTelegramPlane />
         </a>
       </span>
     </div>
