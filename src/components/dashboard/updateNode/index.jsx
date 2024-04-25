@@ -124,7 +124,7 @@ const UpdateNode = ({ node, onClose, setNodes, setLoading }) => {
                   alt="uploadSign"
                   name="avatar"
                   accept="image/*"
-                  //   onChange={uploadImage}
+                //   onChange={uploadImage}
                 />
               </label>
               <div className="image_preview">
