@@ -24,7 +24,7 @@ const Dashboard = () => {
   const [loading, setLoading] = React.useState(false);
   useEffect(() => {
     const getUser = async () => {
-      console.log("get profile api call @@")
+      // console.log("get profile api call @@")
       const data = await getProfileData();
       setUserData(data?.user);
       if (data.success) setUser(data.success);
