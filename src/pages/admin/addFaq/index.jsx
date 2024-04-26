@@ -25,7 +25,8 @@ const AddFaq = () => {
         setLoading(false);
       } catch (error) {
         console.log("Error fetching nodes", error);
-        toast.error(error.response.data.message);
+        setLoading(false);
+        toast.error(error?.response?.data?.message || "something went wrong!");
       }
     };
     fetchFaq();

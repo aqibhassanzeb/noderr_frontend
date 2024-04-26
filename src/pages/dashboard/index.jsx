@@ -39,9 +39,12 @@ const Dashboard = () => {
       // userWallet: "0xD775c914a90eA18B50C5f04e4a45Ba3c91F171a8",
     };
     const data = await handleLoginOrSignUp(authData);
+    console.log("data :",data)
     if (data.success) {
       setLoading(false);
       toast.success(data?.message?.toLowerCase());
+      // sessionStorage.setItem('token',data.)
+      document.cookie = `token=${data.token}; path=/;`;
       setUser(data.success);
     } else if (data.response.data.message) {
       setLoading(false);
