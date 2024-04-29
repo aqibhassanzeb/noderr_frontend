@@ -41,8 +41,8 @@ const CreateNode = () => {
 
     const response = await createNode(data);
     console.log(response);
-    if (response?.success) {
-      setLoading(false);
+    setLoading(false);
+    if (response?.status=='success') {
       setName("");
       setPrice("");
       setSlots("");
@@ -51,9 +51,9 @@ const CreateNode = () => {
       setImagePreview("");
       toast.success("Node created successfully");
       navigate("/dashboard/all-nodes");
-    } else if (response.response.data.message) {
+    } else if (response?.message) {
       setLoading(false);
-      toast.error(response.response.data.message);
+      toast.error(response.message);
     }
   };
 
@@ -70,8 +70,15 @@ const CreateNode = () => {
       slots: Number(slots),
       bgColor: bgcolor,
       avatar: image,
-    };
-    handleNodeCreate(data);
+  };
+  
+  const formData = new FormData();
+  Object.entries(data).forEach(([key, value]) => {
+      formData.append(key, value);
+  });
+  
+  handleNodeCreate(formData);
+  
   };
   return (
     <>
@@ -99,7 +106,7 @@ const CreateNode = () => {
             <InputContainer
               label={"slots"}
               id={"slots"}
-              type={"text"}
+              type={"number"}
               name="slots"
               value={slots}
               onChange={(e) => setSlots(e.target.value)}

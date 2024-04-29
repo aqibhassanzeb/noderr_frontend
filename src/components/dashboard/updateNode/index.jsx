@@ -35,18 +35,16 @@ const UpdateNode = ({ node, onClose, setNodes, setLoading }) => {
     setUpdateLoading(true);
     setLoading(true);
     const data = await updateNode(id, formData);
-    console.log(data);
-    if (data.success) {
-      setUpdateLoading(false);
+    setUpdateLoading(false);
+    if (data.status=='success') {
       toast.success("Node updated successfully");
       const response = await getAllNodes();
       setNodes(response);
       setLoading(false);
 
       onClose();
-    } else if (data.response.data.message) {
-      setUpdateLoading(false);
-      toast.error(data.response.data.message);
+    } else if (data.message) {
+      toast.error(data.message);
     }
   };
 
@@ -132,7 +130,7 @@ const UpdateNode = ({ node, onClose, setNodes, setLoading }) => {
               </div>
             </div>
             <button type="submit" className="btn primary">
-              create
+              Update
             </button>
           </form>
         </div>

@@ -92,9 +92,9 @@ export const ApiProvider = ({ children }) => {
         }
     };
 
-    const createNode = async (node) => {
+    const createNode = async (formData) => {
         try {
-            const { data } = await axiosWithCredentials.post(`${node}/node/launch-node`, node);
+            const { data } = await axiosWithCredentials.post(`${node}/node/launch-node`, formData);
             return data;
         } catch (err) {
             console.log(err);

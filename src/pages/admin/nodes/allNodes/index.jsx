@@ -10,38 +10,38 @@ import UpdateNode from "../../../../components/dashboard/updateNode";
 import { images } from "../../../../images";
 const AllNodes = () => {
   const { getAllNodes, deleteNode } = useContext(createApiContext);
-  const [loadding, setLoading] = useState(true);
+  const [loadding, setLoading] = useState(false);
   const [nodes, setNodes] = useState([]);
   const [selectedNode, setSelectedNode] = useState(null);
+  const [handleFetch, setHandleFetch] = useState(false)
 
   useEffect(() => {
     const fetchNodes = async () => {
       try {
+        setLoading(true);
         const response = await getAllNodes();
-        setNodes(response?.data?.nodes);
+        setNodes(response);
         setLoading(false);
       } catch (error) {
         console.log("Error fetching nodes", error);
-        toast.error(error.response.data.message);
+        setLoading(false);
+        toast.error(error.message);
       }
     };
     fetchNodes();
-  }, []);
+  }, [handleFetch]);
   const handleDeleteNode = async (id) => {
     setLoading(true);
-
-    const data = await deleteNode(id);
-    if (data?.status) {
+    try {
+      const data = await deleteNode(id);
+      setHandleFetch(!handleFetch)
       toast.success("Node deleted successfully");
-      const response = await getAllNodes();
-      setNodes(response);
+
+    } catch (error) {
+      toast.error(error.message);
+    } finally {
       setLoading(false);
-    } else if (data.response.data.message) {
-      console.log("else");
-      setLoading(false);
-      toast.error(data.response.data.message);
     }
-    // Node deleted successfully, refetch nodes
   };
   const skeletonCount = Math.floor(window.innerHeight / 100);
   const handleNodeClick = (node) => {
