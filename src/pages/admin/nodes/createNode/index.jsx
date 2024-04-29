@@ -60,7 +60,8 @@ const CreateNode = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     if (!name || !price || !slots || !bgcolor || !image) {
-      return;
+      return toast.error('Please fill all the Input fields'); 
+      
     }
 
     const data = {
@@ -130,11 +131,11 @@ const CreateNode = () => {
                   onChange={uploadImage}
                 />
               </label>
-              <div className="image_preview">
+              {/* <div className="image_preview">
                 {image && imagePreview && (
                   <img src={imagePreview} alt="imagePreview" />
                 )}
-              </div>
+              </div> */}
             </div>
             <button type="submit" className="btn primary">
               create

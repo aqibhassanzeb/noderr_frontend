@@ -58,6 +58,7 @@ const Dashboard = () => {
     setLoading(true);
     const data = await handleLogout();
     if (data.success) {
+      console.log(data)
       setLoading(false);
       setUser(null);
       toast.success(data.message.toLowerCase());
