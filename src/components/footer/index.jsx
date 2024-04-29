@@ -13,7 +13,7 @@ const Footer = () => {
       </span>
       <span className="icon">
         <a
-          href="https://discord.com/invite/3x8v7QR2WN"
+          href="https://discord.gg/SaqBPJn3ZA"
           target="_blank"
         >
           <FaDiscord />
