@@ -11,8 +11,10 @@ const AllVotes = () => {
   const [votes, setVotes] = useState([]);
   const [loading, setLoading] = useState(false);
   const [selectedPool, setSelectedPool] = useState(null);
+  
   const handleNodeClick = (promoData) => {
     setSelectedPool(promoData);
+    
   };
 
 
@@ -32,15 +34,15 @@ const AllVotes = () => {
       }
     };
     fetchVotes();
-  }, []);
+  }, [selectedPool]);
   const deleteHnadler = async (id) => {
     setLoading(true);
     try {
       const response = await deletePool(id);
       if (response?.status) {
         toast.success("Vote deleted successfully");
-        const response = await getAllPools();
-        setVotes(response.votes);
+        // const response = await getAllPools();
+        setVotes(prevVote => prevVote.filter(f=> f._id !== id));
         setLoading(false);
       } else if (response.response.data.message) {
         setLoading(false);
@@ -76,8 +78,8 @@ const AllVotes = () => {
                   <Vote
                     key={index}
                     voteData={vote}
-                    handleNodeClick={handleNodeClick}
-                    deleteHnadler={deleteHnadler}
+                    onEdit={()=> handleNodeClick(vote)}
+                    onDelete={()=> deleteHnadler(vote._id)}
                   />
                 ))
             ) : (

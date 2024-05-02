@@ -44,12 +44,12 @@ const UpdateVote = ({ onClose, voteData, setLoading, setVotes }) => {
   const handleUpdatePool = async (id, data) => {
     setPoolLoading(true);
     const response = await updatePool(id, data);
-    if (response.success) {
+    if (response?.status) {
       toast.success("Pool updated successfully");
       setPoolLoading(false);
       setLoading(false);
-      const response = await getAllPools();
-      setVotes(response.votes);
+      // const response = await getAllPools();
+      setVotes(prev => !prev);
 
       onClose();
     } else if (response.response.data.message) {

@@ -39,7 +39,7 @@ const CreatePool = () => {
       voteOptions: poolOptions,
     };
     const response = await createPool(data);
-    if (response.success) {
+    if (response.status=='success') {
       setLoading(false);
       setPoolTitle("");
       setPoolDuration("");
@@ -47,6 +47,7 @@ const CreatePool = () => {
       toast.success("Pool created successfully");
       navigate("/dashboard/all-votes");
     } else if (response.response.data.message) {
+
       setLoading(false);
       toast.error(response.response.data.message);
     }
