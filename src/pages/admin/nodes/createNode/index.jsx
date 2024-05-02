@@ -141,11 +141,11 @@ const CreateNode = () => {
                   onChange={uploadImage}
                 />
               </label>
-              {/* <div className="image_preview">
+              <div className="image_preview">
                 {image && imagePreview && (
-                  <img src={imagePreview} alt="imagePreview" />
+                  <img src={imagePreview} alt="imagePreview" className="w-[40px]"/>
                 )}
-              </div> */}
+              </div>
             </div>
             <button type="submit" className="btn primary">
               create

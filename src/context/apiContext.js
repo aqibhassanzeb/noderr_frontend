@@ -121,6 +121,7 @@ export const ApiProvider = ({ children }) => {
                 `${node}/promotion/generate-promotion-code`,
                 promotion
             );
+              
             return data;
         } catch (err) {
             console.log(err);

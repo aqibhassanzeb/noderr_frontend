@@ -25,7 +25,7 @@ const UpdateNode = ({ node, onClose, setNodes, setLoading, setHandleFetch }) => 
     setPrice(node?.nodePrice);
     setSlots(node?.slots);
     setBgcolor(node?.bgColor);
-    setImagePreview(node?.nodeImage.url);
+    setImagePreview(`${process.env.REACT_APP_NODE_IMG_URL}${node.nodeImage.url}`);
     return () => {
       document.body.style.overflow = "auto";
     };
@@ -52,9 +52,9 @@ const UpdateNode = ({ node, onClose, setNodes, setLoading, setHandleFetch }) => 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {
+      setImage(file);
       const reader = new FileReader();
       reader.onloadend = () => {
-        setImage(file);
         setImagePreview(reader.result);
       };
       reader.onerror = () => {
@@ -73,7 +73,7 @@ const UpdateNode = ({ node, onClose, setNodes, setLoading, setHandleFetch }) => 
     formData.append("nodePrice", price);
     formData.append("slots", slots);
     formData.append("bgColor", bgcolor);
-    formData.append("avatar", image);
+    formData.append("myFile", image);
     console.log(formData);
     updateNodeHandler(node._id, formData);
   };

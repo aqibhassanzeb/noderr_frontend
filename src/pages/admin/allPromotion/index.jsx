@@ -26,17 +26,17 @@ const AllPromotionCode = () => {
       }
     };
     fetchPromotionCodes();
-  }, []);
+  }, [selectedPromo]);
   const handleDeleteNode = async (id) => {
+    console.log("hit delete secction ")
     setLoading(true);
     try {
       const data = await deletePromoCode(id);
       if (data?.status) {
         toast.success("Promotion code deleted successfully");
       }
-      // Node deleted successfully, refetch nodes
-      const response = await getAllPromoCodes();
-      setPromotionCodes(response);
+      // const response = await getAllPromoCodes(); 
+      setPromotionCodes(prevPromo => prevPromo.filter(f => f._id !== id));
       setLoading(false);
     } catch (error) {
       console.log("Error deleting node", error);

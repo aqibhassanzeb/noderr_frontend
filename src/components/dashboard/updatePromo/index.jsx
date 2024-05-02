@@ -28,14 +28,13 @@ const UpdatePromo = ({ promoData, onClose, setLoading, setPromotionCodes }) => {
   const handleUpdatePromo = async (id, data) => {
     setUpdateLoading(true);
     const response = await updatePromoCode(id, data);
-    if (response.success) {
+    if (response.status == 'success') {
       //   setDiscount("");
       //   setUsage("");
       //   setPromo("");
-
       toast.success("Promotion updated successfully");
-      const response = await getAllPromoCodes();
-      setPromotionCodes(response);
+      // const response = await getAllPromoCodes();
+      setPromotionCodes(prev => !prev);
       setUpdateLoading(false);
       setLoading(false);
 

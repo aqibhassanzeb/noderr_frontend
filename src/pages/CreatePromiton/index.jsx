@@ -32,7 +32,7 @@ const CreatePrmotion = () => {
   const handlePromoCreate = async (data) => {
     setLoading(true);
     const response = await generatePromoCode(data);
-    if (response.success) {
+    if (response.status == "success") {
       setDiscount("");
       setUsage("");
       setPromo("");
@@ -61,7 +61,7 @@ const CreatePrmotion = () => {
       <div className="right_dashboard">
         <div className="right_container">
           <PageHeader page_title={"Create Promotion"} badge={"GM, Noderr"}
-          profilePic={images.FakePic} />
+            profilePic={images.FakePic} />
           <form className="promo_code_form" onSubmit={submitHandler}>
             <div className="generate_promo_code">
               <button type="button" className="gene_promo" onClick={gene_promo}>
@@ -72,7 +72,7 @@ const CreatePrmotion = () => {
             <InputContainer
               label={"discount"}
               id={"discount"}
-              type={"text"}
+              type={"number"}
               value={discount}
               name={"discount"}
               onChange={(e) => setDiscount(e.target.value)}
@@ -80,7 +80,7 @@ const CreatePrmotion = () => {
             <InputContainer
               label={"max usage"}
               id={"usage"}
-              type={"text"}
+              type={"number"}
               value={usage}
               name={"usage"}
               onChange={(e) => setUsage(e.target.value)}
