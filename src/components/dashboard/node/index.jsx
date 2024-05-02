@@ -6,7 +6,7 @@ const Node = ({ node, onDelete, onClick, bg_color }) => {
   return (
     <div className="single_node" style={{ background: node.bgColor }}>
       <div className="node_img">
-        <img src={node.nodeImage.url} alt="node" />
+        <img src={`${process.env.REACT_APP_NODE_IMG_URL}${node.nodeImage.url}`} alt="node" />
       </div>
       <div className="node_detail">
         <div className="detail">

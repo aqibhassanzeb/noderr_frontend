@@ -16,11 +16,14 @@ const CreateNode = () => {
   const [bgcolor, setBgcolor] = useState("");
   const [image, setImage] = useState("");
   const [imagePreview, setImagePreview] = useState("");
+  const [imageFile, setImageFile] = useState("");
+  
   const [loading, setLoading] = useState(false);
   console.log(image, imagePreview);
   const uploadImage = (e) => {
     if (e.target.name === "avatar") {
       const file = e.target.files[0];
+      setImageFile(file)
       console.log();
       const reader = new FileReader();
       reader.onload = () => {
@@ -69,7 +72,7 @@ const CreateNode = () => {
       nodePrice: Number(price),
       slots: Number(slots),
       bgColor: bgcolor,
-      avatar: image,
+      myFile: imageFile,
   };
   
   const formData = new FormData();

@@ -94,6 +94,7 @@ const AllNodes = () => {
           onClose={handleCloseNodeDetail}
           setNodes={setNodes}
           setLoading={setLoading}
+          setHandleFetch={setHandleFetch}
         />
       )}
     </div>

@@ -6,7 +6,7 @@ import InputContainer from "../InputContainer";
 import { images } from "../../../images";
 import { GrFormClose } from "react-icons/gr";
 import { createApiContext } from "../../../context/apiContext";
-const UpdateNode = ({ node, onClose, setNodes, setLoading }) => {
+const UpdateNode = ({ node, onClose, setNodes, setLoading, setHandleFetch }) => {
   const { updateNode, getAllNodes } = useContext(createApiContext);
   const [name, setName] = React.useState("");
   const [price, setPrice] = React.useState("");
@@ -36,10 +36,11 @@ const UpdateNode = ({ node, onClose, setNodes, setLoading }) => {
     setLoading(true);
     const data = await updateNode(id, formData);
     setUpdateLoading(false);
-    if (data.status=='success') {
+    if (data.status == 'success') {
       toast.success("Node updated successfully");
-      const response = await getAllNodes();
-      setNodes(response);
+      setHandleFetch(prev => !prev)
+      // const response = await getAllNodes();
+      // setNodes(response);
       setLoading(false);
 
       onClose();
@@ -47,6 +48,22 @@ const UpdateNode = ({ node, onClose, setNodes, setLoading }) => {
       toast.error(data.message);
     }
   };
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImage(file);
+        setImagePreview(reader.result);
+      };
+      reader.onerror = () => {
+        console.error("Error occurred while reading the file.");
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -122,11 +139,11 @@ const UpdateNode = ({ node, onClose, setNodes, setLoading }) => {
                   alt="uploadSign"
                   name="avatar"
                   accept="image/*"
-                //   onChange={uploadImage}
+                  onChange={handleFileChange}
                 />
               </label>
               <div className="image_preview">
-                {imagePreview && <img src={imagePreview} alt="imagePreview" />}
+                {imagePreview && <img src={imagePreview} alt="imagePreview" className="w-[40px]" />}
               </div>
             </div>
             <button type="submit" className="btn primary">

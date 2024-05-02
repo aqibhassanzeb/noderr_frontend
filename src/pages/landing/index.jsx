@@ -79,7 +79,9 @@ const Landing = () => {
 						width: "100%",
 					}}
 				>
-					<a href="https://ritual.net/about" target="_blank">
+
+
+					<a href="https://www.allora.network" target="_blank">
 						<Card
 							style={{
 								width: "100%",
@@ -95,12 +97,12 @@ const Landing = () => {
 									fontWeight: "bold",
 								}}
 							>
-								Ritual
+								Allora
 							</Card.Title>
 							<Card.Img
 								className="active_images"
 								variant="top"
-								src={images.Ritual}
+								src={images.Allora}
 							/>
 						</Card>
 					</a>
@@ -131,7 +133,7 @@ const Landing = () => {
 						</Card>
 					</a>
 
-					<a href="https://www.allora.network" target="_blank">
+					<a href="https://ritual.net/about" target="_blank">
 						<Card
 							style={{
 								width: "100%",
@@ -147,12 +149,12 @@ const Landing = () => {
 									fontWeight: "bold",
 								}}
 							>
-								Allora
+								Ritual
 							</Card.Title>
 							<Card.Img
 								className="active_images"
 								variant="top"
-								src={images.Allora}
+								src={images.Ritual}
 							/>
 						</Card>
 					</a>
@@ -165,6 +167,32 @@ const Landing = () => {
 						width: "100%",
 					}}
 				>
+					<a href="https://fuel.network/" target="_blank">
+						<Card
+							style={{
+								width: "100%",
+								backgroundColor: "rgba(0, 0, 0, 0.3)",
+								margin: 5,
+								paddingTop: 5,
+							}}
+						>
+							<Card.Title
+								style={{
+									textAlign: "center",
+									fontSize: 24,
+									fontWeight: "bold",
+								}}
+							>
+								Fuel
+							</Card.Title>
+							<Card.Img
+								className="active_images1"
+								variant="top"
+								src={images.fuel}
+							/>
+						</Card>
+					</a>
+
 					<a href="https://www.lavanet.xyz" target="_blank">
 						<Card
 							style={{
@@ -217,31 +245,7 @@ const Landing = () => {
 						</Card>
 					</a>
 
-					<a href="https://areon.network/" target="_blank">
-						<Card
-							style={{
-								width: "100%",
-								backgroundColor: "rgba(0, 0, 0, 0.3)",
-								margin: 5,
-								paddingTop: 5,
-							}}
-						>
-							<Card.Title
-								style={{
-									textAlign: "center",
-									fontSize: 24,
-									fontWeight: "bold",
-								}}
-							>
-								Areon
-							</Card.Title>
-							<Card.Img
-								className="active_images1"
-								variant="top"
-								src={images.Aeron}
-							/>
-						</Card>
-					</a>
+
 				</div>
 
 			</div>
