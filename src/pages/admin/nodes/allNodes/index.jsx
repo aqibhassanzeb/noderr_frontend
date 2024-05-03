@@ -9,7 +9,7 @@ import { toast } from "react-toastify";
 import UpdateNode from "../../../../components/dashboard/updateNode";
 import { images } from "../../../../images";
 const AllNodes = () => {
-  const { getAllNodes, deleteNode } = useContext(createApiContext);
+  const { getAllNodes, deleteNode, user } = useContext(createApiContext);
   const [loadding, setLoading] = useState(false);
   const [nodes, setNodes] = useState([]);
   const [selectedNode, setSelectedNode] = useState(null);
@@ -67,7 +67,7 @@ const AllNodes = () => {
         ) : (
           <div className="all_nodes">
             {nodes?.length > 0 ? (
-              nodes &&
+              user &&
               nodes
                 .slice()
                 .reverse()

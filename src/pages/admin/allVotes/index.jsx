@@ -7,7 +7,7 @@ import PromoLoader from "../../../components/skeletonLoaders/promoLoader";
 import { toast } from "react-toastify";
 import UpdateVote from "../../../components/dashboard/updateVote";
 const AllVotes = () => {
-  const { getAllPools, deletePool } = useContext(createApiContext);
+  const { getAllPools, deletePool, user } = useContext(createApiContext);
   const [votes, setVotes] = useState([]);
   const [loading, setLoading] = useState(false);
   const [selectedPool, setSelectedPool] = useState(null);
@@ -70,7 +70,7 @@ const AllVotes = () => {
         ) : (
           <div className="all_votes">
             {votes?.length > 0 ? (
-              votes &&
+              user &&
               votes
                 .slice()
                 .reverse()

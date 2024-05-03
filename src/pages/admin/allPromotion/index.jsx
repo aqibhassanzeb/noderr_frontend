@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 import UpdatePromo from "../../../components/dashboard/updatePromo";
 import { images } from "../../../images";
 const AllPromotionCode = () => {
-  const { getAllPromoCodes, deletePromoCode } = useContext(createApiContext);
+  const { getAllPromoCodes, deletePromoCode, user } = useContext(createApiContext);
   const [promotionCodes, setPromotionCodes] = useState([]);
   const [loading, setLoading] = useState(false);
   const [selectedPromo, setSelectedPromo] = useState(null);
@@ -68,7 +68,7 @@ const AllPromotionCode = () => {
         ) : (
           <div className="all_promotion_codes">
             {promotionCodes?.length > 0 ? (
-              promotionCodes &&
+              user &&
               promotionCodes
                 .slice()
                 .reverse()

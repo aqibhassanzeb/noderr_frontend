@@ -18,11 +18,12 @@ import profileCircle from "./profile-circle.svg";
 import Landing from "./landing.gif";
 import activeNode from "./active-node.svg"
 import TextLogo from "./text_logo.png"
-import LogoGif from "./logo.gif";
+import LogoGif from "./logos.png";
 import Allora from "./alora.png"
 import Ritual from "./ritual.png"
 import Waku from "./waku.png"
 import FakePic from "./fakepic.jpg"
+import logo1 from "./test.png"
 
 import Lava from "./lava.png"
 import Warden from "./warden.png"
@@ -56,5 +57,6 @@ export const images = {
   Waku,
   Ritual,
   LaunchNode,
-  FakePic
+  FakePic,
+  logo1
 };
