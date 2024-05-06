@@ -91,7 +91,7 @@ const FAQSection = () => {
         <section>
           <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
             <div className="max-w-2xl mx-auto text-center">
-              <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-white">
+              <h2 className="mb-4 text-4xl font-extrabold tracking-tight text-center text-white">
                 Explore Common Questions
               </h2>
             </div>
@@ -132,17 +132,7 @@ const FAQSection = () => {
                     className="px-4 pb-5 sm:px-6 sm:pb-6"
                   >
                     <p
-                      className="
-                      text-white
-                      text-base
-                      leading-relaxed
-                      sm:text-lg
-                      lg:text-xl
-                      xl:text-lg
-                      2xl:text-xl
-                      font-normal
-                      mt-3
-                    "
+                      className="mt-3 text-base font-normal leading-relaxed text-white sm:text-lg lg:text-xl xl:text-lg 2xl:text-xl"
                     >
                       {item?.answer}
                     </p>
@@ -150,11 +140,11 @@ const FAQSection = () => {
                 </div>
               ))}
             </div>
-            <p className="text-center text-white text-base mt-9">
+            <p className="text-base text-center text-white mt-9">
               Still have questions?{" "}
               <Link
                 to="/dashboard/contact-us"
-                className="cursor-pointer font-medium text-tertiary transition-all duration-200 hover:text-tertiary focus:text-tertiary hover-underline"
+                className="font-medium transition-all duration-200 cursor-pointer text-tertiary hover:text-tertiary focus:text-tertiary hover-underline"
               >
                 Contact our support
               </Link>

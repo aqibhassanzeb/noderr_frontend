@@ -95,7 +95,7 @@ const UpdatePromo = ({ promoData, onClose, setLoading, setPromotionCodes }) => {
             onChange={(e) => setUsage(e.target.value)}
           />
           <button type="submit" className="btn primary">
-            create
+            Update
           </button>
         </form>
       </div>
