@@ -25,7 +25,7 @@ const UpdateNode = ({ node, onClose, setNodes, setLoading, setHandleFetch }) => 
     setPrice(node?.nodePrice);
     setSlots(node?.slots);
     setBgcolor(node?.bgColor);
-    setImagePreview(`${process.env.REACT_APP_NODE_IMG_URL}${node.nodeImage.url}`);
+    setImagePreview(`${process.env.REACT_APP_NODE_IMG_URL}${node?.nodeImage?.url}`);
     return () => {
       document.body.style.overflow = "auto";
     };
