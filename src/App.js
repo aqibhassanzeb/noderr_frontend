@@ -25,6 +25,7 @@ import FAQSection from "./pages/support/Faq";
 import AddFaq from "./pages/admin/addFaq";
 import CreateFaq from "./pages/admin/addFaq/create";
 import UpdateFaq from "./components/updateFaq";
+import Billing from "./pages/billing";
 
 const Home = React.lazy(() => import("./pages/home"));
 const Dashboard = React.lazy(() => import("./pages/dashboard"));
@@ -109,6 +110,10 @@ const router = createBrowserRouter([
 			{
 				path: "update-faq",
 				element: <UpdateFaq />,
+			},
+			{
+				path: "billing",
+				element: <Billing />,
 			},
 		],
 	},

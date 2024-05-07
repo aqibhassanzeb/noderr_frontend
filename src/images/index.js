@@ -24,6 +24,7 @@ import Ritual from "./ritual.png"
 import Waku from "./waku.png"
 import FakePic from "./fakepic.jpg"
 import logo1 from "./test.png"
+import billing from "./billing.svg"
 
 import Lava from "./lava.png"
 import Warden from "./warden.png"
@@ -58,5 +59,6 @@ export const images = {
   Ritual,
   LaunchNode,
   FakePic,
-  logo1
+  logo1,
+  billing
 };
