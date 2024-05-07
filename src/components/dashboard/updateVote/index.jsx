@@ -123,7 +123,7 @@ const UpdateVote = ({ onClose, voteData, setLoading, setVotes }) => {
             </button>
           </div>
           <button type="submit" className="btn primary">
-            create
+            Update
           </button>
         </form>
       </div>

@@ -82,7 +82,7 @@ const UpdateFaq = ({ faq, onClose, setFaq, setLoading, handleFetch }) => {
               onChange={(e) => setAnswer(e.target.value)}
             />
             <button type="submit" className="btn primary">
-              create
+              Update
             </button>
           </form>
         </div>
