@@ -24,7 +24,8 @@
     "viem": "^2.9.20",
     "voucher-code-generator": "^1.3.0",
     "wagmi": "^2.5.20",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "web3": "^4.8.0"
   },
   "scripts": {
     "start": "serve -s build",

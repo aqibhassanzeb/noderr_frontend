@@ -8,13 +8,24 @@ import PageHeader from "../../components/dashboard/pageHeader/pageHeader";
 import { createApiContext } from "../../context/apiContext";
 import NodeLoader from "../../components/skeletonLoaders/nodesLoader";
 import { Link } from "react-router-dom";
+import { useAccount, useDisconnect } from 'wagmi'
 const Stats_page = () => {
-  const { getAllNodes, getProfileData, user } = useContext(createApiContext);
+  const { address, isConnecting, isDisconnected, } = useAccount()
+  console.log("🚀 ~ isDisconnected:", address, isDisconnected)
+  const { getAllNodes, getProfileData, user, setAddress } = useContext(createApiContext);
   const [loadingNodes, setLoadingNodes] = useState(true);
   const [loadingProfile, setLoadingProfile] = useState(true);
   const [nodes, setNodes] = React.useState([]);
   const [selectedNode, setSelectedNode] = useState(null);
   const [userData, setUserData] = useState(null);
+
+  useEffect(() => {
+    if (isDisconnected == false) {
+      setAddress(address)
+    }
+  }, [address])
+
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -63,11 +74,11 @@ const Stats_page = () => {
                 }
               />
             </div>
-            {user &&
-              <div className="gap-5 ">
-                <w3m-button size="md" label="Connect Wallet" />
-              </div>
-            }
+
+            <div className="gap-5 ">
+              <w3m-button size="md" label="Connect Wallet" />
+            </div>
+
           </div>
           {loadingNodes || loadingProfile ? (
             <NodeLoader skeletonCount={skeletonCount} />

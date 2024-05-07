@@ -8,6 +8,7 @@ export const ApiProvider = ({ children }) => {
     const node = process.env.REACT_APP_NODE_ENDPOINT;
     const [user, setUser] = useState(null);
     const [userData, setUserData] = useState(null);
+    const [address, setAddress] = useState(null);
 
     // Create axios instance with withCredentials: true option
     const axiosWithCredentials = axios.create({
@@ -121,7 +122,7 @@ export const ApiProvider = ({ children }) => {
                 `${node}/promotion/generate-promotion-code`,
                 promotion
             );
-              
+
             return data;
         } catch (err) {
             console.log(err);
@@ -239,79 +240,81 @@ export const ApiProvider = ({ children }) => {
             return err;
         }
     };
-	const getAllFaq = async () => {
-		try {
-			const { data } = await axiosWithCredentials.get(`${node}/faq/get-faq`);
-			return data;
-		} catch (err) {
-			console.log(err);
-			return err
-		}
-	};
-	const createFaqByAdmin = async (faqData) => {
-		try {
-			const { data } = await axiosWithCredentials.post(`${node}/faq/create-faq`, faqData);
-			return data;
-		} catch (err) {
-			console.log(err);
-			return err;
-		}
-	};
-	
-	const deleteFaq = async (id) => {
-		try {
-			const { data } = await axiosWithCredentials.delete(`${node}/faq/delete-faq/${id}`);
-			return data;
-		} catch (err) {
-			console.log(err);
-			return err;
-		}
-	};
-	
-	const updateFaqByAdmin = async (id, formData) => {
-		try {
-			const { data } = await axiosWithCredentials.patch(
-				`${node}/faq/update-faq/${id}`,
-				formData
-			);
-			return data;
-		} catch (err) {
-			console.log(err);
-			return err;
-		}
-	};
-	
+    const getAllFaq = async () => {
+        try {
+            const { data } = await axiosWithCredentials.get(`${node}/faq/get-faq`);
+            return data;
+        } catch (err) {
+            console.log(err);
+            return err
+        }
+    };
+    const createFaqByAdmin = async (faqData) => {
+        try {
+            const { data } = await axiosWithCredentials.post(`${node}/faq/create-faq`, faqData);
+            return data;
+        } catch (err) {
+            console.log(err);
+            return err;
+        }
+    };
+
+    const deleteFaq = async (id) => {
+        try {
+            const { data } = await axiosWithCredentials.delete(`${node}/faq/delete-faq/${id}`);
+            return data;
+        } catch (err) {
+            console.log(err);
+            return err;
+        }
+    };
+
+    const updateFaqByAdmin = async (id, formData) => {
+        try {
+            const { data } = await axiosWithCredentials.patch(
+                `${node}/faq/update-faq/${id}`,
+                formData
+            );
+            return data;
+        } catch (err) {
+            console.log(err);
+            return err;
+        }
+    };
+
     return (
         <createApiContext.Provider
             value={{
-				getAllNodes,
-				deleteNode,
-				createNode,
-				generatePromoCode,
-				getAllPromoCodes,
-				deletePromoCode,
-				getAllPools,
-				createPool,
-				deletePool,
-				updateNode,
-				updatePromoCode,
-				updatePool,
-				handleLoginOrSignUp,
-				handleLogout,
-				user,
-				setUser,
-				userData,
-				setUserData,
-				getProfileData,
-				updateUserProfile,
-				purchaseNode,
-				getPurchaseNode,
-				getAllPurchaseNodeByAdmin,
-				signupForBetaLaunch,
-				getAllFaq,
-				createFaqByAdmin,
-				deleteFaq,
-				updateFaqByAdmin
+                getAllNodes,
+                deleteNode,
+                createNode,
+                generatePromoCode,
+                getAllPromoCodes,
+                deletePromoCode,
+                getAllPools,
+                createPool,
+                deletePool,
+                updateNode,
+                updatePromoCode,
+                updatePool,
+                handleLoginOrSignUp,
+                handleLogout,
+                user,
+                setUser,
+                userData,
+                address,
+                setAddress,
+                setUserData,
+                getProfileData,
+                updateUserProfile,
+                purchaseNode,
+                getPurchaseNode,
+                getAllPurchaseNodeByAdmin,
+                signupForBetaLaunch,
+                getAllFaq,
+                createFaqByAdmin,
+                deleteFaq,
+                updateFaqByAdmin
             }}
         >
             {children}

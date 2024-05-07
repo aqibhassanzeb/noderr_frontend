@@ -12,8 +12,11 @@ import { toast } from "react-toastify";
 import LoadingModal from "../../components/ApiLoader";
 import { AiOutlineLogout } from "react-icons/ai";
 import Footer from "../../components/footer";
+import { useDisconnect } from 'wagmi'
+
 const Dashboard = () => {
-  const { handleLoginOrSignUp, handleLogout, getProfileData, user, setUser, userData, setUserData } =
+  const { disconnect } = useDisconnect()
+  const { handleLoginOrSignUp, handleLogout, getProfileData, user, setUser, userData, setUserData, address } =
     React.useContext(createApiContext);
   const [show, setShow] = React.useState(true);
   const [loading, setLoading] = React.useState(false);
@@ -32,7 +35,7 @@ const Dashboard = () => {
   const handleAuth = async () => {
     setLoading(true);
     const authData = {
-      userWallet: "0xa61cb1067D6dC4cac5094943D3514c5157fd803B",
+      userWallet: address,
       // userWallet: "0xD775c914a90eA18B50C5f04e4a45Ba3c91F171a8",
     };
     const data = await handleLoginOrSignUp(authData);
@@ -48,6 +51,13 @@ const Dashboard = () => {
       toast.error(data.response.data.message);
     }
   };
+
+  useEffect(() => {
+    if (address !== null && address !== "" && address !== undefined) {
+      authUser();
+    }
+  }, [address]);
+
   const authUser = () => {
     handleAuth();
   };
@@ -59,6 +69,7 @@ const Dashboard = () => {
       setLoading(false);
       setUser(null);
       toast.success(data.message.toLowerCase());
+      disconnect()
       // window.location.reload();
     } else if (data.response.data.message) {
       setLoading(false);
@@ -158,11 +169,11 @@ const Dashboard = () => {
                     <span>support</span>
                   </NavLink>
                 </div>
-                {user ? (
+                {/* {user ? (
                   <button onClick={logoutHandler}>Logout</button>
                 ) : (
                   <button onClick={authUser}>Login</button>
-                )}
+                )} */}
 
                 {user && (
                   <div className="logout_btn" onClick={logoutHandler}>
@@ -172,9 +183,9 @@ const Dashboard = () => {
                     <span className="text">logout</span>
                   </div>
                 )}
-                <div style={{ marginBottom: 80, marginLeft: 30 }}>
+                {/* <div style={{ marginBottom: 80, marginLeft: 30 }}>
                   {!user && <w3m-button size="md" label="Connect Wallet" />}
-                </div>
+                </div> */}
               </div>
               <div className="close_btn" onClick={() => setShow(!show)}>
                 <IoCloseCircleOutline />
