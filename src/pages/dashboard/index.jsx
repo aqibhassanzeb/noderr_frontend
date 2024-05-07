@@ -168,6 +168,14 @@ const Dashboard = () => {
                     <img src={images.support} alt="support" />
                     <span>support</span>
                   </NavLink>
+                  <NavLink
+                    className="menu_item"
+                    to={"billing"}
+                    onClick={() => setShow(!show)}
+                  >
+                    <img src={images.billing} alt="support" />
+                    <span>Billing</span>
+                  </NavLink>
                 </div>
                 {/* {user ? (
                   <button onClick={logoutHandler}>Logout</button>

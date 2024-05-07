@@ -72,7 +72,9 @@ const AllVotes = () => {
             {votes?.length > 0 ? (
               user &&
               votes
+
                 .slice()
+
                 .reverse()
                 .map((vote, index) => (
                   <Vote

@@ -82,41 +82,6 @@ const Stats_page = () => {
             <NodeLoader skeletonCount={skeletonCount} />
           ) : (
             <div className="dashboard_grid">
-              {/* <StatsCard
-                stats_img={"https://mintair.xyz/_next/static/media/fuelLogo.69540439.svg"}
-                text={"Node 1"}
-                slot={10}
-                bg_color={"#00f58c"}
-                onClick={() => handleNodeClick(nodes[0])}
-              />
-              <StatsCard
-                stats_img={"https://mintair.xyz/_next/static/media/bevmWoBg.3bf8efd6.svg"}
-                text={"Node 1"}
-                slot={10}
-                bg_color={"#e81899"}
-                onClick={() => handleNodeClick(nodes[0])}
-              />
-              <StatsCard
-                stats_img={"https://mintair.xyz/_next/static/media/ethLogo.3b3b3b3b.svg"}
-                text={"Node 1"}
-                slot={10}
-                bg_color={"#3042fb"}
-                onClick={() => handleNodeClick(nodes[0])}
-              />
-              <StatsCard
-                stats_img={"https://mintair.xyz/_next/static/media/babylonLogo.5acd5d8c.svg"}
-                text={"Node 1"}
-                slot={10}
-                bg_color={"#748cee"}
-                onClick={() => handleNodeClick(nodes[0])}
-              />
-              <StatsCard
-                stats_img={"https://mintair.xyz/_next/static/media/zoraWoBg.e16427b5.svg"}
-                text={"Node 1"}
-                slot={10}
-                bg_color={"#FFD9D9"}
-                onClick={() => handleNodeClick(nodes[0])}
-              /> */}
               {nodes?.length > 0 ? (
                 user &&
                 nodes
