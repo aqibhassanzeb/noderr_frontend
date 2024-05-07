@@ -102,7 +102,7 @@
 
 .logout_btn {
   position: relative;
-  /* bottom: 10%; */
+  bottom: 10%;
   /* padding: var(--side-menu-pad); */
   cursor: pointer;
   display: flex;

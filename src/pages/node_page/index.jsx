@@ -7,11 +7,9 @@ import NodeDetail from "../../components/nodeDetail";
 import PageHeader from "../../components/dashboard/pageHeader/pageHeader";
 import { createApiContext } from "../../context/apiContext";
 import NodeLoader from "../../components/skeletonLoaders/nodesLoader";
-import { Link } from "react-router-dom";
-import { useAccount, useDisconnect } from 'wagmi'
+import { useAccount } from 'wagmi'
 const Stats_page = () => {
   const { address, isConnecting, isDisconnected, } = useAccount()
-  console.log("🚀 ~ isDisconnected:", address, isDisconnected)
   const { getAllNodes, getProfileData, user, setAddress } = useContext(createApiContext);
   const [loadingNodes, setLoadingNodes] = useState(true);
   const [loadingProfile, setLoadingProfile] = useState(true);
@@ -35,7 +33,7 @@ const Stats_page = () => {
           getAllNodes(),
           getProfileData(),
         ]);
-        setNodes(nodesResponse.data.nodes);
+        setNodes(nodesResponse);
         if (profileResponse.success) {
           setUserData(profileResponse.user);
         }
