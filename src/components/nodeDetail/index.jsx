@@ -7,7 +7,7 @@ import LoadingModal from "../ApiLoader";
 
 const NodeDetail = ({ node, onClose }) => {
   const { purchaseNode } = useContext(createApiContext);
-  const [activeTab, setActiveTab] = useState(1);
+  const [activeTab, setActiveTab] = useState(3);
   const [computeTotal, setComputeTotal] = useState(0);
   const [loading, setLoading] = useState(false);
   const [duration, setDuration] = useState(1);
@@ -26,9 +26,9 @@ const NodeDetail = ({ node, onClose }) => {
 
     // Set duration based on the selected tab
     switch (activeTab) {
-      case 1:
-        setDuration(1);
-        break;
+      // case 1:
+      //   setDuration(1);
+      //   break;
       case 3:
         setDuration(3);
         break;
@@ -37,6 +37,9 @@ const NodeDetail = ({ node, onClose }) => {
         break;
       case 12:
         setDuration(12);
+        break;
+      case 24:
+        setDuration(24);
         break;
       default:
         setDuration(1);
@@ -78,77 +81,87 @@ const NodeDetail = ({ node, onClose }) => {
 
   return (
     <>
-    {
-      loading && <LoadingModal/>
-    }
-    <div className="node_detail_section">
-      <div className="node_detail_container">
-        <div className="detail_header">
-          <div className="left">
-            <div className="img_container" style={{ background: node.bgColor }}>
-              <img src={node.nodeImage?.url} alt="brand" />
+      {loading && <LoadingModal />}
+      <div className="node_detail_section">
+        <div className="node_detail_container">
+          <div className="detail_header">
+            <div className="left">
+              <div
+                className="img_container"
+                style={{ background: node.bgColor }}
+              >
+                <img src={node.nodeImage?.url} alt="brand" />
+              </div>
+              <h3 className="title">{node.nodeName}</h3>
             </div>
-            <h3 className="title">{node.nodeName}</h3>
+            <div className="right">
+              <span className="close" onClick={onClose}>
+                <GrFormClose />
+              </span>
+            </div>
           </div>
-          <div className="right">
-            <span className="close" onClick={onClose}>
-              <GrFormClose />
-            </span>
-          </div>
-        </div>
-        <div className="detail_body">
-          <h4>duration (in months)</h4>
-          <div className="tabs">
-            <span
+          <div className="detail_body">
+            <h4>duration (in months)</h4>
+            <div className="tabs">
+              {/* <span
               className={`tab ${activeTab === 1 ? "active" : ""}`}
               onClick={() => handleTabClick(1)}
             >
               1
-            </span>
-            <span
-              className={`tab ${activeTab === 3 ? "active" : ""}`}
-              onClick={() => handleTabClick(3)}
+            </span> */}
+              <span
+                className={`tab ${activeTab === 3 ? "active" : ""}`}
+                onClick={() => handleTabClick(3)}
+              >
+                3
+              </span>
+              <span
+                className={`tab ${activeTab === 6 ? "active" : ""}`}
+                onClick={() => handleTabClick(6)}
+              >
+                6
+              </span>
+              <span
+                className={`tab ${activeTab === 12 ? "active" : ""}`}
+                onClick={() => handleTabClick(12)}
+              >
+                12
+              </span>
+              <span
+                className={`tab ${activeTab === 24 ? "active" : ""}`}
+                onClick={() => handleTabClick(24)}
+              >
+                24
+              </span>
+            </div>
+            <div className="fee_structure">
+              <span className="label">node fee</span>
+              <span className="pricing">${node.nodePrice}/month</span>
+            </div>
+            <div className="fee_structure">
+              <span className="label">period</span>
+              <span className="pricing">{duration} month(s)</span>
+            </div>
+            <div className="fee_structure border-top">
+              <span className="label">total</span>
+              <span className="pricing">${computeTotal}</span>
+            </div>
+          </div>
+          <div className="detail_footer">
+            <p>
+              <span>Click here</span> to view installation steps
+            </p>
+            <button
+              className="detail_btn"
+              onClick={purchaseHandler}
+              disabled={loading}
             >
-              3
-            </span>
-            <span
-              className={`tab ${activeTab === 6 ? "active" : ""}`}
-              onClick={() => handleTabClick(6)}
-            >
-              6
-            </span>
-            <span
-              className={`tab ${activeTab === 12 ? "active" : ""}`}
-              onClick={() => handleTabClick(12)}
-            >
-              12
-            </span>
+              {loading ? "Purchasing..." : "Purchase"}
+            </button>
           </div>
-          <div className="fee_structure">
-            <span className="label">node fee</span>
-            <span className="pricing">${node.nodePrice}/month</span>
-          </div>
-          <div className="fee_structure">
-            <span className="label">period</span>
-            <span className="pricing">{duration} month(s)</span>
-          </div>
-          <div className="fee_structure border-top">
-            <span className="label">total</span>
-            <span className="pricing">${computeTotal}</span>
-          </div>
-        </div>
-        <div className="detail_footer">
-          <p>
-            <span>Click here</span> to view installation steps
-          </p>
-          <button className="detail_btn" onClick={purchaseHandler} disabled={loading}>
-            {loading ? "Purchasing..." : "Purchase"}
-          </button>
         </div>
       </div>
-    </div>
     </>
-
   );
 };
 
