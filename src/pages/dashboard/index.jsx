@@ -1,23 +1,30 @@
 import React, { useEffect } from "react";
 import "./index.css";
-
 import { IoCloseCircleOutline } from "react-icons/io5";
 import { images } from "../../images";
 import { NavLink, Outlet } from "react-router-dom";
 import { FaHamburger } from "react-icons/fa";
 import { RxHamburgerMenu } from "react-icons/rx";
-
 import { createApiContext } from "../../context/apiContext";
 import { toast } from "react-toastify";
 import LoadingModal from "../../components/ApiLoader";
 import { AiOutlineLogout } from "react-icons/ai";
 import Footer from "../../components/footer";
-import { useDisconnect } from 'wagmi'
+import { useDisconnect } from "wagmi";
 
 const Dashboard = () => {
-  const { disconnect } = useDisconnect()
-  const { handleLoginOrSignUp, handleLogout, getProfileData, user, setUser, userData, setUserData, address } =
-    React.useContext(createApiContext);
+  const { disconnect } = useDisconnect();
+  const {
+    handleLoginOrSignUp,
+    handleLogout,
+    getProfileData,
+    user,
+    setUser,
+    userData,
+    setUserData,
+    address,
+  } = React.useContext(createApiContext);
+  console.log("🚀 ~ Dashboard ~ user:", user, userData)
   const [show, setShow] = React.useState(true);
   const [loading, setLoading] = React.useState(false);
   useEffect(() => {
@@ -30,8 +37,6 @@ const Dashboard = () => {
     getUser();
   }, [user]);
 
-
-
   const handleAuth = async () => {
     setLoading(true);
     const authData = {
@@ -39,7 +44,7 @@ const Dashboard = () => {
       // userWallet: "0xD775c914a90eA18B50C5f04e4a45Ba3c91F171a8",
     };
     const data = await handleLoginOrSignUp(authData);
-    console.log("data :", data)
+    console.log("data :", data);
     if (data.success) {
       setLoading(false);
       toast.success(data?.message?.toLowerCase());
@@ -65,11 +70,12 @@ const Dashboard = () => {
     setLoading(true);
     const data = await handleLogout();
     if (data.success) {
-      console.log(data)
+      console.log(data);
       setLoading(false);
       setUser(null);
+      setUserData(null);
       toast.success(data.message.toLowerCase());
-      disconnect()
+      disconnect();
       // window.location.reload();
     } else if (data.response.data.message) {
       setLoading(false);
@@ -93,12 +99,16 @@ const Dashboard = () => {
               <span className="text">logout</span>
             </div>
           )}
-          {!user && (
-            <w3m-button size="md" label="Connect Wallet" />
-          )}
+          {/* {!user && <w3m-button size="md" label="Connect Wallet" />} */}
         </div>
-        <div className="dashboard"  >
-          <div className={show ? "side_menu hide overflow-scroll" : "side_menu overflow-scroll"}>
+        <div className="dashboard">
+          <div
+            className={
+              show
+                ? "side_menu hide overflow-scroll"
+                : "side_menu overflow-scroll"
+            }
+          >
             <div className="menu_container">
               <div className="brand_log">
                 <img src={images.TextLogo} alt="logo" />
@@ -123,8 +133,7 @@ const Dashboard = () => {
                     <img src={images.activeNode} alt="dashboard" />
                     <span>active nodes</span>
                   </NavLink>
-                  {
-                    userData?.role === "admin" &&
+                  {userData?.role === "admin" && (
                     <>
                       <NavLink
                         className="menu_item"
@@ -159,7 +168,15 @@ const Dashboard = () => {
                         <span>all votes</span>
                       </NavLink>
                     </>
-                  }
+                  )}
+                  <NavLink
+                    className="menu_item"
+                    to={"swap"}
+                    onClick={() => setShow(!show)}
+                  >
+                    <img src={images.support} alt="swaps" />
+                    <span>swaps</span>
+                  </NavLink>
                   <NavLink
                     className="menu_item"
                     to={"support"}
@@ -204,7 +221,6 @@ const Dashboard = () => {
           <Outlet />
         </div>
         <Footer />
-
       </div>
       {/* <Footer /> */}
     </>

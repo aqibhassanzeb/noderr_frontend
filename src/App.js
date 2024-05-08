@@ -26,6 +26,7 @@ import AddFaq from "./pages/admin/addFaq";
 import CreateFaq from "./pages/admin/addFaq/create";
 import UpdateFaq from "./components/updateFaq";
 import Billing from "./pages/billing";
+import SwapSection from "./components/ghostyListing/GhostyListing";
 
 const Home = React.lazy(() => import("./pages/home"));
 const Dashboard = React.lazy(() => import("./pages/dashboard"));
@@ -114,6 +115,10 @@ const router = createBrowserRouter([
 			{
 				path: "billing",
 				element: <Billing />,
+			},
+			{
+				path: "swap",
+				element: <SwapSection />,
 			},
 		],
 	},
