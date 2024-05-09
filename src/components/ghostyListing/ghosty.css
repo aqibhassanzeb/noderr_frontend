@@ -1,0 +1,281 @@
+.swap__card {
+  width: 100%;
+  background-color: var(--dark);
+  border-radius: 20px;
+  padding-bottom: 15px;
+  border: 1px solid var(--primary)
+}
+
+.swapbox__header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  border: 1px solid var(--primary);
+  border-radius: 10px;
+  height: 50px;
+  place-items: center;
+  margin-bottom: 24px
+}
+
+.swapbox__header>.tip-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  height: 100%;
+  color: #fff;
+  text-align: center;
+  border: none
+}
+
+.swapbox__header>div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  border-left: 1px solid var(--primary)
+}
+
+.swapbox__header>div button {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  color: var(--primary);
+  transition: all .3s ease-in-out;
+  border-radius: 8px
+}
+
+.swapbox__header>div button span {
+  color: var(--primary);
+  font-size: 20px;
+  animation: glow 1s ease-in-out infinite alternate
+}
+
+.swapbox__header>div button:hover {
+  text-shadow: 0px 0px 5px var(--primary), 0px 0px 15px var(--primary), 0px 0px 25px var(--primary), 0px 0px 50px var(--primary)
+}
+
+.swapbox__header>div button.active__switch {
+  background-color: var(--primary)
+}
+
+.swapbox__header>div button.active__switch span {
+  color: var(--dark);
+  animation: none
+}
+
+.deactive {
+  background-color: #1a5553 !important;
+  cursor: not-allowed
+}
+
+.step {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 90%;
+  margin: 16px auto;
+  position: relative
+}
+
+.step1 {
+  margin-top: 30px
+}
+
+.step__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 10px
+}
+
+.step__header h3 {
+  background-color: var(--primary);
+  border-radius: 8px;
+  color: var(--dark);
+  font-size: 12px;
+  height: 25px;
+  display: grid;
+  padding-inline: 20px;
+  place-items: center;
+  position: relative;
+  text-transform: uppercase
+}
+
+.rotate {
+  animation: rotateAnimation 1s linear infinite
+}
+
+.reset {
+  border: 1px solid var(--primary);
+  border-radius: 8px !important;
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  animation-name: rotate infinite
+}
+
+.reset:hover img {
+  scale: 1.2;
+  transition: transform .3s ease
+}
+
+.swapbox__amount__box {
+  width: 100%;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: #44fdff1a;
+  height: 90px
+}
+
+.amount__input {
+  display: flex;
+  padding-left: 13px;
+  align-items: flex-start;
+  flex-direction: column;
+  height: 100%;
+  padding-top: 10px;
+  position: relative;
+  max-width: 50%
+}
+
+.amount__input p {
+  color: #8c8c8c;
+  font-size: 12px
+}
+
+.amount__input input {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font-size: 14px;
+  outline: 0px;
+  width: 100%;
+  border: 1px solid var(--primary);
+}
+
+.amount__input input::-moz-placeholder {
+  color: #fff
+}
+
+.amount__input input::placeholder {
+  color: #fff
+}
+
+.amount__input span {
+  position: absolute;
+  bottom: 3px;
+  color: red;
+  font-size: 11px
+}
+
+.currency__div {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-end;
+  padding-bottom: 2px;
+  height: 100%;
+  padding-inline: 10px;
+  position: relative
+}
+
+.currency__div .coin__img {
+  width: 20px;
+  -o-object-fit: contain;
+  object-fit: contain
+}
+
+.currency__div>h4 {
+  color: #eee;
+  font-size: 14px
+}
+
+.currency__div>p {
+  color: var(--primary);
+  font-size: 12px
+}
+
+.step>.swapbox__amount__box:last-child {
+  margin-top: 7px
+}
+
+.switch_arrow {
+  position: absolute;
+  top: 60%;
+  width: 24px;
+  z-index: 4;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform .3s ease
+}
+
+.flipped {
+  transform: scaleY(-1) translate(-50%, 60%)
+}
+
+.step2__box {
+  width: 100%;
+  border: 1px solid var(--primary);
+  border-radius: 15px;
+  display: flex;
+  align-items: flex-start;
+  background-color: var(--primaryLight);
+  padding: 5px 12px;
+  flex-direction: column;
+  position: relative;
+  height: 75px
+}
+
+.step2__box>.tip-box2 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  color: #eee;
+  font-size: 14px
+}
+
+.step2__box>input {
+  color: #fff;
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  width: 100%;
+  outline: none
+}
+
+.step2__box>input::-moz-placeholder {
+  font-size: 11px !important;
+  letter-spacing: -.05em;
+  color: #5f5f5f
+}
+
+.step2__box>input::placeholder {
+  font-size: 11px !important;
+  letter-spacing: -.05em;
+  color: #5f5f5f
+}
+
+.cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  border-radius: 8px;
+  background-color: var(--primary);
+  color: var(--dark);
+  font-size: 14px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all .3s ease-in-out
+}
