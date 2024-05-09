@@ -9,10 +9,15 @@ import LoadingModal from "../../components/ApiLoader";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { images } from "../../images";
+import { IoArrowBackCircle } from "react-icons/io5";
 
 const CreatePrmotion = () => {
-  const { generatePromoCode } = useContext(createApiContext);
   const navigate = useNavigate();
+  const handleCloseCreate = () => {
+    navigate('/dashboard/all-promotion-codes');
+  };
+  const { generatePromoCode } = useContext(createApiContext);
+  
   const [promo, setPromo] = useState("");
   const [discount, setDiscount] = useState("");
   const [usage, setUsage] = useState("");
@@ -60,6 +65,11 @@ const CreatePrmotion = () => {
       {loading && <LoadingModal />}
       <div className="right_dashboard">
         <div className="right_container">
+        <div className="">
+            <span className="close" onClick={handleCloseCreate} >
+              <IoArrowBackCircle className="text-white w-8 h-8" />
+            </span>
+          </div>
           <PageHeader page_title={"Create Promotion"} badge={"GM, Noderr"}
             profilePic={images.FakePic} />
           <form className="promo_code_form" onSubmit={submitHandler}>

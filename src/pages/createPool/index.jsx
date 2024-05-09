@@ -7,10 +7,15 @@ import { toast } from "react-toastify";
 import LoadingModal from "../../components/ApiLoader";
 import { useNavigate } from "react-router-dom";
 import { images } from "../../images";
+import { IoArrowBackCircle } from "react-icons/io5";
 
 const CreatePool = () => {
-  const { createPool } = useContext(createApiContext);
   const navigate = useNavigate();
+  const handleCloseCreate = () => {
+    navigate('/dashboard/all-votes');
+  };
+  const { createPool } = useContext(createApiContext);
+
   const [poolTitle, setPoolTitle] = useState("");
   const [poolDuration, setPoolDuration] = useState("");
   const [poolOptions, setPoolOptions] = useState([""]);
@@ -64,6 +69,11 @@ const CreatePool = () => {
       {loading && <LoadingModal />}
       <div className="right_dashboard">
         <div className="right_container">
+        <div className="">
+            <span className="close" onClick={handleCloseCreate} >
+              <IoArrowBackCircle className="text-white w-8 h-8" />
+            </span>
+          </div>
           <PageHeader page_title={"Create Pool"} badge={"GM, Noderr"}
           profilePic={images.FakePic} />
           <form className="pool_create_form" onSubmit={handleSubmit}>

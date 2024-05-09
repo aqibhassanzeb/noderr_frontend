@@ -185,7 +185,8 @@
   padding-bottom: 2px;
   height: 100%;
   padding-inline: 10px;
-  position: relative
+  position: relative;
+  /* background: var(--primary);; */
 }
 
 .currency__div .coin__img {
@@ -232,7 +233,9 @@
   padding: 5px 12px;
   flex-direction: column;
   position: relative;
-  height: 75px
+  height: 75px;
+  /* height: 115px;
+  justify-content: space-around; */
 }
 
 .step2__box>.tip-box2 {

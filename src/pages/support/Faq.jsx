@@ -1,9 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import PageHeader from "../../components/dashboard/pageHeader/pageHeader";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { images } from "../../images";
 import { createApiContext } from "../../context/apiContext";
 import { toast } from "react-toastify";
+import { IoArrowBackCircle } from "react-icons/io5";
 
 const FAQSection = () => {
   const [openIndexes, setOpenIndexes] = useState([]);
@@ -83,9 +84,18 @@ const FAQSection = () => {
   useEffect(()=>{
     setFaqData(faqData1)
   },[])
+  const navigate = useNavigate();
+  const handleCloseCreate = () => {
+    navigate('/dashboard/support');
+  };
   return (
     <div className="right_dashboard">
       <div className="right_container">
+      <div className="">
+            <span className="close" onClick={handleCloseCreate} >
+              <IoArrowBackCircle className="text-white w-8 h-8" />
+            </span>
+          </div>
         <PageHeader page_title={"Support"} badge={"GM, Noderr"}
           profilePic={images.FakePic} />
         <section>
