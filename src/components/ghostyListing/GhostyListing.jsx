@@ -9,8 +9,29 @@ import { Button } from "flowbite-react";
 function SwapSection() {
   const [show, setShow] = useState(false);
   const [currencies, setCurrencies] = useState([]);
-  const [selectedCuur, setSelectedCuur] = useState({});
-  const [selectedConveter, setSelectedConveter] = useState({});
+  const [walletAddress, setWalletAddress] = useState("")
+  const [selectedCuur, setSelectedCuur] = useState({
+    "name": "BTC",
+    "param": "BTC",
+    "network": "BITCOIN",
+    "img": "https://ghosty.cash/assets/tokens/BTC.png",
+    "color": "#f6921a",
+    "maintenance": false,
+    "newToken": false,
+    "isStable": false,
+    "isNative": true
+  });
+  const [selectedConveter, setSelectedConveter] = useState({
+    "name": "ETH",
+    "param": "ETH",
+    "network": "ETHEREUM",
+    "img": "https://ghosty.cash/assets/tokens/ETH.png",
+    "color": "#3f6868",
+    "maintenance": false,
+    "newToken": false,
+    "isStable": false,
+    "isNative": true
+  });
   const [selectMode, setSelectMode] = useState("base");
   const [amount, setAmount] = useState(1);
   const [prices, setPrices] = useState({});
@@ -42,6 +63,10 @@ function SwapSection() {
       if (data?.code === 404) {
         toast.error(data?.message);
       }
+      if (data?.code === 422) {
+        toast.error(data?.message);
+
+      }
       setLoading(false);
     } catch (err) {
       console.log(err);
@@ -64,13 +89,44 @@ function SwapSection() {
     }
   };
 
+
+  const createSwap = async () => {
+    const data = {
+      "currency_from": selectedCuur?.name,
+      "amount_from": amount,
+      "currency_to": selectedConveter?.name,
+      "address_to": walletAddress,
+      "receiver_memo_tag": "",
+      "is_anonym": true
+    }
+    try {
+      const responseData = await fetch("https://api.ghosty.cash/v1/swap/create", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+          'x-ghostycash-api-key': process.env.REACT_APP_GHOSTY_API_KEY
+        },
+        body: JSON.stringify(data)
+      });
+      const result = await responseData.json();
+      if (result?.order_info) {
+        toast.success(result?.message, {
+          theme: "colored"
+        })
+      }
+    } catch (err) {
+      toast.error(err)
+      console.log(err)
+    }
+  }
+
   useEffect(() => {
     getPriceToUSD();
   }, [selectedCuur, amount]);
 
   useEffect(() => {
     getPrices();
-  }, [amount, selectedCuur?.param, selectedConveter.param]);
+  }, [amount, selectedCuur?.param, selectedConveter?.param]);
 
   useEffect(() => {
     getCurrencies();
@@ -78,6 +134,18 @@ function SwapSection() {
 
   return (
     <>
+
+      {/* <iframe
+        id="ghosty-widget"
+        src="https://www.ghosty.cash/swap-widget/8f05b28846419027"
+        style={{
+          minWidth: "360px",
+          minHeight: "660px",
+          borderRadius: "15px",
+          overflow: "hidden"
+        }}
+      /> */}
+
       <div className="right_dashboard">
         <div className="right_container">
           <PageHeader page_title={"Swap Section"} badge={" GM, Noderr"} />
@@ -180,12 +248,17 @@ function SwapSection() {
                 <input
                   id="receiver-address"
                   type="text"
+                  value={walletAddress}
+                  onChange={(e) => setWalletAddress(e.target.value)}
                   placeholder="Receiving wallet address in POLYGON format"
                 />
               </div>
             </div>
-            <Button className="cta m-auto" isProcessing={loading}
+            <Button
+              className="cta m-auto"
+              isProcessing={loading}
               disabled={loading}
+              onClick={createSwap}
             >
               SWAP NOW
             </Button>
