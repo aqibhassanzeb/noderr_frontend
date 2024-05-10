@@ -282,6 +282,17 @@ export const ApiProvider = ({ children }) => {
         }
     };
 
+    //swap tool api's
+    const getSwapCurrencies = async () => {
+        try {
+            const data = await axios.get("https://api.ghosty.cash/v1/swap/currency");
+            return data;
+        } catch (err) {
+            console.log(err);
+            return err;
+        }
+    };
+
     return (
         <createApiContext.Provider
             value={{
@@ -314,7 +325,8 @@ export const ApiProvider = ({ children }) => {
                 getAllFaq,
                 createFaqByAdmin,
                 deleteFaq,
-                updateFaqByAdmin
+                updateFaqByAdmin,
+                getSwapCurrencies
             }}
         >
             {children}

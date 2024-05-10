@@ -11,6 +11,7 @@ import LoadingModal from "../../components/ApiLoader";
 import { AiOutlineLogout } from "react-icons/ai";
 import Footer from "../../components/footer";
 import { useDisconnect } from "wagmi";
+import { LiaExchangeAltSolid } from "react-icons/lia";
 
 const Dashboard = () => {
   const { disconnect } = useDisconnect();
@@ -174,8 +175,9 @@ const Dashboard = () => {
                     to={"swap"}
                     onClick={() => setShow(!show)}
                   >
-                    <img src={images.support} alt="swaps" />
-                    <span>swaps</span>
+                    <LiaExchangeAltSolid ></LiaExchangeAltSolid>
+                    {/* <img src={images.support} alt="swaps" /> */}
+                    <span>Swap</span>
                   </NavLink>
                   <NavLink
                     className="menu_item"

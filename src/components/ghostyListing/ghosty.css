@@ -202,7 +202,8 @@
 
 .currency__div>p {
   color: var(--primary);
-  font-size: 12px
+  font-size: 12px;
+  margin-top: 10px;
 }
 
 .step>.swapbox__amount__box:last-child {
