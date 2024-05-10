@@ -117,7 +117,7 @@ function CustomModal({ selectMode, show, onClose, currencies, setSelectedCuur, s
                   <input
                     type="search"
                     id="default-search"
-                    className="block w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                    className="block w-full text-black border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
                     placeholder="Search Mockups, Logos..."
                     value={searchValue}
                     onChange={handleSearchChange}
