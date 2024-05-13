@@ -8,8 +8,8 @@ import LoadingModal from "../../components/ApiLoader";
 import { useNavigate } from "react-router-dom";
 import { images } from "../../images";
 const UpdateUserprofile = () => {
-  const { getProfileData, updateUserProfile } =
-    React.useContext(createApiContext);
+  const { getProfileData, updateUserProfile } = React.useContext(createApiContext);
+
   const [walletAddress, setWalletAddress] = React.useState("");
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
@@ -17,6 +17,7 @@ const UpdateUserprofile = () => {
   const [fetchLoading, setFetchLoading] = React.useState(false)
   const navigate = useNavigate();
 
+  //fetch user data
   React.useEffect(() => {
     const getUser = async () => {
       setFetchLoading(true);
@@ -24,7 +25,6 @@ const UpdateUserprofile = () => {
       if (data.user.name === null || data.user.email === null) {
         toast.info("Please complete your profile");
       }
-
       if (data.success) {
         setWalletAddress(data?.user?.walletAddress);
         setName(data?.user?.name);
@@ -34,6 +34,8 @@ const UpdateUserprofile = () => {
     };
     getUser();
   }, []);
+
+  //update profile handler function
   const updateHandler = async (formData) => {
     setLoading(true);
     const data = await updateUserProfile(formData);
@@ -46,6 +48,8 @@ const UpdateUserprofile = () => {
       setLoading(false);
     }
   };
+
+  //submit handler function
   const submitHandler = (e) => {
     e.preventDefault();
     const formData = new FormData();
@@ -53,13 +57,14 @@ const UpdateUserprofile = () => {
     formData.append("email", email);
     updateHandler(formData);
   };
+
   return (
     <>
       {loading && <LoadingModal />}
       <div className="right_dashboard">
         <div className="right_container">
           <PageHeader page_title={"Edit Profile"} badge={"GM, Noderr"}
-          profilePic={images.FakePic} />
+            profilePic={images.FakePic} />
           {fetchLoading ? (
             <div>
               <LoadingModal />
@@ -95,9 +100,7 @@ const UpdateUserprofile = () => {
               <button
                 type="submit"
                 className="btn primary"
-                style={{ backgroundColor: "black", color: "#fff", width: "100%" }}
-
-              >
+                style={{ backgroundColor: "black", color: "#fff", width: "100%" }}>
                 Save
               </button>
             </form>

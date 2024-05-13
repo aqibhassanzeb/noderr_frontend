@@ -11,16 +11,18 @@ const AllVotes = () => {
   const [votes, setVotes] = useState([]);
   const [loading, setLoading] = useState(false);
   const [selectedPool, setSelectedPool] = useState(null);
-  
+
+  //handle node click function
   const handleNodeClick = (promoData) => {
     setSelectedPool(promoData);
-    
   };
 
-
+  //handle close node detail function
   const handleCloseNodeDetail = () => {
     setSelectedPool(null);
   };
+
+  //fetch all promotion codes function
   useEffect(() => {
     const fetchVotes = async () => {
       setLoading(true);
@@ -35,6 +37,8 @@ const AllVotes = () => {
     };
     fetchVotes();
   }, [selectedPool]);
+
+  //delete vote function
   const deleteHnadler = async (id) => {
     setLoading(true);
     try {
@@ -42,7 +46,7 @@ const AllVotes = () => {
       if (response?.status) {
         toast.success("Vote deleted successfully");
         // const response = await getAllPools();
-        setVotes(prevVote => prevVote.filter(f=> f._id !== id));
+        setVotes((prevVote) => prevVote.filter((f) => f._id !== id));
         setLoading(false);
       } else if (response.response.data.message) {
         setLoading(false);
@@ -56,6 +60,7 @@ const AllVotes = () => {
   };
 
   const skeletonCount = Math.floor(window.innerHeight / 100);
+
   return (
     <div className="right_dashboard">
       <div className="right_container">
@@ -80,8 +85,8 @@ const AllVotes = () => {
                   <Vote
                     key={index}
                     voteData={vote}
-                    onEdit={()=> handleNodeClick(vote)}
-                    onDelete={()=> deleteHnadler(vote._id)}
+                    onEdit={() => handleNodeClick(vote)}
+                    onDelete={() => deleteHnadler(vote._id)}
                   />
                 ))
             ) : (
@@ -90,16 +95,14 @@ const AllVotes = () => {
           </div>
         )}
       </div>
-      {
-        selectedPool && (
-          <UpdateVote
-            voteData={selectedPool}
-            onClose={handleCloseNodeDetail}
-            setLoading={setLoading}
-            setVotes={setVotes}
-          />
-        )
-      }
+      {selectedPool && (
+        <UpdateVote
+          voteData={selectedPool}
+          onClose={handleCloseNodeDetail}
+          setLoading={setLoading}
+          setVotes={setVotes}
+        />
+      )}
     </div>
   );
 };

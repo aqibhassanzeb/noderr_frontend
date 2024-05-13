@@ -8,15 +8,16 @@ import LoadingModal from "../../../../components/ApiLoader";
 import { useNavigate } from "react-router-dom";
 import { createApiContext } from "../../../../context/apiContext";
 const CreateFaq = () => {
+
   const navigate = useNavigate();
   const { createFaqByAdmin } = useContext(createApiContext);
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
   const [loading, setLoading] = useState(false);
 
+  //create faq function
   const handleFaqCreate = async (data) => {
     setLoading(true);
-
     const response = await createFaqByAdmin(data);
     console.log(response);
     if (response.data) {
@@ -33,12 +34,12 @@ const CreateFaq = () => {
     }
   };
 
+  //submit handler
   const submitHandler = (e) => {
     e.preventDefault();
     if (!answer || !question) {
       return;
     }
-
     const data = {
       question: question,
       answer: answer

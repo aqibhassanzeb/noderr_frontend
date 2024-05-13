@@ -6,7 +6,6 @@ const FAQ = ({ faq, onDelete, onClick }) => {
   return (
     <div className="single_node" style={{ background: "" }}>
       <div className="node_img">
-        {/* <img src={node.nodeImage.url} alt="node" /> */}
       </div>
       <div className="node_detail">
         <div className="detail">

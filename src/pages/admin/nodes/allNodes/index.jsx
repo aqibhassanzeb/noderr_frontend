@@ -2,19 +2,20 @@ import React, { useContext, useEffect, useState } from "react";
 import "./index.css";
 import PageHeader from "../../../../components/dashboard/pageHeader/pageHeader";
 import Node from "../../../../components/dashboard/node";
-import { allNodeData } from "../../../../data/nodeData";
 import { createApiContext } from "../../../../context/apiContext";
 import AdminNodeLoader from "../../../../components/skeletonLoaders/adminnodesLoader";
 import { toast } from "react-toastify";
 import UpdateNode from "../../../../components/dashboard/updateNode";
 import { images } from "../../../../images";
 const AllNodes = () => {
+
   const { getAllNodes, deleteNode, user } = useContext(createApiContext);
   const [loadding, setLoading] = useState(false);
   const [nodes, setNodes] = useState([]);
   const [selectedNode, setSelectedNode] = useState(null);
-  const [handleFetch, setHandleFetch] = useState(false)
+  const [handleFetch, setHandleFetch] = useState(false);
 
+  //fetch all nodes function
   useEffect(() => {
     const fetchNodes = async () => {
       try {
@@ -30,24 +31,29 @@ const AllNodes = () => {
     };
     fetchNodes();
   }, [handleFetch]);
+
+  //delete node function
   const handleDeleteNode = async (id) => {
     setLoading(true);
     try {
-      const data = await deleteNode(id);
-      setHandleFetch(!handleFetch)
+      await deleteNode(id);
+      setHandleFetch(!handleFetch);
       toast.success("Node deleted successfully");
-
     } catch (error) {
       toast.error(error.message);
     } finally {
       setLoading(false);
     }
   };
+
   const skeletonCount = Math.floor(window.innerHeight / 100);
+
+  //handle node click function
   const handleNodeClick = (node) => {
     setSelectedNode(node);
   };
 
+  //handle close node detail function
   const handleCloseNodeDetail = () => {
     setSelectedNode(null);
   };

@@ -6,10 +6,13 @@ import { createApiContext } from "../../../context/apiContext";
 import { toast } from "react-toastify";
 import PromoLoader from "../../../components/skeletonLoaders/promoLoader";
 import { images } from "../../../images";
+
 const AllPurchaseNodebyUsers = () => {
   const { getAllPurchaseNodeByAdmin } = useContext(createApiContext);
   const [purchaseNode, setPurchaseNode] = React.useState([]);
   const [loading, setLoading] = React.useState(false);
+
+  //fetch all purchase nodes function
   useEffect(() => {
     const getPurchaseNode = async () => {
       setLoading(true);
@@ -24,7 +27,9 @@ const AllPurchaseNodebyUsers = () => {
     };
     getPurchaseNode();
   }, []);
+
   const skeletonCount = Math.floor(window.innerHeight / 100);
+
   return (
     <div className="right_dashboard">
       <div className="right_container">

@@ -12,11 +12,14 @@ import { images } from "../../images";
 const Landing = () => {
 	const [email, setEmail] = useState(null);
 	const { signupForBetaLaunch } = React.useContext(createApiContext);
+
+	//email validation fn
 	function validateEmail(email) {
 		const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 		return re.test(String(email).toLowerCase());
 	}
 
+	//signup for beta launch fn
 	const handleSubmit = async () => {
 		if (validateEmail(email)) {
 			const data = await signupForBetaLaunch({ email: email });
@@ -79,8 +82,6 @@ const Landing = () => {
 						width: "100%",
 					}}
 				>
-
-
 					<a href="https://www.allora.network" target="_blank">
 						<Card
 							style={{
@@ -244,10 +245,7 @@ const Landing = () => {
 							/>
 						</Card>
 					</a>
-
-
 				</div>
-
 			</div>
 			<ToastContainer />
 			<Footer />

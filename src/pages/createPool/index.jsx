@@ -14,28 +14,33 @@ const CreatePool = () => {
   const handleCloseCreate = () => {
     navigate('/dashboard/all-votes');
   };
-  const { createPool } = useContext(createApiContext);
 
+  const { createPool } = useContext(createApiContext);
   const [poolTitle, setPoolTitle] = useState("");
   const [poolDuration, setPoolDuration] = useState("");
   const [poolOptions, setPoolOptions] = useState([""]);
   const [loading, setLoading] = useState(false);
 
+  //handle the change of the option field
   const handleOptionChange = (index, value) => {
     const newOptions = [...poolOptions];
     newOptions[index] = value;
     setPoolOptions(newOptions);
   };
 
+  //add a new option field
   const addOptionField = () => {
     setPoolOptions([...poolOptions, ""]);
   };
 
+  //remove the option field
   const removeOptionField = (index) => {
     const newOptions = [...poolOptions];
     newOptions.splice(index, 1);
     setPoolOptions(newOptions);
   };
+
+  //handle the pool creation
   const handelPoolCreate = async () => {
     setLoading(true);
     const data = {
@@ -43,8 +48,9 @@ const CreatePool = () => {
       durationInDays: poolDuration,
       voteOptions: poolOptions,
     };
+
     const response = await createPool(data);
-    if (response.status=='success') {
+    if (response.status == 'success') {
       setLoading(false);
       setPoolTitle("");
       setPoolDuration("");
@@ -52,16 +58,15 @@ const CreatePool = () => {
       toast.success("Pool created successfully");
       navigate("/dashboard/all-votes");
     } else if (response.response.data.message) {
-
       setLoading(false);
       toast.error(response.response.data.message);
     }
   };
 
+  //handle the form submission
   const handleSubmit = (event) => {
     event.preventDefault();
     handelPoolCreate();
-    // Add your logic to handle the form submission here
   };
 
   return (
@@ -69,13 +74,13 @@ const CreatePool = () => {
       {loading && <LoadingModal />}
       <div className="right_dashboard">
         <div className="right_container">
-        <div className="">
+          <div className="">
             <span className="close" onClick={handleCloseCreate} >
               <IoArrowBackCircle className="text-white w-8 h-8" />
             </span>
           </div>
           <PageHeader page_title={"Create Pool"} badge={"GM, Noderr"}
-          profilePic={images.FakePic} />
+            profilePic={images.FakePic} />
           <form className="pool_create_form" onSubmit={handleSubmit}>
             <InputContainer
               label={"vote title"}

@@ -8,10 +8,13 @@ import { toast } from "react-toastify";
 import UpdatePromo from "../../../components/dashboard/updatePromo";
 import { images } from "../../../images";
 const AllPromotionCode = () => {
+
   const { getAllPromoCodes, deletePromoCode, user } = useContext(createApiContext);
   const [promotionCodes, setPromotionCodes] = useState([]);
   const [loading, setLoading] = useState(false);
   const [selectedPromo, setSelectedPromo] = useState(null);
+
+  //fetch all promotion codes function
   useEffect(() => {
     const fetchPromotionCodes = async () => {
       setLoading(true);
@@ -27,6 +30,8 @@ const AllPromotionCode = () => {
     };
     fetchPromotionCodes();
   }, [selectedPromo]);
+
+  //delete promotion code function
   const handleDeleteNode = async (id) => {
     console.log("hit delete secction ")
     setLoading(true);
@@ -35,7 +40,7 @@ const AllPromotionCode = () => {
       if (data?.status) {
         toast.success("Promotion code deleted successfully");
       }
-      // const response = await getAllPromoCodes(); 
+      // const response = await getAllPromoCodes();
       setPromotionCodes(prevPromo => prevPromo.filter(f => f._id !== id));
       setLoading(false);
     } catch (error) {
@@ -45,14 +50,19 @@ const AllPromotionCode = () => {
       toast.error(error.response.data.message);
     }
   };
+
+  //handle node click function
   const handleNodeClick = (promoData) => {
     setSelectedPromo(promoData);
   };
 
+  //handle close node detail function
   const handleCloseNodeDetail = () => {
     setSelectedPromo(null);
   };
+
   const skeletonCount = Math.floor(window.innerHeight / 100);
+
   return (
     <div className="right_dashboard">
       <div className="right_container">
