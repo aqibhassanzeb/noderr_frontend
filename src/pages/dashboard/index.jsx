@@ -12,6 +12,7 @@ import { AiOutlineLogout } from "react-icons/ai";
 import Footer from "../../components/footer";
 import { useDisconnect } from "wagmi";
 import { LiaExchangeAltSolid } from "react-icons/lia";
+import LogoutConfirmationModal from "../logoutModal";
 
 const Dashboard = () => {
   const { disconnect } = useDisconnect();
@@ -28,6 +29,7 @@ const Dashboard = () => {
   console.log("🚀 ~ Dashboard ~ user:", user, userData)
   const [show, setShow] = React.useState(true);
   const [loading, setLoading] = React.useState(false);
+  const [showLogoutModal, setShowLogoutModal] = React.useState(false);
   useEffect(() => {
     const getUser = async () => {
       // console.log("get profile api call @@")
@@ -67,21 +69,39 @@ const Dashboard = () => {
   const authUser = () => {
     handleAuth();
   };
-  const logoutHandler = async () => {
+  // const logoutHandler = async () => {
+  //   setLoading(true);
+  //   const data = await handleLogout();
+  //   if (data.success) {
+  //     console.log(data);
+  //     setLoading(false);
+  //     setUser(null);
+  //     setUserData(null);
+  //     toast.success(data.message.toLowerCase());
+  //     disconnect();
+  //     // window.location.reload();
+  //   } else if (data.response.data.message) {
+  //     setLoading(false);
+  //     toast.error(data.response.data.message);
+  //   }
+  // };
+  const logoutHandler = () => {
+    setShowLogoutModal(true); // Open logout confirmation modal
+  };
+  const confirmLogout = async () => {
     setLoading(true);
     const data = await handleLogout();
     if (data.success) {
-      console.log(data);
       setLoading(false);
       setUser(null);
       setUserData(null);
       toast.success(data.message.toLowerCase());
       disconnect();
-      // window.location.reload();
     } else if (data.response.data.message) {
       setLoading(false);
       toast.error(data.response.data.message);
     }
+    setShowLogoutModal(false); // Close logout confirmation modal
   };
 
   return (
@@ -223,6 +243,12 @@ const Dashboard = () => {
           <Outlet />
         </div>
         <Footer />
+
+        <LogoutConfirmationModal
+        isOpen={showLogoutModal}
+        onClose={() => setShowLogoutModal(false)}
+        onConfirm={confirmLogout}
+      />
       </div>
       {/* <Footer /> */}
     </>

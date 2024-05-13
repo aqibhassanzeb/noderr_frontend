@@ -6,11 +6,14 @@ import { createApiContext } from "../../../context/apiContext";
 import PromoLoader from "../../../components/skeletonLoaders/promoLoader";
 import { toast } from "react-toastify";
 import UpdateVote from "../../../components/dashboard/updateVote";
+import ConfirmationModal from "../../confirmModal";
 const AllVotes = () => {
   const { getAllPools, deletePool, user } = useContext(createApiContext);
   const [votes, setVotes] = useState([]);
   const [loading, setLoading] = useState(false);
   const [selectedPool, setSelectedPool] = useState(null);
+  const [showConfirmationModal, setShowConfirmationModal] = useState(false);
+  const [voteToDelete, setVoteToDelete] = useState(null);
   
   const handleNodeClick = (promoData) => {
     setSelectedPool(promoData);
@@ -35,7 +38,8 @@ const AllVotes = () => {
     };
     fetchVotes();
   }, [selectedPool]);
-  const deleteHnadler = async (id) => {
+
+  const handleDeleteVote = async (id) => {
     setLoading(true);
     try {
       const response = await deletePool(id);
@@ -56,6 +60,14 @@ const AllVotes = () => {
   };
 
   const skeletonCount = Math.floor(window.innerHeight / 100);
+
+  const handleConfirmDelete = () => {
+    if (voteToDelete) {
+      handleDeleteVote(voteToDelete);
+      setVoteToDelete(null);
+      setShowConfirmationModal(false);
+    }
+  };
   return (
     <div className="right_dashboard">
       <div className="right_container">
@@ -81,7 +93,11 @@ const AllVotes = () => {
                     key={index}
                     voteData={vote}
                     onEdit={()=> handleNodeClick(vote)}
-                    onDelete={()=> deleteHnadler(vote._id)}
+                    // onDelete={()=> deleteHnadler(vote._id)}
+                    onDelete={() => {
+                    setVoteToDelete(vote._id);
+                    setShowConfirmationModal(true);
+                  }}
                   />
                 ))
             ) : (
@@ -100,6 +116,11 @@ const AllVotes = () => {
           />
         )
       }
+      <ConfirmationModal
+        isOpen={showConfirmationModal}
+        onClose={() => setShowConfirmationModal(false)}
+        onConfirm={handleConfirmDelete}
+      />
     </div>
   );
 };
