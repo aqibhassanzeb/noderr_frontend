@@ -135,28 +135,32 @@ function SwapSection() {
   return (
     <>
 
-      {/* <iframe
-        id="ghosty-widget"
-        src="https://www.ghosty.cash/swap-widget/8f05b28846419027"
-        style={{
-          minWidth: "360px",
-          minHeight: "660px",
-          borderRadius: "15px",
-          overflow: "hidden"
-        }}
-      /> */}
+
 
       <div className="right_dashboard">
         <div className="right_container">
           <PageHeader page_title={"Swap Section"} badge={" GM, Noderr"} />
-          <div className="swap__card">
+          <iframe
+            id="ghosty-widget"
+            src="https://www.ghosty.cash/swap-widget/8f05b28846419027"
+            style={{
+              minWidth: "360px",
+              minHeight: "660px",
+              borderRadius: "15px",
+              overflow: "hidden"
+            }}
+          />
+        </div>
+      </div>
+
+      {/* <div className="swap__card">
             <div className="step step1">
               <div className="step__header">
-                <h3>Step 1</h3>
-                {/* <button className="reset ">
+                <h3>Step 1</h3> */}
+      {/* <button className="reset ">
                   <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAE7SURBVHgBjVPLUcNADH1aG66YDpwOQgfOxJnJkRJCBUAFmA7oICmBIwPM2B1AB3EH+Iw/QgrrHWcJid/BXkt60r63a+AAEuYYI2D8QMr8EHbYpjVnp8ihT0SHzGYupEHiCkOUL0TlsJ4cUQsNchwDoQgJN30TRxadUdDhQwKxfjNQEqMcEKfyjCRfBgYzfxc7o+Ytb9OWWd5rP5d2nGtO327youGVLKrXkJ61KGhw1zI2xTl9eg0iMfNL143BJWmxuqvbeQtoghNYyM5EUizkiR5VZTXG2vlP8TdP5zU/Le3Zd4x7NlgVveahlqV3QdKGN5rTiX6OejPE6dw6XUnUaRXHY7YnoNJqgyuZWjly3yBssZZIgmPoMHs/o2KPvNek+Z1kvbgmg1tLfBRihrHQO77zY8RdP4j//rIfJOin00WPJ8kAAAAASUVORK5CYII=" />
                 </button> */}
-              </div>
+      {/* </div>
               <div className="swapbox__amount__box">
                 <div className="amount__input ">
                   <p>Send Amount</p>
@@ -185,14 +189,14 @@ function SwapSection() {
                     ~ {priceToUSD?.data} USD
                   </span>
                 </button>
-              </div>
-              {/* <button className="false switch_arrow">
+              </div> */}
+      {/* <button className="false switch_arrow">
                 <img
                   src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAJDSURBVHgBpZW7bhNBFIb/2XWBJSxtxKWgSCIjUVBgCxcgBQkrtiUaLsoLGOiB0ENkB3oc8QDY4QmgBAHrFing8ACOQ5EChGxEg/A6h/kXdhOv95I4xzry7p6Zb47m/HNGIcKKIlYKeABBUXtef7LcgEJHBB3TgP1GqVbUfBUGNEdoKIUq3/vtNn592YQzGLjx47kcMtrTc/Oc3FMGanELuFb5I/nKSLaKP/qSrdUldfKEIGWG+qmlJVnobkl5JFIWeRYL1YP6C92eHDubjQQGnQkQrhN6MQG9JjLPTA8LDcK1L4+BS440GZgG6vm5xpoLZ5J+tvzAwLRQOuvB2pSG0iDXcBzc5sPX52s4ilE1Oy/XoVVSpbIMmLhKSf3e3p4YnLKsSFBY7PvrV/yzUg7yBsVPnQZt9t59XP64ofU6NxHLPl5xY0G4zxGC9Qqe+PfbN7266F/h7fsxOKHZRyvYWW8hOM9/V7AMRBi3ZqNSGoN70O6TVXSfriLWqN/zzVZktSlBnjBWnOqhZqPGZgoXvZN409ANpX36+g0kZT78OUjMNHMh/29LgE2Uh1LkKjOLi4k6TdLypU8dKekd8FfiS+GDfaQDcubOXXcbSiLVPbAjt9z9q9engqZ1Ha7oOoxl68P1UZwG7kHZGYtenwha+X8zokrSB2hIrIsP1W0XcaaLWSOc8uICnLy/cJTf7PJDYU1cae3K57BMVRicA/X1VPOup1AT2GKi+S7iWlJIMMpRDOTULmbcCQq9oQnbVqoXN+8vObfqptQLpTkAAAAASUVORK5CYII="
                   alt
                 />
               </button> */}
-              <div className="swapbox__amount__box">
+      {/* <div className="swapbox__amount__box">
                 <div className="amount__input">
                   <p>Est. Output</p>
                   <input
@@ -230,13 +234,13 @@ function SwapSection() {
               <div className="step2__box ">
                 <div className="tip-box2">
                   RECEIVER WALLET{" "}
-                  <div className="tooltip__wrapper">
-                    {/* <img
+                  <div className="tooltip__wrapper"> */}
+      {/* <img
                       src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAD5SURBVHgBpZO9zgFBFIbfmcyX+CobpcaiU1ErKBTuws8duAJcgTvgFlanXIXaVjqsVsEmChLLmJlCglnLeJLJ/OV955yTOQSCOud2yDECR1FsLcRB4DCCzoQQnyjxFfOPhI8EjKJEzxcMDMQSS0ZNahfOYU5Ao26Ovo9Fu4Xt2MG7KCIN/iwLLJlEHNoUDp6HMAjUOmHb+BfjK4NZPqtSkKQbTRSGo0gDpjssL9dqljWIg+JHtCms+n2cNj52U1ftU5UqEpkMct3eiwHT2+IufD7TRbCH2U9UUOHswRSOMamKZmKGzRTKZnJFS8qFKKXzqVC87EqN1N4A9a9Z4ii47SEAAAAASUVORK5CYII="
                       alt
                       style={{ width: 16, objectFit: "contain" }}
                     /> */}
-                    <div
+      {/* <div
                       className="tooltip"
                       style={{ bottom: "calc(100% + 10px)" }}
                     >
@@ -253,16 +257,16 @@ function SwapSection() {
                   placeholder="Receiving wallet address in POLYGON format"
                 />
               </div>
-            </div>
-            <Button
+            </div> */}
+      {/* <Button
               className="cta m-auto"
               isProcessing={loading}
               disabled={loading}
               onClick={createSwap}
             >
               SWAP NOW
-            </Button>
-            {/* <div className="step">
+            </Button> */}
+      {/* <div className="step">
               <div className="flex flex-col justify-between gap-1 px-4 py-3 bg-primaryLight w-full rounded-[15px] text-white">
                 <p>MORE INFORMATION</p>
                 <div className="flex justify-between text-xs text-whiteGrey">
@@ -275,17 +279,17 @@ function SwapSection() {
                 </div>
               </div>
             </div> */}
-          </div>
+      {/* </div>
         </div>
-      </div>
-      <CustomModal
+      </div> */}
+      {/* <CustomModal
         show={show}
         onClose={() => setShow(false)}
         currencies={currencies}
         setSelectedCuur={setSelectedCuur}
         setSelectedConveter={setSelectedConveter}
         selectMode={selectMode}
-      />
+      /> */}
     </>
   );
 }
