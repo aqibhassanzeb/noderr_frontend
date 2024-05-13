@@ -24,7 +24,8 @@
   display: flex;
   overflow-y: auto;
   flex-direction: column;
-
+ 
+  margin: 5px;
   gap: var(--gap);
 }
 .node_detail_container::-webkit-scrollbar{

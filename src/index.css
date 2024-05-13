@@ -223,6 +223,7 @@ img {
   /* overflow-y: auto; */
   flex-direction: column;
   row-gap: var(--gap);
+  /* border: 2px solid red; */
 
   background: linear-gradient(90deg, #052560 0%, rgba(0, 0, 0, 0) 200%);
   padding: var(--dashboard-pad);
@@ -276,7 +277,7 @@ img {
   display: flex;
   overflow-y: auto;
   flex-direction: column;
-
+  margin: 5px;
   gap: var(--gap);
 }
 

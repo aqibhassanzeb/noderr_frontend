@@ -5,6 +5,8 @@ import PageHeader from '../../components/dashboard/pageHeader/pageHeader';
 import './contact.css'
 import { toast } from 'react-toastify';
 import { images } from '../../images';
+import { IoArrowBackCircle } from 'react-icons/io5';
+import { useNavigate } from 'react-router-dom';
 const ContactPage = () => {
   const ref = useRef(null)
   const [formData, setFormData] = useState({
@@ -38,10 +40,18 @@ const ContactPage = () => {
     console.log(formData);
     setFormData({ subject: '', email: '', message: '' });
   };
-
+  const navigate = useNavigate();
+  const handleCloseCreate = () => {
+    navigate('/dashboard/support');
+  };
   return (
     <div className="right_dashboard">
       <div className="right_container">
+      <div className="">
+            <span className="close" onClick={handleCloseCreate} >
+              <IoArrowBackCircle className="text-white w-8 h-8" />
+            </span>
+          </div>
         <PageHeader page_title={"Support"} badge={"GM, Noderr"}
           profilePic={images.FakePic} />
         <section >

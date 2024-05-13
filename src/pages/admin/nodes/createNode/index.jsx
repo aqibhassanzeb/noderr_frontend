@@ -6,9 +6,15 @@ import { images } from "../../../../images";
 import { createApiContext } from "../../../../context/apiContext";
 import { toast } from "react-toastify";
 import LoadingModal from "../../../../components/ApiLoader";
-import { useNavigate } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
+import { GrFormClose } from "react-icons/gr";
+import { IoArrowBackCircle } from "react-icons/io5";
+
 const CreateNode = () => {
   const navigate = useNavigate();
+  const handleCloseCreate = () => {
+    navigate('/dashboard/all-nodes');
+  };
   const { createNode } = useContext(createApiContext);
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
@@ -17,6 +23,8 @@ const CreateNode = () => {
   const [image, setImage] = useState("");
   const [imagePreview, setImagePreview] = useState("");
   const [imageFile, setImageFile] = useState("");
+  
+
   
   const [loading, setLoading] = useState(false);
   console.log(image, imagePreview);
@@ -83,11 +91,17 @@ const CreateNode = () => {
   handleNodeCreate(formData);
   
   };
+  
   return (
     <>
       {loading && <LoadingModal />}
       <div className="right_dashboard">
         <div className="right_container">
+      <div className="">
+            <span className="close" onClick={handleCloseCreate} >
+              <IoArrowBackCircle className="text-white w-8 h-8" />
+            </span>
+          </div>
           <PageHeader page_title={"Create Node"} badge={"GGM, Noderr"} />
           <form className="node_create_form" onSubmit={submitHandler}>
             <InputContainer
