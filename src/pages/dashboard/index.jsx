@@ -101,7 +101,7 @@ const Dashboard = () => {
       setLoading(false);
       toast.error(data.response.data.message);
     }
-    setShowLogoutModal(false); // Close logout confirmation modal
+    setShowLogoutModal(false); 
   };
 
   return (

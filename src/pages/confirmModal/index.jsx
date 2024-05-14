@@ -4,7 +4,6 @@ import './index.css'
 import { Button } from 'flowbite-react';
 import { GrFormClose } from 'react-icons/gr';
   
-// Confirmation Modal Component
 const ConfirmationModal = ({ isOpen, onClose, onConfirm }) => {
     return (
       isOpen && (
