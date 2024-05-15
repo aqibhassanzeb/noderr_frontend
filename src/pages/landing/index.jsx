@@ -5,18 +5,20 @@ import Footer from "../../components/footer";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { createApiContext } from "../../context/apiContext";
-import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { images } from "../../images";
 
 const Landing = () => {
-	const [email, setEmail] = useState(null);
+	const [email, setEmail] = useState("");
 	const { signupForBetaLaunch } = React.useContext(createApiContext);
+
+	//email validation fn
 	function validateEmail(email) {
 		const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 		return re.test(String(email).toLowerCase());
 	}
 
+	//signup for beta launch fn
 	const handleSubmit = async () => {
 		if (validateEmail(email)) {
 			const data = await signupForBetaLaunch({ email: email });
@@ -79,8 +81,6 @@ const Landing = () => {
 						width: "100%",
 					}}
 				>
-
-
 					<a href="https://www.allora.network" target="_blank">
 						<Card
 							style={{
@@ -103,6 +103,7 @@ const Landing = () => {
 								className="active_images"
 								variant="top"
 								src={images.Allora}
+								alt="Allora image"
 							/>
 						</Card>
 					</a>
@@ -129,6 +130,7 @@ const Landing = () => {
 								className="active_images"
 								variant="top"
 								src={images.Waku}
+								alt="Waku image"
 							/>
 						</Card>
 					</a>
@@ -155,6 +157,7 @@ const Landing = () => {
 								className="active_images"
 								variant="top"
 								src={images.Ritual}
+								alt="Ritual.net image"
 							/>
 						</Card>
 					</a>
@@ -189,6 +192,8 @@ const Landing = () => {
 								className="active_images1"
 								variant="top"
 								src={images.fuel}
+								alt="fuel.network image"
+
 							/>
 						</Card>
 					</a>
@@ -215,6 +220,7 @@ const Landing = () => {
 								className="active_images1"
 								variant="top"
 								src={images.Lava}
+								alt="lavanet image"
 							/>
 						</Card>
 					</a>
@@ -241,13 +247,11 @@ const Landing = () => {
 								className="active_images1"
 								variant="top"
 								src={images.Warden}
+								alt="wardenprotocol image"
 							/>
 						</Card>
 					</a>
-
-
 				</div>
-
 			</div>
 			<ToastContainer />
 			<Footer />

@@ -1,20 +1,20 @@
-import React, { useEffect } from "react";
+import React, { Suspense, useEffect } from "react";
 import "./index.css";
 import { IoCloseCircleOutline } from "react-icons/io5";
 import { images } from "../../images";
 import { NavLink, Outlet } from "react-router-dom";
-import { FaHamburger } from "react-icons/fa";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { createApiContext } from "../../context/apiContext";
 import { toast } from "react-toastify";
 import LoadingModal from "../../components/ApiLoader";
 import { AiOutlineLogout } from "react-icons/ai";
-import Footer from "../../components/footer";
+// import Footer from "../../components/footer";
 import { useDisconnect } from "wagmi";
 import { LiaExchangeAltSolid } from "react-icons/lia";
 import LogoutConfirmationModal from "../logoutModal";
 
-const Dashboard = () => {
+const Footer = React.lazy(() => import('../../components/footer/index'))
+const Dashboard = React.memo(() => {
   const { disconnect } = useDisconnect();
   const {
     handleLoginOrSignUp,
@@ -26,13 +26,11 @@ const Dashboard = () => {
     setUserData,
     address,
   } = React.useContext(createApiContext);
-  console.log("🚀 ~ Dashboard ~ user:", user, userData)
   const [show, setShow] = React.useState(true);
   const [loading, setLoading] = React.useState(false);
   const [showLogoutModal, setShowLogoutModal] = React.useState(false);
   useEffect(() => {
     const getUser = async () => {
-      // console.log("get profile api call @@")
       const data = await getProfileData();
       setUserData(data?.user);
       if (data.success) setUser(data.success);
@@ -40,18 +38,18 @@ const Dashboard = () => {
     getUser();
   }, [user]);
 
+  // handle auth user
   const handleAuth = async () => {
     setLoading(true);
     const authData = {
       userWallet: address,
-      // userWallet: "0xD775c914a90eA18B50C5f04e4a45Ba3c91F171a8",
     };
+
+    // handle login or sign up
     const data = await handleLoginOrSignUp(authData);
-    console.log("data :", data);
     if (data.success) {
       setLoading(false);
       toast.success(data?.message?.toLowerCase());
-      // sessionStorage.setItem('token',data.)
       document.cookie = `token=${data.token}; path=/;`;
       setUser(data.success);
     } else if (data.response.data.message) {
@@ -60,12 +58,14 @@ const Dashboard = () => {
     }
   };
 
+  //check if address not null or undefined then set the address
   useEffect(() => {
     if (address !== null && address !== "" && address !== undefined) {
       authUser();
     }
   }, [address]);
 
+  // auth user
   const authUser = () => {
     handleAuth();
   };
@@ -105,7 +105,6 @@ const Dashboard = () => {
               <span className="text">logout</span>
             </div>
           )}
-          {/* {!user && <w3m-button size="md" label="Connect Wallet" />} */}
         </div>
         <div className="dashboard">
           <div
@@ -180,8 +179,7 @@ const Dashboard = () => {
                     to={"swap"}
                     onClick={() => setShow(!show)}
                   >
-                    <LiaExchangeAltSolid ></LiaExchangeAltSolid>
-                    {/* <img src={images.support} alt="swaps" /> */}
+                    <LiaExchangeAltSolid></LiaExchangeAltSolid>
                     <span>Swap</span>
                   </NavLink>
                   <NavLink
@@ -201,11 +199,6 @@ const Dashboard = () => {
                     <span>Billing</span>
                   </NavLink>
                 </div>
-                {/* {user ? (
-                  <button onClick={logoutHandler}>Logout</button>
-                ) : (
-                  <button onClick={authUser}>Login</button>
-                )} */}
 
                 {user && (
                   <div className="logout_btn" onClick={logoutHandler}>
@@ -215,9 +208,6 @@ const Dashboard = () => {
                     <span className="text">logout</span>
                   </div>
                 )}
-                {/* <div style={{ marginBottom: 80, marginLeft: 30 }}>
-                  {!user && <w3m-button size="md" label="Connect Wallet" />}
-                </div> */}
               </div>
               <div className="close_btn" onClick={() => setShow(!show)}>
                 <IoCloseCircleOutline />
@@ -227,17 +217,19 @@ const Dashboard = () => {
 
           <Outlet />
         </div>
-        <Footer />
+        <Suspense fallback={<div>Loading...</div>}>
+          <Footer />
+
+        </Suspense>
 
         <LogoutConfirmationModal
-        isOpen={showLogoutModal}
-        onClose={() => setShowLogoutModal(false)}
-        onConfirm={confirmLogout}
-      />
+          isOpen={showLogoutModal}
+          onClose={() => setShowLogoutModal(false)}
+          onConfirm={confirmLogout}
+        />
       </div>
-      {/* <Footer /> */}
     </>
   );
-};
+});
 
 export default Dashboard;

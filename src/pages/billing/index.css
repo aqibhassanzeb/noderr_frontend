@@ -1,9 +1,11 @@
-.billing{
-    text-align: center;
+.billing {
+   text-align: center;
 }
-.billing>.text{
+
+.billing>.text {
    font-size: 30px;
 }
-.billing>.paraghrap{
+
+.billing>.paragraph {
    font-size: 18px;
 }

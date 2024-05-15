@@ -6,15 +6,16 @@ import { images } from "../../../../images";
 import { createApiContext } from "../../../../context/apiContext";
 import { toast } from "react-toastify";
 import LoadingModal from "../../../../components/ApiLoader";
-import {useNavigate } from "react-router-dom";
-import { GrFormClose } from "react-icons/gr";
+import { useNavigate } from "react-router-dom";
 import { IoArrowBackCircle } from "react-icons/io5";
 
 const CreateNode = () => {
+
   const navigate = useNavigate();
   const handleCloseCreate = () => {
-    navigate('/dashboard/all-nodes');
+    navigate("/dashboard/all-nodes");
   };
+
   const { createNode } = useContext(createApiContext);
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
@@ -23,15 +24,13 @@ const CreateNode = () => {
   const [image, setImage] = useState("");
   const [imagePreview, setImagePreview] = useState("");
   const [imageFile, setImageFile] = useState("");
-  
-
-  
   const [loading, setLoading] = useState(false);
-  console.log(image, imagePreview);
+
+  //upload image function
   const uploadImage = (e) => {
     if (e.target.name === "avatar") {
       const file = e.target.files[0];
-      setImageFile(file)
+      setImageFile(file);
       console.log();
       const reader = new FileReader();
       reader.onload = () => {
@@ -40,20 +39,17 @@ const CreateNode = () => {
           setImage(reader.result);
         }
       };
-      // reader.onloadend = () => {
-      //   setImage(file);
-      //   setImagePreview(reader.result);
-      // };
       reader.readAsDataURL(file);
     }
   };
+
+  //create node function
   const handleNodeCreate = async (data) => {
     setLoading(true);
-
     const response = await createNode(data);
     console.log(response);
     setLoading(false);
-    if (response?.status=='success') {
+    if (response?.status == "success") {
       setName("");
       setPrice("");
       setSlots("");
@@ -68,37 +64,33 @@ const CreateNode = () => {
     }
   };
 
+  //submit handler
   const submitHandler = (e) => {
     e.preventDefault();
     if (!name || !price || !slots || !bgcolor || !image) {
-      return toast.error('Please fill all the Input fields'); 
-      
+      return toast.error("Please fill all the Input fields");
     }
-
     const data = {
       nodeName: name,
       nodePrice: Number(price),
       slots: Number(slots),
       bgColor: bgcolor,
       myFile: imageFile,
-  };
-  
-  const formData = new FormData();
-  Object.entries(data).forEach(([key, value]) => {
+    };
+    const formData = new FormData();
+    Object.entries(data).forEach(([key, value]) => {
       formData.append(key, value);
-  });
-  
-  handleNodeCreate(formData);
-  
+    });
+    handleNodeCreate(formData);
   };
-  
+
   return (
     <>
       {loading && <LoadingModal />}
       <div className="right_dashboard">
         <div className="right_container">
-      <div className="">
-            <span className="close" onClick={handleCloseCreate} >
+          <div className="">
+            <span className="close" onClick={handleCloseCreate}>
               <IoArrowBackCircle className="text-white w-8 h-8" />
             </span>
           </div>
@@ -157,7 +149,11 @@ const CreateNode = () => {
               </label>
               <div className="image_preview">
                 {image && imagePreview && (
-                  <img src={imagePreview} alt="imagePreview" className="w-[40px]"/>
+                  <img
+                    src={imagePreview}
+                    alt="imagePreview"
+                    className="w-[40px]"
+                  />
                 )}
               </div>
             </div>

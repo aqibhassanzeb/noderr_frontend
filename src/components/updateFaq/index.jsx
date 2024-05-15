@@ -5,12 +5,14 @@ import { GrFormClose } from "react-icons/gr";
 import { createApiContext } from "../../context/apiContext";
 import InputContainer from "../dashboard/InputContainer";
 import LoadingModal from "../ApiLoader";
-import { images } from "../../images";
+
 const UpdateFaq = ({ faq, onClose, setFaq, setLoading, handleFetch }) => {
+
   const { updateFaqByAdmin, getAllNodes } = useContext(createApiContext);
   const [question, setQuestion] = React.useState("");
   const [answer, setAnswer] = React.useState("");
   const [updateLoading, setUpdateLoading] = React.useState(false);
+
   useEffect(() => {
     document.body.style.overflow = "hidden";
     window.scrollTo({
@@ -24,6 +26,7 @@ const UpdateFaq = ({ faq, onClose, setFaq, setLoading, handleFetch }) => {
     };
   }, []);
 
+  //update faq handler fn
   const updateFaqHandler = async (id, formData) => {
     setUpdateLoading(true);
     setLoading(true);
@@ -42,6 +45,7 @@ const UpdateFaq = ({ faq, onClose, setFaq, setLoading, handleFetch }) => {
     }
   };
 
+  //submit handler fn
   const submitHandler = (e) => {
     e.preventDefault();
     setLoading(true);
@@ -56,14 +60,12 @@ const UpdateFaq = ({ faq, onClose, setFaq, setLoading, handleFetch }) => {
     <>
       <div className="popUp">
         {updateLoading && <LoadingModal />}
-        {/* {<LoadingModal />} */}
         <div className="popbox">
           <div className="right">
             <span className="close" onClick={onClose}>
               <GrFormClose />
             </span>
           </div>
-
           <form className="update_node_form" onSubmit={submitHandler}>
             <InputContainer
               label={"Question"}

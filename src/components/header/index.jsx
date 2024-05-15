@@ -8,7 +8,7 @@ const Header = () => {
 	return (
 		<div className="landing_header">
 			{/* <h2 className="side_heading"> */}
-			<img src={images.TextLogo} className="text_logo" />
+			<img src={images.TextLogo} className="text_logo" alt="noderr logo" />
 			{/* <p>
           &#55356;&#56701;&#55356;&#56702;&#55356;&#56691;&#55356;&#56692;&#55356;&#56705;&#55356;&#56705;
         </p> */}
@@ -32,10 +32,10 @@ const Header = () => {
 			{/* <Link to="/dashboard" className="launch_btn"> */}
 			{/* <Link to="/dashboard"  */}
 			<div
-			className="launch_btn"
+				className="launch_btn"
 			>
-			<img src={images.LaunchNode} />
-			{/* </Link> */}
+				<img src={images.LaunchNode} alt="launch_node image" />
+				{/* </Link> */}
 			</div>
 		</div>
 	);

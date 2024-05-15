@@ -8,9 +8,9 @@ import { IoArrowBackCircle } from "react-icons/io5";
 
 const FAQSection = () => {
   const [openIndexes, setOpenIndexes] = useState([]);
-  const [faqData, setFaqData] = useState([])
-  const [loading, setLoading] = useState(true)
-  const { getAllFaq } = useContext(createApiContext)
+  const [faqData, setFaqData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const { getAllFaq } = useContext(createApiContext);
 
   const toggleAnswer = (index) => {
     if (openIndexes.includes(index)) {
@@ -76,28 +76,32 @@ const FAQSection = () => {
       `,
     },
     {
-      question: "Is Noderr responsible for the failure of third-party applications AKA Nodes",
+      question:
+        "Is Noderr responsible for the failure of third-party applications AKA Nodes",
       answer: `No, Noderr operates independently from the third-party blockchain companies. While we provide the infrastructure and maintenance for these nodes, we do not have any direct connection or responsibility for the performance or actions of these external applications. When you purchase a node slot through Noderr, you are solely engaging with our platform and services.
-      `
+      `,
     },
   ];
-  useEffect(()=>{
-    setFaqData(faqData1)
-  },[])
+  useEffect(() => {
+    setFaqData(faqData1);
+  }, []);
   const navigate = useNavigate();
   const handleCloseCreate = () => {
-    navigate('/dashboard/support');
+    navigate("/dashboard/support");
   };
   return (
     <div className="right_dashboard">
       <div className="right_container">
-      <div className="">
-            <span className="close" onClick={handleCloseCreate} >
-              <IoArrowBackCircle className="text-white w-8 h-8" />
-            </span>
-          </div>
-        <PageHeader page_title={"Support"} badge={"GM, Noderr"}
-          profilePic={images.FakePic} />
+        <div className="">
+          <span className="close" onClick={handleCloseCreate}>
+            <IoArrowBackCircle className="text-white w-8 h-8" />
+          </span>
+        </div>
+        <PageHeader
+          page_title={"Support"}
+          badge={"GM, Noderr"}
+          profilePic={images.FakePic}
+        />
         <section>
           <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
             <div className="max-w-2xl mx-auto text-center">
@@ -141,9 +145,7 @@ const FAQSection = () => {
                     }}
                     className="px-4 pb-5 sm:px-6 sm:pb-6"
                   >
-                    <p
-                      className="mt-3 text-base font-normal leading-relaxed text-white sm:text-lg lg:text-xl xl:text-lg 2xl:text-xl"
-                    >
+                    <p className="mt-3 text-base font-normal leading-relaxed text-white sm:text-lg lg:text-xl xl:text-lg 2xl:text-xl">
                       {item?.answer}
                     </p>
                   </div>

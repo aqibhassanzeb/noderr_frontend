@@ -13,18 +13,21 @@ const AllVotes = () => {
   const [votes, setVotes] = useState([]);
   const [loading, setLoading] = useState(false);
   const [selectedPool, setSelectedPool] = useState(null);
+
   const [showConfirmationModal, setShowConfirmationModal] = useState(false);
   const [voteToDelete, setVoteToDelete] = useState(null);
-  
+
+  //handle node click function
   const handleNodeClick = (promoData) => {
     setSelectedPool(promoData);
-    
   };
 
-
+  //handle close node detail function
   const handleCloseNodeDetail = () => {
     setSelectedPool(null);
   };
+
+  //fetch all promotion codes function
   useEffect(() => {
     const fetchVotes = async () => {
       setLoading(true);
@@ -47,7 +50,7 @@ const AllVotes = () => {
       if (response?.status) {
         toast.success("Vote deleted successfully");
         // const response = await getAllPools();
-        setVotes(prevVote => prevVote.filter(f=> f._id !== id));
+        setVotes((prevVote) => prevVote.filter((f) => f._id !== id));
         setLoading(false);
       } else if (response.response.data.message) {
         setLoading(false);
@@ -93,12 +96,12 @@ const AllVotes = () => {
                   <Vote
                     key={index}
                     voteData={vote}
-                    onEdit={()=> handleNodeClick(vote)}
+                    onEdit={() => handleNodeClick(vote)}
                     // onDelete={()=> deleteHnadler(vote._id)}
                     onDelete={() => {
-                    setVoteToDelete(vote._id);
-                    setShowConfirmationModal(true);
-                  }}
+                      setVoteToDelete(vote._id);
+                      setShowConfirmationModal(true);
+                    }}
                   />
                 ))
             ) : (
@@ -122,7 +125,7 @@ const AllVotes = () => {
         onClose={() => setShowConfirmationModal(false)}
         onConfirm={handleConfirmDelete}
       />
-    </div>
+    </div >
   );
 };
 

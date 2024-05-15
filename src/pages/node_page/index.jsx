@@ -2,14 +2,13 @@ import React, { useContext, useEffect, useState } from "react";
 import StatsCard from "../../components/NodeCard";
 import { images } from "../../images";
 import "./index.css";
-import Togglor from "../../components/toggle";
 import NodeDetail from "../../components/nodeDetail";
 import PageHeader from "../../components/dashboard/pageHeader/pageHeader";
 import { createApiContext } from "../../context/apiContext";
 import NodeLoader from "../../components/skeletonLoaders/nodesLoader";
 import { useAccount } from 'wagmi'
 const Stats_page = () => {
-  const { address, isConnecting, isDisconnected, } = useAccount()
+  const { address, isDisconnected, } = useAccount()
   const { getAllNodes, getProfileData, user, setAddress } = useContext(createApiContext);
   const [loadingNodes, setLoadingNodes] = useState(true);
   const [loadingProfile, setLoadingProfile] = useState(true);
@@ -17,13 +16,14 @@ const Stats_page = () => {
   const [selectedNode, setSelectedNode] = useState(null);
   const [userData, setUserData] = useState(null);
 
+  //get the address from the wallet and set the state
   useEffect(() => {
     if (isDisconnected == false) {
       setAddress(address)
     }
   }, [address])
 
-
+  //fetch the data from the api (profile and nodes)
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -48,11 +48,13 @@ const Stats_page = () => {
     fetchData();
   }, []);
 
+  //skeleton loader count based on the window height
   const skeletonCount = Math.floor(window.innerHeight / 100);
   const handleNodeClick = (node) => {
     setSelectedNode(node);
   };
 
+  //close the node detail modal
   const handleCloseNodeDetail = () => {
     setSelectedNode(null);
   };

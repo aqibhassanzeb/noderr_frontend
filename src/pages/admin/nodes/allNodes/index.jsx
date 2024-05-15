@@ -109,7 +109,6 @@ import React, { useContext, useEffect, useState } from "react";
 import "./index.css";
 import PageHeader from "../../../../components/dashboard/pageHeader/pageHeader";
 import Node from "../../../../components/dashboard/node";
-import { allNodeData } from "../../../../data/nodeData";
 import { createApiContext } from "../../../../context/apiContext";
 import AdminNodeLoader from "../../../../components/skeletonLoaders/adminnodesLoader";
 import { toast } from "react-toastify";
@@ -120,13 +119,16 @@ import ConfirmationModal from "../../../confirmModal";
 
 
 const AllNodes = () => {
+
   const { getAllNodes, deleteNode, user } = useContext(createApiContext);
   const [loading, setLoading] = useState(false);
   const [nodes, setNodes] = useState([]);
   const [selectedNode, setSelectedNode] = useState(null);
+  const [handleFetch, setHandleFetch] = useState(false);
   const [showConfirmationModal, setShowConfirmationModal] = useState(false);
   const [nodeToDelete, setNodeToDelete] = useState(null);
 
+  //fetch all nodes function
   useEffect(() => {
     const fetchNodes = async () => {
       try {
@@ -141,12 +143,14 @@ const AllNodes = () => {
       }
     };
     fetchNodes();
-  }, []);
+  }, [handleFetch]);
 
+  //delete node function
   const handleDeleteNode = async (id) => {
     setLoading(true);
     try {
       await deleteNode(id);
+      setHandleFetch(!handleFetch);
       setNodes(nodes.filter((node) => node._id !== id));
       toast.success("Node deleted successfully");
     } catch (error) {
@@ -156,10 +160,14 @@ const AllNodes = () => {
     }
   };
 
+  const skeletonCount = Math.floor(window.innerHeight / 100);
+
+  //handle node click function
   const handleNodeClick = (node) => {
     setSelectedNode(node);
   };
 
+  //handle close node detail function
   const handleCloseNodeDetail = () => {
     setSelectedNode(null);
   };
@@ -214,7 +222,7 @@ const AllNodes = () => {
           setLoading={setLoading}
         />
       )}
-      
+
       <ConfirmationModal
         isOpen={showConfirmationModal}
         onClose={() => setShowConfirmationModal(false)}

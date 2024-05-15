@@ -1,7 +1,6 @@
 import React, { useContext, useState } from "react";
 import "./index.css";
 import PageHeader from "../../components/dashboard/pageHeader/pageHeader";
-import Loader from "../../components/loader";
 import InputContainer from "../../components/dashboard/InputContainer";
 import { createApiContext } from "../../context/apiContext";
 import voucher_codes from "voucher-code-generator";
@@ -13,15 +12,17 @@ import { IoArrowBackCircle } from "react-icons/io5";
 
 const CreatePrmotion = () => {
   const navigate = useNavigate();
-  const handleCloseCreate = () => {
-    navigate('/dashboard/all-promotion-codes');
-  };
   const { generatePromoCode } = useContext(createApiContext);
-  
+  const handleCloseCreate = () => {
+    navigate("/dashboard/all-promotion-codes");
+  };
+
   const [promo, setPromo] = useState("");
   const [discount, setDiscount] = useState("");
   const [usage, setUsage] = useState("");
   const [loading, setLoading] = useState(false);
+
+  //generate the promo code fn
   const gene_promo = () => {
     if (promo) {
       return;
@@ -34,6 +35,7 @@ const CreatePrmotion = () => {
     setPromo(codeGenerated[0]);
   };
 
+  //handle the promo code creation fn
   const handlePromoCreate = async (data) => {
     setLoading(true);
     const response = await generatePromoCode(data);
@@ -50,9 +52,10 @@ const CreatePrmotion = () => {
       setLoading(false);
     }
   };
+
+  //submit the form fn
   const submitHandler = (e) => {
     e.preventDefault();
-
     const promoData = {
       discountPercentage: discount,
       maxUsage: usage,
@@ -60,24 +63,27 @@ const CreatePrmotion = () => {
     };
     handlePromoCreate(promoData);
   };
+
   return (
     <>
       {loading && <LoadingModal />}
       <div className="right_dashboard">
         <div className="right_container">
-        <div className="">
-            <span className="close" onClick={handleCloseCreate} >
+          <div className="">
+            <span className="close" onClick={handleCloseCreate}>
               <IoArrowBackCircle className="text-white w-8 h-8" />
             </span>
           </div>
-          <PageHeader page_title={"Create Promotion"} badge={"GM, Noderr"}
-            profilePic={images.FakePic} />
+          <PageHeader
+            page_title={"Create Promotion"}
+            badge={"GM, Noderr"}
+            profilePic={images.FakePic}
+          />
           <form className="promo_code_form" onSubmit={submitHandler}>
             <div className="generate_promo_code">
               <button type="button" className="gene_promo" onClick={gene_promo}>
                 {promo ? promo : "Generate promo code"}
               </button>
-              {/* <Loader /> */}
             </div>
             <InputContainer
               label={"discount"}

@@ -4,19 +4,18 @@ import { toast } from "react-toastify";
 import PageHeader from "../../../components/dashboard/pageHeader/pageHeader";
 import AdminNodeLoader from "../../../components/skeletonLoaders/adminnodesLoader";
 import { images } from "../../../images";
-import UpdateNode from "../../../components/dashboard/updateNode";
-import Node from "../../../components/dashboard/node";
 import { createApiContext } from "../../../context/apiContext";
 import FAQ from "../../../components/addFaq";
 import UpdateFaq from "../../../components/updateFaq";
 const AddFaq = () => {
+
   const { getAllFaq, deleteFaq } = useContext(createApiContext);
   const [loadding, setLoading] = useState(true);
   const [faq, setFaq] = useState([]);
   const [selectedFaq, setSelectedFaq] = useState(null);
   const [updateCont, setUpdateCont] = useState(true);
 
-
+  //fetch all FAQ function
   useEffect(() => {
     const fetchFaq = async () => {
       try {
@@ -31,6 +30,8 @@ const AddFaq = () => {
     };
     fetchFaq();
   }, [updateCont]);
+
+  //delete FAQ function
   const handleDeleteFaq = async (id) => {
     setLoading(true);
     const data = await deleteFaq(id);
@@ -43,13 +44,16 @@ const AddFaq = () => {
       setLoading(false);
       toast.error(data.response.data.message);
     }
-    // Node deleted successfully, refetch nodes
   };
+
   const skeletonCount = Math.floor(window.innerHeight / 100);
+
+  //handle FAQ click function
   const handleFaqClick = (node) => {
     setSelectedFaq(node);
   };
 
+  //handle close node detail function
   const handleCloseNodeDetail = () => {
     setSelectedFaq(null);
   };
