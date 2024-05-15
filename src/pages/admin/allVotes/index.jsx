@@ -7,6 +7,7 @@ import PromoLoader from "../../../components/skeletonLoaders/promoLoader";
 import { toast } from "react-toastify";
 import UpdateVote from "../../../components/dashboard/updateVote";
 import ConfirmationModal from "../../confirmModal";
+
 const AllVotes = () => {
   const { getAllPools, deletePool, user } = useContext(createApiContext);
   const [votes, setVotes] = useState([]);

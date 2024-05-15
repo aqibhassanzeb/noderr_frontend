@@ -10,7 +10,7 @@ const PageHeader = ({ page_title, badge, create, link, profilePic }) => {
       <div className="title_container">
         <div className="header">
           <span className="left" style={{display:'flex', alignItems:'center'}}>
-          <div class="round-img-container">
+          <div className="round-img-container">
 
             <img src={profilePic} />
             </div>
