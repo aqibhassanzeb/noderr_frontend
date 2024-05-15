@@ -6,6 +6,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import CustomModal from "../Modal";
 import { toast } from "react-toastify";
 import { Button } from "flowbite-react";
+import { images } from "../../images";
 function SwapSection() {
   const [show, setShow] = useState(false);
   const [currencies, setCurrencies] = useState([]);
@@ -139,7 +140,7 @@ function SwapSection() {
 
       <div className="right_dashboard">
         <div className="right_container">
-          <PageHeader page_title={"Swap Section"} badge={" GM, Noderr"} />
+          <PageHeader page_title={"Swap Section"} badge={" GM, Noderr"} profilePic={images.FakePic} />
           <iframe
             id="ghosty-widget"
             src="https://www.ghosty.cash/swap-widget/8f05b28846419027"

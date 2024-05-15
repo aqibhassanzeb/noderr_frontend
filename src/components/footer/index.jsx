@@ -15,6 +15,7 @@ const Footer = () => {
         <a
           href="https://discord.gg/SaqBPJn3ZA"
           target="_blank"
+          aria-label="Discord"
         >
           <FaDiscord />
         </a>
@@ -23,12 +24,13 @@ const Footer = () => {
         <a
           href="https://x.com/NoderrNoderrxyz?t=ur-xp14gkfRZiduGgzIqVA&s=09"
           target="_blank"
+          aria-label="Twitter"
         >
           <FaXTwitter />
         </a>
       </span>
       <span className="icon">
-        <a href="https://t.me/NoderrSupp" target="_blank">
+        <a href="https://t.me/NoderrSupp" target="_blank" aria-label="Telegram">
           <FaTelegramPlane />
         </a>
       </span>

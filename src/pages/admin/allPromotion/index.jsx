@@ -7,12 +7,17 @@ import PromoLoader from "../../../components/skeletonLoaders/promoLoader";
 import { toast } from "react-toastify";
 import UpdatePromo from "../../../components/dashboard/updatePromo";
 import { images } from "../../../images";
+import ConfirmationModal from "../../confirmModal";
 const AllPromotionCode = () => {
 
   const { getAllPromoCodes, deletePromoCode, user } = useContext(createApiContext);
   const [promotionCodes, setPromotionCodes] = useState([]);
   const [loading, setLoading] = useState(false);
   const [selectedPromo, setSelectedPromo] = useState(null);
+
+  const [showConfirmationModal, setShowConfirmationModal] = useState(false);
+  const [promoToDelete, setPromoToDelete] = useState(null);
+
 
   //fetch all promotion codes function
   useEffect(() => {
@@ -63,6 +68,14 @@ const AllPromotionCode = () => {
 
   const skeletonCount = Math.floor(window.innerHeight / 100);
 
+  const handleConfirmDelete = () => {
+    if (promoToDelete) {
+      handleDeleteNode(promoToDelete);
+      setPromoToDelete(null);
+      setShowConfirmationModal(false);
+    }
+  };
+
   return (
     <div className="right_dashboard">
       <div className="right_container">
@@ -91,7 +104,11 @@ const AllPromotionCode = () => {
                       maxUsage={promo.maxUsage}
                       currentUsage={promo.currentUsage}
                       expiryDate={promo.expiryDate}
-                      onDelete={() => handleDeleteNode(promo._id)}
+                      // onDelete={() => handleDeleteNode(promo._id)}
+                      onDelete={() => {
+                        setPromoToDelete(promo._id);
+                        setShowConfirmationModal(true);
+                      }}
                       onEdit={() => handleNodeClick(promo)}
                     />
                   );
@@ -110,6 +127,11 @@ const AllPromotionCode = () => {
           setPromotionCodes={setPromotionCodes}
         />
       )}
+      <ConfirmationModal
+        isOpen={showConfirmationModal}
+        onClose={() => setShowConfirmationModal(false)}
+        onConfirm={handleConfirmDelete}
+      />
     </div>
   );
 };

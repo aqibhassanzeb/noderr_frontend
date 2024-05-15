@@ -5,12 +5,11 @@ import Footer from "../../components/footer";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { createApiContext } from "../../context/apiContext";
-import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { images } from "../../images";
 
 const Landing = () => {
-	const [email, setEmail] = useState(null);
+	const [email, setEmail] = useState("");
 	const { signupForBetaLaunch } = React.useContext(createApiContext);
 
 	//email validation fn
@@ -104,6 +103,7 @@ const Landing = () => {
 								className="active_images"
 								variant="top"
 								src={images.Allora}
+								alt="Allora image"
 							/>
 						</Card>
 					</a>
@@ -130,6 +130,7 @@ const Landing = () => {
 								className="active_images"
 								variant="top"
 								src={images.Waku}
+								alt="Waku image"
 							/>
 						</Card>
 					</a>
@@ -156,6 +157,7 @@ const Landing = () => {
 								className="active_images"
 								variant="top"
 								src={images.Ritual}
+								alt="Ritual.net image"
 							/>
 						</Card>
 					</a>
@@ -190,6 +192,8 @@ const Landing = () => {
 								className="active_images1"
 								variant="top"
 								src={images.fuel}
+								alt="fuel.network image"
+
 							/>
 						</Card>
 					</a>
@@ -216,6 +220,7 @@ const Landing = () => {
 								className="active_images1"
 								variant="top"
 								src={images.Lava}
+								alt="lavanet image"
 							/>
 						</Card>
 					</a>
@@ -242,6 +247,7 @@ const Landing = () => {
 								className="active_images1"
 								variant="top"
 								src={images.Warden}
+								alt="wardenprotocol image"
 							/>
 						</Card>
 					</a>

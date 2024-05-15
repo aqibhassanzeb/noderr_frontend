@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { Suspense, useEffect } from "react";
 import "./index.css";
 import { IoCloseCircleOutline } from "react-icons/io5";
 import { images } from "../../images";
@@ -8,10 +8,12 @@ import { createApiContext } from "../../context/apiContext";
 import { toast } from "react-toastify";
 import LoadingModal from "../../components/ApiLoader";
 import { AiOutlineLogout } from "react-icons/ai";
-import Footer from "../../components/footer";
+// import Footer from "../../components/footer";
 import { useDisconnect } from "wagmi";
 import { LiaExchangeAltSolid } from "react-icons/lia";
+import LogoutConfirmationModal from "../logoutModal";
 
+const Footer = React.lazy(() => import('../../components/footer/index'))
 const Dashboard = React.memo(() => {
   const { disconnect } = useDisconnect();
   const {
@@ -26,8 +28,7 @@ const Dashboard = React.memo(() => {
   } = React.useContext(createApiContext);
   const [show, setShow] = React.useState(true);
   const [loading, setLoading] = React.useState(false);
-
-  // get user data
+  const [showLogoutModal, setShowLogoutModal] = React.useState(false);
   useEffect(() => {
     const getUser = async () => {
       const data = await getProfileData();
@@ -68,13 +69,29 @@ const Dashboard = React.memo(() => {
   const authUser = () => {
     handleAuth();
   };
-
-  // logout handler fn
-  const logoutHandler = async () => {
+  // const logoutHandler = async () => {
+  //   setLoading(true);
+  //   const data = await handleLogout();
+  //   if (data.success) {
+  //     console.log(data);
+  //     setLoading(false);
+  //     setUser(null);
+  //     setUserData(null);
+  //     toast.success(data.message.toLowerCase());
+  //     disconnect();
+  //     // window.location.reload();
+  //   } else if (data.response.data.message) {
+  //     setLoading(false);
+  //     toast.error(data.response.data.message);
+  //   }
+  // };
+  const logoutHandler = () => {
+    setShowLogoutModal(true); // Open logout confirmation modal
+  };
+  const confirmLogout = async () => {
     setLoading(true);
     const data = await handleLogout();
     if (data.success) {
-      console.log(data);
       setLoading(false);
       setUser(null);
       setUserData(null);
@@ -84,6 +101,7 @@ const Dashboard = React.memo(() => {
       setLoading(false);
       toast.error(data.response.data.message);
     }
+    setShowLogoutModal(false); // Close logout confirmation modal
   };
 
   return (
@@ -214,7 +232,16 @@ const Dashboard = React.memo(() => {
 
           <Outlet />
         </div>
-        <Footer />
+        <Suspense fallback={<div>Loading...</div>}>
+          <Footer />
+
+        </Suspense>
+
+        <LogoutConfirmationModal
+          isOpen={showLogoutModal}
+          onClose={() => setShowLogoutModal(false)}
+          onConfirm={confirmLogout}
+        />
       </div>
     </>
   );
