@@ -69,24 +69,9 @@ const Dashboard = React.memo(() => {
   const authUser = () => {
     handleAuth();
   };
-  // const logoutHandler = async () => {
-  //   setLoading(true);
-  //   const data = await handleLogout();
-  //   if (data.success) {
-  //     console.log(data);
-  //     setLoading(false);
-  //     setUser(null);
-  //     setUserData(null);
-  //     toast.success(data.message.toLowerCase());
-  //     disconnect();
-  //     // window.location.reload();
-  //   } else if (data.response.data.message) {
-  //     setLoading(false);
-  //     toast.error(data.response.data.message);
-  //   }
-  // };
+
   const logoutHandler = () => {
-    setShowLogoutModal(true); // Open logout confirmation modal
+    setShowLogoutModal(true); 
   };
   const confirmLogout = async () => {
     setLoading(true);
