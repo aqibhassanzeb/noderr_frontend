@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import LoadingModal from "../ApiLoader";
 
 const NodeDetail = ({ node, onClose }) => {
-  const { purchaseNode } = useContext(createApiContext);
+  const { purchaseNode, createPayNowPayment } = useContext(createApiContext);
   const [activeTab, setActiveTab] = useState(3);
   const [computeTotal, setComputeTotal] = useState(0);
   const [loading, setLoading] = useState(false);
@@ -26,9 +26,9 @@ const NodeDetail = ({ node, onClose }) => {
 
     // Set duration based on the selected tab
     switch (activeTab) {
-      // case 1:
-      //   setDuration(1);
-      //   break;
+      case 1:
+        setDuration(1);
+        break;
       case 3:
         setDuration(3);
         break;
@@ -62,6 +62,8 @@ const NodeDetail = ({ node, onClose }) => {
       price: computeTotal,
     };
     try {
+      const paymentResponse = await createPayNowPayment(computeTotal);
+      return console.log("🚀 ~ purchaseHandler ~ paymentResponse:", paymentResponse);
       const response = await purchaseNode(node._id, data);
       console.log(response);
       if (response.success) {
@@ -103,12 +105,12 @@ const NodeDetail = ({ node, onClose }) => {
           <div className="detail_body">
             <h4>duration (in months)</h4>
             <div className="tabs">
-              {/* <span
-              className={`tab ${activeTab === 1 ? "active" : ""}`}
-              onClick={() => handleTabClick(1)}
-            >
-              1
-            </span> */}
+              <span
+                className={`tab ${activeTab === 1 ? "active" : ""}`}
+                onClick={() => handleTabClick(1)}
+              >
+                1
+              </span>
               <span
                 className={`tab ${activeTab === 3 ? "active" : ""}`}
                 onClick={() => handleTabClick(3)}

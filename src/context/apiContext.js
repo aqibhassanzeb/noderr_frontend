@@ -1,18 +1,20 @@
 import axios from "axios";
 import { createContext, useState } from "react";
 import { toast } from "react-toastify";
-
+import { v4 as uuidv4 } from "uuid";
 export const createApiContext = createContext(null);
 
 export const ApiProvider = ({ children }) => {
     const node = process.env.REACT_APP_NODE_ENDPOINT;
+    const nowPaymentsApiKey = "3JNBZC8-X2T41BT-JWJTQ18-6SF58F5"
+    console.log("🚀 ~ ApiProvider ~ nowPaymentsApiKey:", nowPaymentsApiKey)
     const [user, setUser] = useState(null);
     const [userData, setUserData] = useState(null);
     const [address, setAddress] = useState(null);
 
     // Create axios instance with withCredentials: true option
     const axiosWithCredentials = axios.create({
-        withCredentials: true
+        withCredentials: true,
     });
 
     // Define your API functions using the axiosWithCredentials instance
@@ -62,7 +64,10 @@ export const ApiProvider = ({ children }) => {
 
     const updateUserProfile = async (formData) => {
         try {
-            const { data } = await axiosWithCredentials.put(`${node}/user/update-profile`, formData);
+            const { data } = await axiosWithCredentials.put(
+                `${node}/user/update-profile`,
+                formData
+            );
             return data;
         } catch (err) {
             return err;
@@ -86,7 +91,9 @@ export const ApiProvider = ({ children }) => {
 
     const deleteNode = async (id) => {
         try {
-            const { data } = await axiosWithCredentials.delete(`${node}/node/delete-node/${id}`);
+            const { data } = await axiosWithCredentials.delete(
+                `${node}/node/delete-node/${id}`
+            );
             return data;
         } catch (err) {
             toast.error(err.response.data.message);
@@ -95,7 +102,10 @@ export const ApiProvider = ({ children }) => {
 
     const createNode = async (formData) => {
         try {
-            const { data } = await axiosWithCredentials.post(`${node}/node/launch-node`, formData);
+            const { data } = await axiosWithCredentials.post(
+                `${node}/node/launch-node`,
+                formData
+            );
             return data;
         } catch (err) {
             console.log(err);
@@ -132,7 +142,9 @@ export const ApiProvider = ({ children }) => {
 
     const getAllPromoCodes = async () => {
         try {
-            const { data } = await axiosWithCredentials.get(`${node}/promotion/get-all-promo-codes`);
+            const { data } = await axiosWithCredentials.get(
+                `${node}/promotion/get-all-promo-codes`
+            );
             return data;
         } catch (err) {
             console.log(err);
@@ -177,7 +189,10 @@ export const ApiProvider = ({ children }) => {
 
     const createPool = async (pool) => {
         try {
-            const { data } = await axiosWithCredentials.post(`${node}/vote/create-poll`, pool);
+            const { data } = await axiosWithCredentials.post(
+                `${node}/vote/create-poll`,
+                pool
+            );
             return data;
         } catch (err) {
             console.log(err);
@@ -187,7 +202,9 @@ export const ApiProvider = ({ children }) => {
 
     const deletePool = async (id) => {
         try {
-            const { data } = await axiosWithCredentials.delete(`${node}/vote/delete-poll/${id}`);
+            const { data } = await axiosWithCredentials.delete(
+                `${node}/vote/delete-poll/${id}`
+            );
             return data;
         } catch (err) {
             console.log(err);
@@ -223,7 +240,9 @@ export const ApiProvider = ({ children }) => {
 
     const getPurchaseNode = async () => {
         try {
-            const { data } = await axiosWithCredentials.get(`${node}/purchase/purchase-nodes`);
+            const { data } = await axiosWithCredentials.get(
+                `${node}/purchase/purchase-nodes`
+            );
             return data;
         } catch (err) {
             console.log(err);
@@ -233,7 +252,9 @@ export const ApiProvider = ({ children }) => {
 
     const getAllPurchaseNodeByAdmin = async () => {
         try {
-            const { data } = await axiosWithCredentials.get(`${node}/purchase/purchase-nodes`);
+            const { data } = await axiosWithCredentials.get(
+                `${node}/purchase/purchase-nodes`
+            );
             return data;
         } catch (err) {
             console.log(err);
@@ -246,12 +267,15 @@ export const ApiProvider = ({ children }) => {
             return data;
         } catch (err) {
             console.log(err);
-            return err
+            return err;
         }
     };
     const createFaqByAdmin = async (faqData) => {
         try {
-            const { data } = await axiosWithCredentials.post(`${node}/faq/create-faq`, faqData);
+            const { data } = await axiosWithCredentials.post(
+                `${node}/faq/create-faq`,
+                faqData
+            );
             return data;
         } catch (err) {
             console.log(err);
@@ -261,7 +285,9 @@ export const ApiProvider = ({ children }) => {
 
     const deleteFaq = async (id) => {
         try {
-            const { data } = await axiosWithCredentials.delete(`${node}/faq/delete-faq/${id}`);
+            const { data } = await axiosWithCredentials.delete(
+                `${node}/faq/delete-faq/${id}`
+            );
             return data;
         } catch (err) {
             console.log(err);
@@ -290,6 +316,38 @@ export const ApiProvider = ({ children }) => {
         } catch (err) {
             console.log(err);
             return err;
+        }
+    };
+
+    //nowpay api's endpoint
+
+    const createPayNowPayment = async (amount) => {
+        const orderId = uuidv4();
+        const options = {
+            method: "POST",
+            url: "https://api.nowpayments.io/v1/payment",
+            headers: {
+                "x-api-key": nowPaymentsApiKey,
+                "Content-Type": "application/json",
+            },
+            data: {
+                price_amount: parseFloat(amount),
+                price_currency: "usd",
+                pay_currency: "eth", // You can change this to any supported cryptocurrency
+                order_id: orderId, // Unique order ID for your system
+                order_description: "buying noder",
+                ipn_callback_url: "http://localhost:3000/sA661u65vD0FE73YIDLfaz23k6FyYVPd", // Optional: your IPN URL
+                success_url: "https://www.noderr.xyz/dashboard", // URL to redirect after successful payment
+                cancel_url: "https://www.noderr.xyz/dashboard", // URL to redirect after cancelled payment
+            },
+        };
+
+        try {
+            const response = await axios.request(options);
+            return response.data;
+        } catch (error) {
+            console.error("Error creating NowPayment:", error);
+            throw error;
         }
     };
 
@@ -326,11 +384,11 @@ export const ApiProvider = ({ children }) => {
                 createFaqByAdmin,
                 deleteFaq,
                 updateFaqByAdmin,
-                getSwapCurrencies
+                getSwapCurrencies,
+                createPayNowPayment,
             }}
         >
             {children}
         </createApiContext.Provider>
     );
 };
-
