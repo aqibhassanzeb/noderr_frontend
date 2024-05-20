@@ -92,9 +92,10 @@ const Landing = () => {
 					<div id="w-node-_22aaa6c3-d6e7-05e0-eec1-5d107e13b5d1-ee31794f" className="fn-footer-wrapper-2">
 						<h2 id="w-node-_22aaa6c3-d6e7-05e0-eec1-5d107e13b5d2-ee31794f" className="fn-heading-7">Noderr simplifies the world of blockchain, making nodes accessible to everyone. With effortless deployment, you can unlock exclusive early adopter rewards through our cutting-edge decentralized AI Mesh-work Dashboard.<br /></h2>
 						<div id="w-node-_22aaa6c3-d6e7-05e0-eec1-5d107e13b5d4-ee31794f" className="fn-links-wrapper-2">
-							<a href="https://t.me/NoderrSupp" target="_blank" className="w-inline-block"><img style={{ width: "46px" }} src={require("./../../assets/images/telegram-black-icon.webp")} loading="lazy" alt className="image-13" /></a>
-							<a href="https://discord.com/invite/SaqBPJn3ZA" target="_blank" className="w-inline-block"><img src={require("./../../assets/images/3670325.png")} loading="lazy" style={{ width: "46px" }} alt srcSet={require("./../../assets/images/3670325.png")} className="image-14" /></a>
 							<a href="https://twitter.com/NoderrNoderrxyz?t=ur-xp14gkfRZiduGgzIqVA&s=09" target="_blank" className="w-inline-block"><img src={require("./../../assets/images/2-p-500.png")} loading="lazy" style={{ width: "46px" }} alt srcSet={require("./../../assets/images/2-p-500.png")} className="image-14" /></a>
+
+							<a href="https://discord.com/invite/SaqBPJn3ZA" target="_blank" className="w-inline-block"><img src={require("./../../assets/images/3670325.png")} loading="lazy" style={{ width: "46px" }} alt srcSet={require("./../../assets/images/3670325.png")} className="image-14" /></a>
+							<a href="https://t.me/NoderrSupp" target="_blank" className="w-inline-block"><img style={{ width: "46px" }} src={require("./../../assets/images/telegram-black-icon.webp")} loading="lazy" alt className="image-13" /></a>
 							<a href="https://instagram.com/Noderrxyz" target="_blank" className="w-inline-block"><img src={require("./../../assets/images/1.png")} loading="lazy" style={{ width: "46px" }} alt className="image-14" /></a>
 						</div>
 						<div id="w-node-_22aaa6c3-d6e7-05e0-eec1-5d107e13b5e9-ee31794f" className="fn-footer-form-2 w-form">
