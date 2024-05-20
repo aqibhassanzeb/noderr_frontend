@@ -7,10 +7,9 @@ import "react-toastify/dist/ReactToastify.css";
 import { createApiContext } from "../../context/apiContext";
 import Card from "react-bootstrap/Card";
 import { images } from "../../images";
-import './../../../src/noderr_-master/css/noderr.webflow.css'
+import './../../../src/components/css/noderr.webflow.css'
 import dashboardImage from './../../assets/images/Login2.svg'
-// import './../../../src/noderr_-master/css/normalize.css'
-// import './../../../src/noderr_-master/css/webflow.css'
+
 const Landing = () => {
 	const [email, setEmail] = useState("");
 	const { signupForBetaLaunch } = React.useContext(createApiContext);
