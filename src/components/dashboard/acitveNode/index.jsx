@@ -3,20 +3,21 @@ import "./index.css";
 import { formatDate } from "../../../helpler";
 
 const ActiveNode = ({ node }) => {
+  console.log("🚀 ~ ActiveNode ~ node:", node?.purchaseNodes[0]?.price)
   return (
     <div
       className="active_node split-card"
-      style={{ background: node.node.bgColor }}
+      style={{ background: node?.purchaseNodes[0].node?.bgColor }}
     >
       <div className="active_node-image">
-        <img src={node?.node?.nodeImage?.url} alt="Node" />
+        <img src={node?.purchaseNodes[0].node?.nodeImage?.url} alt="Node" />
       </div>
       <div className="active_node-content">
-        <p class="active_node-title">{node.node.nodeName}</p>
-        <p className="content">Duration: {node.durationMonths} Month</p>
-        <p className="content">Price: {node.price}</p>
-        <p className="content">Purchased: {node.purchaseDate ? formatDate(node.purchaseDate) : "N/A"}</p>
-        <p className="content">Expires: {node.expiryDate ? formatDate(node.expiryDate) : "N/A"}</p>
+        <p class="active_node-title">{node?.purchaseNodes[0].node?.nodeName}</p>
+        <p className="content">Duration: {node?.purchaseNodes[0].durationMonths} Month</p>
+        <p className="content">Price: {node?.purchaseNodes[0]?.price}</p>
+        <p className="content">Purchased: {node?.purchaseNodes[0] ? formatDate(node.purchaseNodes[0]?.purchaseDate) : "N/A"}</p>
+        <p className="content">Expires: {node?.purchaseNodes[0] ? formatDate(node.purchaseNodes[0]?.expiryDate) : "N/A"}</p>
       </div>
     </div>
   );

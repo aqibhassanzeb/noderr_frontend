@@ -57,13 +57,15 @@ const NodeDetail = ({ node, onClose }) => {
 
   const purchaseHandler = async () => {
     setLoading(true);
-    const data = {
-      durationMonths: duration,
-      price: computeTotal,
-    };
+    const data = [
+      {
+        durationMonths: duration,
+        price: computeTotal
+      }
+    ]
     try {
-      const paymentResponse = await createPayNowPayment(computeTotal);
-      return console.log("🚀 ~ purchaseHandler ~ paymentResponse:", paymentResponse);
+      // const paymentResponse = await createPayNowPayment(computeTotal);
+      // return console.log("🚀 ~ purchaseHandler ~ paymentResponse:", paymentResponse);
       const response = await purchaseNode(node._id, data);
       console.log(response);
       if (response.success) {

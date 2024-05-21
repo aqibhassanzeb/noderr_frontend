@@ -229,7 +229,9 @@ export const ApiProvider = ({ children }) => {
         try {
             const { data } = await axiosWithCredentials.post(
                 `${node}/purchase/pruchase-node/${id}`,
-                purchaseNodeData
+                {
+                    purchaseNodes: purchaseNodeData,
+                }
             );
             return data;
         } catch (err) {
@@ -336,7 +338,7 @@ export const ApiProvider = ({ children }) => {
                 pay_currency: "eth", // You can change this to any supported cryptocurrency
                 order_id: orderId, // Unique order ID for your system
                 order_description: "buying noder",
-                ipn_callback_url: "http://localhost:3000/sA661u65vD0FE73YIDLfaz23k6FyYVPd", // Optional: your IPN URL
+                ipn_callback_url: "https://9506-103-57-224-62.ngrok-free.app/sA661u65vD0FE73YIDLfaz23k6FyYVPd", // Optional: your IPN URL
                 success_url: "https://www.noderr.xyz/dashboard", // URL to redirect after successful payment
                 cancel_url: "https://www.noderr.xyz/dashboard", // URL to redirect after cancelled payment
             },
