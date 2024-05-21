@@ -327,7 +327,7 @@ export const ApiProvider = ({ children }) => {
         const orderId = uuidv4();
         const options = {
             method: "POST",
-            url: "https://api.nowpayments.io/v1/payment",
+            url: "https://api.nowpayments.io/v1/invoice",
             headers: {
                 "x-api-key": nowPaymentsApiKey,
                 "Content-Type": "application/json",

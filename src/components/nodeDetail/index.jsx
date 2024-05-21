@@ -64,8 +64,8 @@ const NodeDetail = ({ node, onClose }) => {
       }
     ]
     try {
-      // const paymentResponse = await createPayNowPayment(computeTotal);
-      // return console.log("🚀 ~ purchaseHandler ~ paymentResponse:", paymentResponse);
+      const paymentResponse = await createPayNowPayment(computeTotal);
+      return console.log("🚀 ~ purchaseHandler ~ paymentResponse:", paymentResponse);
       const response = await purchaseNode(node._id, data);
       console.log(response);
       if (response.success) {
