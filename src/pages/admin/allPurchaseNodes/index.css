@@ -2,6 +2,12 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: var(--gap);
+  margin-top: 20px;
+}
+@media screen and (max-width: 1024px) {
+  .all_purchaseNode{
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  }
 }
 @media screen and (max-width: 768px) {
   .all_purchaseNode {

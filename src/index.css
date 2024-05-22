@@ -218,7 +218,7 @@ img {
 }
 
 .right_container {
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   row-gap: var(--gap);
 
@@ -229,7 +229,7 @@ img {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(45, 44, 44, 0.41);
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   align-items: center;
   color: white;
