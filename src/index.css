@@ -137,7 +137,7 @@ body[data-theme="light"] {
 
 body[data-theme="dark"] {
   /* Dark theme styles */
-  background-image: linear-gradient(90deg, #122555 0%, rgba(0, 0, 0, 0) 200%) !important;
+  background-image: linear-gradient(135deg, #18283C, #005248, #A26C18) !important;
   color: #fff;
   --primary: #1980e5;
 
@@ -219,13 +219,23 @@ img {
 
 .right_container {
   display: flex;
-  /* height: inherit; */
-  /* overflow-y: auto; */
   flex-direction: column;
   row-gap: var(--gap);
-  /* border: 2px solid red; */
 
-  background: linear-gradient(90deg, #052560 0%, rgba(0, 0, 0, 0) 200%);
+  /* Added styles */
+  background: rgba(45, 44, 44, 0.2); /* Increased opacity for better visibility */
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(45, 44, 44, 0.41);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 1.2em;
+
+  /* Original styles */
   padding: var(--dashboard-pad);
   border-radius: var(--dashboard-border-radius);
 }

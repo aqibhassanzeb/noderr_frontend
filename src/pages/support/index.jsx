@@ -17,28 +17,44 @@ const SupportSection = () => {
           <p className="text-lg  mb-8">We're here to assist you.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="p-6 bg-white rounded-lg shadow-md">
+          <div style={{
+            padding: '24px',
+            background: 'rgba(255, 255, 255, 0.27)',
+            borderRadius: '16px',
+            boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
+            backdropFilter: 'blur(16.3px)',
+            WebkitBackdropFilter: 'blur(16.3px)',
+            border: '1px solid rgba(255, 255, 255, 1)',
+          }}>
             <h3 className="text-xl font-semibold text-gray-800 mb-4">FAQs</h3>
-            <p className="text-gray-600 mb-4">
+            <p className="text-gray-600 mb-4" style={{color: 'white'}} >
               Find answers to common questions.
             </p>
             <Link
               to="/dashboard/faq"
-              className="text-blue-600 hover:text-blue-800"
+              className="text-blue-600 hover:text-blue-800" style={{color: '#00b0c9'}}
             >
               Read FAQs &rarr;
             </Link>
           </div>
-          <div className="p-6 bg-white rounded-lg shadow-md">
+          <div style={{
+            padding: '24px',
+            background: 'rgba(255, 255, 255, 0.27)',
+            borderRadius: '16px',
+            boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
+            backdropFilter: 'blur(16.3px)',
+            WebkitBackdropFilter: 'blur(16.3px)',
+            border: '1px solid rgba(255, 255, 255, 1)',
+          }}>
             <h3 className="text-xl font-semibold text-gray-800 mb-4">
               Contact Us
             </h3>
-            <p className="text-gray-600 mb-4">
+            <p className="text-gray-600 mb-4" style={{color: 'white'}}>
               Get in touch with our support team.
             </p>
             <Link
               to="/dashboard/contact-us"
-              className="text-blue-600 hover:text-blue-800"
+              className="text-blue-600 hover:text-blue-800" style={{color: '#00b0c9'}}
             >
               Contact Support &rarr;
             </Link>
@@ -53,7 +69,7 @@ const SupportSection = () => {
             If you need assistance, feel free to join our Discord server:
           </p>
           <a
-            href="https://discord.com/channels/1227850744003035246/1231274981158031430"
+            href="https://discord.com/invite/NPdJeDcB"
             target="_blank"
             rel="noopener noreferrer"
             className="discord-button flex items-center justify-center bg-[#5865f2] hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
