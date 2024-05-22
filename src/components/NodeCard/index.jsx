@@ -8,9 +8,9 @@ const NodeCard = ({ stats_img, bg_color, text, slot, onClick }) => {
         <img src={`${process.env.REACT_APP_NODE_IMG_URL}${stats_img}`} alt="node" />
       </div>
       <div className="stats_digit">
-        <h4
-          className={`${bg_color === "#FFFFFF" ? "text-black" : "text-white"}`}
-        >{text}</h4>
+        <p
+          className={`${bg_color === "#FFFFFF" ? "text-black " : "text-white font-semibold"}`}
+        >{text}</p>
         <span className={`${bg_color === "#FFFFFF" ? "text-black" : "text-white"}`}
         >slots : {slot}</span>
       </div>

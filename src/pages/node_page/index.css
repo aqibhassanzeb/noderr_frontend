@@ -1,11 +1,15 @@
 .right_dashboard>.right_container>.dashboard_grid {
   display: grid;
   gap: 25px;
-  grid-template-columns: repeat(2, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   width: 100%;
   /* border: 2px solid yellow; */
 }
 
+.statcard{
+  border: 12px solid red;
+  
+}
 .profile_img {
   display: flex;
   align-items: center;
