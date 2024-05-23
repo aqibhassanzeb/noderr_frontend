@@ -55,7 +55,7 @@ const Stats_page = () => {
     <>
       <div className="right_dashboard">
         <div className="right_container">
-          <div className="flex items-center justify-between">
+          <div className="flex  justify-between w-full">
             <div>
               <PageHeader
                 page_title={"Available Node Slots"}
@@ -68,7 +68,7 @@ const Stats_page = () => {
               />
             </div>
 
-            <div className="gap-5 ">
+            <div className="gap-5 pt-4 ">
               <w3m-button size="md" label="Connect Wallet" />
             </div>
 

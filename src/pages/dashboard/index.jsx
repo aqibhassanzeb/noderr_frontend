@@ -76,7 +76,6 @@ const Dashboard = React.memo(() => {
   const logoutHandler = () => {
     setShowLogoutModal(true);
   };
-
   const confirmLogout = async () => {
     setLoading(true);
     try {

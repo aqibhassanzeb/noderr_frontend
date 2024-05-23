@@ -6,7 +6,7 @@ import { images } from '../../images';
 const Billing = () => {
     return (
         <div className="right_dashboard">
-            <div className="right_container">
+            <div className="right_container ">
                 <PageHeader
                     page_title={"Billing History"}
                     badge={" GM, Noderr"}

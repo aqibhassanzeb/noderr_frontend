@@ -141,6 +141,8 @@ function SwapSection() {
       <div className="right_dashboard">
         <div className="right_container">
           <PageHeader page_title={"Swap Section"} badge={" GM, Noderr"} profilePic={images.FakePic} />
+          <div className="flex justify-center items-center">
+
           <iframe
             id="ghosty-widget"
             src="https://www.ghosty.cash/swap-widget/8f05b28846419027"
@@ -148,9 +150,11 @@ function SwapSection() {
               minWidth: "360px",
               minHeight: "660px",
               borderRadius: "15px",
-              overflow: "hidden"
+              overflow: "hidden",
+              display:'flex',
             }}
           />
+          </div>
         </div>
       </div>
 
