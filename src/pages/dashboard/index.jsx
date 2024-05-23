@@ -8,13 +8,13 @@ import { createApiContext } from "../../context/apiContext";
 import { toast } from "react-toastify";
 import LoadingModal from "../../components/ApiLoader";
 import { AiOutlineLogout } from "react-icons/ai";
-// import Footer from "../../components/footer";
 import { useDisconnect } from "wagmi";
 import { LiaExchangeAltSolid } from "react-icons/lia";
 import LogoutConfirmationModal from "../logoutModal";
-
+import { useAccount } from 'wagmi'
 const Footer = React.lazy(() => import('../../components/footer/index'))
 const Dashboard = React.memo(() => {
+  const { address } = useAccount();
   const { disconnect } = useDisconnect();
   const {
     handleLoginOrSignUp,
@@ -23,71 +23,81 @@ const Dashboard = React.memo(() => {
     user,
     setUser,
     userData,
-    setUserData,
-    address,
+    setUserData
   } = React.useContext(createApiContext);
   const [show, setShow] = React.useState(true);
   const [loading, setLoading] = React.useState(false);
   const [showLogoutModal, setShowLogoutModal] = React.useState(false);
+
   useEffect(() => {
-    const getUser = async () => {
-      const data = await getProfileData();
-      setUserData(data?.user);
-      if (data.success) setUser(data.success);
+    const fetchData = async () => {
+      if (user) {
+        setLoading(true);
+        try {
+          const data = await getProfileData();
+          setUserData(data?.user);
+          setLoading(false);
+        } catch (error) {
+          console.error("Error fetching user data:", error);
+          setLoading(false);
+        }
+      }
     };
-    getUser();
+
+    fetchData();
   }, [user]);
 
-  // handle auth user
   const handleAuth = async () => {
     setLoading(true);
-    const authData = {
-      userWallet: address,
-    };
-
-    // handle login or sign up
-    const data = await handleLoginOrSignUp(authData);
-    if (data.success) {
+    try {
+      const authData = { userWallet: address };
+      const data = await handleLoginOrSignUp(authData);
+      if (data.success) {
+        toast.success(data?.message?.toLowerCase());
+        document.cookie = `token=${data.token}; path=/;`;
+        setUser(data.success);
+      } else if (data.response?.data?.message) {
+        toast.error(data.response.data.message);
+      }
+    } catch (error) {
+      console.error("Authentication error:", error);
+      toast.error("Authentication failed");
+    } finally {
       setLoading(false);
-      toast.success(data?.message?.toLowerCase());
-      document.cookie = `token=${data.token}; path=/;`;
-      setUser(data.success);
-    } else if (data.response.data.message) {
-      setLoading(false);
-      toast.error(data.response.data.message);
     }
   };
 
-  //check if address not null or undefined then set the address
   useEffect(() => {
-    if (address !== null && address !== "" && address !== undefined) {
-      authUser();
+    if (address) {
+      handleAuth();
     }
   }, [address]);
 
-  // auth user
-  const authUser = () => {
-    handleAuth();
+  const logoutHandler = () => {
+    setShowLogoutModal(true);
   };
 
-  const logoutHandler = () => {
-    setShowLogoutModal(true); 
-  };
   const confirmLogout = async () => {
     setLoading(true);
-    const data = await handleLogout();
-    if (data.success) {
+    try {
+      const data = await handleLogout();
+      if (data.success) {
+        setUser(null);
+        setUserData(null);
+        toast.success(data.message.toLowerCase());
+        disconnect();
+      } else if (data.response?.data?.message) {
+        toast.error(data.response.data.message);
+      }
+    } catch (error) {
+      console.error("Logout error:", error);
+      toast.error("Logout failed");
+    } finally {
       setLoading(false);
-      setUser(null);
-      setUserData(null);
-      toast.success(data.message.toLowerCase());
-      disconnect();
-    } else if (data.response.data.message) {
-      setLoading(false);
-      toast.error(data.response.data.message);
+      setShowLogoutModal(false);
     }
-    setShowLogoutModal(false); 
   };
+
 
   return (
     <>

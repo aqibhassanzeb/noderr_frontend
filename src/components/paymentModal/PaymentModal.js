@@ -1,17 +1,25 @@
-import React from 'react'
+import React from "react";
 import { Button, Modal } from "flowbite-react";
 
-function PaymentModal({ openModal, setOpenModal, paymentUrl, paymentId }) {
+function PaymentModal({ openModal, setOpenModal, paymentUrl, onClose }) {
   return (
     <>
-      <Modal style={{
-        zIndex: 9999
-      }} show={openModal} onClose={() => setOpenModal(false)}>
-        <Modal.Header>
-          NowPay Payment
-        </Modal.Header>
+      <Modal
+        style={{
+          zIndex: 9999,
+        }}
+        show={openModal}
+        onClose={() => setOpenModal(false)}
+      >
+        <Modal.Header>NowPay Payment</Modal.Header>
         <Modal.Body>
-          <Button onClick={() => window.open(paymentUrl)} >
+          <Button
+            onClick={() => {
+              window.open(paymentUrl, "_blank");
+              setOpenModal(false);
+              onClose();
+            }}
+          >
             paynow
           </Button>
           {/* {
@@ -27,7 +35,6 @@ function PaymentModal({ openModal, setOpenModal, paymentUrl, paymentId }) {
               <p>Payment Url not found</p>
             )
           } */}
-
         </Modal.Body>
         {/* <Modal.Footer>
           <Button onClick={() => setOpenModal(false)}>I accept</Button>
@@ -36,9 +43,8 @@ function PaymentModal({ openModal, setOpenModal, paymentUrl, paymentId }) {
           </Button>
         </Modal.Footer> */}
       </Modal>
-
     </>
-  )
+  );
 }
 
-export default PaymentModal
+export default PaymentModal;

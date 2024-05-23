@@ -16,6 +16,7 @@ const NodeDetail = ({ node, onClose }) => {
   const [paymentId, setPaymentId] = useState('');
   const [status, setStatus] = useState('');
   const [openModal, setOpenModal] = useState(false);
+
   useEffect(() => {
     document.body.style.overflowY = "hidden";
     window.scrollTo({
@@ -184,7 +185,7 @@ const NodeDetail = ({ node, onClose }) => {
           </div>
         </div>
       </div>
-      <PaymentModal openModal={openModal} setOpenModal={setOpenModal} paymentUrl={paymentUrl} paymentId={paymentId} />
+      <PaymentModal openModal={openModal} setOpenModal={setOpenModal} paymentUrl={paymentUrl} paymentId={paymentId} onClose={onClose} />
     </>
   );
 };
