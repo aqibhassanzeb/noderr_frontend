@@ -114,7 +114,7 @@ const NodeDetail = ({ node, onClose }) => {
                 className="img_container"
                 style={{ background: node.bgColor }}
               >
-                <img src={node.nodeImage?.url} alt="brand" />
+                <img src={`${process.env.REACT_APP_NODE_IMG_URL}${node.nodeImage?.url}`} alt="brand" />
               </div>
               <h3 className="title">{node.nodeName}</h3>
             </div>
