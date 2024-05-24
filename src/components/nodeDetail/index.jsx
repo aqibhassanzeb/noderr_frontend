@@ -4,13 +4,18 @@ import { GrFormClose } from "react-icons/gr";
 import { createApiContext } from "../../context/apiContext";
 import { toast } from "react-toastify";
 import LoadingModal from "../ApiLoader";
+import PaymentModal from "../paymentModal/PaymentModal";
 
 const NodeDetail = ({ node, onClose }) => {
-  const { purchaseNode, createPayNowPayment } = useContext(createApiContext);
+  const { purchaseNode, createPayNowPayment, getPaymentStatus } = useContext(createApiContext);
   const [activeTab, setActiveTab] = useState(3);
   const [computeTotal, setComputeTotal] = useState(0);
   const [loading, setLoading] = useState(false);
   const [duration, setDuration] = useState(1);
+  const [paymentUrl, setPaymentUrl] = useState('');
+  const [paymentId, setPaymentId] = useState('');
+  const [status, setStatus] = useState('');
+  const [openModal, setOpenModal] = useState(false);
 
   useEffect(() => {
     document.body.style.overflowY = "hidden";
@@ -64,7 +69,12 @@ const NodeDetail = ({ node, onClose }) => {
       }
     ]
     try {
-      const paymentResponse = await createPayNowPayment(computeTotal);
+      const paymentResponse = await createPayNowPayment(computeTotal, node?._id, duration);
+      setPaymentUrl(paymentResponse.invoice_url);
+      setPaymentId(paymentResponse.id);
+      setOpenModal(true);
+      setLoading(false);
+
       return console.log("🚀 ~ purchaseHandler ~ paymentResponse:", paymentResponse);
       const response = await purchaseNode(node._id, data);
       console.log(response);
@@ -80,6 +90,16 @@ const NodeDetail = ({ node, onClose }) => {
       console.error(error);
       setLoading(false);
       toast.error("Failed to purchase node. Please try again later.");
+    }
+  };
+
+
+  const checkPaymentStatus = async () => {
+    try {
+      const paymentStatus = await getPaymentStatus(paymentId);
+      setStatus(paymentStatus.payment_status);
+    } catch (error) {
+      console.error('Fetching payment status failed', error);
     }
   };
 
@@ -165,6 +185,7 @@ const NodeDetail = ({ node, onClose }) => {
           </div>
         </div>
       </div>
+      <PaymentModal openModal={openModal} setOpenModal={setOpenModal} paymentUrl={paymentUrl} paymentId={paymentId} onClose={onClose} />
     </>
   );
 };

@@ -6,8 +6,7 @@ export const createApiContext = createContext(null);
 
 export const ApiProvider = ({ children }) => {
     const node = process.env.REACT_APP_NODE_ENDPOINT;
-    const nowPaymentsApiKey = "3JNBZC8-X2T41BT-JWJTQ18-6SF58F5"
-    console.log("🚀 ~ ApiProvider ~ nowPaymentsApiKey:", nowPaymentsApiKey)
+    const nowPaymentsApiKey = "4E35GGF-8SC4N21-P99YRXD-HBB3E23"
     const [user, setUser] = useState(null);
     const [userData, setUserData] = useState(null);
     const [address, setAddress] = useState(null);
@@ -323,11 +322,12 @@ export const ApiProvider = ({ children }) => {
 
     //nowpay api's endpoint
 
-    const createPayNowPayment = async (amount) => {
+    const createPayNowPayment = async (amount, nodeId, duration) => {
         const orderId = uuidv4();
+
         const options = {
             method: "POST",
-            url: "https://api.nowpayments.io/v1/invoice",
+            url: "https://api-sandbox.nowpayments.io/v1/invoice",
             headers: {
                 "x-api-key": nowPaymentsApiKey,
                 "Content-Type": "application/json",
@@ -338,7 +338,7 @@ export const ApiProvider = ({ children }) => {
                 pay_currency: "eth", // You can change this to any supported cryptocurrency
                 order_id: orderId, // Unique order ID for your system
                 order_description: "buying noder",
-                ipn_callback_url: "https://9506-103-57-224-62.ngrok-free.app/sA661u65vD0FE73YIDLfaz23k6FyYVPd", // Optional: your IPN URL
+                ipn_callback_url: `https://d70b-103-57-224-62.ngrok-free.app/ipn?userId=${userData._id}&nodeId=${nodeId}&durationMonths=${duration}&ipn_secret=d+GFysAk4CLRkADFhyCgh4MjSBWGU5CD`, // Optional: your IPN URL
                 success_url: "https://www.noderr.xyz/dashboard", // URL to redirect after successful payment
                 cancel_url: "https://www.noderr.xyz/dashboard", // URL to redirect after cancelled payment
             },
@@ -352,6 +352,24 @@ export const ApiProvider = ({ children }) => {
             throw error;
         }
     };
+
+    const getPaymentStatus = async (paymentId) => {
+        const options = {
+            method: "GET",
+            url: `https://api-sandbox.nowpayments.io/v1/payment/${paymentId}`,
+            headers: {
+                "x-api-key": nowPaymentsApiKey,
+            },
+        };
+
+        try {
+            const response = await axios.request(options);
+            return response.data;
+        } catch (error) {
+            console.error("Error getting payment status:", error);
+            throw error;
+        }
+    }
 
     return (
         <createApiContext.Provider
@@ -388,6 +406,7 @@ export const ApiProvider = ({ children }) => {
                 updateFaqByAdmin,
                 getSwapCurrencies,
                 createPayNowPayment,
+                getPaymentStatus
             }}
         >
             {children}

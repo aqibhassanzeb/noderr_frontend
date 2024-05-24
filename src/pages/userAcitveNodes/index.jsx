@@ -6,26 +6,54 @@ import { createApiContext } from "../../context/apiContext";
 import { toast } from "react-toastify";
 import PromoLoader from "../../components/skeletonLoaders/promoLoader";
 import { images } from "../../images";
+import io from 'socket.io-client';
 
 const UserActiveNode = () => {
   const { getPurchaseNode } = useContext(createApiContext);
   const [activeNodes, setActiveNodes] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  const socket = io(process.env.REACT_APP_NODE_ENDPOINT);
+
+  useEffect(() => {
+    socket.on('connect', () => {
+      console.log('Connected to server');
+    });
+
+    socket.on('disconnect', () => {
+      console.log('Disconnected from server');
+    });
+    socket.on('nodePurchased', (data) => {
+      toast.success("Payment successful, node purchased successfully", {
+        theme: "colored"
+      });
+      acitveNodes();
+    });
+
+    return () => {
+      socket.off('connect');
+      socket.off('disconnect');
+      socket.off('nodePurchased');
+    }
+  }, []);
+
+
+  const acitveNodes = async () => {
+    setLoading(true);
+    const data = await getPurchaseNode();
+    if (data.success) {
+      console.log(data);
+      setActiveNodes(data.data);
+      setLoading(false);
+    } else if (data.response.data.message) {
+      setLoading(false);
+      toast.error(data.response.data.message);
+    }
+  };
+
   // get active nodes
   useEffect(() => {
-    const acitveNodes = async () => {
-      setLoading(true);
-      const data = await getPurchaseNode();
-      if (data.success) {
-        console.log(data);
-        setActiveNodes(data.data);
-        setLoading(false);
-      } else if (data.response.data.message) {
-        setLoading(false);
-        toast.error(data.response.data.message);
-      }
-    };
+
     acitveNodes();
   }, [getPurchaseNode]);
 
@@ -34,7 +62,6 @@ const UserActiveNode = () => {
   return (
     <div className="right_dashboard">
       <div className="right_container">
-
         <PageHeader page_title={"User active nodes"} badge={"GM, Noderr"}
           profilePic={images.FakePic} />
         {loading ? (
