@@ -1,24 +1,32 @@
 .round-img-container {
-  width: 60px; /* Adjust according to your desired smaller size */
-  height: 60px; /* Adjust according to your desired smaller size */
-  border-radius: 50%; /* This creates a circular shape */
-  overflow: hidden; /* Ensures the image stays within the container */
+  width: 60px;
+  /* Adjust according to your desired smaller size */
+  height: 60px;
+  /* Adjust according to your desired smaller size */
+  border-radius: 50%;
+  /* This creates a circular shape */
+  overflow: hidden;
+  /* Ensures the image stays within the container */
   padding-bottom: 10px;
 }
 
 .round-img-container img {
-  width: 100%; /* Ensures the image fills the container */
-  height: auto; /* Maintains aspect ratio */
-  display: block; /* Removes any default spacing */
+  width: 100%;
+  /* Ensures the image fills the container */
+  height: auto;
+  /* Maintains aspect ratio */
+  display: block;
+  /* Removes any default spacing */
   padding-bottom: 10px;
 }
 
-.title_container{
+.title_container {
   display: flex;
   flex-direction: column;
   gap: var(--gap);
   /* border: 3px solid red; */
 }
+
 .header {
   width: 100%;
   display: flex;
@@ -26,7 +34,7 @@
   justify-content: space-between;
 }
 
-.header > span {
+.header>span {
   /* background-color: var(--wui-color-accent-100);
   padding: var(--btn-pad); */
   padding-bottom: 20px;
@@ -35,10 +43,12 @@
   font-weight: var(--leading-4);
   text-transform: capitalize;
 }
-.header > .connect_wallet_btn {
+
+.header>.connect_wallet_btn {
   display: block;
   padding: var(--btn-pad);
-  background: var(--primary);
+  /* background: var(--primary); */
+  background: linear-gradient(90deg, #fda925 0%, rgba(0, 0, 0, 0) 1000%);
   outline: none;
   text-transform: capitalize;
   border: none;
@@ -57,10 +67,11 @@
 }
 
 @media screen and (max-width: 768px) {
-  .title_container{
+  .title_container {
     gap: var(--sm-gap);
   }
-  .header > .connect_wallet_btn {
+
+  .header>.connect_wallet_btn {
     /* display: none; */
     padding: var(--btn-sm-pad);
     font-size: var(--btn-sm-font-size);
@@ -69,7 +80,7 @@
     font-weight: var(--leading-4);
   }
 
-  .header > span {
+  .header>span {
     /* background-color: var(--wui-color-accent-100);
     padding: var(--btn-sm-pad); */
     border-radius: var(--sm-border-radius);

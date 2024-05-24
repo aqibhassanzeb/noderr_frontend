@@ -18,52 +18,52 @@ function PaymentModal({ openModal, setOpenModal, paymentUrl, onClose }) {
         {/* <Modal.Header>NowPay Payment</Modal.Header>
         <Modal.Body> */}
         <>
-      {loading && <LoadingModal />}
-      <div className="node_detail_section">
-        <div className="node_detail_container">
-          <div className="detail_header">
-          <div></div>
-            <div className="ml-6 center">
-            
-              <h3 className="mb-0">NowPay Payment</h3>
-            </div>
-            <div className="right">
-              <span className="close" onClick={onClose}>
-                <GrFormClose />
-              </span>
-            </div>
-          </div>
-          
-          <div className="detail_footer">
-            {/* <p>
+          {loading && <LoadingModal />}
+          <div className="node_detail_section">
+            <div className="node_detail_container">
+              <div className="detail_header">
+                <div></div>
+                <div className="ml-6 center">
+
+                  <h3 className="mb-0">NowPay Payment</h3>
+                </div>
+                <div className="right">
+                  <span className="close" onClick={onClose}>
+                    <GrFormClose />
+                  </span>
+                </div>
+              </div>
+
+              <div className="detail_footer">
+                {/* <p>
               <span>Click here</span> to view installation steps
             </p> */}
-            {/* <button
+                {/* <button
               className="detail_btn"
               // onClick={purchaseHandler}
               disabled={loading}
             >
               {loading ? "Purchasing..." : "Purchase"}
             </button> */}
-            <div className="h-6">
+                <div className="h-6">
 
+                </div>
+                <button
+                  className="detail_btn"
+                  onClick={() => {
+                    window.open(paymentUrl, "_blank");
+                    setOpenModal(false);
+                    onClose();
+                  }}
+                >
+                  pay now
+                </button>
+              </div>
             </div>
-            <button
-            className="detail_btn"
-            onClick={() => {
-              window.open(paymentUrl, "_blank");
-              setOpenModal(false);
-              onClose();
-            }}
-          >
-            pay now
-          </button>
           </div>
-        </div>
-      </div>
-      {/* <PaymentModal openModal={openModal} setOpenModal={setOpenModal} paymentUrl={paymentUrl} paymentId={paymentId} onClose={onClose} /> */}
-    </>
-          {/* <button
+          {/* <PaymentModal openModal={openModal} setOpenModal={setOpenModal} paymentUrl={paymentUrl} paymentId={paymentId} onClose={onClose} /> */}
+        </>
+        {/* <button
             onClick={() => {
               window.open(paymentUrl, "_blank");
               setOpenModal(false);
@@ -72,7 +72,7 @@ function PaymentModal({ openModal, setOpenModal, paymentUrl, onClose }) {
           >
             pay now
           </button> */}
-          {/* {
+        {/* {
             paymentUrl ? (
               <iframe
                 src={paymentUrl}

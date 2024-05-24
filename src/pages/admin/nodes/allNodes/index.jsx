@@ -149,10 +149,12 @@ const AllNodes = () => {
   const handleDeleteNode = async (id) => {
     setLoading(true);
     try {
-      await deleteNode(id);
+      const response = await deleteNode(id);
+      if (response) {
+        toast.success("Node deleted successfully");
+      }
       setHandleFetch(!handleFetch);
       setNodes(nodes.filter((node) => node._id !== id));
-      toast.success("Node deleted successfully");
     } catch (error) {
       toast.error(error.message);
     } finally {

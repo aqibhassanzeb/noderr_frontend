@@ -74,18 +74,17 @@ const NodeDetail = ({ node, onClose }) => {
       setPaymentId(paymentResponse.id);
       setOpenModal(true);
       setLoading(false);
-
-      return console.log("🚀 ~ purchaseHandler ~ paymentResponse:", paymentResponse);
-      const response = await purchaseNode(node._id, data);
-      console.log(response);
-      if (response.success) {
-        setLoading(false);
-        toast.success("Node purchased successfully");
-        onClose();
-      } else if (response.response.data.message) {
-        setLoading(false);
-        toast.error(response.response.data.message);
-      }
+      // return console.log("🚀 ~ purchaseHandler ~ paymentResponse:", paymentResponse);
+      // const response = await purchaseNode(node._id, data);
+      // console.log(response);
+      // if (response.success) {
+      //   setLoading(false);
+      //   toast.success("Node purchased successfully");
+      //   onClose();
+      // } else if (response.response.data.message) {
+      //   setLoading(false);
+      //   toast.error(response.response.data.message);
+      // }
     } catch (error) {
       console.error(error);
       setLoading(false);
@@ -114,7 +113,7 @@ const NodeDetail = ({ node, onClose }) => {
                 className="img_container"
                 style={{ background: node.bgColor }}
               >
-                <img src={node.nodeImage?.url} alt="brand" />
+                <img src={`${process.env.REACT_APP_NODE_IMG_URL}${node.nodeImage?.url}`} alt="brand" />
               </div>
               <h3 className="title">{node.nodeName}</h3>
             </div>

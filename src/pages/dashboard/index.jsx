@@ -205,7 +205,7 @@ const Dashboard = React.memo(() => {
                     onClick={() => setShow(!show)}
                   >
                     <img src={images.billing} alt="support" />
-                    <span>Billing</span>
+                    <span>Invoice</span>
                   </NavLink>
                 </div>
 
