@@ -10,7 +10,7 @@ const ActiveNode = ({ node }) => {
       style={{ background: node?.purchaseNodes[0].node?.bgColor }}
     >
       <div className="active_node-image">
-        <img src={node?.purchaseNodes[0].node?.nodeImage?.url} alt="Node" />
+        <img src={`${process.env.REACT_APP_NODE_IMG_URL}${node?.purchaseNodes[0].node?.nodeImage?.url}`} alt="Node" />
       </div>
       <div className="active_node-content">
         <p class="active_node-title">{node?.purchaseNodes[0].node?.nodeName}</p>
