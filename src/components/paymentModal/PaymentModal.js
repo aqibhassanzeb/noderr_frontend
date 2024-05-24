@@ -20,7 +20,7 @@ function PaymentModal({ openModal, setOpenModal, paymentUrl, onClose }) {
               onClose();
             }}
           >
-            paynow
+            pay now
           </Button>
           {/* {
             paymentUrl ? (

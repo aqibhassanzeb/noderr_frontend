@@ -338,7 +338,7 @@ export const ApiProvider = ({ children }) => {
                 pay_currency: "eth", // You can change this to any supported cryptocurrency
                 order_id: orderId, // Unique order ID for your system
                 order_description: "buying noder",
-                ipn_callback_url: `https://d70b-103-57-224-62.ngrok-free.app/ipn?userId=${userData._id}&nodeId=${nodeId}&durationMonths=${duration}&ipn_secret=d+GFysAk4CLRkADFhyCgh4MjSBWGU5CD`, // Optional: your IPN URL
+                ipn_callback_url: `${process.env.REACT_APP_NODE_ENDPOINT}/ipn?userId=${userData._id}&nodeId=${nodeId}&durationMonths=${duration}&ipn_secret=d+GFysAk4CLRkADFhyCgh4MjSBWGU5CD`, // Optional: your IPN URL
                 success_url: "https://www.noderr.xyz/dashboard", // URL to redirect after successful payment
                 cancel_url: "https://www.noderr.xyz/dashboard", // URL to redirect after cancelled payment
             },

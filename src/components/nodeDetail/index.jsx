@@ -74,18 +74,17 @@ const NodeDetail = ({ node, onClose }) => {
       setPaymentId(paymentResponse.id);
       setOpenModal(true);
       setLoading(false);
-
-      return console.log("🚀 ~ purchaseHandler ~ paymentResponse:", paymentResponse);
-      const response = await purchaseNode(node._id, data);
-      console.log(response);
-      if (response.success) {
-        setLoading(false);
-        toast.success("Node purchased successfully");
-        onClose();
-      } else if (response.response.data.message) {
-        setLoading(false);
-        toast.error(response.response.data.message);
-      }
+      // return console.log("🚀 ~ purchaseHandler ~ paymentResponse:", paymentResponse);
+      // const response = await purchaseNode(node._id, data);
+      // console.log(response);
+      // if (response.success) {
+      //   setLoading(false);
+      //   toast.success("Node purchased successfully");
+      //   onClose();
+      // } else if (response.response.data.message) {
+      //   setLoading(false);
+      //   toast.error(response.response.data.message);
+      // }
     } catch (error) {
       console.error(error);
       setLoading(false);
