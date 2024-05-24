@@ -6,19 +6,21 @@
   right: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 250, 250, 0.1);
+  /* background-color: rgba(255, 250, 250, 0.1); */
+   background-color: linear-gradient(135deg, #18283C, #005248, #A26C18) !important;
   z-index: 999;
   display: flex;
   align-items: center;
   justify-content: center;
-  backdrop-filter: blur(9px);
+  backdrop-filter: blur(18px);
 }
 .node_detail_container {
   max-height: 60vh;
   max-width: 390px;
   height: auto;
   width: 100%;
-  background-color: var(--black--light);
+  /* background-color: var(--black--light); */
+  background: linear-gradient(135deg, #18283C, #005248, #A26C18) !important;
   border-radius: var(--card-border-radius);
   padding: var(--card-pad);
   display: flex;
@@ -105,7 +107,9 @@
   width: 25%;
   text-align: center;
   padding: var(--pad-one-fourth) 0;
-  background-color: var(--primary);
+  /* background-color: var(--primary); */
+  background: linear-gradient(90deg, #fda925 0%, rgba(0, 0, 0, 0) 1000%);
+
   border-radius: var(--rounded-2xl);
 }
 .detail_body > .fee_structure {
@@ -152,7 +156,8 @@
   justify-content: center;
   padding: var(--pad-1) var(--pad-2);
   border-radius: var(--rounded-2xl);
-  background-color: var(--primary);
+  /* background-color: var(--primary); */
+  background: linear-gradient(90deg, #fda925 0%, rgba(0, 0, 0, 0) 1000%);
   font-size: var(--text-lg);
   font-weight: var(--leading-5);
   text-transform: capitalize;
@@ -226,7 +231,8 @@
     width: 25%;
     text-align: center;
     padding: 2px 0;
-    background-color: var(--primary);
+    /* background-color: var(--primary); */
+    background-color: linear-gradient(90deg, #fda925 0%, rgba(0, 0, 0, 0) 1000%);
     border-radius: var(--rounded-xl);
   }
   .detail_body > .fee_structure {

@@ -172,9 +172,9 @@ const NodeDetail = ({ node, onClose }) => {
             </div>
           </div>
           <div className="detail_footer">
-            <p>
+            {/* <p>
               <span>Click here</span> to view installation steps
-            </p>
+            </p> */}
             <button
               className="detail_btn"
               onClick={purchaseHandler}
