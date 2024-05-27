@@ -47,7 +47,6 @@ const CreatePrmotion = () => {
       setLoading(false);
       navigate("/dashboard/all-promotion-codes");
     } else if (response.response.data.message) {
-      console.log(response.response.data.message);
       toast.error(response.response.data.message);
       setLoading(false);
     }

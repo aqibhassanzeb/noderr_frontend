@@ -31,7 +31,6 @@ const UpdateFaq = ({ faq, onClose, setFaq, setLoading, handleFetch }) => {
     setUpdateLoading(true);
     setLoading(true);
     const data = await updateFaqByAdmin(id, formData);
-    console.log(data);
     if (data.status == "success") {
       setUpdateLoading(false);
       handleFetch((prev) => !prev)

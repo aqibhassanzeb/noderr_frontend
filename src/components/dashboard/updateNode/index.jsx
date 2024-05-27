@@ -73,7 +73,6 @@ const UpdateNode = ({ node, onClose, setNodes, setLoading, }) => {
     formData.append("slots", slots);
     formData.append("bgColor", bgcolor);
     formData.append("myFile", image);
-    console.log(formData);
     updateNodeHandler(node._id, formData);
   };
 

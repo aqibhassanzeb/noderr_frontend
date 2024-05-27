@@ -53,7 +53,6 @@ export const ApiProvider = ({ children }) => {
 
     const getProfileData = async () => {
         try {
-            console.log("cookies checking", document.cookie);
             const { data } = await axiosWithCredentials.get(`${node}/user/profile`);
             return data;
         } catch (err) {
@@ -75,7 +74,6 @@ export const ApiProvider = ({ children }) => {
 
     const getAllNodes = async () => {
         try {
-            console.log("Fetching all nodes...");
             const { data } = await axiosWithCredentials.get(`${node}/node/get-nodes`);
 
             if (!data.success || !Array.isArray(data.nodes)) {

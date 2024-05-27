@@ -19,7 +19,8 @@
 }
 .generate_promo_code > .gene_promo {
   padding: var(--btn-pad);
-  background: var(--primary);
+  /* background: var(--primary); */
+  background: linear-gradient(90deg, #fda925 0%, rgba(0, 0, 0, 0) 1000%);
   outline: none;
   text-transform: capitalize;
   border: none;
@@ -40,7 +41,9 @@
   }
   .generate_promo_code > .gene_promo {
     padding: var(--btn-sm-pad);
-    background: var(--primary);
+    /* background: var(--primary); */
+  background: linear-gradient(90deg, #fda925 0%, rgba(0, 0, 0, 0) 1000%);
+
     outline: none;
     text-transform: capitalize;
     border: none;

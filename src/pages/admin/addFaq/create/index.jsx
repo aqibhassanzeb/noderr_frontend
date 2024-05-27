@@ -19,7 +19,6 @@ const CreateFaq = () => {
   const handleFaqCreate = async (data) => {
     setLoading(true);
     const response = await createFaqByAdmin(data);
-    console.log(response);
     if (response.data) {
       setLoading(false);
       setAnswer("");

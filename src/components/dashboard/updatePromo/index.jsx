@@ -43,7 +43,6 @@ const UpdatePromo = ({ promoData, onClose, setLoading, setPromotionCodes }) => {
       toast.error(response.response.data.message);
       setUpdateLoading(false);
 
-      console.log(response.response.data.message);
     }
   };
 

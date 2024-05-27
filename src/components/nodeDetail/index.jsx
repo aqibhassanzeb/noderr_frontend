@@ -84,7 +84,6 @@ const NodeDetail = ({ node, onClose }) => {
     ]
     try {
       const response = await purchaseNodeWithPromoCode(node?._id, promoCode);
-      console.log("🚀 ~ purchaseWithPromoCode ~ paymentResponse:", response)
       setLoading(false);
     } catch (error) {
       console.error(error);

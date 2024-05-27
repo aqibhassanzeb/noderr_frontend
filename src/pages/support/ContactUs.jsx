@@ -33,7 +33,6 @@ const ContactPage = () => {
         toast.success("submitted successfully", {
           theme: "colored",
         });
-        console.log(result.text);
       },
       (error) => {
         console.log(error.text);
@@ -43,7 +42,6 @@ const ContactPage = () => {
       }
     );
 
-    console.log(formData);
     setFormData({ subject: "", email: "", message: "" });
   };
 
