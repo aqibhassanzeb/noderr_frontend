@@ -5,17 +5,19 @@ import { createApiContext } from "../../context/apiContext";
 import { toast } from "react-toastify";
 import LoadingModal from "../ApiLoader";
 import PaymentModal from "../paymentModal/PaymentModal";
+import InputContainer from "../dashboard/InputContainer";
 
 const NodeDetail = ({ node, onClose }) => {
-  const { purchaseNode, createPayNowPayment, getPaymentStatus } = useContext(createApiContext);
+  const { purchaseNode, createPayNowPayment, getPaymentStatus, purchaseNodeWithPromoCode } = useContext(createApiContext);
   const [activeTab, setActiveTab] = useState(3);
   const [computeTotal, setComputeTotal] = useState(0);
   const [loading, setLoading] = useState(false);
-  const [duration, setDuration] = useState(1);
+  const [duration, setDuration] = useState(3);
   const [paymentUrl, setPaymentUrl] = useState('');
   const [paymentId, setPaymentId] = useState('');
   const [status, setStatus] = useState('');
   const [openModal, setOpenModal] = useState(false);
+  const [promoCode, setPromoCode] = useState('');
 
   useEffect(() => {
     document.body.style.overflowY = "hidden";
@@ -25,31 +27,12 @@ const NodeDetail = ({ node, onClose }) => {
     });
 
     // Calculate the total based on the selected tab and node fee
-    const nodeFee = node.nodePrice;
-    const total = nodeFee * activeTab;
+    const nodePrice = node.nodePrice[`price${activeTab}`];
+    const total = nodePrice * activeTab;
     setComputeTotal(total);
 
     // Set duration based on the selected tab
-    switch (activeTab) {
-      case 1:
-        setDuration(1);
-        break;
-      case 3:
-        setDuration(3);
-        break;
-      case 6:
-        setDuration(6);
-        break;
-      case 12:
-        setDuration(12);
-        break;
-      case 24:
-        setDuration(24);
-        break;
-      default:
-        setDuration(1);
-        break;
-    }
+    setDuration(activeTab);
 
     return () => {
       document.body.style.overflowY = "auto";
@@ -74,24 +57,12 @@ const NodeDetail = ({ node, onClose }) => {
       setPaymentId(paymentResponse.id);
       setOpenModal(true);
       setLoading(false);
-      // return console.log("🚀 ~ purchaseHandler ~ paymentResponse:", paymentResponse);
-      // const response = await purchaseNode(node._id, data);
-      // console.log(response);
-      // if (response.success) {
-      //   setLoading(false);
-      //   toast.success("Node purchased successfully");
-      //   onClose();
-      // } else if (response.response.data.message) {
-      //   setLoading(false);
-      //   toast.error(response.response.data.message);
-      // }
     } catch (error) {
       console.error(error);
       setLoading(false);
       toast.error("Failed to purchase node. Please try again later.");
     }
   };
-
 
   const checkPaymentStatus = async () => {
     try {
@@ -101,6 +72,27 @@ const NodeDetail = ({ node, onClose }) => {
       console.error('Fetching payment status failed', error);
     }
   };
+
+
+  const purchaseWithPromoCode = async () => {
+    setLoading(true);
+    const data = [
+      {
+        durationMonths: duration,
+        price: computeTotal
+      }
+    ]
+    try {
+      const response = await purchaseNodeWithPromoCode(node?._id, promoCode);
+      console.log("🚀 ~ purchaseWithPromoCode ~ paymentResponse:", response)
+      setLoading(false);
+    } catch (error) {
+      console.error(error);
+      setLoading(false);
+      toast.error("Failed to purchase node. Please try again later.");
+    }
+  };
+
 
   return (
     <>
@@ -126,40 +118,19 @@ const NodeDetail = ({ node, onClose }) => {
           <div className="detail_body">
             <h4>duration (in months)</h4>
             <div className="tabs">
-              <span
-                className={`tab ${activeTab === 1 ? "active" : ""}`}
-                onClick={() => handleTabClick(1)}
-              >
-                1
-              </span>
-              <span
-                className={`tab ${activeTab === 3 ? "active" : ""}`}
-                onClick={() => handleTabClick(3)}
-              >
-                3
-              </span>
-              <span
-                className={`tab ${activeTab === 6 ? "active" : ""}`}
-                onClick={() => handleTabClick(6)}
-              >
-                6
-              </span>
-              <span
-                className={`tab ${activeTab === 12 ? "active" : ""}`}
-                onClick={() => handleTabClick(12)}
-              >
-                12
-              </span>
-              <span
-                className={`tab ${activeTab === 24 ? "active" : ""}`}
-                onClick={() => handleTabClick(24)}
-              >
-                24
-              </span>
+              {[1, 3, 6, 12, 24].map((num) => (
+                <span
+                  key={num}
+                  className={`tab ${activeTab === num ? "active" : ""}`}
+                  onClick={() => handleTabClick(num)}
+                >
+                  {num}
+                </span>
+              ))}
             </div>
             <div className="fee_structure">
               <span className="label">node fee</span>
-              <span className="pricing">${node.nodePrice}/month</span>
+              <span className="pricing">${node.nodePrice[`price${activeTab}`]}/month</span>
             </div>
             <div className="fee_structure">
               <span className="label">period</span>
@@ -171,17 +142,37 @@ const NodeDetail = ({ node, onClose }) => {
             </div>
           </div>
           <div className="detail_footer">
-            {/* <p>
-              <span>Click here</span> to view installation steps
-            </p> */}
-            <button
+            {!promoCode && <button
               className="detail_btn"
               onClick={purchaseHandler}
               disabled={loading}
             >
               {loading ? "Purchasing..." : "Purchase"}
             </button>
+
+            }
           </div>
+          <div className="promo_code_section">
+            <InputContainer
+              type="text"
+              id={"promoCode"}
+              label={"Enter promo code"}
+              placeholder="Enter promo code"
+              value={promoCode}
+              onChange={(e) => setPromoCode(e.target.value)}
+              textColor={"text-black"}
+              name={"promoCode"}
+            />
+            {
+              promoCode && <button
+                onClick={purchaseWithPromoCode}
+                className="text-lg text-white bg-primary px-4 py-2 rounded-md
+              bg-yellow-500 hover:bg-yellow-600 text-center mt-4
+              flex justify-center m-auto w-full p-4"
+              >Apply</button>
+            }
+          </div>
+
         </div>
       </div>
       <PaymentModal openModal={openModal} setOpenModal={setOpenModal} paymentUrl={paymentUrl} paymentId={paymentId} onClose={onClose} />

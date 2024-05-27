@@ -18,7 +18,11 @@ const CreateNode = () => {
 
   const { createNode } = useContext(createApiContext);
   const [name, setName] = useState("");
-  const [price, setPrice] = useState("");
+  const [price1, setPrice1] = useState("");
+  const [price3, setPrice3] = useState("");
+  const [price6, setPrice6] = useState("");
+  const [price12, setPrice12] = useState("");
+  const [price24, setPrice24] = useState("");
   const [slots, setSlots] = useState("");
   const [bgcolor, setBgcolor] = useState("");
   const [image, setImage] = useState("");
@@ -51,7 +55,11 @@ const CreateNode = () => {
     setLoading(false);
     if (response?.status == "success") {
       setName("");
-      setPrice("");
+      setPrice1("");
+      setPrice3("");
+      setPrice6("");
+      setPrice12("");
+      setPrice24("");
       setSlots("");
       setBgcolor("");
       setImage("");
@@ -67,20 +75,40 @@ const CreateNode = () => {
   //submit handler
   const submitHandler = (e) => {
     e.preventDefault();
-    if (!name || !price || !slots || !bgcolor || !image) {
+    if (!name || !slots || !bgcolor || !image || !price1 || !price3 || !price6 || !price12 || !price24) {
       return toast.error("Please fill all the Input fields");
     }
+    // const data = {
+    //   nodeName: name,
+    //   nodePrice: Object.assign({ price1, price3, price6, price12, price24 }),
+    //   slots: Number(slots),
+    //   bgColor: bgcolor,
+    //   myFile: imageFile,
+    // };
+    // const formData = new FormData();
+    // Object.entries(data).forEach(([key, value]) => {
+    //   formData.append(key, value);
+    // });
+    // handleNodeCreate(formData);
     const data = {
       nodeName: name,
-      nodePrice: Number(price),
       slots: Number(slots),
       bgColor: bgcolor,
       myFile: imageFile,
     };
+
     const formData = new FormData();
     Object.entries(data).forEach(([key, value]) => {
       formData.append(key, value);
     });
+
+    // Append the prices individually
+    formData.append('nodePrice[price1]', price1);
+    formData.append('nodePrice[price3]', price3);
+    formData.append('nodePrice[price6]', price6);
+    formData.append('nodePrice[price12]', price12);
+    formData.append('nodePrice[price24]', price24);
+
     handleNodeCreate(formData);
   };
 
@@ -105,12 +133,45 @@ const CreateNode = () => {
               onChange={(e) => setName(e.target.value)}
             />
             <InputContainer
-              label={"node price"}
-              id={"node_price"}
+              label={"node price 1 month"}
+              id={"node_price1"}
               type={"text"}
-              name="price"
-              value={price}
-              onChange={(e) => setPrice(e.target.value)}
+              name="price1"
+              value={price1}
+              onChange={(e) => setPrice1(e.target.value)}
+            />
+            <InputContainer
+              label={"node price 3 months"}
+              id={"node_price3"}
+              type={"text"}
+              name="price3"
+              value={price3}
+              onChange={(e) => setPrice3(e.target.value)}
+
+            />
+            <InputContainer
+              label={"node price 6 months"}
+              id={"node_price6"}
+              type={"text"}
+              name="price6"
+              value={price6}
+              onChange={(e) => setPrice6(e.target.value)}
+            />
+            <InputContainer
+              label={"node price 12 months"}
+              id={"node_price12"}
+              type={"text"}
+              name="price12"
+              value={price12}
+              onChange={(e) => setPrice12(e.target.value)}
+            />
+            <InputContainer
+              label={"node price 24 months"}
+              id={"node_price24"}
+              type={"text"}
+              name="price24"
+              value={price24}
+              onChange={(e) => setPrice24(e.target.value)}
             />
             <InputContainer
               label={"slots"}

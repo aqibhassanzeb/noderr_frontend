@@ -239,6 +239,21 @@ export const ApiProvider = ({ children }) => {
         }
     };
 
+    const purchaseNodeWithPromoCode = async (id, promoCode, purchaseNodeData) => {
+        try {
+            const { data } = await axiosWithCredentials.post(
+                `${node}/purchase/purchase-node-with-promo-code/${id}?userId=${userData._id}&nodeId=${id}&promoCode=${promoCode}`,
+                {
+                    purchaseNodes: purchaseNodeData,
+                }
+            );
+            return data;
+        } catch (err) {
+            console.log(err);
+            return err;
+        }
+    };
+
     const getPurchaseNode = async () => {
         try {
             const { data } = await axiosWithCredentials.get(
@@ -406,7 +421,8 @@ export const ApiProvider = ({ children }) => {
                 updateFaqByAdmin,
                 getSwapCurrencies,
                 createPayNowPayment,
-                getPaymentStatus
+                getPaymentStatus,
+                purchaseNodeWithPromoCode
             }}
         >
             {children}

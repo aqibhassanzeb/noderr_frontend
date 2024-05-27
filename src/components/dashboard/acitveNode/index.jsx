@@ -3,7 +3,6 @@ import "./index.css";
 import { formatDate } from "../../../helpler";
 
 const ActiveNode = ({ node }) => {
-  console.log("🚀 ~ ActiveNode ~ node:", node?.purchaseNodes[0]?.price)
   return (
     <div
       className="active_node split-card"
