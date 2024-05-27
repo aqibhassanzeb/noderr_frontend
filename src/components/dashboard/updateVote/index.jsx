@@ -53,7 +53,6 @@ const UpdateVote = ({ onClose, voteData, setLoading, setVotes }) => {
 
       onClose();
     } else if (response.response.data.message) {
-      console.log(response.response.data.message);
       toast.error(response.response.data.message);
       setPoolLoading(false);
     }

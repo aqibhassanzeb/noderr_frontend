@@ -35,7 +35,6 @@ const CreateNode = () => {
     if (e.target.name === "avatar") {
       const file = e.target.files[0];
       setImageFile(file);
-      console.log();
       const reader = new FileReader();
       reader.onload = () => {
         if (reader.readyState === 2) {
@@ -51,7 +50,6 @@ const CreateNode = () => {
   const handleNodeCreate = async (data) => {
     setLoading(true);
     const response = await createNode(data);
-    console.log(response);
     setLoading(false);
     if (response?.status == "success") {
       setName("");

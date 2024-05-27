@@ -64,6 +64,9 @@ const SupportSection = () => {
           className="
         flex justify-center items-center flex-col mt-8
         "
+        style={{
+          
+        }}
         >
           <p className="text-lg  mb-8">
             If you need assistance, feel free to join our Discord server:
@@ -73,6 +76,7 @@ const SupportSection = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="discord-button flex items-center justify-center bg-[#5865f2] hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+  // style={{background: 'linear-gradient(90deg, #fda925 0%, rgba(0, 0, 0, 0) 1000%)'}} 
           >
             <i className="fab fa-discord mr-2"></i>
             Join our Discord

@@ -3,7 +3,6 @@ import "./index.css";
 import CURDBtn from "../../CURDBtn";
 import { formatDate } from "../../../helpler";
 const PurchaseNode = ({ node }) => {
-  console.log("🚀 ~ PurchaseNode ~ node:", node?.purchaseNodes[0])
   return (
     <div className="purchase_node">
       <h3 className="node_name">{node?.purchaseNodes[0].node?.nodeName}</h3>
