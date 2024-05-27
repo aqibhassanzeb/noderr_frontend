@@ -4,6 +4,14 @@
   gap: var(--gap);
   width: 100%;
 }
+/* .gene_promo button{
+
+  background:  #fda925  !important;
+} */
+.popbox{
+  background: linear-gradient(135deg, #18283C, #005248, #A26C18) !important;
+
+}
 
 @media screen and (max-width:768px) {
     .update_promo_code{

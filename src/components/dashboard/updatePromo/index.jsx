@@ -73,7 +73,7 @@ const UpdatePromo = ({ promoData, onClose, setLoading, setPromotionCodes }) => {
         </div>
         <form className="update_promo_code" onSubmit={handleSubmit}>
           <div className="generate_promo_code">
-            <button type="button" className="gene_promo" onClick={gene_promo}>
+            <button type="button" className="gene_promo" onClick={gene_promo} style={{background: 'linear-gradient(90deg, #fda925 0%, rgba(0, 0, 0, 0) 1000%)'}}>
               {promo ? promo : "Generate promo code"}
             </button>
             {/* <Loader /> */}
