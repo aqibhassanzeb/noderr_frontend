@@ -8,7 +8,7 @@ import PaymentModal from "../paymentModal/PaymentModal";
 import InputContainer from "../dashboard/InputContainer";
 
 const NodeDetail = ({ node, onClose }) => {
-  const { purchaseNode, createPayNowPayment, getPaymentStatus, purchaseNodeWithPromoCode } = useContext(createApiContext);
+  const { purchaseNode, createPayNowPayment, getPaymentStatus, purchaseNodeWithPromoCode, availPromoCode } = useContext(createApiContext);
   const [activeTab, setActiveTab] = useState(3);
   const [computeTotal, setComputeTotal] = useState(0);
   const [loading, setLoading] = useState(false);
@@ -83,7 +83,14 @@ const NodeDetail = ({ node, onClose }) => {
       }
     ]
     try {
-      const response = await purchaseNodeWithPromoCode(node?._id, promoCode);
+      // const availCode = await availPromoCode({ code: promoCode });
+      // if (availCode?.success) {
+      await purchaseNodeWithPromoCode(node?._id, promoCode, computeTotal);
+      //   toast.success(availCode.message);
+      // } else {
+      //   toast.error(availCode.message);
+      // }
+      // console.log("🚀 ~ purchaseWithPromoCode ~ availCode:", availCode)
       onClose();
       setLoading(false);
     } catch (error) {

@@ -174,6 +174,20 @@ export const ApiProvider = ({ children }) => {
         }
     };
 
+    const availPromoCode = async (promoCode) => {
+        try {
+            const { data } = await axiosWithCredentials.put(
+                `${node}/promotion/apply-promotion-code`,
+                promoCode
+            );
+            return data;
+        } catch (err) {
+            console.log(err);
+            return err;
+        }
+    };
+
+
     const getAllPools = async () => {
         try {
             const { data } = await axiosWithCredentials.get(`${node}/vote/get-polls`);
@@ -237,10 +251,10 @@ export const ApiProvider = ({ children }) => {
         }
     };
 
-    const purchaseNodeWithPromoCode = async (id, promoCode, purchaseNodeData) => {
+    const purchaseNodeWithPromoCode = async (id, promoCode, price, purchaseNodeData) => {
         try {
             const { data } = await axiosWithCredentials.post(
-                `${node}/purchase/purchase-node-with-promo-code/${id}?userId=${userData._id}&nodeId=${id}&promoCode=${promoCode}`,
+                `${node}/purchase/purchase-node-with-promo-code/${id}?userId=${userData._id}&nodeId=${id}&promoCode=${promoCode}&price=${price}`,
                 {
                     purchaseNodes: purchaseNodeData,
                 }
@@ -420,7 +434,8 @@ export const ApiProvider = ({ children }) => {
                 getSwapCurrencies,
                 createPayNowPayment,
                 getPaymentStatus,
-                purchaseNodeWithPromoCode
+                purchaseNodeWithPromoCode,
+                availPromoCode
             }}
         >
             {children}

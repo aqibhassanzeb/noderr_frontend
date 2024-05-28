@@ -12,6 +12,7 @@ const UpdatePromo = ({ promoData, onClose, setLoading, setPromotionCodes }) => {
   const [discount, setDiscount] = useState("");
   const [usage, setUsage] = useState("");
   const [promo, setPromo] = useState("");
+  const [expiryDate, setExpiryDate] = useState("");
   const [updateLoading, setUpdateLoading] = useState(false);
 
   const gene_promo = () => {
@@ -51,6 +52,7 @@ const UpdatePromo = ({ promoData, onClose, setLoading, setPromotionCodes }) => {
       setDiscount(promoData.discountPercentage);
       setUsage(promoData.maxUsage);
       setPromo(promoData.code);
+      setExpiryDate(promoData.expiryDate);
     }
   }, [promoData]);
   const handleSubmit = (e) => {
@@ -59,6 +61,7 @@ const UpdatePromo = ({ promoData, onClose, setLoading, setPromotionCodes }) => {
     formData.append("discountPercentage", discount);
     formData.append("maxUsage", usage);
     formData.append("code", promo);
+    formData.append("expiryDate", expiryDate);
     handleUpdatePromo(promoData._id, formData);
   };
   return (
@@ -72,7 +75,7 @@ const UpdatePromo = ({ promoData, onClose, setLoading, setPromotionCodes }) => {
         </div>
         <form className="update_promo_code" onSubmit={handleSubmit}>
           <div className="generate_promo_code">
-            <button type="button" className="gene_promo" onClick={gene_promo} style={{background: 'linear-gradient(90deg, #fda925 0%, rgba(0, 0, 0, 0) 1000%)'}}>
+            <button type="button" className="gene_promo" onClick={gene_promo} style={{ background: 'linear-gradient(90deg, #fda925 0%, rgba(0, 0, 0, 0) 1000%)' }}>
               {promo ? promo : "Generate promo code"}
             </button>
             {/* <Loader /> */}
@@ -92,6 +95,14 @@ const UpdatePromo = ({ promoData, onClose, setLoading, setPromotionCodes }) => {
             value={usage}
             name={"usage"}
             onChange={(e) => setUsage(e.target.value)}
+          />
+          <InputContainer
+            label={"expiry date"}
+            id={"expiry"}
+            type={"date"}
+            value={expiryDate}
+            name={"expiry"}
+            onChange={(e) => setExpiryDate(e.target.value)}
           />
           <button type="submit" className="btn primary">
             Update

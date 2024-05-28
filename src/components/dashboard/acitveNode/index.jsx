@@ -2,10 +2,16 @@ import React from "react";
 import "./index.css";
 import { formatDate } from "../../../helpler";
 
-const ActiveNode = ({ node }) => {
+const ActiveNode = ({ node, isNodeExpired, expiry }) => {
+
+  React.useEffect(() => {
+    isNodeExpired(node?.purchaseNodes[0]);
+  }
+    , [node?.purchaseNodes[0]?.expiryDate]);
+
   return (
     <div
-      className="active_node split-card"
+      className={`active_node split-card ${expiry && "border-red-700 border-2 border-t-2"}`}
       style={{ background: node?.purchaseNodes[0].node?.bgColor }}
     >
       <div className="active_node-image">

@@ -14,7 +14,6 @@ const AllPromotionCode = () => {
   const [promotionCodes, setPromotionCodes] = useState([]);
   const [loading, setLoading] = useState(false);
   const [selectedPromo, setSelectedPromo] = useState(null);
-
   const [showConfirmationModal, setShowConfirmationModal] = useState(false);
   const [promoToDelete, setPromoToDelete] = useState(null);
 

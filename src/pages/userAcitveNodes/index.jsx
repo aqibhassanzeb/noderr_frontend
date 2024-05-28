@@ -12,6 +12,7 @@ const UserActiveNode = () => {
   const { getPurchaseNode } = useContext(createApiContext);
   const [activeNodes, setActiveNodes] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [expiry, setExpiry] = useState(false);
 
   const socket = io(process.env.REACT_APP_NODE_ENDPOINT);
 
@@ -53,11 +54,17 @@ const UserActiveNode = () => {
 
   // get active nodes
   useEffect(() => {
-
     acitveNodes();
   }, [getPurchaseNode]);
 
   const skeletonCount = Math.floor(window.innerHeight / 100);
+
+  const isNodeExpired = (expiryDate) => {
+    console.log("🚀 ~ isNodeExpired ~ expiryDate:", expiryDate)
+    const currentDate = new Date();
+    setExpiry(new Date(expiryDate?.expiryDate) < currentDate)
+
+  };
 
   return (
     <div className="right_dashboard">
@@ -70,7 +77,7 @@ const UserActiveNode = () => {
           <>
             <div className="active_nodes_container">
               {activeNodes && activeNodes?.map((node, index) => (
-                <ActiveNode key={index} node={node} />
+                <ActiveNode key={index} node={node} isNodeExpired={isNodeExpired} expiry={expiry} />
               ))}
             </div>
           </>
