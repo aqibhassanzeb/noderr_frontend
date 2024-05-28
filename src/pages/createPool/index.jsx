@@ -74,7 +74,7 @@ const CreatePool = () => {
       {loading && <LoadingModal />}
       <div className="right_dashboard">
         <div className="right_container">
-          <div className="mb-2">
+          <div className="mb-2 py-3">
             <span className="close" onClick={handleCloseCreate} >
               <IoArrowBackCircle className="text-white w-8 h-8" />
             </span>
