@@ -84,6 +84,7 @@ const NodeDetail = ({ node, onClose }) => {
     ]
     try {
       const response = await purchaseNodeWithPromoCode(node?._id, promoCode);
+      onClose();
       setLoading(false);
     } catch (error) {
       console.error(error);
