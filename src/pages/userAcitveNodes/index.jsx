@@ -43,7 +43,6 @@ const UserActiveNode = () => {
     setLoading(true);
     const data = await getPurchaseNode();
     if (data.success) {
-      console.log(data);
       setActiveNodes(data.data);
       setLoading(false);
     } else if (data.response.data.message) {
@@ -60,7 +59,6 @@ const UserActiveNode = () => {
   const skeletonCount = Math.floor(window.innerHeight / 100);
 
   const isNodeExpired = (expiryDate) => {
-    console.log("🚀 ~ isNodeExpired ~ expiryDate:", expiryDate)
     const currentDate = new Date();
     setExpiry(new Date(expiryDate?.expiryDate) < currentDate)
 
@@ -76,7 +74,7 @@ const UserActiveNode = () => {
         ) : activeNodes?.length > 0 ? (
           <>
             <div className="active_nodes_container">
-              {activeNodes && activeNodes?.map((node, index) => (
+              {activeNodes.length > 0 && activeNodes?.map((node, index) => (
                 <ActiveNode key={index} node={node} isNodeExpired={isNodeExpired} expiry={expiry} />
               ))}
             </div>

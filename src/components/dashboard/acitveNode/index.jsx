@@ -11,9 +11,14 @@ const ActiveNode = ({ node, isNodeExpired, expiry }) => {
 
   return (
     <div
-      className={`active_node split-card ${expiry && "border-red-700 border-2 border-t-2"}`}
+      className={`active_node split-card relative
+      `}
       style={{ background: node?.purchaseNodes[0].node?.bgColor }}
     >
+      {expiry && <div className=" absolute top-0 right-0 p-1 text-white bg-red-600 rounded-tl-lg rounded-br-lg">
+        <p className="font-medium text-xs">Expired</p>
+      </div>
+      }
       <div className="active_node-image">
         <img src={`${process.env.REACT_APP_NODE_IMG_URL}${node?.purchaseNodes[0].node?.nodeImage?.url}`} alt="Node" />
       </div>
