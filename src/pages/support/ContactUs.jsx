@@ -48,7 +48,7 @@ const ContactPage = () => {
   return (
     <div className="right_dashboard">
       <div className="right_container">
-        <div className="">
+        <div className="mb-2 py-3">
           <span className="close" onClick={handleCloseCreate}>
             <IoArrowBackCircle className="text-white w-8 h-8" />
           </span>
@@ -59,7 +59,7 @@ const ContactPage = () => {
           profilePic={images.FakePic}
         />
         <section>
-          <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
+          <div className="py-8  px-4 mx-auto max-w-screen-md">
             <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-white">
               Contact Us
             </h2>

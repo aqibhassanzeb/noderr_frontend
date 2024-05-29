@@ -6,9 +6,9 @@ import "./index.css";
 const CURDBtn = ({onDelete,onEdit}) => {
   return (
     <div className="crud_btn">
-      <span className="view">
+      {/* <span className="view">
         <FaEye />
-      </span>
+      </span> */}
       <span className="update" onClick={onEdit}>
         <CiEdit />
       </span>

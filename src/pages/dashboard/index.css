@@ -52,6 +52,7 @@
   flex-direction: column;
   justify-content: space-between;
   height: inherit;
+  padding-bottom: 15px;
 }
 
 .nav_container>button {
@@ -279,6 +280,7 @@
     border-radius: 8px;
     border: 1px solid #333;
     border-right: 3px solid #333;
+   
   }
 
   .header_logout>.icon {
