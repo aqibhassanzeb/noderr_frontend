@@ -7,6 +7,8 @@ import PromoLoader from "../../../components/skeletonLoaders/promoLoader";
 import { toast } from "react-toastify";
 import UpdateVote from "../../../components/dashboard/updateVote";
 import ConfirmationModal from "../../confirmModal";
+import { images } from "../../../images";
+
 
 const AllVotes = () => {
   const { getAllPools, deletePool, user } = useContext(createApiContext);
@@ -78,6 +80,7 @@ const AllVotes = () => {
         <PageHeader
           page_title={"All Votes"}
           badge={" GM, Noderr"}
+          profilePic={images.FakePic}
           create={true}
           link={"/dashboard/create-pool"}
         />
