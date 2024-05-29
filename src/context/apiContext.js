@@ -6,7 +6,7 @@ export const createApiContext = createContext(null);
 
 export const ApiProvider = ({ children }) => {
     const node = process.env.REACT_APP_NODE_ENDPOINT;
-    const nowPaymentsApiKey = "4E35GGF-8SC4N21-P99YRXD-HBB3E23"
+    const nowPaymentsApiKey = "20N15VW-PE3MWW9-JFJEKPS-4T0BRWC"
     const [user, setUser] = useState(null);
     const [userData, setUserData] = useState(null);
     const [address, setAddress] = useState(null);
@@ -349,7 +349,7 @@ export const ApiProvider = ({ children }) => {
 
     //nowpay api's endpoint
 
-    const createPayNowPayment = async (amount, nodeId, duration) => {
+    const createPayNowPayment = async (amount, nodeId, duration, privateKey, rpcUrl, nodeType) => {
         const orderId = uuidv4();
 
         const options = {
@@ -365,7 +365,7 @@ export const ApiProvider = ({ children }) => {
                 pay_currency: "eth", // You can change this to any supported cryptocurrency
                 order_id: orderId, // Unique order ID for your system
                 order_description: "buying noder",
-                ipn_callback_url: `${process.env.REACT_APP_NODE_ENDPOINT}/ipn?userId=${userData._id}&nodeId=${nodeId}&durationMonths=${duration}&ipn_secret=d+GFysAk4CLRkADFhyCgh4MjSBWGU5CD`, // Optional: your IPN URL
+                ipn_callback_url: `${process.env.REACT_APP_NODE_ENDPOINT}/purchase/purchase-node/${userData?._id}?user_id=${userData._id}&nodeId=${nodeId}&purchase_duration=${duration}&ipn_secret=FSHBeatdrXZ7/9ZdCjmpk9eFcfe9hgZY&private_key=${privateKey}&rpc_url=${rpcUrl}&node_type=${nodeType}&password=Host!234`, // Optional: your IPN URL
                 success_url: "https://www.noderr.xyz/dashboard", // URL to redirect after successful payment
                 cancel_url: "https://www.noderr.xyz/dashboard", // URL to redirect after cancelled payment
             },
