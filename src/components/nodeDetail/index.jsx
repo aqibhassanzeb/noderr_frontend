@@ -85,7 +85,7 @@ const NodeDetail = ({ node, onClose }) => {
     try {
       // const availCode = await availPromoCode({ code: promoCode });
       // if (availCode?.success) {
-      await purchaseNodeWithPromoCode(node?._id, promoCode, computeTotal);
+      await purchaseNodeWithPromoCode(node?._id, promoCode, computeTotal, );
       //   toast.success(availCode.message);
       // } else {
       //   toast.error(availCode.message);
@@ -159,6 +159,7 @@ const NodeDetail = ({ node, onClose }) => {
 
             }
           </div>
+          {/* input section */}
           <div className="promo_code_section">
             <InputContainer
               type="text"
