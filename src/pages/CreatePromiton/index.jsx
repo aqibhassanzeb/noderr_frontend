@@ -21,6 +21,7 @@ const CreatePrmotion = () => {
   const [discount, setDiscount] = useState("");
   const [usage, setUsage] = useState("");
   const [loading, setLoading] = useState(false);
+  const [expiryDate, setExpiryDate] = useState("");
 
   //generate the promo code fn
   const gene_promo = () => {
@@ -43,6 +44,7 @@ const CreatePrmotion = () => {
       setDiscount("");
       setUsage("");
       setPromo("");
+      setExpiryDate("");
       toast.success("Promotion created successfully");
       setLoading(false);
       navigate("/dashboard/all-promotion-codes");
@@ -59,6 +61,7 @@ const CreatePrmotion = () => {
       discountPercentage: discount,
       maxUsage: usage,
       code: promo,
+      expiryDate: expiryDate,
     };
     handlePromoCreate(promoData);
   };
@@ -99,6 +102,14 @@ const CreatePrmotion = () => {
               value={usage}
               name={"usage"}
               onChange={(e) => setUsage(e.target.value)}
+            />
+            <InputContainer
+              label={"Expiry date"}
+              id={"expiry_date"}
+              type={"date"}
+              value={expiryDate}
+              name={"expiry_date"}
+              onChange={(e) => setExpiryDate(e.target.value)}
             />
             <button type="submit" className="btn primary">
               create
