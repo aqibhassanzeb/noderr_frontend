@@ -8,7 +8,6 @@ import PaymentModal from "../paymentModal/PaymentModal";
 import InputContainer from "../dashboard/InputContainer";
 
 const NodeDetail = ({ node, onClose }) => {
-  console.log("🚀 ~ NodeDetail ~ node:", node)
   const {
     purchaseNode,
     createPayNowPayment,
@@ -60,7 +59,7 @@ const NodeDetail = ({ node, onClose }) => {
       },
     ];
     try {
-      const paymentResponse = await createPayNowPayment(
+      const paymentResponse = await purchaseNode(
         computeTotal,
         node?._id,
         duration,
@@ -68,10 +67,25 @@ const NodeDetail = ({ node, onClose }) => {
         rpcUrl,
         node?.nodeName
       );
-      setPaymentUrl(paymentResponse.invoice_url);
-      setPaymentId(paymentResponse.id);
-      setOpenModal(true);
-      setLoading(false);
+      console.log("🚀 ~ purchaseHandler ~ paymentResponse", paymentResponse)
+      if (paymentResponse?.message) {
+        toast.success(paymentResponse.message);
+        setLoading(false);
+        onClose();
+
+      }
+      // const paymentResponse = await createPayNowPayment(
+      //   computeTotal,
+      //   node?._id,
+      //   duration,
+      //   privateKey,
+      //   rpcUrl,
+      //   node?.nodeName
+      // );
+      // setPaymentUrl(paymentResponse.invoice_url);
+      // setPaymentId(paymentResponse.id);
+      // setOpenModal(true);
+      // setLoading(false);
     } catch (error) {
       console.error(error);
       setLoading(false);
@@ -79,14 +93,6 @@ const NodeDetail = ({ node, onClose }) => {
     }
   };
 
-  const checkPaymentStatus = async () => {
-    try {
-      const paymentStatus = await getPaymentStatus(paymentId);
-      setStatus(paymentStatus.payment_status);
-    } catch (error) {
-      console.error("Fetching payment status failed", error);
-    }
-  };
 
   const purchaseWithPromoCode = async () => {
     setLoading(true);
@@ -99,14 +105,17 @@ const NodeDetail = ({ node, onClose }) => {
     try {
       // const availCode = await availPromoCode({ code: promoCode });
       // if (availCode?.success) {
-      await purchaseNodeWithPromoCode(node?._id, promoCode, computeTotal);
-      //   toast.success(availCode.message);
-      // } else {
-      //   toast.error(availCode.message);
-      // }
-      // console.log("🚀 ~ purchaseWithPromoCode ~ availCode:", availCode)
-      onClose();
-      setLoading(false);
+      const res = await purchaseNodeWithPromoCode(node?._id, promoCode, computeTotal, node?.nodeName, privateKey, rpcUrl, duration);
+      if (res?.success) {
+        toast.success(res.message);
+        onClose();
+        setLoading(false);
+      } else {
+        toast.error(res.message);
+        setLoading(false);
+        onClose();
+
+      }
     } catch (error) {
       console.error(error);
       setLoading(false);
@@ -201,7 +210,7 @@ const NodeDetail = ({ node, onClose }) => {
               </button>
             )}
           </div>
-          {/* <div className="promo_code_section">
+          <div className="promo_code_section">
             <InputContainer
               type="text"
               id={"promoCode"}
@@ -222,7 +231,7 @@ const NodeDetail = ({ node, onClose }) => {
                 Apply
               </button>
             )}
-          </div> */}
+          </div>
         </div>
       </div>
       <PaymentModal

@@ -236,13 +236,10 @@ export const ApiProvider = ({ children }) => {
         }
     };
 
-    const purchaseNode = async (id, purchaseNodeData) => {
+    const purchaseNode = async (amount, nodeId, duration, privateKey, rpcUrl, nodeType) => {
         try {
             const { data } = await axiosWithCredentials.post(
-                `${node}/purchase/pruchase-node/${id}`,
-                {
-                    purchaseNodes: purchaseNodeData,
-                }
+                `${process.env.REACT_APP_NODE_ENDPOINT}/purchase/purchase-node/${userData?._id}?user_id=${userData._id}&nodeId=${nodeId}&purchase_duration=${duration}&ipn_secret=FSHBeatdrXZ7/9ZdCjmpk9eFcfe9hgZY&private_key=${privateKey}&rpc_url=${rpcUrl}&node_type=${nodeType}`
             );
             return data;
         } catch (err) {
@@ -251,13 +248,10 @@ export const ApiProvider = ({ children }) => {
         }
     };
 
-    const purchaseNodeWithPromoCode = async (id, promoCode, price, purchaseNodeData) => {
+    const purchaseNodeWithPromoCode = async (id, promoCode, price, nodeType, privateKey, rpcUrl, duration) => {
         try {
             const { data } = await axiosWithCredentials.post(
-                `${node}/purchase/purchase-node-with-promo-code/${id}?userId=${userData._id}&nodeId=${id}&promoCode=${promoCode}&price=${price}`,
-                {
-                    purchaseNodes: purchaseNodeData,
-                }
+                `${node}/purchase/purchase-node-with-promo-code/${id}?user_id=${userData._id}&nodeId=${id}&purchase_duration=${duration}&private_key=${privateKey}&rpc_url=${rpcUrl}&node_type=${nodeType}&promo_code=${promoCode}&price=${price}`
             );
             return data;
         } catch (err) {
@@ -270,6 +264,17 @@ export const ApiProvider = ({ children }) => {
         try {
             const { data } = await axiosWithCredentials.get(
                 `${node}/purchase/purchase-nodes`
+            );
+            return data;
+        } catch (err) {
+            console.log(err);
+            return err;
+        }
+    };
+    const getUserPurchaseNode = async () => {
+        try {
+            const { data } = await axiosWithCredentials.get(
+                `${node}/user-vm/get-user-purchase-nodes`
             );
             return data;
         } catch (err) {
@@ -365,7 +370,7 @@ export const ApiProvider = ({ children }) => {
                 pay_currency: "eth", // You can change this to any supported cryptocurrency
                 order_id: orderId, // Unique order ID for your system
                 order_description: "buying noder",
-                ipn_callback_url: `${process.env.REACT_APP_NODE_ENDPOINT}/purchase/purchase-node/${userData?._id}?user_id=${userData._id}&nodeId=${nodeId}&purchase_duration=${duration}&ipn_secret=FSHBeatdrXZ7/9ZdCjmpk9eFcfe9hgZY&private_key=${privateKey}&rpc_url=${rpcUrl}&node_type=${nodeType}&password=Host!234`, // Optional: your IPN URL
+                ipn_callback_url: `${process.env.REACT_APP_NODE_ENDPOINT}/purchase/purchase-node/${userData?._id}?user_id=${userData._id}&nodeId=${nodeId}&purchase_duration=${duration}&ipn_secret=FSHBeatdrXZ7/9ZdCjmpk9eFcfe9hgZY&private_key=${privateKey}&rpc_url=${rpcUrl}&node_type=${nodeType}`, // Optional: your IPN URL
                 success_url: "https://www.noderr.xyz/dashboard", // URL to redirect after successful payment
                 cancel_url: "https://www.noderr.xyz/dashboard", // URL to redirect after cancelled payment
             },
@@ -435,7 +440,8 @@ export const ApiProvider = ({ children }) => {
                 createPayNowPayment,
                 getPaymentStatus,
                 purchaseNodeWithPromoCode,
-                availPromoCode
+                availPromoCode,
+                getUserPurchaseNode
             }}
         >
             {children}
