@@ -8,17 +8,24 @@ import PaymentModal from "../paymentModal/PaymentModal";
 import InputContainer from "../dashboard/InputContainer";
 
 const NodeDetail = ({ node, onClose }) => {
-  const { purchaseNode, createPayNowPayment, getPaymentStatus, purchaseNodeWithPromoCode, availPromoCode } = useContext(createApiContext);
+  const {
+    purchaseNode,
+    createPayNowPayment,
+    getPaymentStatus,
+    purchaseNodeWithPromoCode,
+    availPromoCode,
+  } = useContext(createApiContext);
   const [activeTab, setActiveTab] = useState(3);
   const [computeTotal, setComputeTotal] = useState(0);
   const [loading, setLoading] = useState(false);
   const [duration, setDuration] = useState(3);
-  const [paymentUrl, setPaymentUrl] = useState('');
-  const [paymentId, setPaymentId] = useState('');
-  const [status, setStatus] = useState('');
+  const [paymentUrl, setPaymentUrl] = useState("");
+  const [paymentId, setPaymentId] = useState("");
+  const [status, setStatus] = useState("");
   const [openModal, setOpenModal] = useState(false);
-  const [promoCode, setPromoCode] = useState('');
-
+  const [promoCode, setPromoCode] = useState("");
+  const [privateKey, setPrivateKey] = useState("");
+  const [rpcUrl, setRpcUrl] = useState("");
   useEffect(() => {
     document.body.style.overflowY = "hidden";
     window.scrollTo({
@@ -48,28 +55,41 @@ const NodeDetail = ({ node, onClose }) => {
     const data = [
       {
         durationMonths: duration,
-        price: computeTotal
-      }
-    ]
+        price: computeTotal,
+      },
+    ];
     try {
-      const paymentResponse = await createPayNowPayment(computeTotal, node?._id, duration);
-      setPaymentUrl(paymentResponse.invoice_url);
-      setPaymentId(paymentResponse.id);
-      setOpenModal(true);
-      setLoading(false);
+      const paymentResponse = await purchaseNode(
+        computeTotal,
+        node?._id,
+        duration,
+        privateKey,
+        rpcUrl,
+        node?.nodeName
+      );
+      console.log("🚀 ~ purchaseHandler ~ paymentResponse", paymentResponse)
+      if (paymentResponse?.message) {
+        toast.success(paymentResponse.message);
+        setLoading(false);
+        onClose();
+
+      }
+      // const paymentResponse = await createPayNowPayment(
+      //   computeTotal,
+      //   node?._id,
+      //   duration,
+      //   privateKey,
+      //   rpcUrl,
+      //   node?.nodeName
+      // );
+      // setPaymentUrl(paymentResponse.invoice_url);
+      // setPaymentId(paymentResponse.id);
+      // setOpenModal(true);
+      // setLoading(false);
     } catch (error) {
       console.error(error);
       setLoading(false);
       toast.error("Failed to purchase node. Please try again later.");
-    }
-  };
-
-  const checkPaymentStatus = async () => {
-    try {
-      const paymentStatus = await getPaymentStatus(paymentId);
-      setStatus(paymentStatus.payment_status);
-    } catch (error) {
-      console.error('Fetching payment status failed', error);
     }
   };
 
@@ -79,27 +99,29 @@ const NodeDetail = ({ node, onClose }) => {
     const data = [
       {
         durationMonths: duration,
-        price: computeTotal
-      }
-    ]
+        price: computeTotal,
+      },
+    ];
     try {
       // const availCode = await availPromoCode({ code: promoCode });
       // if (availCode?.success) {
-      await purchaseNodeWithPromoCode(node?._id, promoCode, computeTotal, );
-      //   toast.success(availCode.message);
-      // } else {
-      //   toast.error(availCode.message);
-      // }
-      // console.log("🚀 ~ purchaseWithPromoCode ~ availCode:", availCode)
-      onClose();
-      setLoading(false);
+      const res = await purchaseNodeWithPromoCode(node?._id, promoCode, computeTotal, node?.nodeName, privateKey, rpcUrl, duration);
+      if (res?.success) {
+        toast.success(res.message);
+        onClose();
+        setLoading(false);
+      } else {
+        toast.error(res.message);
+        setLoading(false);
+        onClose();
+
+      }
     } catch (error) {
       console.error(error);
       setLoading(false);
       toast.error("Failed to purchase node. Please try again later.");
     }
   };
-
 
   return (
     <>
@@ -112,7 +134,10 @@ const NodeDetail = ({ node, onClose }) => {
                 className="img_container"
                 style={{ background: node.bgColor }}
               >
-                <img src={`${process.env.REACT_APP_NODE_IMG_URL}${node.nodeImage?.url}`} alt="brand" />
+                <img
+                  src={`${process.env.REACT_APP_NODE_IMG_URL}${node.nodeImage?.url}`}
+                  alt="brand"
+                />
               </div>
               <h3 className="title">{node.nodeName}</h3>
             </div>
@@ -137,7 +162,9 @@ const NodeDetail = ({ node, onClose }) => {
             </div>
             <div className="fee_structure">
               <span className="label">node fee</span>
-              <span className="pricing">${node.nodePrice[`price${activeTab}`]}/month</span>
+              <span className="pricing">
+                ${node.nodePrice[`price${activeTab}`]}/month
+              </span>
             </div>
             <div className="fee_structure">
               <span className="label">period</span>
@@ -147,17 +174,41 @@ const NodeDetail = ({ node, onClose }) => {
               <span className="label">total</span>
               <span className="pricing">${computeTotal}</span>
             </div>
+            <div>
+              <InputContainer
+                type="text"
+                id="privateKey"
+                label="Private Key"
+                placeholder="Enter private key"
+                textColor="text-black"
+                name="privateKey"
+                value={privateKey}
+                onChange={(e) => setPrivateKey(e.target.value)}
+              />
+            </div>
+            <div>
+              <InputContainer
+                type={"url"}
+                id={"rpcUrl"}
+                label={"RPC URL"}
+                placeholder="Enter RPC URL"
+                textColor={"text-black"}
+                name={"rpcUrl"}
+                value={rpcUrl}
+                onChange={(e) => setRpcUrl(e.target.value)}
+              />
+            </div>
           </div>
           <div className="detail_footer">
-            {!promoCode && <button
-              className="detail_btn"
-              onClick={purchaseHandler}
-              disabled={loading}
-            >
-              {loading ? "Purchasing..." : "Purchase"}
-            </button>
-
-            }
+            {!promoCode && (
+              <button
+                className="detail_btn"
+                onClick={purchaseHandler}
+                disabled={loading || !privateKey || !rpcUrl}
+              >
+                {loading ? "Purchasing..." : "Purchase"}
+              </button>
+            )}
           </div>
           {/* input section */}
           <div className="promo_code_section">
@@ -171,19 +222,26 @@ const NodeDetail = ({ node, onClose }) => {
               textColor={"text-black"}
               name={"promoCode"}
             />
-            {
-              promoCode && <button
+            {promoCode && (
+              <button
                 onClick={purchaseWithPromoCode}
                 className="text-lg text-white bg-primary px-4 py-2 rounded-md
               bg-yellow-500 hover:bg-yellow-600 text-center mt-4
               flex justify-center m-auto w-full p-4"
-              >Apply</button>
-            }
+              >
+                Apply
+              </button>
+            )}
           </div>
-
         </div>
       </div>
-      <PaymentModal openModal={openModal} setOpenModal={setOpenModal} paymentUrl={paymentUrl} paymentId={paymentId} onClose={onClose} />
+      <PaymentModal
+        openModal={openModal}
+        setOpenModal={setOpenModal}
+        paymentUrl={paymentUrl}
+        paymentId={paymentId}
+        onClose={onClose}
+      />
     </>
   );
 };
