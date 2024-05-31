@@ -210,6 +210,7 @@ const NodeDetail = ({ node, onClose }) => {
               </button>
             )}
           </div>
+          {/* input section */}
           <div className="promo_code_section">
             <InputContainer
               type="text"

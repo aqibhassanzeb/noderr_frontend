@@ -141,7 +141,7 @@ const UpdateNode = ({ node, onClose, setNodes, setLoading, }) => {
                 />
               </label>
               <div className="image_preview">
-                {imagePreview && <img src={imagePreview} alt="imagePreview" className="w-[40px]" />}
+                {imagePreview && <img src={imagePreview} alt="imagePreview" className="w-12 h-10" />}
               </div>
             </div>
             <button type="submit" className="btn primary">

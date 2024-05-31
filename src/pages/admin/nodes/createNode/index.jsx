@@ -9,6 +9,7 @@ import LoadingModal from "../../../../components/ApiLoader";
 import { useNavigate } from "react-router-dom";
 import { IoArrowBackCircle } from "react-icons/io5";
 
+
 const CreateNode = () => {
 
   const navigate = useNavigate();
@@ -120,7 +121,9 @@ const CreateNode = () => {
               <IoArrowBackCircle className="text-white w-8 h-8" />
             </span>
           </div>
-          <PageHeader page_title={"Create Node"} badge={"GGM, Noderr"} />
+          <PageHeader page_title={"Create Node"} badge={"GGM, Noderr"} 
+            profilePic={images.FakePic}
+          />
           <form className="node_create_form" onSubmit={submitHandler}>
             <InputContainer
               label={"Node Name"}
