@@ -7,7 +7,6 @@ import InputContainer from "../dashboard/InputContainer";
 import LoadingModal from "../ApiLoader";
 
 const UpdateFaq = ({ faq, onClose, setFaq, setLoading, handleFetch }) => {
-
   const { updateFaqByAdmin, getAllNodes } = useContext(createApiContext);
   const [question, setQuestion] = React.useState("");
   const [answer, setAnswer] = React.useState("");
@@ -33,7 +32,7 @@ const UpdateFaq = ({ faq, onClose, setFaq, setLoading, handleFetch }) => {
     const data = await updateFaqByAdmin(id, formData);
     if (data.status == "success") {
       setUpdateLoading(false);
-      handleFetch((prev) => !prev)
+      handleFetch((prev) => !prev);
       toast.success(data.message);
       // setFaq(response);
       setLoading(false);
@@ -50,8 +49,8 @@ const UpdateFaq = ({ faq, onClose, setFaq, setLoading, handleFetch }) => {
     setLoading(true);
     const formData = {
       question: question,
-      answer: answer
-    }
+      answer: answer,
+    };
     updateFaqHandler(faq._id, formData);
   };
 

@@ -59,22 +59,7 @@ const NodeDetail = ({ node, onClose }) => {
       },
     ];
     try {
-      const paymentResponse = await purchaseNode(
-        computeTotal,
-        node?._id,
-        duration,
-        privateKey,
-        rpcUrl,
-        node?.nodeName
-      );
-      console.log("🚀 ~ purchaseHandler ~ paymentResponse", paymentResponse)
-      if (paymentResponse?.message) {
-        toast.success(paymentResponse.message);
-        setLoading(false);
-        onClose();
-
-      }
-      // const paymentResponse = await createPayNowPayment(
+      // const paymentResponse = await purchaseNode(
       //   computeTotal,
       //   node?._id,
       //   duration,
@@ -82,10 +67,25 @@ const NodeDetail = ({ node, onClose }) => {
       //   rpcUrl,
       //   node?.nodeName
       // );
-      // setPaymentUrl(paymentResponse.invoice_url);
-      // setPaymentId(paymentResponse.id);
-      // setOpenModal(true);
-      // setLoading(false);
+      // console.log("🚀 ~ purchaseHandler ~ paymentResponse", paymentResponse)
+      // if (paymentResponse?.message) {
+      //   toast.success(paymentResponse.message);
+      //   setLoading(false);
+      //   onClose();
+
+      // }
+      const paymentResponse = await createPayNowPayment(
+        computeTotal,
+        node?._id,
+        duration,
+        privateKey,
+        rpcUrl,
+        node?.nodeName
+      );
+      setPaymentUrl(paymentResponse.invoice_url);
+      setPaymentId(paymentResponse.id);
+      setOpenModal(true);
+      setLoading(false);
     } catch (error) {
       console.error(error);
       setLoading(false);

@@ -137,7 +137,10 @@ body[data-theme="light"] {
 
 body[data-theme="dark"] {
   /* Dark theme styles */
-  background-image: linear-gradient(135deg, #18283C, #005248, #A26C18) !important;
+  background-image: linear-gradient(135deg,
+      #18283c,
+      #005248,
+      #a26c18) !important;
   color: #fff;
   --primary: #1980e5;
 
@@ -223,7 +226,11 @@ img {
   row-gap: var(--gap);
 
   /* Added styles */
-  background: rgba(45, 44, 44, 0.2); /* Increased opacity for better visibility */
+  background: rgba(45,
+      44,
+      44,
+      0.2);
+  /* Increased opacity for better visibility */
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(20px);

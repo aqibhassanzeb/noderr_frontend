@@ -17,27 +17,22 @@ import AllPurchaseNodebyUsers from "./pages/admin/allPurchaseNodes";
 import "react-loading-skeleton/dist/skeleton.css";
 import UpdateUserprofile from "./pages/updateUserProfile";
 import UserActiveNode from "./pages/userAcitveNodes";
-// import Landing from "./pages/landing";
 import PrivacyPolicy from "./pages/privacy-policy";
 import TermsAndCondition from "./pages/terms-and-condition";
 import ContactPage from "./pages/support/ContactUs";
-// import FAQSection from "./pages/support/Faq";
-// import AddFaq from "./pages/admin/addFaq";
-// import CreateFaq from "./pages/admin/addFaq/create";
-// import UpdateFaq from "./components/updateFaq";
-// import Billing from "./pages/billing";
-// import SwapSection from "./components/ghostyListing/GhostyListing";
 import LoadingModal from "./components/ApiLoader";
 
 const Home = React.lazy(() => import("./pages/home"));
 const Dashboard = React.lazy(() => import("./pages/dashboard"));
 const Landing = React.lazy(() => import("./pages/landing"));
-const SwapSection = React.lazy(() => import("./components/ghostyListing/GhostyListing"));
+const SwapSection = React.lazy(() =>
+	import("./components/ghostyListing/GhostyListing")
+);
 const Billing = React.lazy(() => import("./pages/billing"));
 const UpdateFaq = React.lazy(() => import("./components/updateFaq"));
 const CreateFaq = React.lazy(() => import("./pages/admin/addFaq/create"));
 const AddFaq = React.lazy(() => import("./pages/admin/addFaq"));
-const FAQSection = React.lazy(() => import("./pages/support/Faq"))
+const FAQSection = React.lazy(() => import("./pages/support/Faq"));
 const router = createBrowserRouter([
 	{
 		path: "/",
@@ -142,7 +137,12 @@ function App() {
 	document.body.setAttribute("data-theme", theme);
 
 	return (
-		<Suspense fallback={<div><LoadingModal></LoadingModal></div>}>
+		<Suspense
+			fallback={
+				<div>
+					<LoadingModal></LoadingModal>
+				</div>
+			}>
 			<RouterProvider router={router}></RouterProvider>
 		</Suspense>
 	);
