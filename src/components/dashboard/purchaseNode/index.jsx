@@ -30,9 +30,9 @@ const PurchaseNode = ({ node }) => {
         <span className="left">user name</span>
         <span className="right">{node?.user?.name}</span>
       </div>
-      <div className="crud_btns">
+      {/* <div className="crud_btns">
         <CURDBtn />
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -163,7 +163,7 @@ const Dashboard = React.memo(() => {
                         onClick={() => setShow(!show)}
                       >
                         <img src={images.purchase} alt="support" />
-                        <span>Purchase Node Slot</span>
+                        <span>Purchased Node Slot</span>
                       </NavLink>
                       <NavLink
                         className="menu_item"

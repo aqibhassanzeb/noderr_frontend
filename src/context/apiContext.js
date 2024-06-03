@@ -7,7 +7,7 @@ export const createApiContext = createContext(null);
 export const ApiProvider = ({ children }) => {
     const node = process.env.REACT_APP_NODE_ENDPOINT;
     // const nowPaymentsApiKey = "20N15VW-PE3MWW9-JFJEKPS-4T0BRWC"
-    const nowPaymentsApiKey = "3JNBZC8-X2T41BT-JWJTQ18-6SF58F5"
+    const nowPaymentsApiKey = "20N15VW-PE3MWW9-JFJEKPS-4T0BRWC"
 
     const [user, setUser] = useState(null);
     const [userData, setUserData] = useState(null);
@@ -249,6 +249,17 @@ export const ApiProvider = ({ children }) => {
             return err;
         }
     };
+    const checkNodeBeforePurchase = async (nodeType) => {
+        try {
+            const { data } = await axiosWithCredentials.post(
+                `${process.env.REACT_APP_NODE_ENDPOINT}/purchase/checkNodeBeforePurchase?node_type=${nodeType}`
+            );
+            return data;
+        } catch (err) {
+            console.log(err);
+            return err;
+        }
+    };
 
     const purchaseNodeWithPromoCode = async (id, promoCode, price, nodeType, privateKey, rpcUrl, duration) => {
         try {
@@ -354,14 +365,29 @@ export const ApiProvider = ({ children }) => {
         }
     };
 
+    const saveDataInDb = async (amount, nodeId, duration, privateKey, rpcUrl, nodeType) => {
+        const data1 = {
+            amount, nodeId, duration, privateKey, rpcUrl, nodeType
+        }
+        try {
+            const { data } = await axiosWithCredentials.post(
+                `${node}/tempData/create-tempNode`, data1
+            );
+            return data;
+        } catch (err) {
+            console.log(err);
+            return err;
+        }
+    };
+
     //nowpay api's endpoint
 
-    const createPayNowPayment = async (amount, nodeId, duration, privateKey, rpcUrl, nodeType) => {
+    const createPayNowPayment = async (amount, nodeId, duration, privateKey, rpcUrl, nodeType, tempData_id) => {
         const orderId = uuidv4();
 
         const options = {
             method: "POST",
-            url: "https://api.nowpayments.io/v1/invoice",
+            url: "https://api-sandbox.nowpayments.io/v1/invoice",
             headers: {
                 "x-api-key": nowPaymentsApiKey,
                 "Content-Type": "application/json",
@@ -372,7 +398,8 @@ export const ApiProvider = ({ children }) => {
                 pay_currency: "eth", // You can change this to any supported cryptocurrency
                 order_id: orderId, // Unique order ID for your system
                 order_description: "buying noder",
-                ipn_callback_url: `${process.env.REACT_APP_NODE_ENDPOINT}/purchase/purchase-node?user_id=${userData._id}&purchase_duration=${duration}&private_key=${privateKey}&rpc_url=${rpcUrl}&node_type=${nodeType}`, // Optional: your IPN URL
+                // ipn_callback_url: `https://7dec-103-57-224-61.ngrok-free.app/purchase/purchase-node?user_id=${userData._id}&purchase_duration=${duration}&private_key=${privateKey}&rpc_url=${rpcUrl}&node_type=${nodeType}&nodeId=${nodeId}`, // Optional: your IPN URL
+                ipn_callback_url: `https://7dec-103-57-224-61.ngrok-free.app/purchase/purchase-node?tempData_id=${tempData_id}`, // Optional: your IPN URL
                 success_url: "https://www.noderr.xyz/dashboard", // URL to redirect after successful payment
                 cancel_url: "https://www.noderr.xyz/dashboard", // URL to redirect after cancelled payment
             },
@@ -443,7 +470,9 @@ export const ApiProvider = ({ children }) => {
                 getPaymentStatus,
                 purchaseNodeWithPromoCode,
                 availPromoCode,
-                getUserPurchaseNode
+                getUserPurchaseNode,
+                checkNodeBeforePurchase,
+                saveDataInDb
             }}
         >
             {children}
