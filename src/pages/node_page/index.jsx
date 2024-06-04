@@ -66,6 +66,7 @@ const Stats_page = () => {
                     : "GM, Noderr"
                 }
               />
+
             </div>
 
             <div className="gap-5 pt-4 ">
@@ -73,6 +74,9 @@ const Stats_page = () => {
             </div>
 
           </div>
+          <p className="
+          text-lg font-medium text-white
+          ">"SAFTEY NOTICE" Best Practices is to Create Secondary Wallet for Node Slots (Private Keys)</p>
           {loadingNodes || loadingProfile ? (
             <NodeLoader skeletonCount={skeletonCount} />
           ) : (

@@ -15,7 +15,6 @@ const NodeDetail = ({ node, onClose }) => {
     purchaseNodeWithPromoCode,
     availPromoCode,
     checkNodeBeforePurchase,
-    saveDataInDb
   } = useContext(createApiContext);
   const [activeTab, setActiveTab] = useState(3);
   const [computeTotal, setComputeTotal] = useState(0);
@@ -63,32 +62,14 @@ const NodeDetail = ({ node, onClose }) => {
     try {
       //check node before purchasing
       const checkNode = await checkNodeBeforePurchase(node?.nodeName);
-      let saveDetails
       if (checkNode?.success) {
-        saveDetails = await saveDataInDb(
-          computeTotal,
-          node?._id,
-          duration,
-          privateKey,
-          rpcUrl,
-          node?.nodeName
-        )
-      } else {
-        setLoading(false);
-        toast.error(checkNode?.message, {
-          theme: "colored",
-        });
-        return console.error(checkNode?.message);
-      }
-      if (checkNode?.success && saveDetails?.success) {
         const paymentResponse = await createPayNowPayment(
           computeTotal,
           node?._id,
           duration,
           privateKey,
           rpcUrl,
-          node?.nodeName,
-          saveDetails?.temp?._id
+          node?.nodeName
         );
         setPaymentUrl(paymentResponse.invoice_url);
         setPaymentId(paymentResponse.id);
@@ -135,23 +116,33 @@ const NodeDetail = ({ node, onClose }) => {
     try {
       // const availCode = await availPromoCode({ code: promoCode });
       // if (availCode?.success) {
-      const res = await purchaseNodeWithPromoCode(
-        node?._id,
-        promoCode,
-        computeTotal,
-        node?.nodeName,
-        privateKey,
-        rpcUrl,
-        duration
-      );
-      if (res?.success) {
-        toast.success(res.message);
-        onClose();
-        setLoading(false);
+      const checkNode = await checkNodeBeforePurchase(node?.nodeName);
+      if (checkNode?.success) {
+        const res = await purchaseNodeWithPromoCode(
+          node?._id,
+          promoCode,
+          computeTotal,
+          node?.nodeName,
+          privateKey,
+          rpcUrl,
+          duration
+        );
+
+        if (res?.success) {
+          toast.success(res.message);
+          onClose();
+          setLoading(false);
+        } else {
+          toast.error(res?.response?.data?.message);
+          setLoading(false);
+          onClose();
+        }
       } else {
-        toast.error(res.message);
         setLoading(false);
-        onClose();
+        toast.error(checkNode?.message, {
+          theme: "colored",
+        });
+        return console.error(checkNode?.message);
       }
     } catch (error) {
       console.error(error);
