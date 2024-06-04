@@ -10,7 +10,7 @@ import { images } from "../../../images";
 import ConfirmationModal from "../../confirmModal";
 const AllPromotionCode = () => {
 
-  const { getAllPromoCodes, deletePromoCode, user } = useContext(createApiContext);
+  const { getAllPromoCodes, deletePromoCode, user,userData } = useContext(createApiContext);
   const [promotionCodes, setPromotionCodes] = useState([]);
   const [loading, setLoading] = useState(false);
   const [selectedPromo, setSelectedPromo] = useState(null);
@@ -81,7 +81,9 @@ const AllPromotionCode = () => {
         <PageHeader
           page_title={"All promotion codes"}
           badge={"GM, Noderr"}
-          profilePic={images.FakePic}
+          // profilePic={images.FakePic}
+          profilePic={userData?.profilePic? `${process.env.REACT_APP_NODE_IMG_URL}${userData.profilePic}` : images.FakePic}
+          
           create={true}
           link={"/dashboard/create-promotion"}
         />

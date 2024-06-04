@@ -9,7 +9,8 @@ import FAQ from "../../../components/addFaq";
 import UpdateFaq from "../../../components/updateFaq";
 const AddFaq = () => {
 
-  const { getAllFaq, deleteFaq } = useContext(createApiContext);
+  
+  const {userData, getAllFaq, deleteFaq } = useContext(createApiContext);
   const [loadding, setLoading] = useState(true);
   const [faq, setFaq] = useState([]);
   const [selectedFaq, setSelectedFaq] = useState(null);
@@ -64,7 +65,7 @@ const AddFaq = () => {
         <PageHeader
           page_title={"All FAQ"}
           badge={"GM, Noderr"}
-          profilePic={images.FakePic}
+          profilePic={userData?.profilePic? `${process.env.REACT_APP_NODE_IMG_URL}${userData.profilePic}` : images.FakePic}
           create={true}
           link={"/dashboard/create-faq"}
         />

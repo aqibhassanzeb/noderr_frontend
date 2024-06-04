@@ -120,7 +120,7 @@ import ConfirmationModal from "../../../confirmModal";
 
 const AllNodes = () => {
 
-  const { getAllNodes, deleteNode, user } = useContext(createApiContext);
+  const { getAllNodes, deleteNode, user,userData } = useContext(createApiContext);
   const [loading, setLoading] = useState(false);
   const [nodes, setNodes] = useState([]);
   const [selectedNode, setSelectedNode] = useState(null);
@@ -188,7 +188,9 @@ const AllNodes = () => {
         <PageHeader
           page_title={"All Nodes"}
           badge={"GM, Noderr"}
-          profilePic={images.FakePic}
+          // profilePic={images.FakePic}
+          profilePic={userData?.profilePic? `${process.env.REACT_APP_NODE_IMG_URL}${userData.profilePic}` : images.FakePic}
+          
           create={true}
           link={"/dashboard/create-node"}
         />

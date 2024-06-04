@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import PageHeader from "../dashboard/pageHeader/pageHeader";
 import "./ghosty.css";
 import { IoIosArrowDown } from "react-icons/io";
-
+import { createApiContext } from "../../context/apiContext";
 import CustomModal from "../Modal";
 import { toast } from "react-toastify";
 import { Button } from "flowbite-react";
@@ -11,6 +11,8 @@ function SwapSection() {
   const [show, setShow] = useState(false);
   const [currencies, setCurrencies] = useState([]);
   const [walletAddress, setWalletAddress] = useState("")
+  const { userData } = useContext(createApiContext);
+
   const [selectedCuur, setSelectedCuur] = useState({
     "name": "BTC",
     "param": "BTC",
@@ -140,7 +142,10 @@ function SwapSection() {
 
       <div className="right_dashboard">
         <div className="right_container">
-          <PageHeader page_title={"Swap Section"} badge={" GM, Noderr"} profilePic={images.FakePic} />
+          <PageHeader page_title={"Swap Section"} badge={" GM, Noderr"} 
+          // profilePic={images.FakePic} 
+          profilePic={userData?.profilePic ? `${process.env.REACT_APP_NODE_IMG_URL}${userData.profilePic}` :images.FakePic}
+          />
           <div className="flex justify-center items-center">
 
           <iframe

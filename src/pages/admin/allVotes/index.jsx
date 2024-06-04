@@ -11,7 +11,7 @@ import { images } from "../../../images";
 
 
 const AllVotes = () => {
-  const { getAllPools, deletePool, user } = useContext(createApiContext);
+  const { getAllPools, deletePool, user, userData } = useContext(createApiContext);
   const [votes, setVotes] = useState([]);
   const [loading, setLoading] = useState(false);
   const [selectedPool, setSelectedPool] = useState(null);
@@ -80,7 +80,9 @@ const AllVotes = () => {
         <PageHeader
           page_title={"All Votes"}
           badge={" GM, Noderr"}
-          profilePic={images.FakePic}
+          // profilePic={images.FakePic}
+          profilePic={userData?.profilePic? `${process.env.REACT_APP_NODE_IMG_URL}${userData.profilePic}` : images.FakePic}
+
           create={true}
           link={"/dashboard/create-pool"}
         />
