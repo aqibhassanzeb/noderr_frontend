@@ -75,7 +75,7 @@ const Stats_page = () => {
 
           </div>
           <p className="
-          text-lg font-medium text-white
+          text-lg font-medium text-white leading-relaxed
           ">"SAFTEY NOTICE" Best Practices is to Create Secondary Wallet for Node Slots (Private Keys)</p>
           {loadingNodes || loadingProfile ? (
             <NodeLoader skeletonCount={skeletonCount} />
