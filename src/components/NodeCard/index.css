@@ -7,7 +7,7 @@
   column-gap: var(--gap);
   border-radius: var(--dashboard-card-border-radius);
   /* border: 2px solid yellow; */
-  height: 150px;
+  height: auto;
 }
 
 .stats_box.pink {

@@ -207,6 +207,15 @@ const Dashboard = React.memo(() => {
                     <img src={images.billing} alt="support" />
                     <span>Invoice</span>
                   </NavLink>
+
+                  <NavLink
+                    className="menu_item"
+                    to={"edit-profile"}
+                    onClick={() => setShow(!show)}
+                  >
+                    <img src={images.LogoGif} alt="support" />
+                    <span>Profile</span>
+                  </NavLink>
                 </div>
 
                 {user && (

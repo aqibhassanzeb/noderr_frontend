@@ -8,7 +8,7 @@ import PromoLoader from "../../../components/skeletonLoaders/promoLoader";
 import { images } from "../../../images";
 
 const AllPurchaseNodebyUsers = () => {
-  const { getAllPurchaseNodeByAdmin } = useContext(createApiContext);
+  const { getAllPurchaseNodeByAdmin,userData } = useContext(createApiContext);
   const [purchaseNode, setPurchaseNode] = React.useState([]);
   const [loading, setLoading] = React.useState(false);
 
@@ -36,7 +36,9 @@ const AllPurchaseNodebyUsers = () => {
         <PageHeader
           page_title={"All Purchased Nodes by Users"}
           badge={"GM, Noderr"}
-          profilePic={images.FakePic}
+          // profilePic={images.FakePic}
+          profilePic={userData?.profilePic? `${process.env.REACT_APP_NODE_IMG_URL}${userData.profilePic}` : images.FakePic}
+
         />
         {loading ? (
           <PromoLoader skeletonCount={skeletonCount} />

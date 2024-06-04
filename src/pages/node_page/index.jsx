@@ -8,12 +8,12 @@ import { createApiContext } from "../../context/apiContext";
 import NodeLoader from "../../components/skeletonLoaders/nodesLoader";
 
 const Stats_page = () => {
-  const { getAllNodes, getProfileData, user, setAddress } = useContext(createApiContext);
+  const { getAllNodes, getProfileData, user, setAddress, userData } = useContext(createApiContext);
   const [loadingNodes, setLoadingNodes] = useState(true);
   const [loadingProfile, setLoadingProfile] = useState(true);
   const [nodes, setNodes] = React.useState([]);
   const [selectedNode, setSelectedNode] = useState(null);
-  const [userData, setUserData] = useState(null);
+  const [userDataa, setUserDataa] = useState(null);
 
 
   //fetch the data from the api (profile and nodes)
@@ -28,7 +28,7 @@ const Stats_page = () => {
         ]);
         setNodes(nodesResponse);
         if (profileResponse.success) {
-          setUserData(profileResponse.user);
+          setUserDataa(profileResponse.user);
         }
       } catch (error) {
         console.log("Error fetching data", error);
@@ -59,10 +59,10 @@ const Stats_page = () => {
             <div>
               <PageHeader
                 page_title={"Available Node Slots"}
-                profilePic={images.FakePic}
+                profilePic={userData?.profilePic ? `${process.env.REACT_APP_NODE_IMG_URL}${userData.profilePic}` :images.FakePic}
                 badge={
-                  user && userData && userData
-                    ? `Hello ${userData?.name}`
+                  user && userDataa && userDataa
+                    ? `Hello ${userDataa?.name}`
                     : "GM, Noderr"
                 }
               />
