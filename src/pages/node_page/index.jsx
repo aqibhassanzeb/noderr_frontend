@@ -8,13 +8,13 @@ import { createApiContext } from "../../context/apiContext";
 import NodeLoader from "../../components/skeletonLoaders/nodesLoader";
 
 const Stats_page = () => {
-  const { getAllNodes, getProfileData, user, setAddress, userData } = useContext(createApiContext);
+  const { getAllNodes, getProfileData, user, setAddress, userData } =
+    useContext(createApiContext);
   const [loadingNodes, setLoadingNodes] = useState(true);
   const [loadingProfile, setLoadingProfile] = useState(true);
   const [nodes, setNodes] = React.useState([]);
   const [selectedNode, setSelectedNode] = useState(null);
   const [userDataa, setUserDataa] = useState(null);
-
 
   //fetch the data from the api (profile and nodes)
   useEffect(() => {
@@ -59,24 +59,31 @@ const Stats_page = () => {
             <div>
               <PageHeader
                 page_title={"Available Node Slots"}
-                profilePic={userData?.profilePic ? `${process.env.REACT_APP_NODE_IMG_URL}${userData.profilePic}` :images.FakePic}
+                profilePic={
+                  userData?.profilePic
+                    ? `${process.env.REACT_APP_NODE_IMG_URL}${userData.profilePic}`
+                    : images.FakePic
+                }
                 badge={
                   user && userDataa && userDataa
                     ? `Hello ${userDataa?.name}`
                     : "GM, Noderr"
                 }
               />
-
             </div>
 
             <div className="gap-5 pt-4 ">
               <w3m-button size="md" label="Connect Wallet" />
             </div>
-
           </div>
-          <p className="
-          text-lg font-medium text-white leading-relaxed
-          ">"SAFTEY NOTICE" Best Practices is to Create Secondary Wallet for Node Slots (Private Keys)</p>
+          <p
+            className="
+          text-xl font-bold text-red-600 leading-relaxed
+          "
+          >
+            "SAFTEY NOTICE" Best Practices is to Create Secondary Wallet for
+            Node Slots (Private Keys)
+          </p>
           {loadingNodes || loadingProfile ? (
             <NodeLoader skeletonCount={skeletonCount} />
           ) : (

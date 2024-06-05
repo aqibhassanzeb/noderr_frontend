@@ -41,7 +41,7 @@ const ActiveNode = ({ node, isNodeExpired, expiry }) => {
         {/* <p className="content">Duration: {node?.durationMonths} Month</p> */}
         {/* <p className="content">Price: {node?.price}</p> */}
         {node?.promotionDays > 0 && (
-          <p className="content">Expire In: {node?.promotionDays}</p>
+          <p className="content">Expire In: {node?.promotionDays} {`${node?.promotionDays > 1 ? "Days" : "Day"}`} </p>
         )}
         <p className="content">
           Purchased: {node ? formatDate(node?.purchase_date) : "N/A"}

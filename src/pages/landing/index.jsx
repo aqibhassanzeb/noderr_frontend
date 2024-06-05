@@ -9,7 +9,7 @@ import Card from "react-bootstrap/Card";
 import { images } from "../../images";
 import './../../../src/components/css/noderr.webflow.css'
 import dashboardImage from './../../assets/images/Login2.svg'
-
+import NullLink from './../../assets/images/nullwhiteLogo.svg'
 const Landing = () => {
 	const [email, setEmail] = useState("");
 	const { signupForBetaLaunch } = React.useContext(createApiContext);
@@ -58,8 +58,6 @@ const Landing = () => {
 					<div><img src={require("./../../assets/images/Word.png")} alt="noderr logo" className="w-48 " /></div>
 					<div><a href="https://noderr.xyz/dashboard" target="_blank" className="link-block w-inline-block"><img src={dashboardImage} loading="lazy" alt className="image-18 w-16 " /></a></div>
 				</div>
-
-
 			</div>
 
 			<div className="fn-section-off-black">
@@ -84,6 +82,10 @@ const Landing = () => {
 
 						loading="lazy" alt className="image-4" /></a>
 					<a id="w-node-b17628f8-d286-7006-adf0-2bc7c74061aa-ee31794f" href="https://ritual.net/" target="_blank" className="fn-features-card w-inline-block"><img src={require("./../../assets/images/sad.png")} loading="lazy" alt className="image-4" /></a>
+					<a id="w-node-b17628f8-d286-7006-adf0-2bc7c74061aa-ee31794i" href="https://particle.network/" target="_blank" className="fn-features-card w-inline-block"><img src={require("./../../assets/images/logo-top.webp")} loading="lazy" alt className="image-4" /></a>
+					<a id="w-node-b17628f8-d286-7006-adf0-2bc7c74061aa-ee31794j" href="https://www.nulink.org/" target="_blank" className="fn-features-card w-inline-block">
+						<img src={NullLink} loading="lazy" alt className="image-4" />
+					</a>
 				</div>
 			</div>
 

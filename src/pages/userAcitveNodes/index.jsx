@@ -9,10 +9,11 @@ import { images } from "../../images";
 import io from 'socket.io-client';
 
 const UserActiveNode = () => {
-  const { getPurchaseNode, getUserPurchaseNode,userData } = useContext(createApiContext);
+  const { getPurchaseNode, getUserPurchaseNode, userData } = useContext(createApiContext);
   const [activeNodes, setActiveNodes] = useState([]);
   const [loading, setLoading] = useState(false);
   const [expiry, setExpiry] = useState(false);
+  console.log("🚀 ~ UserActiveNode ~ expiry:", expiry)
 
   // const socket = io(process.env.REACT_APP_NODE_ENDPOINT);
 
@@ -60,15 +61,16 @@ const UserActiveNode = () => {
   const skeletonCount = Math.floor(window.innerHeight / 100);
 
   const isNodeExpired = (expiryDate) => {
+    console.log("🚀 ~ isNodeExpired ~ expiryDate:", expiryDate)
     const currentDate = new Date();
-    setExpiry(new Date(expiryDate?.expiryDate) < currentDate)
+    setExpiry(new Date(expiryDate) < currentDate)
 
   };
   return (
     <div className="right_dashboard">
       <div className="right_container">
         <PageHeader page_title={"User active nodes"} badge={"GM, Noderr"}
-          profilePic={userData?.profilePic ? `${process.env.REACT_APP_NODE_IMG_URL}${userData.profilePic}` :images.FakePic} />
+          profilePic={userData?.profilePic ? `${process.env.REACT_APP_NODE_IMG_URL}${userData.profilePic}` : images.FakePic} />
         {loading ? (
           <PromoLoader skeletonCount={skeletonCount} />
         ) : activeNodes?.length > 0 ? (
