@@ -39,7 +39,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./style.css";
 
-const PageHeader = ({ page_title, badge, create, link, profilePic }) => {
+const PageHeader = ({ page_title, badge, create, link, profilePic,firstName, lastName }) => {
   return (
     <>
       <div className="title_container">
@@ -50,6 +50,7 @@ const PageHeader = ({ page_title, badge, create, link, profilePic }) => {
             </div>
             <p style={{ marginLeft: 10, marginTop: 10, fontSize: 18, fontWeight: 'bold' }}>
               {badge}
+              {/* {firstName} {lastName} */}
             </p>
           </span>
           {create && (

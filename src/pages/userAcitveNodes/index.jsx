@@ -67,8 +67,10 @@ const UserActiveNode = () => {
   return (
     <div className="right_dashboard">
       <div className="right_container">
-        <PageHeader page_title={"User active nodes"} badge={"GM, Noderr"}
-          profilePic={userData?.profilePic ? `${process.env.REACT_APP_NODE_IMG_URL}${userData.profilePic}` :images.FakePic} />
+        <PageHeader page_title={"User active nodes"}
+        //  badge={"GM, Noderr"}
+        badge={userData ? `GM, ${userData.firstName} ${userData.lastName}` : "GM, Noderr"}
+                    profilePic={userData?.profilePic ? `${process.env.REACT_APP_NODE_IMG_URL}${userData.profilePic}` :images.FakePic} />
         {loading ? (
           <PromoLoader skeletonCount={skeletonCount} />
         ) : activeNodes?.length > 0 ? (

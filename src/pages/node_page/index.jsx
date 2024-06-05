@@ -60,11 +60,13 @@ const Stats_page = () => {
               <PageHeader
                 page_title={"Available Node Slots"}
                 profilePic={userData?.profilePic ? `${process.env.REACT_APP_NODE_IMG_URL}${userData.profilePic}` :images.FakePic}
-                badge={
-                  user && userDataa && userDataa
-                    ? `Hello ${userDataa?.name}`
-                    : "GM, Noderr"
-                }
+                // badge={
+                //   user && userDataa && userDataa
+                //     ? `Hello ${userDataa?.name}`
+                //     : "GM, Noderr"
+                // }
+          badge={userData ? `GM, ${userData.firstName} ${userData.lastName}` : "GM, Noderr"}
+
               />
             </div>
 

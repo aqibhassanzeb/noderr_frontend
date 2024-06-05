@@ -135,6 +135,7 @@ const AllNodes = () => {
         setLoading(true);
         const response = await getAllNodes();
         setNodes(response);
+        console.log('here is the req data',user)
       } catch (error) {
         console.log("Error fetching nodes", error);
         toast.error(error.message);
@@ -187,7 +188,9 @@ const AllNodes = () => {
       <div className="right_container">
         <PageHeader
           page_title={"All Nodes"}
-          badge={"GM, Noderr"}
+          // badge={"GM, Noderr"}
+          badge={userData ? `GM, ${userData.firstName} ${userData.lastName}` : "GM, Noderr"}
+c
           // profilePic={images.FakePic}
           profilePic={userData?.profilePic? `${process.env.REACT_APP_NODE_IMG_URL}${userData.profilePic}` : images.FakePic}
           
