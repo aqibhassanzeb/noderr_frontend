@@ -6,10 +6,12 @@ import InputContainer from "../InputContainer";
 import { images } from "../../../images";
 import { GrFormClose } from "react-icons/gr";
 import { createApiContext } from "../../../context/apiContext";
+import axios from "axios";
 const UpdateNode = ({ node, onClose, setNodes, setLoading, }) => {
   const { updateNode, getAllNodes } = useContext(createApiContext);
   const [name, setName] = React.useState("");
-  const [price, setPrice] = React.useState("");
+  const [price, setPrice] = React.useState({});
+  console.log("🚀 ~ UpdateNode ~ price:", price)
   const [slots, setSlots] = React.useState("");
   const [bgcolor, setBgcolor] = React.useState("");
   const [image, setImage] = React.useState("");
@@ -63,17 +65,23 @@ const UpdateNode = ({ node, onClose, setNodes, setLoading, }) => {
     }
   };
 
-
   const submitHandler = (e) => {
     e.preventDefault();
     setLoading(true);
-    const formData = new FormData();
-    formData.append("nodeName", name);
-    formData.append("nodePrice", price);
-    formData.append("slots", slots);
-    formData.append("bgColor", bgcolor);
-    formData.append("myFile", image);
-    updateNodeHandler(node._id, formData);
+    const resData = {
+      nodeName: name,
+      nodePrice: price,
+      slots: slots,
+      bgColor: bgcolor,
+    };
+    updateNodeHandler(node._id, resData);
+    // const formData = new FormData();
+    // formData.append("nodeName", name);
+    // formData.append("nodePrice", priceString);
+    // formData.append("slots", slots);
+    // formData.append("bgColor", bgcolor);
+    // formData.append("myFile", image);
+    // updateNodeHandler(node._id, formData);
   };
 
   return (
@@ -98,13 +106,50 @@ const UpdateNode = ({ node, onClose, setNodes, setLoading, }) => {
               onChange={(e) => setName(e.target.value)}
             />
             <InputContainer
-              label={"node price"}
+              label={"node price for 1 month"}
               id={"node_price"}
               type={"text"}
               name="price"
-              value={price}
-              onChange={(e) => setPrice(e.target.value)}
+              value={price.price1}
+              onChange={(e) => setPrice({ ...price, price1: e.target.value })}
             />
+
+            <InputContainer
+              label={"node price for 3 months"}
+              id={"node_price"}
+              type={"text"}
+              name="price"
+              value={price.price3}
+              onChange={(e) => setPrice({ ...price, price3: e.target.value })}
+            />
+
+            <InputContainer
+              label={"node price for 6 months"}
+              id={"node_price"}
+              type={"text"}
+              name="price"
+              value={price.price6}
+              onChange={(e) => setPrice({ ...price, price6: e.target.value })}
+            />
+
+            <InputContainer
+              label={"node price for 12 months"}
+              id={"node_price"}
+              type={"text"}
+              name="price"
+              value={price.price12}
+              onChange={(e) => setPrice({ ...price, price12: e.target.value })}
+            />
+
+            <InputContainer
+              label={"node price for 24 months"}
+              id={"node_price"}
+              type={"text"}
+              name="price"
+              value={price.price24}
+              onChange={(e) => setPrice({ ...price, price24: e.target.value })}
+            />
+
             <InputContainer
               label={"slots"}
               id={"slots"}

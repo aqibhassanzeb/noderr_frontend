@@ -13,7 +13,6 @@ const UserActiveNode = () => {
   const [activeNodes, setActiveNodes] = useState([]);
   const [loading, setLoading] = useState(false);
   const [expiry, setExpiry] = useState(false);
-  console.log("🚀 ~ UserActiveNode ~ expiry:", expiry)
 
   // const socket = io(process.env.REACT_APP_NODE_ENDPOINT);
 
@@ -43,7 +42,6 @@ const UserActiveNode = () => {
   const acitveNodes = async () => {
     setLoading(true);
     const data = await getUserPurchaseNode();
-    console.log("🚀 ~ acitveNodes ~ data:", data)
     if (data.success) {
       setActiveNodes(data.data);
       setLoading(false);
@@ -61,7 +59,6 @@ const UserActiveNode = () => {
   const skeletonCount = Math.floor(window.innerHeight / 100);
 
   const isNodeExpired = (expiryDate) => {
-    console.log("🚀 ~ isNodeExpired ~ expiryDate:", expiryDate)
     const currentDate = new Date();
     setExpiry(new Date(expiryDate) < currentDate)
 

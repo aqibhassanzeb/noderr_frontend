@@ -12,7 +12,7 @@ export const ApiProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [userData, setUserData] = useState(null);
     const [address, setAddress] = useState(null);
-    console.log("user data user data :",userData)
+    console.log("user data user data :", userData)
     // Create axios instance with withCredentials: true option
     const axiosWithCredentials = axios.create({
         withCredentials: true,

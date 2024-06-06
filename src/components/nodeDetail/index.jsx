@@ -36,7 +36,8 @@ const NodeDetail = ({ node, onClose }) => {
 
     // Calculate the total based on the selected tab and node fee
     const nodePrice = node.nodePrice[`price${activeTab}`];
-    const total = nodePrice * activeTab;
+    // const total = nodePrice * activeTab;
+    const total = nodePrice;
     setComputeTotal(total);
 
     // Set duration based on the selected tab
@@ -228,6 +229,25 @@ const NodeDetail = ({ node, onClose }) => {
                 value={rpcUrl}
                 onChange={(e) => setRpcUrl(e.target.value)}
               />
+              <div>
+                {
+                  node?.nodeName === "waku" || node?.nodeName === "fuel" ? (
+                    <a href="https://www.alchemy.com/" target="_blank" className="
+                    text-blue-500
+                    hover:text-blue-700
+                    mt-2
+                    text-sm
+                    font-bold
+                    ">
+                      RPC URL (Sepolia https://www.alchemy.com/)
+                    </a>
+                  ) : (
+                    <>
+                      RPC URL (Base https://www.alchemy.com/)
+                    </>
+                  )
+                }
+              </div>
             </div>
           </div>
           <div className="detail_footer">

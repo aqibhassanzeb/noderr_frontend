@@ -3,7 +3,6 @@ import "./index.css";
 import { formatDate } from "../../../helpler";
 
 const ActiveNode = ({ node, isNodeExpired, expiry }) => {
-  console.log("🚀 ~ ActiveNode ~ node:", node);
 
   React.useEffect(() => {
     isNodeExpired(node?.expiry_date);
