@@ -96,7 +96,7 @@ const Landing = () => {
 						<div id="w-node-_22aaa6c3-d6e7-05e0-eec1-5d107e13b5d4-ee31794f" className="fn-links-wrapper-2">
 							<a href="https://twitter.com/NoderrNoderrxyz?t=ur-xp14gkfRZiduGgzIqVA&s=09" target="_blank" className="w-inline-block"><img src={require("./../../assets/images/2-p-500.png")} loading="lazy" style={{ width: "46px" }} alt srcSet={require("./../../assets/images/2-p-500.png")} className="image-14" /></a>
 
-							<a href="https://discord.com/invite/SaqBPJn3ZA" target="_blank" className="w-inline-block"><img src={require("./../../assets/images/3670325.png")} loading="lazy" style={{ width: "46px" }} alt srcSet={require("./../../assets/images/3670325.png")} className="image-14" /></a>
+							<a href="https://discord.gg/noderr" target="_blank" className="w-inline-block"><img src={require("./../../assets/images/3670325.png")} loading="lazy" style={{ width: "46px" }} alt srcSet={require("./../../assets/images/3670325.png")} className="image-14" /></a>
 							<a href="https://t.me/NoderrSupp" target="_blank" className="w-inline-block"><img style={{ width: "46px" }} src={require("./../../assets/images/telegram-black-icon.webp")} loading="lazy" alt className="image-13" /></a>
 							<a href="https://instagram.com/Noderrxyz" target="_blank" className="w-inline-block"><img src={require("./../../assets/images/1.png")} loading="lazy" style={{ width: "46px" }} alt className="image-14" /></a>
 						</div>

@@ -5,7 +5,7 @@ import { images } from "../../images";
 import { createApiContext } from "../../context/apiContext";
 
 const SupportSection = () => {
-  const {userData } = useContext(createApiContext);
+  const { userData } = useContext(createApiContext);
 
   return (
     <div className="right_dashboard">
@@ -16,7 +16,7 @@ const SupportSection = () => {
           badge={userData ? `GM, ${userData.firstName} ${userData.lastName}` : "GM, Noderr"}
 
           // profilePic={images.FakePic}
-          profilePic={userData?.profilePic? `${process.env.REACT_APP_NODE_IMG_URL}${userData.profilePic}` : images.FakePic}
+          profilePic={userData?.profilePic ? `${process.env.REACT_APP_NODE_IMG_URL}${userData.profilePic}` : images.FakePic}
 
         />
         <div className="text-center">
@@ -34,12 +34,12 @@ const SupportSection = () => {
             border: '1px solid rgba(255, 255, 255, 1)',
           }}>
             <h3 className="text-xl font-semibold text-gray-800 mb-4">FAQs</h3>
-            <p className="text-gray-600 mb-4" style={{color: 'white'}} >
+            <p className="text-gray-600 mb-4" style={{ color: 'white' }} >
               Find answers to common questions.
             </p>
             <Link
               to="/dashboard/faq"
-              className="text-blue-600 hover:text-blue-800" style={{color: '#00b0c9'}}
+              className="text-blue-600 hover:text-blue-800" style={{ color: '#00b0c9' }}
             >
               Read FAQs &rarr;
             </Link>
@@ -56,12 +56,12 @@ const SupportSection = () => {
             <h3 className="text-xl font-semibold text-gray-800 mb-4">
               Contact Us
             </h3>
-            <p className="text-gray-600 mb-4" style={{color: 'white'}}>
+            <p className="text-gray-600 mb-4" style={{ color: 'white' }}>
               Get in touch with our support team.
             </p>
             <Link
               to="/dashboard/contact-us"
-              className="text-blue-600 hover:text-blue-800" style={{color: '#00b0c9'}}
+              className="text-blue-600 hover:text-blue-800" style={{ color: '#00b0c9' }}
             >
               Contact Support &rarr;
             </Link>
@@ -71,19 +71,19 @@ const SupportSection = () => {
           className="
         flex justify-center items-center flex-col mt-8
         "
-        style={{
-          
-        }}
+          style={{
+
+          }}
         >
           <p className="text-lg  mb-8">
             If you need assistance, feel free to join our Discord server:
           </p>
           <a
-            href="https://discord.com/invite/NPdJeDcB"
+            href="https://discord.gg/noderr"
             target="_blank"
             rel="noopener noreferrer"
             className="discord-button flex items-center justify-center bg-[#5865f2] hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
-  // style={{background: 'linear-gradient(90deg, #fda925 0%, rgba(0, 0, 0, 0) 1000%)'}} 
+          // style={{background: 'linear-gradient(90deg, #fda925 0%, rgba(0, 0, 0, 0) 1000%)'}}
           >
             <i className="fab fa-discord mr-2"></i>
             Join our Discord
