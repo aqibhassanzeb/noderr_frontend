@@ -10,7 +10,7 @@ const FAQSection = () => {
   const [openIndexes, setOpenIndexes] = useState([]);
   const [faqData, setFaqData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const { getAllFaq } = useContext(createApiContext);
+  const { getAllFaq, userData } = useContext(createApiContext);
 
   const toggleAnswer = (index) => {
     if (openIndexes.includes(index)) {
@@ -99,8 +99,11 @@ const FAQSection = () => {
         </div>
         <PageHeader
           page_title={"Support"}
-          badge={"GM, Noderr"}
-          profilePic={images.FakePic}
+          // badge={"GM, Noderr"}
+          badge={userData ? `GM, ${userData.firstName} ${userData.lastName}` : "GM, Noderr"}
+          profilePic={userData?.profilePic ? `${process.env.REACT_APP_NODE_IMG_URL}${userData.profilePic}` :images.FakePic}
+
+          // profilePic={images.FakePic}
         />
         <section>
           <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">

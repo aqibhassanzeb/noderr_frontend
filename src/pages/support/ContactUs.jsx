@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
 import emailjs from "@emailjs/browser";
 import PageHeader from "../../components/dashboard/pageHeader/pageHeader";
 import "./contact.css";
@@ -6,8 +6,10 @@ import { toast } from "react-toastify";
 import { images } from "../../images";
 import { IoArrowBackCircle } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
-
-const ContactPage = () => {
+import { createApiContext } from "../../context/apiContext";
+  
+  const ContactPage = () => {
+  const {userData } = useContext(createApiContext);
   const navigate = useNavigate();
   const handleCloseCreate = () => {
     navigate("/dashboard/support");
@@ -55,8 +57,11 @@ const ContactPage = () => {
         </div>
         <PageHeader
           page_title={"Support"}
-          badge={"GM, Noderr"}
-          profilePic={images.FakePic}
+          // badge={"GM, Noderr"}
+          // profilePic={images.FakePic}
+          badge={userData ? `GM, ${userData.firstName} ${userData.lastName}` : "GM, Noderr"}
+          profilePic={userData?.profilePic ? `${process.env.REACT_APP_NODE_IMG_URL}${userData.profilePic}` :images.FakePic}
+
         />
         <section>
           <div className="py-8  px-4 mx-auto max-w-screen-md">
