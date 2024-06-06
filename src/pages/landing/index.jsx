@@ -82,9 +82,9 @@ const Landing = () => {
 
 						loading="lazy" alt className="image-4" /></a>
 					<a id="w-node-b17628f8-d286-7006-adf0-2bc7c74061aa-ee31794f" href="https://ritual.net/" target="_blank" className="fn-features-card w-inline-block"><img src={require("./../../assets/images/sad.png")} loading="lazy" alt className="image-4" /></a>
-					<a id="w-node-b17628f8-d286-7006-adf0-2bc7c74061aa-ee31794i" href="https://particle.network/" target="_blank" className="fn-features-card w-inline-block"><img src={require("./../../assets/images/logo-top.webp")} loading="lazy" alt className="image-4" /></a>
+					<a id="w-node-b17628f8-d286-7006-adf0-2bc7c74061aa-ee31794i" href="https://particle.network/" target="_blank" className="fn-features-card w-inline-block"><img src={require("./../../assets/images/logo-top.webp")} loading="lazy" alt className="image-4 w-auto h-[70px] md:h-[110px] lg:h-auto py-4 my-[18px] px-8 md:px-4 md:py-0 md:my-0" /></a>
 					<a id="w-node-b17628f8-d286-7006-adf0-2bc7c74061aa-ee31794j" href="https://www.nulink.org/" target="_blank" className="fn-features-card w-inline-block">
-						<img src={NullLink} loading="lazy" alt className="image-4" />
+						<img src={NullLink} loading="lazy" alt className="image-4 w-auto h-[70px] md:h-[110px] lg:h-auto py-4 my-[18px] px-8 md:px-4 md:py-0 md:my-0 " />
 					</a>
 				</div>
 			</div>
