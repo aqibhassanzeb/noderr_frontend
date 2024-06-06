@@ -11,6 +11,7 @@ import { AiOutlineLogout } from "react-icons/ai";
 import { useDisconnect } from "wagmi";
 import { LiaExchangeAltSolid } from "react-icons/lia";
 import LogoutConfirmationModal from "../logoutModal";
+import { CgProfile } from "react-icons/cg";
 import { useAccount } from 'wagmi'
 const Footer = React.lazy(() => import('../../components/footer/index'))
 const Dashboard = React.memo(() => {
@@ -213,7 +214,9 @@ const Dashboard = React.memo(() => {
                     to={"edit-profile"}
                     onClick={() => setShow(!show)}
                   >
-                    <img src={images.LogoGif} alt="support" />
+                    {/* <img src={images.LogoGif} alt="support" /> */}
+                    
+                  <CgProfile className="w-[14px] h-4 lg:w-5 lg:h-6" />
                     <span>Profile</span>
                   </NavLink>
                 </div>
