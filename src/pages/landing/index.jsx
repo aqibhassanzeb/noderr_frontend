@@ -63,7 +63,7 @@ const Landing = () => {
 			<div className="fn-section-off-black">
 				<div className="fn-container-grid">
 					<h1 id="w-node-e4c564fd-32ed-5e7c-2d3e-8973152622a5-ee31794f" className="fn-heading-jambo"><span className="fn-span-color-text">Next-Gen Blockchains<br /></span><span className="text-span-4">Effortless Node Deployment</span></h1>
-					<div id="w-node-_5ac2776a-5426-ae9d-fdf9-202a79f9eb70-ee31794f" className="code-embed w-embed w-iframe"><iframe src="https://noderr.mrcrabb.ir/public_html/new-core.html" style={{ border: 'none' }} height="100%" width="100%" allowFullScreen /></div>
+					<div id="w-node-_5ac2776a-5426-ae9d-fdf9-202a79f9eb70-ee31794f" className="code-embed w-embed w-iframe"><iframe src="https://6661832cd7d66003aeb89811--deft-unicorn-90d20a.netlify.app/new-core.html" style={{ border: 'none' }} height="100%" width="100%" allowFullScreen /></div>
 				</div>
 			</div>
 
