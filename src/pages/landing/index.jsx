@@ -7,9 +7,10 @@ import "react-toastify/dist/ReactToastify.css";
 import { createApiContext } from "../../context/apiContext";
 import Card from "react-bootstrap/Card";
 import { images } from "../../images";
-import './../../../src/components/css/noderr.webflow.css'
-import dashboardImage from './../../assets/images/Login2.svg'
-import NullLink from './../../assets/images/nullwhiteLogo.svg'
+import "./../../../src/components/css/noderr.webflow.css";
+import dashboardImage from "./../../assets/images/Login2.svg";
+import NullLink from "./../../assets/images/nullwhiteLogo.svg";
+import { Link, Outlet } from "react-router-dom";
 const Landing = () => {
 	const [email, setEmail] = useState("");
 	const { signupForBetaLaunch } = React.useContext(createApiContext);
@@ -55,54 +56,313 @@ const Landing = () => {
 
 			<div>
 				<div className="flex justify-between items-center px-6 py-2 bg-[#0F1213]">
-					<div><img src={require("./../../assets/images/Word.png")} alt="noderr logo" className="w-48 " /></div>
-					<div><a href="https://noderr.xyz/dashboard" target="_blank" className="link-block w-inline-block"><img src={dashboardImage} loading="lazy" alt className="image-18 w-16 " /></a></div>
+					<div>
+						<img
+							src={require("./../../assets/images/Word.png")}
+							alt="noderr logo"
+							className="w-24 md:w-48 "
+						/>
+					</div>
+
+					<div className="flex items-center justify-end sm:justify-between space-x-4 w-[80%]  md:w-[40%] lg:w-[30%]">
+						<div className=" flex items-center px-4 gap-2 md:gap-10">
+							<div className="">
+								<Link to="/about-us" className="text-[#fda925] text-[10px]  font-bold md:text-lg
+								hover:text-[#edc079]">
+									ABOUT
+								</Link>
+							</div>
+							<div className="">
+								<Link to="/lite-paper" className="text-[#fda925] text-[10px] font-bold md:text-lg
+								hover:text-[#edc079]
+								">LITE PAPER</Link>
+							</div>
+						</div>
+						<a
+							href="https://noderr.xyz/dashboard"
+							target="_blank"
+							className="link-block w-inline-block"
+						>
+							<img
+								src={dashboardImage}
+								loading="lazy"
+								alt
+								className="image-18 w-16 "
+							/>
+						</a>
+					</div>
 				</div>
 			</div>
 
 			<div className="fn-section-off-black">
 				<div className="fn-container-grid">
-					<h1 id="w-node-e4c564fd-32ed-5e7c-2d3e-8973152622a5-ee31794f" className="fn-heading-jambo"><span className="fn-span-color-text">Next-Gen Blockchains<br /></span><span className="text-span-4">Effortless Node Deployment</span></h1>
-					<div id="w-node-_5ac2776a-5426-ae9d-fdf9-202a79f9eb70-ee31794f" className="code-embed w-embed w-iframe"><iframe src="https://6661832cd7d66003aeb89811--deft-unicorn-90d20a.netlify.app/new-core.html" style={{ border: 'none' }} height="100%" width="100%" allowFullScreen /></div>
+					<h1
+						id="w-node-e4c564fd-32ed-5e7c-2d3e-8973152622a5-ee31794f"
+						className="fn-heading-jambo"
+					>
+						<span className="fn-span-color-text">
+							Next-Gen Blockchains
+							<br />
+						</span>
+						<span className="text-span-4">Effortless Node Deployment</span>
+					</h1>
+					<div
+						id="w-node-_5ac2776a-5426-ae9d-fdf9-202a79f9eb70-ee31794f"
+						className="code-embed w-embed w-iframe"
+					>
+						<iframe
+							src="https://6661832cd7d66003aeb89811--deft-unicorn-90d20a.netlify.app/new-core.html"
+							style={{ border: "none" }}
+							height="100%"
+							width="100%"
+							allowFullScreen
+						/>
+					</div>
 				</div>
 			</div>
 
 			<div className="fn-section">
 				<div className="fn-container-grid">
-					<div id="w-node-_857f3205-0075-a36a-595d-f2211025a53b-ee31794f" className="div-block-3">
-						<h2 id="w-node-_857f3205-0075-a36a-595d-f2211025a53c-ee31794f" className="heading-2">Active Developments</h2>
+					<div
+						id="w-node-_857f3205-0075-a36a-595d-f2211025a53b-ee31794f"
+						className="div-block-3"
+					>
+						<h2
+							id="w-node-_857f3205-0075-a36a-595d-f2211025a53c-ee31794f"
+							className="heading-2"
+						>
+							Active Developments
+						</h2>
 					</div>
-					<a id="w-node-_857f3205-0075-a36a-595d-f2211025a540-ee31794f" href="http://www.allora.network" target="_blank" className="fn-features-card w-inline-block"><img src={require("./../../assets/images/Untitled-design-19.png")} loading="lazy" alt className="image-3" /></a>
-					<a id="w-node-_857f3205-0075-a36a-595d-f2211025a54a-ee31794f" href="http://waku.org" target="_blank" className="fn-features-card w-inline-block"><img src={require("./../../assets/images/Untitled-design-18.png")} loading="lazy" sizes="(max-width: 479px) 86vw, 100vw" alt className="image-2" /></a>
-					<a id="w-node-_857f3205-0075-a36a-595d-f2211025a554-ee31794f" href="http://fuel.network" target="_blank" className="fn-features-card w-inline-block"><img src={require("./../../assets/images/Untitled-design-20.png")} loading="lazy" alt className="image" /></a>
-					<a id="w-node-_857f3205-0075-a36a-595d-f2211025a55e-ee31794f" href="http://wardenprotocol.org" target="_blank" className="fn-features-card w-inline-block"><img src={require("./../../assets/images/Untitled-750-x-250-px.png")} loading="lazy" alt className="image-4" /></a>
-					<a id="w-node-_28a941e5-85f9-17fe-030a-67211cf7504c-ee31794f" href="http://0g.ai" target="_blank" className="fn-features-card w-inline-block"><img
-
-						src={require("./../../assets/images/Untitled-750-x-250-px-1.png")}
-
-						loading="lazy" alt className="image-4" /></a>
-					<a id="w-node-b17628f8-d286-7006-adf0-2bc7c74061aa-ee31794f" href="https://ritual.net/" target="_blank" className="fn-features-card w-inline-block"><img src={require("./../../assets/images/sad.png")} loading="lazy" alt className="image-4" /></a>
-					<a id="w-node-b17628f8-d286-7006-adf0-2bc7c74061aa-ee31794i" href="https://particle.network/" target="_blank" className="fn-features-card w-inline-block"><img src={require("./../../assets/images/logo-top.webp")} loading="lazy" alt className="image-4 w-auto h-[70px] md:h-[110px] lg:h-auto py-4 my-[18px] px-8 md:px-4 md:py-0 md:my-0" /></a>
-					<a id="w-node-b17628f8-d286-7006-adf0-2bc7c74061aa-ee31794j" href="https://www.nulink.org/" target="_blank" className="fn-features-card w-inline-block">
-						<img src={NullLink} loading="lazy" alt className="image-4 w-auto h-[70px] md:h-[110px] lg:h-auto py-4 my-[18px] px-8 md:px-4 md:py-0 md:my-0 " />
+					<a
+						id="w-node-_857f3205-0075-a36a-595d-f2211025a540-ee31794f"
+						href="http://www.allora.network"
+						target="_blank"
+						className="fn-features-card w-inline-block"
+					>
+						<img
+							src={require("./../../assets/images/Untitled-design-19.png")}
+							loading="lazy"
+							alt
+							className="image-3"
+						/>
+					</a>
+					<a
+						id="w-node-_857f3205-0075-a36a-595d-f2211025a54a-ee31794f"
+						href="http://waku.org"
+						target="_blank"
+						className="fn-features-card w-inline-block"
+					>
+						<img
+							src={require("./../../assets/images/Untitled-design-18.png")}
+							loading="lazy"
+							sizes="(max-width: 479px) 86vw, 100vw"
+							alt
+							className="image-2"
+						/>
+					</a>
+					<a
+						id="w-node-_857f3205-0075-a36a-595d-f2211025a554-ee31794f"
+						href="http://fuel.network"
+						target="_blank"
+						className="fn-features-card w-inline-block"
+					>
+						<img
+							src={require("./../../assets/images/Untitled-design-20.png")}
+							loading="lazy"
+							alt
+							className="image"
+						/>
+					</a>
+					<a
+						id="w-node-_857f3205-0075-a36a-595d-f2211025a55e-ee31794f"
+						href="http://wardenprotocol.org"
+						target="_blank"
+						className="fn-features-card w-inline-block"
+					>
+						<img
+							src={require("./../../assets/images/Untitled-750-x-250-px.png")}
+							loading="lazy"
+							alt
+							className="image-4"
+						/>
+					</a>
+					<a
+						id="w-node-_28a941e5-85f9-17fe-030a-67211cf7504c-ee31794f"
+						href="http://0g.ai"
+						target="_blank"
+						className="fn-features-card w-inline-block"
+					>
+						<img
+							src={require("./../../assets/images/Untitled-750-x-250-px-1.png")}
+							loading="lazy"
+							alt
+							className="image-4"
+						/>
+					</a>
+					<a
+						id="w-node-b17628f8-d286-7006-adf0-2bc7c74061aa-ee31794f"
+						href="https://ritual.net/"
+						target="_blank"
+						className="fn-features-card w-inline-block"
+					>
+						<img
+							src={require("./../../assets/images/sad.png")}
+							loading="lazy"
+							alt
+							className="image-4"
+						/>
+					</a>
+					<a
+						id="w-node-b17628f8-d286-7006-adf0-2bc7c74061aa-ee31794i"
+						href="https://particle.network/"
+						target="_blank"
+						className="fn-features-card w-inline-block"
+					>
+						<img
+							src={require("./../../assets/images/logo-top.webp")}
+							loading="lazy"
+							alt
+							className="image-4 w-auto h-[70px] md:h-[110px] lg:h-auto py-4 my-[18px] px-8 md:px-4 md:py-0 md:my-0"
+						/>
+					</a>
+					<a
+						id="w-node-b17628f8-d286-7006-adf0-2bc7c74061aa-ee31794j"
+						href="https://www.nulink.org/"
+						target="_blank"
+						className="fn-features-card w-inline-block"
+					>
+						<img
+							src={NullLink}
+							loading="lazy"
+							alt
+							className="image-4 w-auto h-[70px] md:h-[110px] lg:h-auto py-4 my-[18px] px-8 md:px-4 md:py-0 md:my-0 "
+						/>
 					</a>
 				</div>
 			</div>
 
 			<div className="fn-footer-advence-2">
 				<div className="fn-container-grid-4">
-					<div id="w-node-_22aaa6c3-d6e7-05e0-eec1-5d107e13b5d1-ee31794f" className="fn-footer-wrapper-2">
-						<h2 id="w-node-_22aaa6c3-d6e7-05e0-eec1-5d107e13b5d2-ee31794f" className="fn-heading-7">Noderr simplifies the world of blockchain, making nodes accessible to everyone. With effortless deployment, you can unlock exclusive early adopter rewards through our cutting-edge decentralized AI Mesh-work Dashboard.<br /></h2>
-						<div id="w-node-_22aaa6c3-d6e7-05e0-eec1-5d107e13b5d4-ee31794f" className="fn-links-wrapper-2">
-							<a href="https://twitter.com/NoderrNoderrxyz?t=ur-xp14gkfRZiduGgzIqVA&s=09" target="_blank" className="w-inline-block"><img src={require("./../../assets/images/2-p-500.png")} loading="lazy" style={{ width: "46px" }} alt srcSet={require("./../../assets/images/2-p-500.png")} className="image-14" /></a>
+					<div
+						id="w-node-_22aaa6c3-d6e7-05e0-eec1-5d107e13b5d1-ee31794f"
+						className="fn-footer-wrapper-2"
+					>
+						<h2
+							id="w-node-_22aaa6c3-d6e7-05e0-eec1-5d107e13b5d2-ee31794f"
+							className="fn-heading-7"
+						>
+							Noderr simplifies the world of blockchain, making nodes accessible
+							to everyone. With effortless deployment, you can unlock exclusive
+							early adopter rewards through our cutting-edge decentralized AI
+							Mesh-work Dashboard.
+							<br />
+						</h2>
+						<div
+							id="w-node-_22aaa6c3-d6e7-05e0-eec1-5d107e13b5d4-ee31794f"
+							className="fn-links-wrapper-2"
+						>
+							<a
+								href="https://twitter.com/NoderrNoderrxyz?t=ur-xp14gkfRZiduGgzIqVA&s=09"
+								target="_blank"
+								className="w-inline-block"
+							>
+								<img
+									src={require("./../../assets/images/2-p-500.png")}
+									loading="lazy"
+									style={{ width: "46px" }}
+									alt
+									srcSet={require("./../../assets/images/2-p-500.png")}
+									className="image-14"
+								/>
+							</a>
 
-							<a href="https://discord.gg/noderr" target="_blank" className="w-inline-block"><img src={require("./../../assets/images/3670325.png")} loading="lazy" style={{ width: "46px" }} alt srcSet={require("./../../assets/images/3670325.png")} className="image-14" /></a>
-							<a href="https://t.me/NoderrSupp" target="_blank" className="w-inline-block"><img style={{ width: "46px" }} src={require("./../../assets/images/telegram-black-icon.webp")} loading="lazy" alt className="image-13" /></a>
-							<a href="https://instagram.com/Noderrxyz" target="_blank" className="w-inline-block"><img src={require("./../../assets/images/1.png")} loading="lazy" style={{ width: "46px" }} alt className="image-14" /></a>
+							<a
+								href="https://discord.gg/noderr"
+								target="_blank"
+								className="w-inline-block"
+							>
+								<img
+									src={require("./../../assets/images/3670325.png")}
+									loading="lazy"
+									style={{ width: "46px" }}
+									alt
+									srcSet={require("./../../assets/images/3670325.png")}
+									className="image-14"
+								/>
+							</a>
+							<a
+								href="https://t.me/NoderrSupp"
+								target="_blank"
+								className="w-inline-block"
+							>
+								<img
+									style={{ width: "46px" }}
+									src={require("./../../assets/images/telegram-black-icon.webp")}
+									loading="lazy"
+									alt
+									className="image-13"
+								/>
+							</a>
+							<a
+								href="https://instagram.com/Noderrxyz"
+								target="_blank"
+								className="w-inline-block"
+							>
+								<img
+									src={require("./../../assets/images/1.png")}
+									loading="lazy"
+									style={{ width: "46px" }}
+									alt
+									className="image-14"
+								/>
+							</a>
 						</div>
-						<div id="w-node-_22aaa6c3-d6e7-05e0-eec1-5d107e13b5e9-ee31794f" className="fn-footer-form-2 w-form">
-							<form id="wf-form-Newslatter-Form" name="wf-form-Newslatter-Form" data-name="Newslatter Form" method="get" className="fn-footer-form-wrapper-2" data-wf-page-id="662f95d496436c37ee31794f" data-wf-element-id="22aaa6c3-d6e7-05e0-eec1-5d107e13b5ea"><label htmlFor="Email-Newslatter-2" id="w-node-_22aaa6c3-d6e7-05e0-eec1-5d107e13b5eb-ee31794f" className="form-label-dark-2">Subscribe to our Newsletter</label><input className="fn-field-dark-2 w-node-_22aaa6c3-d6e7-05e0-eec1-5d107e13b5ed-ee31794f w-input" maxLength={256} name="Email-Newslatter-2" data-name="Email Newslatter 2" placeholder="Your Email " type="email" id="Email-Newslatter-2" required />
-								<button type="button" id="w-node-_22aaa6c3-d6e7-05e0-eec1-5d107e13b5ee-ee31794f" className="fn-button-dark-form-2 w-button">Subscribe</button>
+						<div
+							id="w-node-_22aaa6c3-d6e7-05e0-eec1-5d107e13b5e9-ee31794f"
+							className="fn-footer-form-2 w-form"
+						>
+							<form
+								id="wf-form-Newslatter-Form"
+								name="wf-form-Newslatter-Form"
+								data-name="Newslatter Form"
+								method="get"
+								className="fn-footer-form-wrapper-2"
+								data-wf-page-id="662f95d496436c37ee31794f"
+								data-wf-element-id="22aaa6c3-d6e7-05e0-eec1-5d107e13b5ea"
+							>
+								<label
+									htmlFor="Email-Newslatter-2"
+									id="w-node-_22aaa6c3-d6e7-05e0-eec1-5d107e13b5eb-ee31794f"
+									className="form-label-dark-2"
+								>
+									Subscribe to our Newsletter
+								</label>
+								<input
+									className="fn-field-dark-2 w-node-_22aaa6c3-d6e7-05e0-eec1-5d107e13b5ed-ee31794f w-input"
+									maxLength={256}
+									name="Email-Newslatter-2"
+									data-name="Email Newslatter 2"
+									placeholder="Your Email "
+									type="email"
+									id="Email-Newslatter-2"
+									required
+									value={email}
+									onChange={(e) => {
+										setEmail(e.target.value);
+									}}
+								/>
+								<button
+									type="button"
+									id="w-node-_22aaa6c3-d6e7-05e0-eec1-5d107e13b5ee-ee31794f"
+									className="fn-button-dark-form-2 w-button"
+									onClick={() => {
+										handleSubmit();
+									}
+									}
+								>
+									Subscribe
+								</button>
 								{/* <input type="submit" data-wait="Please wait..." id="w-node-_22aaa6c3-d6e7-05e0-eec1-5d107e13b5ee-ee31794f" className="fn-button-dark-form-2 w-button" defaultValue="Subscribe" /> */}
 							</form>
 							{/* <div className="fn-success-message-2 w-form-done">
@@ -111,14 +371,44 @@ const Landing = () => {
 							<div className="fn-error-message-2 w-form-fail">
 								<div>Something went wrong, check the validity of your information.</div>
 							</div> */}
-						</div><img className="image-17" src={require("./../../assets/images/Noder.png")} alt="noderr stretched" sizes="100vw" id="w-node-_22aaa6c3-d6e7-05e0-eec1-5d107e13b5f5-ee31794f" loading="lazy" srcSet={require("./../../assets/images/Noder.png")} />
+						</div>
+						<img
+							className="image-17"
+							src={require("./../../assets/images/Noder.png")}
+							alt="noderr stretched"
+							sizes="100vw"
+							id="w-node-_22aaa6c3-d6e7-05e0-eec1-5d107e13b5f5-ee31794f"
+							loading="lazy"
+							srcSet={require("./../../assets/images/Noder.png")}
+						/>
 					</div>
-					<div id="w-node-_22aaa6c3-d6e7-05e0-eec1-5d107e13b5f6-ee31794f" className="fn-legal-links-wrapper-2">
-						<a href="http://noderr.xyz/privacy-policy" target="_blank" className="fn-footer-legal-link-2">Privacy Policy</a>
-						<a href="http://noderr.xyz/term-of-use" target="_blank" className="fn-footer-legal-link-2">Terms &amp; Conditions</a>
+					<div
+						id="w-node-_22aaa6c3-d6e7-05e0-eec1-5d107e13b5f6-ee31794f"
+						className="fn-legal-links-wrapper-2"
+					>
+						<a
+							href="http://noderr.xyz/privacy-policy"
+							target="_blank"
+							className="fn-footer-legal-link-2"
+						>
+							Privacy Policy
+						</a>
+						<a
+							href="http://noderr.xyz/term-of-use"
+							target="_blank"
+							className="fn-footer-legal-link-2"
+						>
+							Terms &amp; Conditions
+						</a>
 					</div>
-					<div id="w-node-_22aaa6c3-d6e7-05e0-eec1-5d107e13b5fd-ee31794f" className="fn-footer-copyright-2">NODERR, 2024</div>
+					<div
+						id="w-node-_22aaa6c3-d6e7-05e0-eec1-5d107e13b5fd-ee31794f"
+						className="fn-footer-copyright-2"
+					>
+						NODERR, 2024
+					</div>
 				</div>
+				<Outlet />
 			</div>
 
 			{/* <iframe src="https://noderr.webflow.io/"
@@ -132,7 +422,6 @@ const Landing = () => {
 				frame-ancestors="none"
 			>
 			</iframe> */}
-
 		</>
 		// <div className="landing_page">
 		// 	<Header />

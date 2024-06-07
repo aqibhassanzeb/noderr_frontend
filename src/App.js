@@ -21,6 +21,8 @@ import PrivacyPolicy from "./pages/privacy-policy";
 import TermsAndCondition from "./pages/terms-and-condition";
 import ContactPage from "./pages/support/ContactUs";
 import LoadingModal from "./components/ApiLoader";
+import AboutUs from "./components/aboutus/About";
+import LitePaper from "./components/litePaper/LitePaper";
 
 const Home = React.lazy(() => import("./pages/home"));
 const Dashboard = React.lazy(() => import("./pages/dashboard"));
@@ -45,6 +47,14 @@ const router = createBrowserRouter([
 	{
 		path: "terms-and-conditions",
 		element: <TermsAndCondition />,
+	},
+	{
+		path: "about-us",
+		element: <AboutUs />,
+	},
+	{
+		path: "lite-paper",
+		element: <LitePaper />,
 	},
 	{
 		path: "dashboard",
