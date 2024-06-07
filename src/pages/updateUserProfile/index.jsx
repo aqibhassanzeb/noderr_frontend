@@ -588,7 +588,7 @@ const UpdateUserProfile = () => {
       console.log("updated user data in update profile data:", data);
       toast.success("Profile updated successfully");
       setLoading(false);
-      // navigate("/dashboard");
+      navigate("/dashboard");
     } else if (data.response.data.message) {
       toast.error(data.response.data.message);
       setLoading(false);
