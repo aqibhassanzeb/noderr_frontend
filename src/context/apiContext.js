@@ -35,6 +35,7 @@ export const ApiProvider = ({ children }) => {
         try {
             const { data } = await axiosWithCredentials.post(
                 "https://beta-email-noderr-production.up.railway.app/api/v1/create-beta-email",
+                // `${node}/user/signup-for-beta`,
                 email
             );
             return data;
