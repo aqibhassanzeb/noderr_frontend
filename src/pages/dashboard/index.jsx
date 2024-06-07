@@ -2,7 +2,7 @@ import React, { Suspense, useEffect } from "react";
 import "./index.css";
 import { IoCloseCircleOutline } from "react-icons/io5";
 import { images } from "../../images";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { createApiContext } from "../../context/apiContext";
 import { toast } from "react-toastify";
@@ -29,6 +29,8 @@ const Dashboard = React.memo(() => {
   const [show, setShow] = React.useState(true);
   const [loading, setLoading] = React.useState(false);
   const [showLogoutModal, setShowLogoutModal] = React.useState(false);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -86,6 +88,7 @@ const Dashboard = React.memo(() => {
         setUserData(null);
         toast.success(data.message.toLowerCase());
         disconnect();
+        navigate("/dashboard");
       } else if (data.response?.data?.message) {
         toast.error(data.response.data.message);
       }
@@ -215,8 +218,8 @@ const Dashboard = React.memo(() => {
                     onClick={() => setShow(!show)}
                   >
                     {/* <img src={images.LogoGif} alt="support" /> */}
-                    
-                  <CgProfile className="w-[14px] h-4 lg:w-5 lg:h-6" />
+
+                    <CgProfile className="w-[14px] h-4 lg:w-5 lg:h-6" />
                     <span>Profile</span>
                   </NavLink>
                 </div>
