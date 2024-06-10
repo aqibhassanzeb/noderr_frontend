@@ -86,7 +86,7 @@ const AboutUs = () => {
           <h2 className="text-2xl font-semibold mb-4">Conclusion</h2>
           <p>Noderr is more than just a project; it's a vision for the future of decentralized computing. By fostering a vibrant and supportive community, we enhance user experience and put hard-earned dollars back into users' pockets. Join us in supporting the backbone of blockchain networks and reducing costs for everyone involved. Together, let's redefine the possibilities of decentralized infrastructure.</p>
           <p className="mt-4">As decentralized technologies evolve, platforms like Noderr will shape their future. By making decentralized infrastructure more accessible and efficient, Noderr is paving the way for a more secure, transparent, and interconnected digital world.</p>
-          <p className="mt-4">For more information on how Noderr is transforming decentralized infrastructure, <a href="mailto:contact@noderr.xyz" className="text-blue-500 underline">Contact us</a>.</p>
+          <p className="mt-4">For more information on how Noderr is transforming decentralized infrastructure, <a href="noderrsupport.dutiful198@passmail.net" className="text-blue-500 underline">Contact us</a>.</p>
         </section>
       </div>
     </div>

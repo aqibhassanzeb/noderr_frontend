@@ -519,7 +519,7 @@ const LitePaper = () => {
           landscape.
         </p>
         <p className="mb-4">
-          By creatively harnessing surplus resources, such as excess RAM, Noderr
+          By creatively harnessing surplus resources, Noderr
           optimizes network performance and unlocks new capabilities, benefiting
           both the organization and the broader community. Noderr is more than
           just a project; it’s a vision for the future of decentralized computing.
@@ -527,7 +527,9 @@ const LitePaper = () => {
           costs for everyone involved. Together, let’s redefine the possibilities
           of decentralized infrastructure. For more information on how Noderr is
           transforming decentralized infrastructure,{" "}
-          <span className="font-bold">Contact Us</span>.
+          <a href="mailto:noderrsupport.dutiful198@passmail.net">
+            <span className="font-bold">Contact Us</span>.
+          </a>
         </p>
       </div>
     </div>
