@@ -111,7 +111,8 @@ const Landing = () => {
 						className="code-embed w-embed w-iframe"
 					>
 						<iframe
-							src="https://6661832cd7d66003aeb89811--deft-unicorn-90d20a.netlify.app/new-core.html"
+							// src="https://6661832cd7d66003aeb89811--deft-unicorn-90d20a.netlify.app/new-core.html"
+							src="https://6667f4292425d1b2bcff60ed--rococo-squirrel-0b769d.netlify.app/new-core.html"
 							style={{ border: "none" }}
 							height="100%"
 							width="100%"
@@ -136,12 +137,12 @@ const Landing = () => {
 					</div>
 					<a
 						id="w-node-_857f3205-0075-a36a-595d-f2211025a540-ee31794f"
-						href="http://www.allora.network"
+						href="https://www.nubit.org/"
 						target="_blank"
 						className="fn-features-card w-inline-block"
 					>
 						<img
-							src={require("./../../assets/images/Untitled-design-19.png")}
+							src={require("./../../assets/images/nubit.png")}
 							loading="lazy"
 							alt
 							className="image-3"
@@ -149,12 +150,12 @@ const Landing = () => {
 					</a>
 					<a
 						id="w-node-_857f3205-0075-a36a-595d-f2211025a54a-ee31794f"
-						href="http://waku.org"
+						href="http://www.allora.network"
 						target="_blank"
 						className="fn-features-card w-inline-block"
 					>
 						<img
-							src={require("./../../assets/images/Untitled-design-18.png")}
+							src={require("./../../assets/images/Untitled-design-19.png")}
 							loading="lazy"
 							sizes="(max-width: 479px) 86vw, 100vw"
 							alt
@@ -163,12 +164,12 @@ const Landing = () => {
 					</a>
 					<a
 						id="w-node-_857f3205-0075-a36a-595d-f2211025a554-ee31794f"
-						href="http://fuel.network"
+						href="http://waku.org"
 						target="_blank"
 						className="fn-features-card w-inline-block"
 					>
 						<img
-							src={require("./../../assets/images/Untitled-design-20.png")}
+							src={require("./../../assets/images/Untitled-design-18.png")}
 							loading="lazy"
 							alt
 							className="image"
@@ -176,6 +177,19 @@ const Landing = () => {
 					</a>
 					<a
 						id="w-node-_857f3205-0075-a36a-595d-f2211025a55e-ee31794f"
+						href="http://fuel.network "
+						target="_blank"
+						className="fn-features-card w-inline-block"
+					>
+						<img
+							src={require("./../../assets/images/Untitled-design-20.png")}
+							loading="lazy"
+							alt
+							className="image-4"
+						/>
+					</a>
+					<a
+						id="w-node-_28a941e5-85f9-17fe-030a-67211cf7504c-ee31794f"
 						href="http://wardenprotocol.org"
 						target="_blank"
 						className="fn-features-card w-inline-block"
@@ -188,7 +202,7 @@ const Landing = () => {
 						/>
 					</a>
 					<a
-						id="w-node-_28a941e5-85f9-17fe-030a-67211cf7504c-ee31794f"
+						id="w-node-b17628f8-d286-7006-adf0-2bc7c74061aa-ee31794f"
 						href="http://0g.ai"
 						target="_blank"
 						className="fn-features-card w-inline-block"
@@ -201,8 +215,8 @@ const Landing = () => {
 						/>
 					</a>
 					<a
-						id="w-node-b17628f8-d286-7006-adf0-2bc7c74061aa-ee31794f"
-						href="https://ritual.net/"
+						id="w-node-b17628f8-d286-7006-adf0-2bc7c74061aa-ee31794i"
+						href="https://ritual.net/ "
 						target="_blank"
 						className="fn-features-card w-inline-block"
 					>
@@ -210,33 +224,35 @@ const Landing = () => {
 							src={require("./../../assets/images/sad.png")}
 							loading="lazy"
 							alt
-							className="image-4"
-						/>
-					</a>
-					<a
-						id="w-node-b17628f8-d286-7006-adf0-2bc7c74061aa-ee31794i"
-						href="https://particle.network/"
-						target="_blank"
-						className="fn-features-card w-inline-block"
-					>
-						<img
-							src={require("./../../assets/images/logo-top.webp")}
-							loading="lazy"
-							alt
 							className="image-4 w-auto h-[70px] md:h-[110px] lg:h-auto py-4 my-[18px] px-8 md:px-4 md:py-0 md:my-0"
 						/>
 					</a>
 					<a
 						id="w-node-b17628f8-d286-7006-adf0-2bc7c74061aa-ee31794j"
+						href="https://particle.network/"
+						target="_blank"
+						className="fn-features-card w-inline-block"
+					>
+						<img
+							// src={NullLink} 
+							src={require("./../../assets/images/logo-top.webp")}
+							loading="lazy"
+							alt
+							className="image-4 w-auto h-[70px] md:h-[110px] lg:h-auto py-4 my-[18px] px-8 md:px-4 md:py-0 md:my-0 "
+						/>
+					</a>
+					<a
+						id="w-node-b17628f8-d286-7006-adf0-2bc7c74061aa-ee31794k"
 						href="https://www.nulink.org/"
 						target="_blank"
 						className="fn-features-card w-inline-block"
 					>
 						<img
-							src={NullLink}
+							src={NullLink} 
+							// src={require("./../../assets/images/logo-top.webp")}
 							loading="lazy"
 							alt
-							className="image-4 w-auto h-[70px] md:h-[110px] lg:h-auto py-4 my-[18px] px-8 md:px-4 md:py-0 md:my-0 "
+							className="image-4 w-auto h-[70px] md:h-[110px] lg:h-auto py-4 my-[18px] px-8 md:px-4 md:py-2 md:my-0 "
 						/>
 					</a>
 				</div>
