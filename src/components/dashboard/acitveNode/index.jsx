@@ -28,15 +28,28 @@ const ActiveNode = ({ node, isNodeExpired, expiry }) => {
       </div>
       <div className="active_node-content">
         <h3 className="active_node-title">{node?.node_type}</h3>
-        <p
-          className="text-lg font-medium cursor-pointer border-b">
+        {/* <p
+          className=" rounded flex justify-center bg-gray-500 text-lg font-medium cursor-pointer ">
           <a
             href={`http://${node?.vm_ip}:3000/d/yns_4vFVk/nwaku-monitoring?orgId=1&refresh=1m`}
             target="_blank"
           >
             Click here to view monitoring
           </a>
-        </p>
+        </p> */}
+        <button
+  className="rounded flex justify-center py-1 bg-gray-500 text-lg font-medium cursor-not-allowed"
+  disabled
+>
+  <a
+    href={`http://${node?.vm_ip}:3000/d/yns_4vFVk/nwaku-monitoring?orgId=1&refresh=1m`}
+    target="_blank"
+    className="pointer-events-none"
+  >
+    Click here to view monitoring
+  </a>
+</button>
+
         {/* <p className="content">Duration: {node?.durationMonths} Month</p> */}
         {/* <p className="content">Price: {node?.price}</p> */}
         {node?.promotionDays > 0 && (

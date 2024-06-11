@@ -112,111 +112,52 @@ const NodeDetail = ({ node, onClose }) => {
     }
   };
 
+
   const purchaseWithPromoCode = async () => {
     setLoading(true);
-
-    const data = [
-      {
-        durationMonths: duration,
-        price: computeTotal,
-      },
-    ];
-
     try {
       const checkNode = await checkNodeBeforePurchase(node?.nodeName);
-
-      if (!checkNode?.success) {
-        handleError(checkNode?.message);
-        return;
+      if (checkNode?.success) {
+        const res = await purchaseNodeWithPromoCode(
+          node?._id,
+          promoCode,
+          computeTotal,
+          node?.nodeName,
+          privateKey,
+          rpcUrl,
+          duration
+        );
+        if (res?.success) {
+          toast.success(res.message);
+          onClose();
+          setLoading(false);
+          toast.success("Node is syncing. Please wait for a few Seconds", {
+            theme: "colored"
+          });
+        } else if (!res?.success) {
+          toast.error(res?.message, {
+            theme: "colored"
+          });
+          setLoading(false);
+          onClose();
+        } else {
+          toast.error(res?.response?.data?.message);
+          setLoading(false);
+          onClose();
+        }
+      } else {
+        setLoading(false);
+        toast.error(checkNode?.message, {
+          theme: "colored",
+        });
+        return console.error(checkNode?.message);
       }
-
-      const res = await purchaseNodeWithPromoCode(
-        node?._id,
-        promoCode,
-        computeTotal,
-        node?.nodeName,
-        privateKey,
-        rpcUrl,
-        duration
-      );
-
-      handleResponse(res);
     } catch (error) {
-      handleError("Failed to purchase node. Please try again later.", error);
-    } finally {
+      console.error(error);
       setLoading(false);
+      toast.error("Failed to purchase node. Please try again later.");
     }
   };
-
-  const handleResponse = (response) => {
-    if (response.success !== false) {
-      toast.success(response.message);
-      onClose();
-      // setTimeout(() => {
-      //   toast.success("Node is syncing. Please wait for a few seconds.", {
-      //     theme: "colored",
-      //   });
-      // }, 5000);
-
-    } else if (response?.success === false) {
-      toast.error(response?.message || "An error occurred.", {
-        theme: "colored",
-      });
-      onClose();
-    }
-  };
-
-  const handleError = (message, error) => {
-    toast.error(message || "An error occurred.", { theme: "colored" });
-    console.error(message, error);
-  };
-
-  // const purchaseWithPromoCode = async () => {
-  //   setLoading(true);
-  //   const data = [
-  //     {
-  //       durationMonths: duration,
-  //       price: computeTotal,
-  //     },
-  //   ];
-  //   try {
-  //     // const availCode = await availPromoCode({ code: promoCode });
-  //     // if (availCode?.success) {
-  //     const checkNode = await checkNodeBeforePurchase(node?.nodeName);
-  //     if (checkNode?.success) {
-  //       const res = await purchaseNodeWithPromoCode(
-  //         node?._id,
-  //         promoCode,
-  //         computeTotal,
-  //         node?.nodeName,
-  //         privateKey,
-  //         rpcUrl,
-  //         duration
-  //       );
-  //       console.log("🚀 ~ purchaseWithPromoCode ~ res:", res)
-
-  //       if (res?.success) {
-  //         toast.success(res.message);
-  //         onClose();
-  //         setLoading(false);
-  //       } else {
-  //         toast.error(res?.response?.data?.message);
-  //         setLoading(false);
-  //         onClose();
-  //       }
-  //     } else {
-  //       setLoading(false);
-  //       toast.error(checkNode?.message, {
-  //         theme: "colored",
-  //       });
-  //       return console.error(checkNode?.message);
-  //     }
-  //   } catch (error) {
-  //     console.error(error);
-  //     setLoading(false);
-  //     toast.error("Failed to purchase node. Please try again later.");
-  //   }
-  // };
 
   return (
     <>
@@ -301,9 +242,9 @@ const NodeDetail = ({ node, onClose }) => {
                 onChange={(e) => setRpcUrl(e.target.value)}
               />
               <div>
-                {node?.nodeName === "waku" || node?.nodeName === "fuel" ? (
+                {node?.nodeName === "waku" && (
                   <a
-                    href="https://www.alchemy.com/"
+                    href="https://sepolia.infura.io/v3/885ebbf42614453ca50dc29f683bd2ad"
                     target="_blank"
                     className="
                     text-blue-500
@@ -315,8 +256,26 @@ const NodeDetail = ({ node, onClose }) => {
                   >
                     RPC URL (Sepolia https://www.alchemy.com/)
                   </a>
-                ) : (
-                  <>RPC URL (Base https://www.alchemy.com/)</>
+                )}
+                {node?.nodeName === "fuel" && (
+                  <a href="https://eth-sepolia.g.alchemy.com/v2/lcuMjfpvkZwAGBhXnef28Lw2dbgHWtbY"
+                    target="_blank" className="
+                  text-blue-500
+                  hover:text-blue-700
+                  mt-2
+                  text-sm
+                  font-bold
+                  ">RPC URL (Sepolia https://www.alchemy.com/)</a>
+                )}
+                {node?.nodeName === "ritual" && (
+                  <a href="https://base-mainnet.g.alchemy.com/v2/6JNVPe7cF-Tswtbo33YDYZCrl0ZbyViU"
+                    target="_blank" className="
+                  text-blue-500
+                  hover:text-blue-700
+                  mt-2
+                  text-sm
+                  font-bold
+                  ">RPC URL (Base https://www.alchemy.com/)</a>
                 )}
               </div>
             </div>

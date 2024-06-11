@@ -81,7 +81,8 @@ const AllPromotionCode = () => {
         <PageHeader
           page_title={"All promotion codes"}
           // badge={"GM, Noderr"}
-          badge={userData ? `GM, ${userData.firstName} ${userData.lastName}` : "GM, Noderr"}
+          // badge={userData ? `GM, ${userData.firstName} ${userData.lastName}` : "GM, Noderr"}
+          badge={userData && userData.firstName && userData.lastName ? `GM, ${userData.firstName} ${userData.lastName}` : "GM, Noderr"}
           // profilePic={images.FakePic}
           profilePic={userData?.profilePic? `${process.env.REACT_APP_NODE_IMG_URL}${userData.profilePic}` : images.FakePic}
           
