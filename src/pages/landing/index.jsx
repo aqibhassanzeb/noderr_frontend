@@ -10,6 +10,16 @@ import { images } from "../../images";
 import "./../../../src/components/css/noderr.webflow.css";
 import dashboardImage from "./../../assets/images/Login2.svg";
 import NullLink from "./../../assets/images/nullwhiteLogo.svg";
+import nubitImg from './../../assets/images/nubit.png';
+import alloraImg from './../../assets/images/Untitled-design-19.png';
+import wakuImg from './../../assets/images/Untitled-design-18.png';
+import fuelImg from './../../assets/images/Untitled-design-20.png';
+import wardenImg from './../../assets/images/Untitled-750-x-250-px.png';
+import zeroGAiImg from './../../assets/images/Untitled-750-x-250-px-1.png';
+import ritualImg from './../../assets/images/sad.png';
+import particleImg from './../../assets/images/logo-top.webp';
+import nullLinkImg from './../../assets/images/nullwhiteLogo.png'; // Update if you have a different image for NullLink
+
 import { Link, Outlet } from "react-router-dom";
 const Landing = () => {
 	const [email, setEmail] = useState("");
@@ -21,6 +31,57 @@ const Landing = () => {
 		return re.test(String(email).toLowerCase());
 	}
 
+	const projectData = [
+		{
+		  href: "https://www.nubit.org/",
+		  alt: "Nubit",
+		  imgSrc: nubitImg,
+		  borderClass: "border-red-600",
+		},
+		{
+		  href: "http://www.allora.network",
+		  alt: "Allora Network",
+		  imgSrc: alloraImg,
+		},
+		{
+		  href: "http://waku.org",
+		  alt: "Waku",
+		  imgSrc: wakuImg,
+		},
+		{
+		  href: "http://fuel.network",
+		  alt: "Fuel Network",
+		  imgSrc: fuelImg,
+		},
+		{
+		  href: "http://wardenprotocol.org",
+		  alt: "Warden Protocol",
+		  imgSrc: wardenImg,
+		},
+		{
+		  href: "http://0g.ai",
+		  alt: "0G AI",
+		  imgSrc: zeroGAiImg,
+		},
+		{
+		  href: "https://ritual.net/",
+		  alt: "Ritual",
+		  imgSrc: ritualImg,
+		},
+		{
+		  href: "https://particle.network/",
+		  alt: "Particle Network",
+		  imgSrc: particleImg,
+		  className: "w-auto h-full",
+		},
+		{
+		  href: "https://www.nulink.org/",
+		  alt: "Nulink",
+		  imgSrc: nullLinkImg,
+		  className: "w-[80%] h-[80%]",
+		},
+	  ];
+	  
 	//signup for beta launch fn
 	const handleSubmit = async () => {
 		if (validateEmail(email)) {
@@ -122,7 +183,7 @@ const Landing = () => {
 				</div>
 			</div>
 
-			<div className="fn-section">
+			{/* <div className="fn-section">
 				<div className="fn-container-grid">
 					<div
 						id="w-node-_857f3205-0075-a36a-595d-f2211025a53b-ee31794f"
@@ -202,7 +263,7 @@ const Landing = () => {
 						/>
 					</a>
 					<a
-						id="w-node-b17628f8-d286-7006-adf0-2bc7c74061aa-ee31794f"
+						id="w-node-b17628f8-d286-7006-adf0-2bc7c74061aa-ee31794i"
 						href="http://0g.ai"
 						target="_blank"
 						className="fn-features-card w-inline-block"
@@ -215,7 +276,7 @@ const Landing = () => {
 						/>
 					</a>
 					<a
-						id="w-node-b17628f8-d286-7006-adf0-2bc7c74061aa-ee31794i"
+						id="w-node-b17628f8-d286-7006-adf0-2bc7c74061aa-ee31794j"
 						href="https://ritual.net/ "
 						target="_blank"
 						className="fn-features-card w-inline-block"
@@ -224,11 +285,11 @@ const Landing = () => {
 							src={require("./../../assets/images/sad.png")}
 							loading="lazy"
 							alt
-							className="image-4 w-auto h-[70px] md:h-[110px] lg:h-auto py-4 my-[18px] px-8 md:px-4 md:py-0 md:my-0"
+							className="image-4 "
 						/>
 					</a>
 					<a
-						id="w-node-b17628f8-d286-7006-adf0-2bc7c74061aa-ee31794j"
+						id="w-node-b17628f8-d286-7006-adf0-2bc7c74061aa-ee31794k"
 						href="https://particle.network/"
 						target="_blank"
 						className="fn-features-card w-inline-block"
@@ -238,31 +299,92 @@ const Landing = () => {
 							src={require("./../../assets/images/logo-top.webp")}
 							loading="lazy"
 							alt
-							className="image-4 w-auto h-[70px] md:h-[110px] lg:h-auto py-4 my-[18px] px-8 md:px-4 md:py-0 md:my-0 "
+							className="image-4 w-auto h-[100%] py-4 my-[18px] px-8 md:px-4 md:py-2 md:my-0 sm:py-8 sm:my-4 "
 						/>
 					</a>
 					<a
-						id="w-node-b17628f8-d286-7006-adf0-2bc7c74061aa-ee31794k"
+						id="w-node-b17628f8-d286-7006-adf0-2bc7c74061aa-ee31794l"
 						href="https://www.nulink.org/"
 						target="_blank"
-						className="fn-features-card w-inline-block"
+						className="fn-features-card w-inline-block "
 					>
 						<img
 							src={NullLink} 
 							// src={require("./../../assets/images/logo-top.webp")}
 							loading="lazy"
 							alt
-							className="image-4 w-auto h-[70px] md:h-[110px] lg:h-auto py-4 my-[18px] px-8 md:px-4 md:py-2 md:my-0 "
+							className="image-4  my-2 md:my-auto"
 						/>
 					</a>
 				</div>
-			</div>
+			</div> */}
+			<div class="fn-footer-advence-2">
+    <div className="w-auto md:w-[98%]  xl:w-[90%] 2xl:w-[60%]">
+	<div className="flex flex-col">
+        <div className="mb-4 flex justify-center">
+            <h2 className="text-2xl font-bold">Active Developments</h2>
+        </div>
+{/* <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 p-4">
 
-			<div className="fn-footer-advence-2">
-				<div className="fn-container-grid-4">
+        <a href="https://www.nubit.org/" target="_blank" className="fn-features-card block">
+            <img src={require("./../../assets/images/nubit.png")} loading="lazy" alt="Nubit" className="w-full h-auto" />
+        </a>
+        <a href="http://www.allora.network" target="_blank" className="fn-features-card block">
+            <img src={require("./../../assets/images/Untitled-design-19.png")} loading="lazy" sizes="(max-width: 479px) 86vw, 100vw" alt="Allora Network" className="w-full h-auto" />
+        </a>
+        <a href="http://waku.org" target="_blank" className="fn-features-card block">
+            <img src={require("./../../assets/images/Untitled-design-18.png")} loading="lazy" alt="Waku" className="w-full h-auto" />
+        </a>
+        <a href="http://fuel.network" target="_blank" className="fn-features-card block">
+            <img src={require("./../../assets/images/Untitled-design-20.png")} loading="lazy" alt="Fuel Network" className="w-full h-auto" />
+        </a>
+        <a href="http://wardenprotocol.org" target="_blank" className="fn-features-card block">
+            <img src={require("./../../assets/images/Untitled-750-x-250-px.png")} loading="lazy" alt="Warden Protocol" className="w-full h-auto" />
+        </a>
+        <a href="http://0g.ai" target="_blank" className="fn-features-card block">
+            <img src={require("./../../assets/images/Untitled-750-x-250-px-1.png")} loading="lazy" alt="0G AI" className="w-full h-auto" />
+        </a>
+        <a href="https://ritual.net/" target="_blank" className="fn-features-card block">
+            <img src={require("./../../assets/images/sad.png")} loading="lazy" alt="Ritual" className="w-full h-auto" />
+        </a>
+        <a href="https://particle.network/" target="_blank" className="fn-features-card block">
+            <img src={require("./../../assets/images/logo-top.webp")} loading="lazy" alt="Particle Network" className="w-auto " />
+        </a>
+        <a href="https://www.nulink.org/" target="_blank" className="fn-features-card block">
+            <img src={NullLink} loading="lazy" alt="Nulink" className="w-full " />
+        </a>
+</div> */}
+<div>
+	
+</div>
+<div className="grid gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-4">
+    {projectData.map((project, index) => (
+      <a
+        key={index}
+        href={project.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`fn-features-card h-32 sm:h-32 md:h-40 flex justify-center items-center ${project.borderClass || ""}`}
+      >
+        <img
+          src={project.imgSrc}
+          loading="lazy"
+          alt={project.alt}
+          className={`w-full h-full flex justify-center items-center ${project.className || ""}`}
+        />
+      </a>
+    ))}
+  </div>
+	</div>
+    </div>
+</div>
+
+
+			<div className="fn-footer-advence-2  w-auto md:w-[98%]  xl:w-[90%] 2xl:w-[50%]">
+				<div className="fn-container-grid-4 ">
 					<div
 						id="w-node-_22aaa6c3-d6e7-05e0-eec1-5d107e13b5d1-ee31794f"
-						className="fn-footer-wrapper-2"
+						className="fn-footer-wrapper-2 "
 					>
 						<h2
 							id="w-node-_22aaa6c3-d6e7-05e0-eec1-5d107e13b5d2-ee31794f"
