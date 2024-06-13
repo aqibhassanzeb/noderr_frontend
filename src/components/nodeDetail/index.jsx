@@ -83,12 +83,12 @@ const NodeDetail = ({ node, onClose, setHandleNodeData }) => {
         setPaymentId(paymentResponse.id);
         setOpenModal(true);
         setLoading(false);
-        toast.success(paymentResponse.message, {
-          theme: "colored",
-        });
-        toast.success("Node is syncing. Please wait for a few minutes.", {
-          theme: "colored",
-        });
+        // toast.success(paymentResponse.message, {
+        //   theme: "colored",
+        // });
+        // toast.success("Node is syncing. Please wait for a few minutes.", {
+        //   theme: "colored",
+        // });
       } else {
         setLoading(false);
         toast.error(checkNode?.message, {
