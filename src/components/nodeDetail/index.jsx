@@ -61,19 +61,17 @@ const NodeDetail = ({ node, onClose, setHandleNodeData }) => {
   }
   const purchaseHandler = async () => {
     setLoading(true);
+    const data = [
+      {
+        durationMonths: duration,
+        price: computeTotal,
+      },
+    ];
     try {
+      //check node before purchasing
       const checkNode = await checkNodeBeforePurchase(node?.nodeName);
       if (checkNode?.success) {
-        // const res = await purchaseNodeWithPromoCode(
-        //   node?._id,
-        //   promoCode,
-        //   computeTotal,
-        //   node?.nodeName,
-        //   privateKey,
-        //   rpcUrl,
-        //   duration
-        // );
-        const res = await createPayNowPayment(
+        const paymentResponse = await createPayNowPayment(
           computeTotal,
           node?._id,
           duration,
@@ -81,25 +79,16 @@ const NodeDetail = ({ node, onClose, setHandleNodeData }) => {
           rpcUrl,
           node?.nodeName
         );
-        if (res?.success) {
-          setHandleNodeData(prev => !prev)
-          toast.success(res.message);
-          onClose();
-          setLoading(false);
-          toast.success("Node is syncing. Please wait for a few Seconds", {
-            theme: "colored"
-          });
-        } else if (!res?.success) {
-          toast.error(res?.message, {
-            theme: "colored"
-          });
-          setLoading(false);
-          onClose();
-        } else {
-          toast.error(res?.response?.data?.message);
-          setLoading(false);
-          onClose();
-        }
+        setPaymentUrl(paymentResponse.invoice_url);
+        setPaymentId(paymentResponse.id);
+        setOpenModal(true);
+        setLoading(false);
+        toast.success(paymentResponse.message, {
+          theme: "colored",
+        });
+        toast.success("Node is syncing. Please wait for a few minutes.", {
+          theme: "colored",
+        });
       } else {
         setLoading(false);
         toast.error(checkNode?.message, {
@@ -107,67 +96,27 @@ const NodeDetail = ({ node, onClose, setHandleNodeData }) => {
         });
         return console.error(checkNode?.message);
       }
+
+      // const paymentResponse = await purchaseNode(
+      //   computeTotal,
+      //   node?._id,
+      //   duration,
+      //   privateKey,
+      //   rpcUrl,
+      //   node?.nodeName
+      // );
+      // console.log("🚀 ~ purchaseHandler ~ paymentResponse", paymentResponse)
+      // if (paymentResponse?.message) {
+      //   toast.success(paymentResponse.message);
+      //   setLoading(false);
+      //   onClose();
+
+      // }
     } catch (error) {
       console.error(error);
       setLoading(false);
       toast.error("Failed to purchase node. Please try again later.");
     }
-    // setLoading(true);
-    // const data = [
-    //   {
-    //     durationMonths: duration,
-    //     price: computeTotal,
-    //   },
-    // ];
-    // try {
-    //   const checkNode = await checkNodeBeforePurchase(node?.nodeName);
-    //   if (checkNode?.success) {
-    //     const paymentResponse = await createPayNowPayment(
-    //       computeTotal,
-    //       node?._id,
-    //       duration,
-    //       privateKey,
-    //       rpcUrl,
-    //       node?.nodeName
-    //     );
-    //     setPaymentUrl(paymentResponse.invoice_url);
-    //     setPaymentId(paymentResponse.id);
-    //     setOpenModal(true);
-    //     setLoading(false);
-    //     toast.success(paymentResponse.message, {
-    //       theme: "colored",
-    //     });
-    //     toast.success("Node is syncing. Please wait for a few minutes.", {
-    //       theme: "colored",
-    //     });
-    //   } else {
-    //     setLoading(false);
-    //     toast.error(checkNode?.message, {
-    //       theme: "colored",
-    //     });
-    //     return console.error(checkNode?.message);
-    //   }
-
-    //   // const paymentResponse = await purchaseNode(
-    //   //   computeTotal,
-    //   //   node?._id,
-    //   //   duration,
-    //   //   privateKey,
-    //   //   rpcUrl,
-    //   //   node?.nodeName
-    //   // );
-    //   // console.log("🚀 ~ purchaseHandler ~ paymentResponse", paymentResponse)
-    //   // if (paymentResponse?.message) {
-    //   //   toast.success(paymentResponse.message);
-    //   //   setLoading(false);
-    //   //   onClose();
-
-    //   // }
-    // } catch (error) {
-    //   console.error(error);
-    //   setLoading(false);
-    //   toast.error("Failed to purchase node. Please try again later.");
-    // }
   };
 
 
