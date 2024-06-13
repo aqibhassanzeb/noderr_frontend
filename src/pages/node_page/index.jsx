@@ -15,6 +15,7 @@ const Stats_page = () => {
   const [nodes, setNodes] = React.useState([]);
   const [selectedNode, setSelectedNode] = useState(null);
   const [userDataa, setUserDataa] = useState(null);
+  const [handleNodeData, setHandleNodeData] = useState(false)
 
   //fetch the data from the api (profile and nodes)
   useEffect(() => {
@@ -39,7 +40,7 @@ const Stats_page = () => {
     };
 
     fetchData();
-  }, []);
+  }, [handleNodeData]);
 
   //skeleton loader count based on the window height
   const skeletonCount = Math.floor(window.innerHeight / 100);
@@ -66,7 +67,7 @@ const Stats_page = () => {
                 //     : "GM, Noderr"
                 // }
                 badge={userData && userData.firstName && userData.lastName ? `GM, ${userData.firstName} ${userData.lastName}` : "GM, Noderr"}
-                // badge={userData ? `GM, ${userData.firstName} ${userData.lastName}` : "GM, Noderr"}
+              // badge={userData ? `GM, ${userData.firstName} ${userData.lastName}` : "GM, Noderr"}
 
               />
             </div>
@@ -112,7 +113,7 @@ const Stats_page = () => {
         </div>
       </div>
       {selectedNode && (
-        <NodeDetail node={selectedNode} onClose={handleCloseNodeDetail} />
+        <NodeDetail node={selectedNode} onClose={handleCloseNodeDetail} setHandleNodeData={setHandleNodeData} />
       )}
     </>
   );

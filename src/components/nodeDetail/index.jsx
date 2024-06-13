@@ -7,7 +7,7 @@ import LoadingModal from "../ApiLoader";
 import PaymentModal from "../paymentModal/PaymentModal";
 import InputContainer from "../dashboard/InputContainer";
 
-const NodeDetail = ({ node, onClose }) => {
+const NodeDetail = ({ node, onClose, setHandleNodeData }) => {
   const {
     purchaseNode,
     createPayNowPayment,
@@ -52,6 +52,13 @@ const NodeDetail = ({ node, onClose }) => {
     setActiveTab(tabNumber);
   };
 
+  const handleCheckNodeType = () => {
+    if (node?.nodeName == "nubit" || node?.nodeName == "og") {
+      return true;
+    } else {
+      return false;
+    }
+  }
   const purchaseHandler = async () => {
     setLoading(true);
     const data = [
@@ -128,6 +135,7 @@ const NodeDetail = ({ node, onClose }) => {
           duration
         );
         if (res?.success) {
+          setHandleNodeData(prev => !prev)
           toast.success(res.message);
           onClose();
           setLoading(false);
@@ -239,6 +247,7 @@ const NodeDetail = ({ node, onClose }) => {
                 textColor={"text-black"}
                 name={"rpcUrl"}
                 value={rpcUrl}
+                disable={handleCheckNodeType()}
                 onChange={(e) => setRpcUrl(e.target.value)}
               />
               <div>
@@ -285,7 +294,7 @@ const NodeDetail = ({ node, onClose }) => {
               <button
                 className="detail_btn"
                 onClick={purchaseHandler}
-                disabled={loading || !privateKey || !rpcUrl}
+                disabled={loading || !privateKey || (handleCheckNodeType() ? false : !rpcUrl)}
               >
                 {loading ? "Purchasing..." : "Purchase"}
               </button>
@@ -303,16 +312,17 @@ const NodeDetail = ({ node, onClose }) => {
               textColor={"text-black"}
               name={"promoCode"}
             />
-            {promoCode && (
-              <button
-                onClick={purchaseWithPromoCode}
-                className="text-lg text-white bg-primary px-4 py-2 rounded-md
-              bg-yellow-500 hover:bg-yellow-600 text-center mt-4
-              flex justify-center m-auto w-full p-4"
-              >
-                Apply
-              </button>
-            )}
+            <div className="detail_footer">
+              {promoCode && (
+                <button
+                  onClick={purchaseWithPromoCode}
+                  disabled={loading || !privateKey || (handleCheckNodeType() ? false : !rpcUrl)}
+                  className="detail_btn mt-4">
+
+                  Apply
+                </button>
+              )}
+            </div>
           </div>
         </div>
       </div>

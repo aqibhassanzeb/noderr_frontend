@@ -11,7 +11,6 @@ const UpdateNode = ({ node, onClose, setNodes, setLoading, }) => {
   const { updateNode, getAllNodes } = useContext(createApiContext);
   const [name, setName] = React.useState("");
   const [price, setPrice] = React.useState({});
-  console.log("🚀 ~ UpdateNode ~ price:", price)
   const [slots, setSlots] = React.useState("");
   const [bgcolor, setBgcolor] = React.useState("");
   const [image, setImage] = React.useState("");
@@ -40,8 +39,8 @@ const UpdateNode = ({ node, onClose, setNodes, setLoading, }) => {
     setUpdateLoading(false);
     if (data.status == 'success') {
       toast.success("Node updated successfully");
-      // const response = await getAllNodes();
-      // setNodes(response);
+      const response = await getAllNodes();
+      setNodes(response);
       setLoading(false);
 
       onClose();
@@ -49,6 +48,7 @@ const UpdateNode = ({ node, onClose, setNodes, setLoading, }) => {
       toast.error(data.message);
     }
   };
+
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -68,20 +68,23 @@ const UpdateNode = ({ node, onClose, setNodes, setLoading, }) => {
   const submitHandler = (e) => {
     e.preventDefault();
     setLoading(true);
-    const resData = {
-      nodeName: name,
-      nodePrice: price,
-      slots: slots,
-      bgColor: bgcolor,
-    };
-    updateNodeHandler(node._id, resData);
-    // const formData = new FormData();
-    // formData.append("nodeName", name);
-    // formData.append("nodePrice", priceString);
-    // formData.append("slots", slots);
-    // formData.append("bgColor", bgcolor);
-    // formData.append("myFile", image);
-    // updateNodeHandler(node._id, formData);
+    // const resData = {
+    //   nodeName: name,
+    //   nodePrice: price,
+    //   slots: slots,
+    //   bgColor: bgcolor,
+    //   myFile: image,
+
+    // };
+    // updateNodeHandler(node._id, resData);
+    const priceString = JSON.stringify(price);
+    const formData = new FormData();
+    formData.append("nodeName", name);
+    formData.append("nodePrice", priceString);
+    formData.append("slots", slots);
+    formData.append("bgColor", bgcolor);
+    formData.append("myFile", image);
+    updateNodeHandler(node._id, formData);
   };
 
   return (

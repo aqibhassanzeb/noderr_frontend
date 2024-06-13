@@ -858,9 +858,9 @@ const UpdateUserProfile = () => {
         toast.error(data.response.data.message || "Failed to update profile");
         return;
       }
-      setUserData(data.user);
-      setHeaderFirstName(data.user.firstName || "");
-      setHeaderLastName(data.user.lastName || "");
+      setUserData(data.updatedUser);
+      setHeaderFirstName(data.updatedUser.firstName || "");
+      setHeaderLastName(data.updatedUser.lastName || "");
       toast.success("Profile updated successfully");
       setLoading(false);
       navigate("/dashboard");

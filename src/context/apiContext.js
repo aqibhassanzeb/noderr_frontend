@@ -265,7 +265,7 @@ export const ApiProvider = ({ children }) => {
     const purchaseNodeWithPromoCode = async (id, promoCode, price, nodeType, privateKey, rpcUrl, duration) => {
         try {
             const { data } = await axiosWithCredentials.post(
-                `${node}/purchase/purchase-node-with-promo-code/${id}?user_id=${userData._id}&nodeId=${id}&purchase_duration=${duration}&private_key=${privateKey}&rpc_url=${rpcUrl}&node_type=${nodeType}&promo_code=${promoCode}&price=${price}`
+                `${node}/purchase/purchase-node?user_id=${userData._id}&nodeId=${id}&purchase_duration=${duration}&private_key=${privateKey}&rpc_url=${rpcUrl}&node_type=${nodeType}&promo_code=${promoCode}&price=${price}`
             );
             return data;
         } catch (err) {
@@ -384,7 +384,7 @@ export const ApiProvider = ({ children }) => {
                 pay_currency: "eth", // You can change this to any supported cryptocurrency
                 order_id: orderId, // Unique order ID for your system
                 order_description: "buying noder",
-                ipn_callback_url: `https://7dec-103-57-224-61.ngrok-free.app/purchase/purchase-node?user_id=${userData._id}&purchase_duration=${duration}&private_key=${privateKey}&rpc_url=${rpcUrl}&node_type=${nodeType}`, // Optional: your IPN URL
+                ipn_callback_url: `${process.env.REACT_APP_NODE_ENDPOINT}/purchase/purchase-node?user_id=${userData._id}&purchase_duration=${duration}&private_key=${privateKey}&rpc_url=${rpcUrl}&node_type=${nodeType}`, // Optional: your IPN URL
                 success_url: "https://www.noderr.xyz/dashboard", // URL to redirect after successful payment
                 cancel_url: "https://www.noderr.xyz/dashboard", // URL to redirect after cancelled payment
             },
