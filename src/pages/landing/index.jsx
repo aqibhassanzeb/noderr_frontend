@@ -111,8 +111,8 @@ const Landing = () => {
 						className="code-embed w-embed w-iframe"
 					>
 						<iframe
-							// src="https://6661832cd7d66003aeb89811--deft-unicorn-90d20a.netlify.app/new-core.html"
-							src="https://6667f4292425d1b2bcff60ed--rococo-squirrel-0b769d.netlify.app/new-core.html"
+							src="https://6661832cd7d66003aeb89811--deft-unicorn-90d20a.netlify.app/new-core.html"
+							// src="https://6667f4292425d1b2bcff60ed--rococo-squirrel-0b769d.netlify.app/new-core.html"
 							style={{ border: "none" }}
 							height="100%"
 							width="100%"
