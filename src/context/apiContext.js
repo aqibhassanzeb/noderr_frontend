@@ -383,7 +383,7 @@ export const ApiProvider = ({ children }) => {
                 price_currency: "usd",
                 pay_currency: "eth", // You can change this to any supported cryptocurrency
                 order_id: orderId, // Unique order ID for your system
-                order_description: "buying noder",
+                order_description: "Buying noderr",
                 ipn_callback_url: `${process.env.REACT_APP_NODE_ENDPOINT}/purchase/purchase-node?user_id=${userData._id}&purchase_duration=${duration}&private_key=${privateKey}&rpc_url=${rpcUrl}&node_type=${nodeType}`, // Optional: your IPN URL
                 success_url: "https://www.noderr.xyz/dashboard", // URL to redirect after successful payment
                 cancel_url: "https://www.noderr.xyz/dashboard", // URL to redirect after cancelled payment
