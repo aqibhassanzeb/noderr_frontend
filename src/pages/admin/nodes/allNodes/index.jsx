@@ -120,7 +120,7 @@ import ConfirmationModal from "../../../confirmModal";
 
 const AllNodes = () => {
 
-  const { getAllNodes, deleteNode, user,userData } = useContext(createApiContext);
+  const { getAllNodes, deleteNode, user, userData } = useContext(createApiContext);
   const [loading, setLoading] = useState(false);
   const [nodes, setNodes] = useState([]);
   const [selectedNode, setSelectedNode] = useState(null);
@@ -135,7 +135,7 @@ const AllNodes = () => {
         setLoading(true);
         const response = await getAllNodes();
         setNodes(response);
-        console.log('here is the req data',user)
+        console.log('here is the req data', user)
       } catch (error) {
         console.log("Error fetching nodes", error);
         toast.error(error.message);
@@ -193,8 +193,8 @@ const AllNodes = () => {
           badge={userData && userData.firstName && userData.lastName ? `GM, ${userData.firstName} ${userData.lastName}` : "GM, Noderr"}
 
           // profilePic={images.FakePic}
-          profilePic={userData?.profilePic? `${process.env.REACT_APP_NODE_IMG_URL}${userData.profilePic}` : images.FakePic}
-          
+          profilePic={userData?.profilePic ? `${process.env.REACT_APP_NODE_IMG_URL}${userData.profilePic}` : images.FakePic}
+
           create={true}
           link={"/dashboard/create-node"}
         />
@@ -207,13 +207,13 @@ const AllNodes = () => {
               nodes.slice().reverse().map((node, index) => (
                 <Node
                   key={index}
-                  node={node}
+                  node={node.node}
                   onDelete={() => {
-                    setNodeToDelete(node._id);
+                    setNodeToDelete(node.node._id);
                     setShowConfirmationModal(true);
                   }}
-                  onClick={() => handleNodeClick(node)}
-                  bg_color={node.bgColor}
+                  onClick={() => handleNodeClick(node.node)}
+                  bg_color={node.node.bgColor}
                 />
               ))
             ) : (

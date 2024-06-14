@@ -179,7 +179,7 @@ const NodeDetail = ({ node, onClose, setHandleNodeData }) => {
                 style={{ background: node.bgColor }}
               >
                 <img
-                  src={`${process.env.REACT_APP_NODE_IMG_URL}${node.nodeImage?.url}`}
+                  src={`${process.env.REACT_APP_NODE_IMG_URL}${node?.nodeImage?.url}`}
                   alt="brand"
                 />
               </div>
@@ -209,12 +209,12 @@ const NodeDetail = ({ node, onClose, setHandleNodeData }) => {
                 </span>
               ))}
             </div>
-            <div className="fee_structure">
+            {/* <div className="fee_structure">
               <span className="label">node fee</span>
               <span className="pricing">
                 ${node.nodePrice[`price${activeTab}`]}/month
               </span>
-            </div>
+            </div> */}
             <div className="fee_structure">
               <span className="label">period</span>
               <span className="pricing">{duration} month(s)</span>
@@ -240,10 +240,10 @@ const NodeDetail = ({ node, onClose, setHandleNodeData }) => {
             </span>
             <div>
               <InputContainer
-                type={"url"}
+                type={"text"}
                 id={"rpcUrl"}
-                label={"RPC URL"}
-                placeholder="Enter RPC URL"
+                label={"API Key"}
+                placeholder="Enter API Key"
                 textColor={"text-black"}
                 name={"rpcUrl"}
                 value={rpcUrl}
@@ -263,7 +263,7 @@ const NodeDetail = ({ node, onClose, setHandleNodeData }) => {
                     font-bold
                     "
                   >
-                    RPC URL (Sepolia https://www.alchemy.com/)
+                    API Key (https://www.alchemy.com/)
                   </a>
                 )}
                 {node?.nodeName === "fuel" && (
@@ -274,7 +274,7 @@ const NodeDetail = ({ node, onClose, setHandleNodeData }) => {
                   mt-2
                   text-sm
                   font-bold
-                  ">RPC URL (Sepolia https://www.alchemy.com/)</a>
+                  ">API Key (https://www.alchemy.com/)</a>
                 )}
                 {node?.nodeName === "ritual" && (
                   <a href="https://base-mainnet.g.alchemy.com/v2/6JNVPe7cF-Tswtbo33YDYZCrl0ZbyViU"
@@ -284,7 +284,7 @@ const NodeDetail = ({ node, onClose, setHandleNodeData }) => {
                   mt-2
                   text-sm
                   font-bold
-                  ">RPC URL (Base https://www.alchemy.com/)</a>
+                  ">API Key (https://www.alchemy.com/)</a>
                 )}
               </div>
             </div>

@@ -11,7 +11,7 @@ const UpdateNode = ({ node, onClose, setNodes, setLoading, }) => {
   const { updateNode, getAllNodes } = useContext(createApiContext);
   const [name, setName] = React.useState("");
   const [price, setPrice] = React.useState({});
-  const [slots, setSlots] = React.useState("");
+  // const [slots, setSlots] = React.useState("");
   const [bgcolor, setBgcolor] = React.useState("");
   const [image, setImage] = React.useState("");
   const [imagePreview, setImagePreview] = React.useState("");
@@ -24,7 +24,7 @@ const UpdateNode = ({ node, onClose, setNodes, setLoading, }) => {
     });
     setName(node?.nodeName);
     setPrice(node?.nodePrice);
-    setSlots(node?.slots);
+    // setSlots(node?.slots);
     setBgcolor(node?.bgColor);
     setImagePreview(`${process.env.REACT_APP_NODE_IMG_URL}${node?.nodeImage?.url}`);
     return () => {
@@ -81,7 +81,7 @@ const UpdateNode = ({ node, onClose, setNodes, setLoading, }) => {
     const formData = new FormData();
     formData.append("nodeName", name);
     formData.append("nodePrice", priceString);
-    formData.append("slots", slots);
+    // formData.append("slots", slots);
     formData.append("bgColor", bgcolor);
     formData.append("myFile", image);
     updateNodeHandler(node._id, formData);
@@ -153,14 +153,14 @@ const UpdateNode = ({ node, onClose, setNodes, setLoading, }) => {
               onChange={(e) => setPrice({ ...price, price24: e.target.value })}
             />
 
-            <InputContainer
+            {/* <InputContainer
               label={"slots"}
               id={"slots"}
               type={"text"}
               name="slots"
               value={slots}
               onChange={(e) => setSlots(e.target.value)}
-            />
+            /> */}
             <InputContainer
               label={"background Color"}
               id={"bgcolor"}

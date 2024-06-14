@@ -24,7 +24,7 @@ const CreateNode = () => {
   const [price6, setPrice6] = useState("");
   const [price12, setPrice12] = useState("");
   const [price24, setPrice24] = useState("");
-  const [slots, setSlots] = useState("");
+  // const [slots, setSlots] = useState("");
   const [bgcolor, setBgcolor] = useState("");
   const [image, setImage] = useState("");
   const [imagePreview, setImagePreview] = useState("");
@@ -59,7 +59,7 @@ const CreateNode = () => {
       setPrice6("");
       setPrice12("");
       setPrice24("");
-      setSlots("");
+      // setSlots("");
       setBgcolor("");
       setImage("");
       setImagePreview("");
@@ -74,7 +74,7 @@ const CreateNode = () => {
   //submit handler
   const submitHandler = (e) => {
     e.preventDefault();
-    if (!name || !slots || !bgcolor || !image || !price1 || !price3 || !price6 || !price12 || !price24) {
+    if (!name || !bgcolor || !image || !price1 || !price3 || !price6 || !price12 || !price24) {
       return toast.error("Please fill all the Input fields");
     }
     // const data = {
@@ -91,7 +91,7 @@ const CreateNode = () => {
     // handleNodeCreate(formData);
     const data = {
       nodeName: name,
-      slots: Number(slots),
+      // slots: Number(slots),
       bgColor: bgcolor,
       myFile: imageFile,
     };
@@ -121,7 +121,7 @@ const CreateNode = () => {
               <IoArrowBackCircle className="text-white w-8 h-8" />
             </span>
           </div>
-          <PageHeader page_title={"Create Node"} badge={"GGM, Noderr"} 
+          <PageHeader page_title={"Create Node"} badge={"GGM, Noderr"}
             profilePic={images.FakePic}
           />
           <form className="node_create_form" onSubmit={submitHandler}>
@@ -174,14 +174,14 @@ const CreateNode = () => {
               value={price24}
               onChange={(e) => setPrice24(e.target.value)}
             />
-            <InputContainer
+            {/* <InputContainer
               label={"slots"}
               id={"slots"}
               type={"number"}
               name="slots"
               value={slots}
               onChange={(e) => setSlots(e.target.value)}
-            />
+            /> */}
             <InputContainer
               label={"background Color"}
               id={"bgcolor"}

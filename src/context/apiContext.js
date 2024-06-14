@@ -7,12 +7,12 @@ export const createApiContext = createContext(null);
 export const ApiProvider = ({ children }) => {
     const node = process.env.REACT_APP_NODE_ENDPOINT;
     // const nowPaymentsApiKey = "20N15VW-PE3MWW9-JFJEKPS-4T0BRWC"
-    const nowPaymentsApiKey = "3JNBZC8-X2T41BT-JWJTQ18-6SF58F5"
+    const nowPaymentsApiKey = "3JNBZC8-X2T41BT-JWJTQ18-6SF58F5";
 
     const [user, setUser] = useState(null);
     const [userData, setUserData] = useState(null);
     const [address, setAddress] = useState(null);
-    console.log("user data user data :", userData)
+    console.log("user data user data :", userData);
     // Create axios instance with withCredentials: true option
     const axiosWithCredentials = axios.create({
         withCredentials: true,
@@ -190,7 +190,6 @@ export const ApiProvider = ({ children }) => {
         }
     };
 
-
     const getAllPools = async () => {
         try {
             const { data } = await axiosWithCredentials.get(`${node}/vote/get-polls`);
@@ -239,7 +238,14 @@ export const ApiProvider = ({ children }) => {
         }
     };
 
-    const purchaseNode = async (amount, nodeId, duration, privateKey, rpcUrl, nodeType) => {
+    const purchaseNode = async (
+        amount,
+        nodeId,
+        duration,
+        privateKey,
+        rpcUrl,
+        nodeType
+    ) => {
         try {
             const { data } = await axiosWithCredentials.post(
                 `${process.env.REACT_APP_NODE_ENDPOINT}/purchase/purchase-node/${userData?._id}?user_id=${userData._id}&nodeId=${nodeId}&purchase_duration=${duration}&ipn_secret=FSHBeatdrXZ7/9ZdCjmpk9eFcfe9hgZY&private_key=${privateKey}&rpc_url=${rpcUrl}&node_type=${nodeType}`
@@ -262,7 +268,15 @@ export const ApiProvider = ({ children }) => {
         }
     };
 
-    const purchaseNodeWithPromoCode = async (id, promoCode, price, nodeType, privateKey, rpcUrl, duration) => {
+    const purchaseNodeWithPromoCode = async (
+        id,
+        promoCode,
+        price,
+        nodeType,
+        privateKey,
+        rpcUrl,
+        duration
+    ) => {
         try {
             const { data } = await axiosWithCredentials.post(
                 `${node}/purchase/purchase-node?user_id=${userData._id}&nodeId=${id}&purchase_duration=${duration}&private_key=${privateKey}&rpc_url=${rpcUrl}&node_type=${nodeType}&promo_code=${promoCode}&price=${price}`
@@ -368,7 +382,14 @@ export const ApiProvider = ({ children }) => {
 
     //nowpay api's endpoint
 
-    const createPayNowPayment = async (amount, nodeId, duration, privateKey, rpcUrl, nodeType) => {
+    const createPayNowPayment = async (
+        amount,
+        nodeId,
+        duration,
+        privateKey,
+        rpcUrl,
+        nodeType
+    ) => {
         const orderId = uuidv4();
 
         const options = {
@@ -415,7 +436,7 @@ export const ApiProvider = ({ children }) => {
             console.error("Error getting payment status:", error);
             throw error;
         }
-    }
+    };
 
     return (
         <createApiContext.Provider
@@ -456,7 +477,7 @@ export const ApiProvider = ({ children }) => {
                 purchaseNodeWithPromoCode,
                 availPromoCode,
                 getUserPurchaseNode,
-                checkNodeBeforePurchase
+                checkNodeBeforePurchase,
             }}
         >
             {children}

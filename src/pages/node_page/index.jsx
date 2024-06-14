@@ -94,14 +94,15 @@ const Stats_page = () => {
                   .slice()
                   .reverse()
                   .map((node, index) => {
+                    console.log("node1111111111111111111", node);
                     return (
                       <StatsCard
                         key={index}
-                        stats_img={node.nodeImage.url}
-                        text={node.nodeName}
-                        slot={node.slots}
-                        bg_color={node.bgColor}
-                        onClick={() => handleNodeClick(node)}
+                        stats_img={node?.node.nodeImage?.url}
+                        text={node.node.nodeName}
+                        slot={node.node.slots}
+                        bg_color={node.node.bgColor}
+                        onClick={() => handleNodeClick(node?.node)}
                       />
                     );
                   })
