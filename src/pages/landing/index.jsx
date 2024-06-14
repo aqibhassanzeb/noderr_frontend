@@ -319,7 +319,7 @@ const Landing = () => {
 				</div>
 			</div> */}
 			<div class="fn-footer-advence-2">
-    <div className="w-auto md:w-[98%] lg:w-[98%] xl:w-[90%] 2xl:w-[60%]">
+    <div className="width-fix w-auto md:w-[98%] lg:w-[98%] xl:w-[90%] 2xl:w-[60%]">
 	<div className="flex flex-col pt-0 md:pt-5">
         <div className="mb-4 flex justify-center">
             <h2 className="text-2xl font-bold">Active Developments</h2>
@@ -380,7 +380,7 @@ const Landing = () => {
 </div>
 
 
-			<div className="fn-footer-advence-2  w-auto md:w-[98%]  xl:w-[90%] 2xl:w-[50%]">
+			<div className="fn-footer-advence-2  w-auto md:w-[98%] lg:w-[98%] xl:w-[90%] 2xl:w-[60%]">
 				<div className="fn-container-grid-4 ">
 					<div
 						id="w-node-_22aaa6c3-d6e7-05e0-eec1-5d107e13b5d1-ee31794f"

@@ -116,6 +116,12 @@
   background: var(--primary-dark);
 }
 
+@media screen and (min-width: 1280px) and (max-width: 1439px) {
+.width-fix{
+width: 95% ;
+}
+}
+
 @media screen and (max-width: 380px) {
   .about {
     gap: var(--gap-1);
