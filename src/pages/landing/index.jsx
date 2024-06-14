@@ -126,7 +126,7 @@ const Landing = () => {
 					</div>
 
 					<div className="flex items-center justify-end sm:justify-between space-x-4 w-[80%]  md:w-[40%] lg:w-[30%]">
-						<div className=" flex items-center px-4 gap-2 md:gap-10">
+						<div className=" flex items-center px-0 xl:px-4	 gap-2 md:gap-10">
 							<div className="">
 								<Link to="/about-us" className="text-[#fda925] text-[10px]  font-bold md:text-lg
 								hover:text-[#edc079]">
