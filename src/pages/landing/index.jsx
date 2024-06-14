@@ -319,8 +319,8 @@ const Landing = () => {
 				</div>
 			</div> */}
 			<div class="fn-footer-advence-2">
-    <div className="w-auto md:w-[98%]  xl:w-[90%] 2xl:w-[60%]">
-	<div className="flex flex-col">
+    <div className="w-auto md:w-[98%] lg:w-[98%] xl:w-[90%] 2xl:w-[60%]">
+	<div className="flex flex-col pt-0 md:pt-5">
         <div className="mb-4 flex justify-center">
             <h2 className="text-2xl font-bold">Active Developments</h2>
         </div>
