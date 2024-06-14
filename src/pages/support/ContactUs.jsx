@@ -30,7 +30,7 @@ import { createApiContext } from "../../context/apiContext";
   //handle submit fn
   const handleSubmit = (e) => {
     e.preventDefault();
-    emailjs.sendForm("service_id", "template_id", e.target, "public key").then(
+    emailjs.sendForm("service_bu92mv4", "template_z8ic4gd", e.target, "aK-4nGhin4QHO3NM6").then(
       (result) => {
         toast.success("submitted successfully", {
           theme: "colored",
@@ -46,6 +46,8 @@ import { createApiContext } from "../../context/apiContext";
 
     setFormData({ subject: "", email: "", message: "" });
   };
+
+  
 
   return (
     <div className="right_dashboard">

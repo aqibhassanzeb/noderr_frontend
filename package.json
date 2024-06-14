@@ -8,6 +8,7 @@
     "@web3modal/wagmi": "^4.1.9",
     "aos": "^2.3.4",
     "axios": "^1.6.8",
+    "emailjs": "^4.0.3",
     "flowbite": "^2.2.1",
     "flowbite-react": "^0.7.2",
     "primereact": "^10.5.1",
