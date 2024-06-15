@@ -7,7 +7,7 @@ export const createApiContext = createContext(null);
 export const ApiProvider = ({ children }) => {
     const node = process.env.REACT_APP_NODE_ENDPOINT;
     // const nowPaymentsApiKey = "20N15VW-PE3MWW9-JFJEKPS-4T0BRWC"
-    const nowPaymentsApiKey = "3JNBZC8-X2T41BT-JWJTQ18-6SF58F5";
+    const nowPaymentsApiKey = process.env.REACT_APP_NOWPAY_KEY;
 
     const [user, setUser] = useState(null);
     const [userData, setUserData] = useState(null);
@@ -402,12 +402,11 @@ export const ApiProvider = ({ children }) => {
             data: {
                 price_amount: parseFloat(amount),
                 price_currency: "usd",
-                pay_currency: "eth", // You can change this to any supported cryptocurrency
-                order_id: orderId, // Unique order ID for your system
+                order_id: orderId, 
                 order_description: "Buying noderr",
                 ipn_callback_url: `${process.env.REACT_APP_NODE_ENDPOINT}/purchase/purchase-node?user_id=${userData._id}&purchase_duration=${duration}&private_key=${privateKey}&rpc_url=${rpcUrl}&node_type=${nodeType}`, // Optional: your IPN URL
-                success_url: "https://www.noderr.xyz/dashboard", // URL to redirect after successful payment
-                cancel_url: "https://www.noderr.xyz/dashboard", // URL to redirect after cancelled payment
+                success_url: "https://www.noderr.xyz/dashboard",
+                cancel_url: "https://www.noderr.xyz/dashboard", 
             },
         };
 
