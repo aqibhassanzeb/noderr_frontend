@@ -103,6 +103,7 @@ const Stats_page = () => {
                         slot={node.node.slots}
                         bg_color={node.node.bgColor}
                         onClick={() => handleNodeClick(node?.node)}
+                        userData={userData}
                       />
                     );
                   })

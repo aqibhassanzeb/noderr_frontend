@@ -1,6 +1,6 @@
 import React from "react";
 import "./index.css";
-const NodeCard = ({ stats_img, bg_color, text, slot, onClick }) => {
+const NodeCard = ({ stats_img, bg_color, text, slot, onClick, userData }) => {
   return (
     <div className={`stats_box`} style={{ background: bg_color }} onClick={onClick}>
       <div className="icon_container">
@@ -11,8 +11,8 @@ const NodeCard = ({ stats_img, bg_color, text, slot, onClick }) => {
         <p
           className={`${bg_color === "#FFFFFF" ? "text-black " : "text-white font-semibold"}`}
         >{text}</p>
-        <span className={`${bg_color === "#FFFFFF" ? "text-black" : "text-white"}`}
-        >slots : {slot}</span>
+{ userData && userData.role === "admin" &&   <span className={`${bg_color === "#FFFFFF" ? "text-black" : "text-white"}`}
+        >slots : {slot}</span>}
       </div>
     </div>
   );
