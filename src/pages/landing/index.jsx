@@ -155,13 +155,13 @@ const Landing = () => {
 				</div>
 			</div>
 
-			<div className="fn-section-off-black">
-				<div className="fn-container-grid">
+			<div className="fn-section-off-black" >
+				<div className="fn-container-grid" style={{ minWidth:'90%'}}>
 					<h1
 						id="w-node-e4c564fd-32ed-5e7c-2d3e-8973152622a5-ee31794f"
 						className="fn-heading-jambo"
 					>
-						<span className="fn-span-color-text">
+						<span className="fn-span-color-text" >
 							Next-Gen Blockchains
 							<br />
 						</span>
@@ -170,6 +170,7 @@ const Landing = () => {
 					<div
 						id="w-node-_5ac2776a-5426-ae9d-fdf9-202a79f9eb70-ee31794f"
 						className="code-embed w-embed w-iframe"
+						
 					>
 						<iframe
 							src="https://6661832cd7d66003aeb89811--deft-unicorn-90d20a.netlify.app/new-core.html"
@@ -319,7 +320,7 @@ const Landing = () => {
 				</div>
 			</div> */}
 			<div class="fn-footer-advence-2">
-    <div className="width-fix w-auto md:w-[98%] lg:w-[98%] xl:w-[90%] 2xl:w-[60%]">
+    <div className="width-fix w-auto md:w-[98%] lg:w-[98%] xl:w-[90%] 2xl:w-[80%]">
 	<div className="flex flex-col pt-0 md:pt-5">
         <div className="mb-4 flex justify-center">
             <h2 className="text-2xl font-bold">Active Developments</h2>
@@ -357,7 +358,7 @@ const Landing = () => {
 <div>
 	
 </div>
-<div className="grid gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-4">
+<div className="grid gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-4 ">
     {projectData.map((project, index) => (
       <a
         key={index}
@@ -380,8 +381,8 @@ const Landing = () => {
 </div>
 
 
-			<div className="fn-footer-advence-2  w-auto md:w-[98%] lg:w-[98%] xl:w-[90%] 2xl:w-[60%]">
-				<div className="fn-container-grid-4 ">
+			<div className="fn-footer-advence-2  w-auto md:w-[98%] lg:w-[98%] xl:w-[100%] 2xl:w-[60%] ">
+				<div className="fn-container-grid-4  ">
 					<div
 						id="w-node-_22aaa6c3-d6e7-05e0-eec1-5d107e13b5d1-ee31794f"
 						className="fn-footer-wrapper-2 "
